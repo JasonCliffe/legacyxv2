@@ -3,112 +3,103 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>LegacyXV2 — Gaming & Tech Content</title>
   <meta name="description" content="LegacyXV2 creates thorough gaming playthroughs and PC hardware reviews across retro and modern titles." />
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <main class="wrap">
 
-    <!-- ================= TOP NAV ================= -->
-    <nav class="topnav">
-      <a class="brand" href="/">LegacyXV2</a>
-
-      <div class="navlinks">
-        <a class="navlink active" href="/">Home</a>
-        <a class="navlink" href="/updates.html">Updates</a>
-      </div>
+    <!-- RIGHT SIDE NAV (matches mock) -->
+    <nav class="sideNav" aria-label="Primary">
+      <a class="sidePill isActive" href="/">HOME</a>
+      <a class="sidePill" href="/updates.html">UPDATES</a>
     </nav>
 
-    <!-- ================= HERO ================= -->
-    <header class="hero hero--enhanced">
-      <div class="heroGlow" aria-hidden="true"></div>
+    <!-- HUD GRID (matches mock layout) -->
+    <section class="hud">
 
-      <div class="heroHeader">
-        <div class="logoWrap" aria-hidden="true">
-          <!-- Keep logo.png in the same folder -->
-          <img src="logo.png" alt="" class="logoImg" loading="lazy" />
-        </div>
+      <!-- LEFT: SUGGEST CONTENT (tall panel) -->
+      <section class="card card--tall">
+        <h2 class="cardTitle">Suggest content</h2>
 
-        <div class="heroText">
-          <h1 class="heroTitle">LegacyXV2</h1>
-          <p class="heroTagline">
-            Thorough gaming playthroughs • Retro & modern titles • PC hardware & tech reviews
+        <!-- NOTE: Netlify forms only work on Netlify.
+             If you move to Cloudflare Pages, this form needs a different backend (Worker / 3rd party). -->
+        <form class="form" name="content-requests" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="content-requests" />
+          <label class="label">Your name (optional)</label>
+          <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" />
+
+          <label class="label">What content would you like to see?</label>
+          <textarea name="message" rows="8" placeholder="What content would you like to see?" required></textarea>
+
+          <button class="btn primary btnTall" type="submit">Send suggestion</button>
+        </form>
+
+        <p class="note">Suggestions go directly to the site owner.</p>
+      </section>
+
+      <!-- CENTER: ABOUT + SOCIAL (stacked like mock) -->
+      <div class="hudMid">
+
+        <section class="card">
+          <h2 class="cardTitle">About</h2>
+          <p>
+            I create detailed playthroughs of various games, covering both retro and modern titles
+            across genres such as story-driven games, FPS, horror, and action.
           </p>
+          <p>
+            I’m a completionist, so expect thorough playthroughs and walkthroughs rather than rushed content.
+          </p>
+          <p>
+            I also review PC hardware and tech, including CPUs, motherboards, and full builds,
+            featuring brands like NVIDIA, AMD, Intel, and Corsair.
+          </p>
+        </section>
 
-          <div class="heroChips" aria-hidden="true">
-            <span class="chip">Playthroughs</span>
-            <span class="chip">Retro + Modern</span>
-            <span class="chip">PC Hardware</span>
+        <section class="card">
+          <div class="cardHead">
+            <h2 class="cardTitle">Social Media</h2>
+            <a class="miniLink" href="/updates.html">Updates →</a>
+          </div>
+
+          <div class="links links--hud">
+            <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
+            <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+            <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT: MAIN HERO PANEL (big card like mock) -->
+      <section class="card heroPanel">
+        <div class="heroGlow" aria-hidden="true"></div>
+
+        <div class="heroPanelInner">
+          <div class="logoWrap" aria-hidden="true">
+            <img src="logo.png" alt="" class="logoImg" loading="lazy" />
+          </div>
+
+          <div class="heroText">
+            <div class="heroKicker">LEGACYXV2</div>
+            <h1 class="heroTitle">LEGACYXV2</h1>
+            <p class="heroTagline">
+              Thorough gaming playthroughs • Retro &amp; modern titles • PC hardware &amp; tech reviews
+            </p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Playthroughs</span>
+              <span class="chip">Retro + Modern</span>
+              <span class="chip">PC Hardware</span>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
-
-    <!-- ================= MAIN GRID ================= -->
-    <section class="grid2">
-
-      <!-- ABOUT -->
-      <section class="card">
-        <h2>About</h2>
-        <p>
-          I create detailed playthroughs of various games, covering both retro and modern titles
-          across genres such as story-driven games, FPS, horror, and action.
-        </p>
-        <p>
-          I’m a completionist, so expect thorough playthroughs and walkthroughs rather than rushed content.
-        </p>
-        <p>
-          I also review PC hardware and tech, including CPUs, motherboards, and full builds,
-          featuring brands like NVIDIA, AMD, Intel, and Corsair.
-        </p>
-      </section>
-
-      <!-- SOCIAL MEDIA -->
-      <section class="card">
-        <div class="cardHead">
-          <h2>Social Media</h2>
-          <a class="miniLink" href="/updates.html">Updates →</a>
-        </div>
-
-        <div class="links">
-          <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">
-            ▶ YouTube
-          </a>
-          <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">
-            TikTok
-          </a>
-          <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">
-            Instagram
-          </a>
-        </div>
       </section>
 
     </section>
 
-    <!-- ================= SUGGEST CONTENT ================= -->
-    <section class="card">
-      <h2>Suggest content</h2>
-
-      <!-- Placeholder form (backend not wired yet) -->
-      <form class="form" action="#" method="post" onsubmit="return false;">
-        <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" />
-        <textarea name="message" rows="4" placeholder="What content would you like to see?" required></textarea>
-
-        <button class="btn primary" type="button" id="suggestBtn">
-          Send suggestion
-        </button>
-      </form>
-
-      <p class="note">
-        This form is not connected yet. Ask me to wire it to a free backend when ready.
-      </p>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
     <footer class="footer">
       <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
     </footer>
@@ -117,13 +108,6 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const btn = document.getElementById("suggestBtn");
-    if (btn) {
-      btn.addEventListener("click", () => {
-        alert("Form not connected yet. I can wire this up for free when you're ready.");
-      });
-    }
   </script>
 </body>
 </html>
