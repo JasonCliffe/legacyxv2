@@ -522,3 +522,88 @@ body{
   .heroTitle{ font-size: 34px; }
   .btn{ padding: 14px; }
 }
+/* ===== Index visual enhancements ===== */
+
+.hero--enhanced{
+  border-color: rgba(255, 179, 0, 0.30);
+  box-shadow:
+    0 0 18px rgba(255, 90, 0, 0.18),
+    0 0 38px rgba(255, 179, 0, 0.10);
+}
+
+.heroHeader{
+  display:grid;
+  grid-template-columns: 160px 1fr;
+  gap: 18px;
+  align-items:center;
+  position: relative;
+  z-index: 1;
+}
+
+.logoWrap{
+  width: 150px;
+  height: 150px;
+  border-radius: 24px;
+  overflow:hidden;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255, 140, 0, 0.25);
+  box-shadow:
+    0 0 22px rgba(255, 90, 0, 0.18),
+    0 0 42px rgba(255, 179, 0, 0.10);
+}
+
+.logoImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+.heroChips{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 10px 0 14px;
+}
+
+.chip{
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: rgba(255,238,221,0.90);
+  background: rgba(0,0,0,0.26);
+  border: 1px solid rgba(255, 140, 0, 0.18);
+}
+
+.heroCtas--enhanced .btn{
+  min-width: 140px;
+}
+
+.btnWide{
+  min-width: 210px;
+}
+
+/* Two-column layout on desktop */
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Mobile: stack everything cleanly */
+@media (max-width: 720px){
+  .heroHeader{
+    grid-template-columns: 1fr;
+    justify-items:center;
+    text-align:center;
+  }
+  .grid2{
+    grid-template-columns: 1fr;
+  }
+  .btnWide{
+    min-width: 100%;
+  }
+}
