@@ -15,29 +15,40 @@
 
     <!-- TOP NAV -->
     <nav class="topnav">
-      <a class="brand" href="/">LegacyXV2</a>
-
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
         <a class="navlink active" href="/updates.html">Updates</a>
       </div>
     </nav>
 
-    <header class="pageHero">
-      <h1 class="pageTitle">Updates</h1>
-      <p class="pageSub">
-        Notes on new uploads, series changes, reviews, and upcoming content.
+    <!-- MOCK-STYLE PAGE HERO -->
+    <header class="pageHero pageHero--framed">
+      <div class="pageHeroGlow" aria-hidden="true"></div>
+
+      <h1 class="pageTitle pageTitle--big">Updates</h1>
+      <p class="pageSub pageSub--tight">
+        New uploads, series notes, PC hardware reviews, and what’s coming next.
       </p>
+
+      <div class="pageHeroChips" aria-hidden="true">
+        <span class="chip">New Uploads</span>
+        <span class="chip">Series Notes</span>
+        <span class="chip">PC Reviews</span>
+      </div>
     </header>
 
-    <!-- LATEST UPDATES -->
+    <!-- LATEST -->
     <section class="card">
-      <h2>Latest</h2>
+      <div class="cardHead">
+        <h2>Latest</h2>
+        <a class="miniLink" href="/">Back to home →</a>
+      </div>
 
-      <div class="updates">
+      <!-- MOCK-LIKE LAYOUT: featured left, list right -->
+      <div class="updatesLayout">
 
-        <!-- NEWEST UPDATE (keep newest at the top) -->
-        <article class="update update--video">
+        <!-- FEATURED (NEWEST) -->
+        <article class="update update--video update--featured">
           <div class="updateTop">
             <div class="updateMeta">Today</div>
             <span class="newBadge" aria-label="New">NEW</span>
@@ -61,38 +72,56 @@
 
           <p class="updateBody">
             A new video is live on YouTube.
-            <br />
-            <a href="https://youtu.be/9frGXH0f3_0"
-               target="_blank"
-               rel="noopener"
-               class="miniLink">
-              ▶ Watch on YouTube
-            </a>
           </p>
+
+          <div class="updateActions">
+            <a class="miniLink miniLink--big"
+               href="https://youtu.be/9frGXH0f3_0"
+               target="_blank"
+               rel="noopener">▶ Watch on YouTube</a>
+
+            <a class="miniLink miniLink--ghost" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">
+              View channel →
+            </a>
+          </div>
         </article>
 
-        <article class="update">
-          <div class="updateMeta">22 Jan 2026</div>
-          <h3 class="updateTitle">New series started</h3>
-          <p class="updateBody">Starting a new completionist playthrough.</p>
-        </article>
+        <!-- OTHER UPDATES (STACK) -->
+        <div class="updatesStack">
+          <article class="update">
+            <div class="updateMeta">22 Jan 2026</div>
+            <h3 class="updateTitle">New series started</h3>
+            <p class="updateBody">Starting a new completionist playthrough.</p>
+          </article>
 
-        <article class="update">
-          <div class="updateMeta">15 Jan 2026</div>
-          <h3 class="updateTitle">Hardware review planned</h3>
-          <p class="updateBody">PC build testing and performance checks coming soon.</p>
-        </article>
+          <article class="update">
+            <div class="updateMeta">15 Jan 2026</div>
+            <h3 class="updateTitle">Hardware review planned</h3>
+            <p class="updateBody">PC build testing and performance checks coming soon.</p>
+          </article>
+
+          <!-- Add more updates here (newest stays at the top overall) -->
+        </div>
 
       </div>
     </section>
 
-    <!-- SOCIAL MEDIA -->
+    <!-- SOCIAL MEDIA (MATCH MOCK BUTTON LAYOUT) -->
     <section class="card">
       <h2>Social Media</h2>
-      <div class="links">
-        <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
-        <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
-        <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+
+      <div class="socialGrid">
+        <a class="btn primary socialMain" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">
+          ▶ YouTube
+        </a>
+
+        <a class="btn socialSmall" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">
+          TikTok
+        </a>
+
+        <a class="btn socialSmall" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">
+          Instagram
+        </a>
       </div>
     </section>
 
