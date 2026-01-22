@@ -14,61 +14,82 @@
   <main class="wrap">
 
     <!-- TOP NAV -->
+    <nav class="topnav">
+      <a class="brand" href="/">LegacyXV2</a>
       <div class="navlinks">
         <a class="navlink active" href="/">Home</a>
         <a class="navlink" href="/updates.html">Updates</a>
       </div>
     </nav>
 
-    <!-- HERO -->
-    <header class="hero">
-      <div class="heroBadge" aria-hidden="true">
-        <div class="badgeInner">LX</div>
-      </div>
-
-      <h1 class="heroTitle">LegacyXV2</h1>
-      <p class="heroTagline">
-        Thorough gaming playthroughs • Retro & modern titles • PC hardware & tech reviews
-      </p>
-
-      <div class="heroCtas">
-        <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
-        <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
-        <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
-      </div>
-
+    <!-- HERO (enhanced) -->
+    <header class="hero hero--enhanced">
       <div class="heroGlow" aria-hidden="true"></div>
+
+      <div class="heroHeader">
+        <div class="logoWrap" aria-hidden="true">
+          <!-- Swap logo.png for your chosen file -->
+          <img src="logo.png" alt="" class="logoImg" loading="lazy" />
+        </div>
+
+        <div class="heroText">
+          <h1 class="heroTitle">LegacyXV2</h1>
+          <p class="heroTagline">
+            Thorough gaming playthroughs • Retro & modern titles • PC hardware & tech reviews
+          </p>
+
+          <div class="heroChips" aria-hidden="true">
+            <span class="chip">Playthroughs</span>
+            <span class="chip">Retro + Modern</span>
+            <span class="chip">PC Hardware</span>
+          </div>
+
+          <div class="heroCtas heroCtas--enhanced">
+            <a class="btn primary btnWide" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
+            <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+            <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <!-- ABOUT -->
-    <section class="card">
-      <h2>About</h2>
-      <p>
-        I create detailed playthroughs of various games, covering both retro and modern titles
-        across genres such as story-driven games, FPS, horror, and action.
-      </p>
-      <p>
-        I’m a bit of a completionist, so expect thorough playthroughs and walkthroughs rather
-        than rushed content.
-      </p>
-      <p>
-        I also review PC hardware and tech, including CPUs, motherboards, and full builds,
-        featuring brands like NVIDIA, AMD, Intel, and Corsair.
-      </p>
+    <!-- TWO-COLUMN GRID (desktop) -->
+    <section class="grid2">
+
+      <!-- ABOUT -->
+      <section class="card">
+        <h2>About</h2>
+        <p>
+          I create detailed playthroughs of various games, covering both retro and modern titles
+          across genres such as story-driven games, FPS, horror, and action.
+        </p>
+        <p>
+          I’m a bit of a completionist, so expect thorough playthroughs and walkthroughs rather
+          than rushed content.
+        </p>
+        <p>
+          I also review PC hardware and tech, including CPUs, motherboards, and full builds,
+          featuring brands like NVIDIA, AMD, Intel, and Corsair.
+        </p>
+      </section>
+
+      <!-- LINKS -->
+      <section class="card">
+        <div class="cardHead">
+          <h2>Links</h2>
+          <a class="miniLink" href="/updates.html">Updates →</a>
+        </div>
+
+        <div class="links">
+          <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
+          <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+          <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </section>
+
     </section>
 
-    <!-- SOCIAL MEDIA -->
-    <section class="card">
-      <div class="cardHead">
-        <h2>Links</h2>
-      <div class="links">
-        <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
-        <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
-        <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </section>
-
-    <!-- SUGGEST CONTENT (Netlify Forms) -->
+    <!-- SUGGEST CONTENT (if you want it on home too) -->
     <section class="card">
       <h2>Suggest content</h2>
 
@@ -85,7 +106,7 @@
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> Designed by Jason Cliffe</p>
+      <p>© <span id="year"></span> LegacyXV2</p>
     </footer>
 
   </main>
