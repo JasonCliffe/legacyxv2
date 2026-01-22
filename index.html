@@ -73,8 +73,24 @@
       </div>
     </section>
 
+    <!-- SUGGEST CONTENT (Netlify Forms) -->
+    <section class="card">
+      <h2>Suggest content</h2>
+
+      <form class="form" name="content-requests" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="content-requests" />
+
+        <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" />
+        <textarea name="message" rows="4" placeholder="What content would you like to see?" required></textarea>
+
+        <button class="btn primary" type="submit">Send suggestion</button>
+      </form>
+
+      <p class="note">Suggestions go directly to the site owner.</p>
+    </section>
+
     <footer class="footer">
-      <p>© <span id="year"></span> LegacyXV2</p>
+      <p>© <span id="year"></span> Designed by Jason Cliffe</p>
     </footer>
 
   </main>
