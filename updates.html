@@ -35,10 +35,29 @@
 
       <div class="updates">
 
-        <!-- NEWEST UPDATE -->
-        <article class="update">
-          <div class="updateMeta">Today</div>
+        <!-- NEWEST UPDATE (keep newest at the top) -->
+        <article class="update update--video">
+          <div class="updateTop">
+            <div class="updateMeta">Today</div>
+            <span class="newBadge" aria-label="New">NEW</span>
+          </div>
+
           <h3 class="updateTitle">New video uploaded</h3>
+
+          <!-- Thumbnail preview (no embed) -->
+          <a class="thumbLink"
+             href="https://youtu.be/9frGXH0f3_0"
+             target="_blank"
+             rel="noopener"
+             aria-label="Watch the latest video on YouTube">
+            <img
+              class="thumbImg"
+              src="https://i.ytimg.com/vi/9frGXH0f3_0/hqdefault.jpg"
+              alt="Latest YouTube video thumbnail"
+              loading="lazy" />
+            <span class="thumbPlay" aria-hidden="true">▶</span>
+          </a>
+
           <p class="updateBody">
             A new video is live on YouTube.
             <br />
@@ -54,17 +73,13 @@
         <article class="update">
           <div class="updateMeta">22 Jan 2026</div>
           <h3 class="updateTitle">New series started</h3>
-          <p class="updateBody">
-            Starting a new completionist playthrough.
-          </p>
+          <p class="updateBody">Starting a new completionist playthrough.</p>
         </article>
 
         <article class="update">
           <div class="updateMeta">15 Jan 2026</div>
           <h3 class="updateTitle">Hardware review planned</h3>
-          <p class="updateBody">
-            PC build testing and performance checks coming soon.
-          </p>
+          <p class="updateBody">PC build testing and performance checks coming soon.</p>
         </article>
 
       </div>
