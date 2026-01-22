@@ -4,6 +4,7 @@
   --muted: rgba(255, 238, 221, 0.70);
 
   --card: rgba(0,0,0,0.58);
+  --cardSoft: rgba(0,0,0,0.42);
   --border: rgba(255, 140, 0, 0.22);
 
   --ember: #ff5a00;
@@ -45,39 +46,88 @@ body{
   display:flex;
   justify-content: space-between;
   align-items:center;
+  gap: 12px;
+
   padding: 12px 14px;
   border-radius: 16px;
+
   background: rgba(0,0,0,0.45);
   border: 1px solid var(--border);
   backdrop-filter: blur(10px);
+
   position: sticky;
   top: 12px;
   z-index: 50;
 }
 
 .brand{
-  font-weight: 900;
+  font-weight: 1000;
   text-transform: uppercase;
   text-decoration:none;
   color: var(--text);
+  letter-spacing: 0.4px;
 }
 
-.navlinks{ display:flex; gap: 8px; }
+.navlinks{ display:flex; gap: 10px; }
 
+/* Bigger nav buttons + glow */
 .navlink{
-  font-size: 12px;
-  font-weight: 800;
-  padding: 10px 12px;
-  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 12px 18px;
+  border-radius: 14px;
+
   text-decoration:none;
-  color: var(--muted);
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,140,0,0.10);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+
+  color: rgba(255,238,221,0.85);
+  background: rgba(0,0,0,0.30);
+  border: 1px solid rgba(255,140,0,0.22);
+
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease,
+    filter 140ms ease;
 }
 
+.navlink:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,140,0,0.38);
+  background: rgba(0,0,0,0.42);
+  box-shadow:
+    0 0 14px rgba(255,90,0,0.22),
+    0 0 26px rgba(255,179,0,0.14);
+}
+
+/* Active page glow */
 .navlink.active{
-  color: var(--text);
-  box-shadow: 0 0 18px rgba(255,90,0,0.20);
+  color: #1a0b06;
+  background: linear-gradient(135deg, var(--ember3), var(--ember2));
+  border: none;
+
+  box-shadow:
+    0 0 18px rgba(255,90,0,0.45),
+    0 0 36px rgba(255,179,0,0.28);
+
+  animation: navGlow 2.6s ease-in-out infinite;
+}
+
+@keyframes navGlow{
+  0%,100%{
+    filter: brightness(1);
+    box-shadow:
+      0 0 18px rgba(255,90,0,0.40),
+      0 0 36px rgba(255,179,0,0.24);
+  }
+  50%{
+    filter: brightness(1.08);
+    box-shadow:
+      0 0 26px rgba(255,90,0,0.55),
+      0 0 48px rgba(255,179,0,0.36);
+  }
 }
 
 /* ================= HERO ================= */
@@ -85,8 +135,10 @@ body{
   margin-top: 14px;
   padding: 26px 18px;
   border-radius: 22px;
+
   background: linear-gradient(180deg, rgba(0,0,0,0.58), rgba(0,0,0,0.34));
   border: 1px solid var(--border);
+
   position: relative;
   overflow: hidden;
 }
@@ -95,10 +147,12 @@ body{
   position:absolute;
   inset:-40px;
   pointer-events:none;
+
   background:
     radial-gradient(500px 220px at 20% 25%, rgba(255,90,0,0.22), transparent 60%),
     radial-gradient(520px 240px at 80% 35%, rgba(255,179,0,0.18), transparent 60%);
   filter: blur(12px);
+
   animation: heroPulse 4s ease-in-out infinite;
 }
 
@@ -111,16 +165,21 @@ body{
   text-align:center;
   font-size: 40px;
   text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin: 0 0 10px;
+  text-shadow: 0 0 18px rgba(255, 90, 0, 0.18);
 }
 
 .heroTagline{
   text-align:center;
   color: var(--muted);
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  line-height: 1.5;
 }
 
 .heroCtas{
   display:flex;
+  flex-wrap: wrap;
   gap: 10px;
   justify-content:center;
 }
@@ -130,27 +189,31 @@ body{
   margin-top: 18px;
   padding: 20px;
   border-radius: var(--radius);
+
   background: var(--card);
   border: 1px solid var(--border);
+
   position: relative;
   overflow: hidden;
 }
 
-/* 🔥 Glow overlay — SAFE */
+/* Glow overlay safe (never blocks clicks) */
 .card::before{
   content:"";
   position:absolute;
   inset:-2px;
+
   background: radial-gradient(500px 200px at 10% 10%, rgba(255,90,0,0.12), transparent 60%);
   filter: blur(10px);
   opacity: 0.7;
+
   animation: cardEmber 4.8s ease-in-out infinite;
 
   pointer-events: none;
   z-index: 0;
 }
 
-/* Force real content above overlay */
+/* Put content above overlay */
 .card > *{
   position: relative;
   z-index: 1;
@@ -161,6 +224,27 @@ body{
   50%{ transform: translate(10px,-6px); }
 }
 
+.card h2{
+  margin: 0 0 12px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.card p{
+  margin: 0 0 10px;
+  line-height: 1.65;
+  color: rgba(255,238,221,0.92);
+}
+
+.cardHead{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
 /* ================= BUTTONS ================= */
 .links{
   display:grid;
@@ -168,20 +252,39 @@ body{
 }
 
 .btn{
+  display:block;
   padding: 14px;
   text-align:center;
+
   border-radius: 14px;
-  font-weight: 900;
+  font-weight: 1000;
+  letter-spacing: 0.3px;
   text-decoration:none;
+
   color: var(--text);
   background: rgba(0,0,0,0.24);
   border: 1px solid rgba(255,140,0,0.16);
+
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease, background 140ms ease;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,0.34);
+  box-shadow:
+    0 0 18px rgba(255,90,0,0.20),
+    0 0 30px rgba(255,179,0,0.12);
 }
 
 .btn.primary{
   color: #1a0b06;
   background: linear-gradient(135deg, var(--ember3), var(--ember2));
   border:none;
+
+  box-shadow:
+    0 0 18px rgba(255, 90, 0, 0.24),
+    0 0 34px rgba(255, 179, 0, 0.12);
+
   animation: flameGlow 2.4s ease-in-out infinite;
 }
 
@@ -190,120 +293,7 @@ body{
   50%{ filter: brightness(1.07); }
 }
 
-/* ================= FORM ================= */
-.form{
-  display:grid;
-  gap: 10px;
-}
-
-.form input,
-.form textarea{
-  width:100%;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,140,0,0.22);
-  background: rgba(0,0,0,0.35);
-  color: var(--text);
-}
-
-.form button{
-  cursor:pointer;
-}
-
-/* ================= FOOTER ================= */
-.footer{
-  text-align:center;
-  margin-top: 22px;
-  font-size: 12px;
-  color: rgba(255,238,221,0.55);
-}
-
-/* ================= UPDATES ENHANCEMENTS ================= */
-
-/* Layout helper for meta + NEW badge */
-.updateTop{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
-/* Automatically highlight ONLY the most recent update (first one) */
-.updates > .update:first-child{
-  border-color: rgba(255, 179, 0, 0.45);
-  box-shadow:
-    0 0 18px rgba(255, 90, 0, 0.22),
-    0 0 34px rgba(255, 179, 0, 0.12);
-}
-
-/* NEW badge with pulse */
-.newBadge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-weight: 1000;
-  font-size: 11px;
-  letter-spacing: 0.8px;
-  color: #1a0b06;
-  background: linear-gradient(135deg, var(--ember3), var(--ember2));
-  box-shadow:
-    0 0 12px rgba(255, 90, 0, 0.35),
-    0 0 22px rgba(255, 179, 0, 0.20);
-  animation: newPulse 1.4s ease-in-out infinite;
-}
-
-@keyframes newPulse{
-  0%,100%{ transform: scale(1); filter: brightness(1); }
-  50%{ transform: scale(1.08); filter: brightness(1.07); }
-}
-
-/* Thumbnail preview (no embed) */
-.thumbLink{
-  display:block;
-  position: relative;
-  margin: 10px 0 10px;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 140, 0, 0.22);
-  background: rgba(0,0,0,0.35);
-  box-shadow:
-    0 0 14px rgba(255, 90, 0, 0.14),
-    inset 0 0 28px rgba(0,0,0,0.40);
-  text-decoration:none;
-}
-
-.thumbImg{
-  display:block;
-  width:100%;
-  height:auto;
-  transform: scale(1.01);
-  filter: contrast(1.05) saturate(1.05);
-}
-
-.thumbPlay{
-  position:absolute;
-  inset: 0;
-  display:grid;
-  place-items:center;
-  font-size: 44px;
-  font-weight: 1000;
-  color: rgba(255,238,221,0.92);
-  text-shadow:
-    0 0 18px rgba(255, 90, 0, 0.35),
-    0 0 30px rgba(255, 179, 0, 0.22);
-  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
-  transition: transform 140ms ease, filter 140ms ease;
-}
-
-.thumbLink:hover .thumbPlay{
-  transform: scale(1.06);
-  filter: brightness(1.08);
-}
-
-/* Make the Watch link stand out (if you haven't already updated miniLink) */
+/* ================= MINI LINK (Watch on YouTube) ================= */
 .miniLink{
   display: inline-block;
   margin-top: 8px;
@@ -311,7 +301,7 @@ body{
   border-radius: 12px;
 
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 1000;
   letter-spacing: 0.3px;
   text-decoration: none;
 
@@ -332,19 +322,203 @@ body{
     0 0 18px rgba(255, 90, 0, 0.45),
     0 0 30px rgba(255, 179, 0, 0.30);
 }
-/* ===== Desktop-like layout on mobile (scale down) ===== */
+
+/* ================= FORM ================= */
+.form{
+  display:grid;
+  gap: 10px;
+}
+
+.form input,
+.form textarea{
+  width:100%;
+  padding: 12px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,140,0,0.22);
+  background: rgba(0,0,0,0.35);
+  color: var(--text);
+
+  outline: none;
+}
+
+.form input:focus,
+.form textarea:focus{
+  border-color: rgba(255,179,0,0.45);
+  box-shadow: 0 0 0 3px rgba(255, 90, 0, 0.18);
+}
+
+.form button{ cursor:pointer; }
+
+/* ================= UPDATES ENHANCEMENTS ================= */
+.updates{
+  display: grid;
+  gap: 12px;
+}
+
+.update{
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,140,0,0.16);
+  background: rgba(0,0,0,0.26);
+}
+
+.updateMeta{
+  font-size: 12px;
+  color: rgba(255, 238, 221, 0.65);
+  margin-bottom: 6px;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.updateTitle{
+  margin: 0 0 6px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.updateBody{
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Meta + NEW badge row */
+.updateTop{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* Automatically highlight newest update (first one) */
+.updates > .update:first-child{
+  border-color: rgba(255, 179, 0, 0.45);
+  box-shadow:
+    0 0 18px rgba(255, 90, 0, 0.22),
+    0 0 34px rgba(255, 179, 0, 0.12);
+}
+
+/* NEW badge pulse */
+.newBadge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  font-weight: 1000;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+
+  color: #1a0b06;
+  background: linear-gradient(135deg, var(--ember3), var(--ember2));
+
+  box-shadow:
+    0 0 12px rgba(255, 90, 0, 0.35),
+    0 0 22px rgba(255, 179, 0, 0.20);
+
+  animation: newPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes newPulse{
+  0%,100%{ transform: scale(1); filter: brightness(1); }
+  50%{ transform: scale(1.08); filter: brightness(1.07); }
+}
+
+/* Thumbnail preview (no embed) */
+.thumbLink{
+  display:block;
+  position: relative;
+  margin: 10px 0 10px;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 140, 0, 0.22);
+  background: var(--cardSoft);
+
+  box-shadow:
+    0 0 14px rgba(255, 90, 0, 0.14),
+    inset 0 0 28px rgba(0,0,0,0.40);
+
+  text-decoration:none;
+}
+
+.thumbImg{
+  display:block;
+  width:100%;
+  height:auto;
+  transform: scale(1.01);
+  filter: contrast(1.05) saturate(1.05);
+}
+
+.thumbPlay{
+  position:absolute;
+  inset: 0;
+
+  display:grid;
+  place-items:center;
+
+  font-size: 44px;
+  font-weight: 1000;
+
+  color: rgba(255,238,221,0.92);
+  text-shadow:
+    0 0 18px rgba(255, 90, 0, 0.35),
+    0 0 30px rgba(255, 179, 0, 0.22);
+
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.10), rgba(0,0,0,0.60));
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+.thumbLink:hover .thumbPlay{
+  transform: scale(1.06);
+  filter: brightness(1.08);
+}
+
+/* ================= PAGE HERO (updates page) ================= */
+.pageHero{
+  margin-top: 14px;
+  text-align:center;
+}
+
+.pageTitle{
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.pageSub{
+  max-width: 740px;
+  margin: 0 auto;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+  text-align:center;
+  margin-top: 22px;
+  font-size: 12px;
+  color: rgba(255,238,221,0.55);
+}
+
+/* ================= MOBILE TUNING ================= */
 @media (max-width: 520px){
-  /* Keep the page feeling like desktop */
-  .wrap{
-    max-width: 920px;          /* same as desktop */
-    width: 920px;              /* lock the layout width */
-    transform: scale(0.42);    /* scale it to fit phone */
-    transform-origin: top left;
-    padding: 22px 16px 46px;   /* keeps spacing consistent */
+  .wrap{ padding: 16px 12px 40px; }
+  .topnav{ padding: 10px 12px; }
+  .navlinks{ gap: 8px; }
+
+  .navlink{
+    padding: 12px 14px;
+    font-size: 13px;
   }
 
-  /* Make the body scroll normally with the scaled content */
-  body{
-    overflow-x: auto;
-  }
+  .hero{ padding: 22px 14px; }
+  .heroTitle{ font-size: 34px; }
+  .btn{ padding: 14px; }
 }
