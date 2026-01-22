@@ -690,3 +690,29 @@ body{
   .heroTitle{ font-size: 34px; }
   .heroChips{ justify-content: center; }
 }
+/* ================= FORCE DESKTOP VIEW ON MOBILE ================= */
+@media (max-width: 760px){
+  /* lock the desktop canvas width */
+  .wrap{
+    width: 1120px;      /* matches your desktop max */
+    max-width: none;
+    margin: 0;
+    transform: scale(calc(100vw / 1120));
+    transform-origin: top left;
+  }
+
+  /* stop sideways scrolling + keep it clean */
+  body{
+    overflow-x: hidden;
+  }
+
+  /* IMPORTANT: disable the stacking rules you currently have */
+  .heroMain{
+    grid-template-columns: 280px 1fr !important;
+    text-align: left !important;
+  }
+
+  .grid2{
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
