@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>LegacyXV2 — Updates</title>
+  <meta name="description" content="Updates from LegacyXV2 — new uploads, series notes, and PC hardware reviews." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+
+    <!-- TOP NAV -->
+    <nav class="topnav">
+      <a class="brand" href="/">LegacyXV2</a>
+      <div class="navlinks">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink active" href="/updates.html">Updates</a>
+      </div>
+    </nav>
+
+    <header class="pageHero">
+      <h1 class="pageTitle">Updates</h1>
+      <p class="pageSub">
+        Notes on new uploads, series changes, reviews, and upcoming content.
+      </p>
+    </header>
+
+    <section class="card">
+      <h2>Latest</h2>
+
+      <div class="updates">
+        <article class="update">
+          <div class="updateMeta">22 Jan 2026</div>
+          <h3 class="updateTitle">New series started</h3>
+          <p class="updateBody">Starting a new completionist playthrough.</p>
+        </article>
+
+        <article class="update">
+          <div class="updateMeta">15 Jan 2026</div>
+          <h3 class="updateTitle">Hardware review planned</h3>
+          <p class="updateBody">PC build testing and performance checks coming soon.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Links</h2>
+      <div class="links">
+        <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
+        <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> LegacyXV2</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

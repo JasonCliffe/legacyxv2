@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>LegacyXV2 — Gaming & Tech Content</title>
+  <meta name="description" content="LegacyXV2 creates thorough gaming playthroughs and PC hardware reviews across retro and modern titles." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="wrap">
+
+    <!-- TOP NAV -->
+    <nav class="topnav">
+      <a class="brand" href="/">LegacyXV2</a>
+      <div class="navlinks">
+        <a class="navlink active" href="/">Home</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="heroBadge" aria-hidden="true">
+        <div class="badgeInner">LX</div>
+      </div>
+
+      <h1 class="heroTitle">LegacyXV2</h1>
+      <p class="heroTagline">
+        Thorough gaming playthroughs • Retro & modern titles • PC hardware & tech reviews
+      </p>
+
+      <div class="heroCtas">
+        <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
+        <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+      </div>
+
+      <div class="heroGlow" aria-hidden="true"></div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="card">
+      <h2>About</h2>
+      <p>
+        I create detailed playthroughs of various games, covering both retro and modern titles
+        across genres such as story-driven games, FPS, horror, and action.
+      </p>
+      <p>
+        I’m a bit of a completionist, so expect thorough playthroughs and walkthroughs rather
+        than rushed content.
+      </p>
+      <p>
+        I also review PC hardware and tech, including CPUs, motherboards, and full builds,
+        featuring brands like NVIDIA, AMD, Intel, and Corsair.
+      </p>
+    </section>
+
+    <!-- LINKS -->
+    <section class="card">
+      <div class="cardHead">
+        <h2>Links</h2>
+        <a class="miniLink" href="/updates.html">Updates →</a>
+      </div>
+
+      <div class="links">
+        <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
+        <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> LegacyXV2</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
