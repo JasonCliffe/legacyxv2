@@ -332,3 +332,19 @@ body{
     0 0 18px rgba(255, 90, 0, 0.45),
     0 0 30px rgba(255, 179, 0, 0.30);
 }
+/* ===== Desktop-like layout on mobile (scale down) ===== */
+@media (max-width: 520px){
+  /* Keep the page feeling like desktop */
+  .wrap{
+    max-width: 920px;          /* same as desktop */
+    width: 920px;              /* lock the layout width */
+    transform: scale(0.42);    /* scale it to fit phone */
+    transform-origin: top left;
+    padding: 22px 16px 46px;   /* keeps spacing consistent */
+  }
+
+  /* Make the body scroll normally with the scaled content */
+  body{
+    overflow-x: auto;
+  }
+}
