@@ -13,7 +13,7 @@
 <body>
   <main class="wrap">
 
-    <!-- TOP NAV -->
+    <!-- ================= TOP NAV ================= -->
     <nav class="topnav">
       <a class="brand" href="/">LegacyXV2</a>
 
@@ -23,13 +23,13 @@
       </div>
     </nav>
 
-    <!-- HERO (aggressive esports, no social buttons here) -->
+    <!-- ================= HERO ================= -->
     <header class="hero hero--enhanced">
       <div class="heroGlow" aria-hidden="true"></div>
 
       <div class="heroHeader">
         <div class="logoWrap" aria-hidden="true">
-          <!-- Keep this file in the site root: logo.png -->
+          <!-- Keep logo.png in the same folder -->
           <img src="logo.png" alt="" class="logoImg" loading="lazy" />
         </div>
 
@@ -48,7 +48,7 @@
       </div>
     </header>
 
-    <!-- TWO-COLUMN GRID -->
+    <!-- ================= MAIN GRID ================= -->
     <section class="grid2">
 
       <!-- ABOUT -->
@@ -75,30 +75,40 @@
         </div>
 
         <div class="links">
-          <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
-          <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
-          <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn primary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">
+            ▶ YouTube
+          </a>
+          <a class="btn" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">
+            TikTok
+          </a>
+          <a class="btn" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">
+            Instagram
+          </a>
         </div>
       </section>
 
     </section>
 
-    <!-- SUGGEST CONTENT -->
+    <!-- ================= SUGGEST CONTENT ================= -->
     <section class="card">
       <h2>Suggest content</h2>
 
-      <form class="form" name="content-requests" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="content-requests" />
-
+      <!-- Placeholder form (backend not wired yet) -->
+      <form class="form" action="#" method="post" onsubmit="return false;">
         <input type="text" name="name" placeholder="Your name (optional)" autocomplete="name" />
         <textarea name="message" rows="4" placeholder="What content would you like to see?" required></textarea>
 
-        <button class="btn primary" type="submit">Send suggestion</button>
+        <button class="btn primary" type="button" id="suggestBtn">
+          Send suggestion
+        </button>
       </form>
 
-      <p class="note">Suggestions go directly to the site owner.</p>
+      <p class="note">
+        This form is not connected yet. Ask me to wire it to a free backend when ready.
+      </p>
     </section>
 
+    <!-- ================= FOOTER ================= -->
     <footer class="footer">
       <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
     </footer>
@@ -107,6 +117,13 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const btn = document.getElementById("suggestBtn");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        alert("Form not connected yet. I can wire this up for free when you're ready.");
+      });
+    }
   </script>
 </body>
 </html>
