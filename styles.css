@@ -217,3 +217,118 @@ body{
   font-size: 12px;
   color: rgba(255,238,221,0.55);
 }
+
+/* ================= UPDATES ENHANCEMENTS ================= */
+
+/* Layout helper for meta + NEW badge */
+.updateTop{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* Automatically highlight ONLY the most recent update (first one) */
+.updates > .update:first-child{
+  border-color: rgba(255, 179, 0, 0.45);
+  box-shadow:
+    0 0 18px rgba(255, 90, 0, 0.22),
+    0 0 34px rgba(255, 179, 0, 0.12);
+}
+
+/* NEW badge with pulse */
+.newBadge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 1000;
+  font-size: 11px;
+  letter-spacing: 0.8px;
+  color: #1a0b06;
+  background: linear-gradient(135deg, var(--ember3), var(--ember2));
+  box-shadow:
+    0 0 12px rgba(255, 90, 0, 0.35),
+    0 0 22px rgba(255, 179, 0, 0.20);
+  animation: newPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes newPulse{
+  0%,100%{ transform: scale(1); filter: brightness(1); }
+  50%{ transform: scale(1.08); filter: brightness(1.07); }
+}
+
+/* Thumbnail preview (no embed) */
+.thumbLink{
+  display:block;
+  position: relative;
+  margin: 10px 0 10px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 140, 0, 0.22);
+  background: rgba(0,0,0,0.35);
+  box-shadow:
+    0 0 14px rgba(255, 90, 0, 0.14),
+    inset 0 0 28px rgba(0,0,0,0.40);
+  text-decoration:none;
+}
+
+.thumbImg{
+  display:block;
+  width:100%;
+  height:auto;
+  transform: scale(1.01);
+  filter: contrast(1.05) saturate(1.05);
+}
+
+.thumbPlay{
+  position:absolute;
+  inset: 0;
+  display:grid;
+  place-items:center;
+  font-size: 44px;
+  font-weight: 1000;
+  color: rgba(255,238,221,0.92);
+  text-shadow:
+    0 0 18px rgba(255, 90, 0, 0.35),
+    0 0 30px rgba(255, 179, 0, 0.22);
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+.thumbLink:hover .thumbPlay{
+  transform: scale(1.06);
+  filter: brightness(1.08);
+}
+
+/* Make the Watch link stand out (if you haven't already updated miniLink) */
+.miniLink{
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 14px;
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+
+  color: #1a0b06;
+  background: linear-gradient(135deg, var(--ember3), var(--ember2));
+
+  box-shadow:
+    0 0 12px rgba(255, 90, 0, 0.35),
+    0 0 22px rgba(255, 179, 0, 0.20);
+
+  transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+}
+
+.miniLink:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 0 18px rgba(255, 90, 0, 0.45),
+    0 0 30px rgba(255, 179, 0, 0.30);
+}
