@@ -660,3 +660,33 @@ body{
     0 0 14px rgba(255,90,0,0.35),
     0 0 28px rgba(255,179,0,0.20);
 }
+/* ================= MOBILE: keep desktop feel ================= */
+
+/* Keep 2 columns longer (tablets/large phones) */
+@media (max-width: 720px){
+  .grid2{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heroMain{
+    grid-template-columns: 240px 1fr; /* keep logo left, text right */
+    text-align: left;
+  }
+
+  .heroTitle{ font-size: 42px; }
+}
+
+/* Only stack at very small phones */
+@media (max-width: 520px){
+  .grid2{
+    grid-template-columns: 1fr; /* stack panels only here */
+  }
+
+  .heroMain{
+    grid-template-columns: 1fr; /* stack hero only here */
+    text-align: center;
+  }
+
+  .heroTitle{ font-size: 34px; }
+  .heroChips{ justify-content: center; }
+}
