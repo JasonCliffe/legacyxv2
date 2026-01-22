@@ -614,3 +614,49 @@ body{
     grid-column: auto;
   }
 }
+/* ================= AUTO-HIGHLIGHT NEWEST UPDATE ================= */
+
+/* Target the FIRST update inside the LATEST panel */
+.panel .panelBody .update:first-of-type{
+  position: relative;
+  padding: 16px;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,90,0,0.12),
+    rgba(0,0,0,0.55)
+  );
+
+  border: 1px solid rgba(255,179,0,0.45);
+
+  box-shadow:
+    0 0 22px rgba(255,90,0,0.35),
+    0 0 48px rgba(255,179,0,0.18);
+}
+
+/* Ember glow ring */
+.panel .panelBody .update:first-of-type::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: 18px;
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      420px 160px at 30% 0%,
+      rgba(255,90,0,0.35),
+      transparent 65%
+    );
+
+  filter: blur(10px);
+  opacity: 0.9;
+}
+
+/* Slightly larger title for the newest item */
+.panel .panelBody .update:first-of-type .updateTitle{
+  text-shadow:
+    0 0 14px rgba(255,90,0,0.35),
+    0 0 28px rgba(255,179,0,0.20);
+}
