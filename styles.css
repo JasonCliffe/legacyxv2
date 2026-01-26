@@ -19,6 +19,10 @@
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
 
+/* ✅ Background fix:
+   Desktop keeps fixed background.
+   Mobile uses scroll background AND background fills full page height without gaps.
+*/
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -50,10 +54,6 @@ body{
   margin: 0 auto;
   padding: 22px 16px 46px;
 }
-
-/* Base typography tweaks */
-h1,h2,h3{ line-height: 1.1; }
-a{ color: inherit; }
 
 /* ================= NAV ================= */
 .topnav{
@@ -267,7 +267,7 @@ a{ color: inherit; }
   display:flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 0;
+  margin: 0 0 16px;
 }
 
 .chip{
@@ -347,6 +347,47 @@ a{ color: inherit; }
   color: rgba(255,238,221,0.92);
 }
 
+/* ================= INTRODUCTION PANEL (EMBER RIM) ================= */
+.introPanel{
+  margin-top: 16px;
+  border: 1px solid rgba(255,179,0,0.34);
+  box-shadow:
+    0 0 26px rgba(255,90,0,0.20),
+    0 0 60px rgba(255,179,0,0.10);
+}
+
+.introPanel::after{
+  content:"";
+  position:absolute;
+  inset:-22px;
+  pointer-events:none;
+  background:
+    radial-gradient(520px 220px at 20% 0%, rgba(255,90,0,0.26), transparent 65%),
+    radial-gradient(520px 220px at 80% 0%, rgba(255,179,0,0.18), transparent 65%),
+    radial-gradient(620px 260px at 50% 120%, rgba(255,42,0,0.12), transparent 65%);
+  filter: blur(16px);
+  opacity: 0.85;
+}
+
+.introVideo{
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,140,0,0.28);
+  box-shadow:
+    0 0 20px rgba(255,90,0,0.22),
+    inset 0 0 0 2px rgba(0,0,0,0.55);
+  aspect-ratio: 16 / 9;
+}
+
+.introVideo iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display:block;
+}
+
 /* ================= ABOUT TEXT EMPHASIS ================= */
 .aboutBody{
   background: linear-gradient(180deg, rgba(255,90,0,0.06), rgba(0,0,0,0.0));
@@ -359,7 +400,9 @@ a{ color: inherit; }
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0 0 10px;
+
   color: #ffddb8;
+
   text-shadow:
     0 0 12px rgba(255,90,0,0.35),
     0 0 26px rgba(255,179,0,0.18);
@@ -369,13 +412,14 @@ a{ color: inherit; }
   width: 80px;
   height: 2px;
   margin: 10px 0 14px;
+
   background: linear-gradient(90deg, var(--ember3), var(--ember2));
   border-radius: 999px;
+
   box-shadow: 0 0 12px rgba(255,90,0,0.45);
 }
 
 /* ================= SOCIAL MEDIA (mock layout) ================= */
-/* YouTube full width, TikTok + Instagram half width */
 .linksGrid{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -473,40 +517,6 @@ a{ color: inherit; }
   filter: brightness(1.05);
 }
 
-/* ================= INTRO VIDEO SECTION ================= */
-.introPanel{ margin-top: 16px; }
-
-.introGrid{
-  display:grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 16px;
-  align-items: start;
-}
-
-.introVideo{
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,140,0,0.28);
-  box-shadow:
-    0 0 20px rgba(255,90,0,0.22),
-    inset 0 0 0 2px rgba(0,0,0,0.55);
-  aspect-ratio: 16 / 9;
-}
-
-.introVideo iframe{
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display:block;
-}
-
-.introText p{
-  margin: 0 0 10px;
-  line-height: 1.6;
-}
-
 /* ================= FOOTER ================= */
 .footer{
   text-align:center;
@@ -528,8 +538,6 @@ a{ color: inherit; }
     text-align: left;
   }
   .heroTitle{ font-size: 42px; }
-
-  .introGrid{ grid-template-columns: 1fr; }
 }
 
 @media (max-width: 520px){
