@@ -4,21 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ✅ Force correct URL if someone hits /updates or /updates/ -->
-  <script>
-    (function () {
-      var p = (location.pathname || "").replace(/\/+$/, "");
-      if (p === "/updates") location.replace("/updates.html");
-    })();
-  </script>
-
   <!-- Primary SEO -->
   <title>LegacyXV2 — Updates, New Uploads & Hardware Reviews</title>
   <meta name="description" content="Latest LegacyXV2 updates: new YouTube uploads, series notes, PC hardware reviews, benchmarks, and tech posts." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/updates.html" />
 
-  <!-- Open Graph (Updates page) -->
+  <!-- Open Graph (keep main OG image as-is) -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2-site.pages.dev/updates.html" />
@@ -30,15 +22,16 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter / X (Updates page) -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Updates & New Uploads" />
   <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- IMPORTANT: absolute path so it works on any route -->
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org (Updates page + VideoObjects for rich results) -->
+  <!-- Schema.org: Updates page + VideoObjects -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,16 +42,13 @@
         "url": "https://legacyxv2-site.pages.dev/updates.html",
         "name": "LegacyXV2 — Updates & New Uploads",
         "description": "New uploads, series notes, PC hardware reviews, benchmarks, and tech updates from LegacyXV2.",
-        "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
-        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage" }
-      },
-      {
-        "@type": "ImageObject",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage",
-        "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
-        "width": 1200,
-        "height": 630
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage",
+          "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
+          "width": 1200,
+          "height": 630
+        }
       },
 
       {
@@ -70,8 +60,7 @@
         "uploadDate": "2026-01-26T18:00:00+00:00",
         "contentUrl": "https://youtu.be/5QJ2YAaTKoU",
         "embedUrl": "https://www.youtube.com/embed/5QJ2YAaTKoU",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
+        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/updates.html"
       },
       {
         "@type": "VideoObject",
@@ -82,8 +71,7 @@
         "uploadDate": "2026-01-24T18:00:00+00:00",
         "contentUrl": "https://youtu.be/SSkLnaxKv6M",
         "embedUrl": "https://www.youtube.com/embed/SSkLnaxKv6M",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
+        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/updates.html"
       },
       {
         "@type": "VideoObject",
@@ -94,8 +82,7 @@
         "uploadDate": "2026-01-22T18:00:00+00:00",
         "contentUrl": "https://youtu.be/9frGXH0f3_0",
         "embedUrl": "https://www.youtube.com/embed/9frGXH0f3_0",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
+        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/updates.html"
       }
     ]
   }
@@ -128,7 +115,8 @@
 
         <div class="heroMain">
           <div class="heroLogo" aria-hidden="true">
-            <img class="heroLogo__img" src="logo.png" alt="" loading="lazy" />
+            <!-- IMPORTANT: absolute path -->
+            <img class="heroLogo__img" src="/logo.png" alt="" loading="lazy" />
           </div>
 
           <div class="heroCopy">
