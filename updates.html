@@ -4,11 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ✅ Force correct URL if someone hits /updates (folder-style) -->
+  <!-- ✅ Force correct URL if someone hits /updates or /updates/ -->
   <script>
-    if (location.pathname === "/updates") {
-      location.replace("/updates.html");
-    }
+    (function () {
+      var p = (location.pathname || "").replace(/\/+$/, "");
+      if (p === "/updates") location.replace("/updates.html");
+    })();
   </script>
 
   <!-- Primary SEO -->
@@ -60,7 +61,6 @@
         "height": 630
       },
 
-      /* ✅ Video rich results: add uploadDate with timezone (ISO 8601) */
       {
         "@type": "VideoObject",
         "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU",
