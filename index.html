@@ -31,7 +31,7 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org: Brand + Founder + ContentCreator + YouTube Channel -->
+  <!-- Schema.org: Brand + Founder + Creator + YouTube Channel -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,6 +52,7 @@
         "name": "LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews",
         "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
         "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "mainEntity": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
         "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
       },
       {
@@ -83,6 +84,7 @@
         "@id": "https://legacyxv2-site.pages.dev/#founder",
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Owner",
+        "url": "https://legacyxv2-site.pages.dev/",
         "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "sameAs": [
           "https://youtube.com/@legacyxv2",
@@ -91,25 +93,20 @@
         ]
       },
 
-      /* Content Creator entity for the brand */
       {
-        "@type": "ContentCreator",
-        "@id": "https://legacyxv2-site.pages.dev/#contentcreator",
+        "@type": "Person",
+        "@id": "https://legacyxv2-site.pages.dev/#creator",
         "name": "LegacyXV2",
+        "alternateName": "LegacyXV2 (YouTube Creator)",
         "url": "https://legacyxv2-site.pages.dev/",
-        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/#webpage" },
+        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/",
         "image": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" },
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://legacyxv2-site.pages.dev/logo.png"
-        },
         "sameAs": [
           "https://youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ],
-        "subjectOf": { "@id": "https://legacyxv2-site.pages.dev/#youtubechannel" },
-        "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" }
+        "subjectOf": { "@id": "https://legacyxv2-site.pages.dev/#youtubechannel" }
       },
       {
         "@type": "YouTubeChannel",
