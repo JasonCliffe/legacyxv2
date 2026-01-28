@@ -673,3 +673,27 @@ body{
 
   .rigGrid{ grid-template-columns: 1fr; }
 }
+/* ---------- Hero identity lock-in ---------- */
+.heroIdentity{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.heroRole{
+  font-size:12px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(255, 170, 90, 0.88);
+  text-shadow:0 0 10px rgba(255, 140, 0, 0.35);
+}
+
+.heroFounder{
+  font-size:13px;
+  color:rgba(255,255,255,0.78);
+}
+
+.heroFounder strong{
+  color:#fff;
+  font-weight:600;
+}
