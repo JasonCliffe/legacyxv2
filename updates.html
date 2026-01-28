@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- 🔒 Force correct URL (prevents /updates blank page issue) -->
+  <!-- ✅ Force correct URL if someone hits /updates (folder-style) -->
   <script>
     if (location.pathname === "/updates") {
       location.replace("/updates.html");
@@ -17,42 +17,87 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/updates.html" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (Updates page) -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2-site.pages.dev/updates.html" />
   <meta property="og:title" content="LegacyXV2 — Updates & New Uploads" />
   <meta property="og:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:secure_url" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:alt" content="LegacyXV2 — Updates & New Uploads" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter / X -->
+  <!-- Twitter / X (Updates page) -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LegacyXV2 — Updates & New Uploads" />
+  <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org: Updates Page -->
+  <!-- Schema.org (Updates page + VideoObjects for rich results) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage",
-    "url": "https://legacyxv2-site.pages.dev/updates.html",
-    "name": "LegacyXV2 — Updates & New Uploads",
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://legacyxv2-site.pages.dev/#website"
-    },
-    "about": {
-      "@type": "Organization",
-      "@id": "https://legacyxv2-site.pages.dev/#brand"
-    },
-    "primaryImageOfPage": {
-      "@type": "ImageObject",
-      "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg"
-    }
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage",
+        "url": "https://legacyxv2-site.pages.dev/updates.html",
+        "name": "LegacyXV2 — Updates & New Uploads",
+        "description": "New uploads, series notes, PC hardware reviews, benchmarks, and tech updates from LegacyXV2.",
+        "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
+        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage" }
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage",
+        "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
+        "width": 1200,
+        "height": 630
+      },
+
+      /* ✅ Video rich results: add uploadDate with timezone (ISO 8601) */
+      {
+        "@type": "VideoObject",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU",
+        "name": "New series now live",
+        "description": "A brand-new series has launched. Full playthrough starts now.",
+        "thumbnailUrl": ["https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg"],
+        "uploadDate": "2026-01-26T18:00:00+00:00",
+        "contentUrl": "https://youtu.be/5QJ2YAaTKoU",
+        "embedUrl": "https://www.youtube.com/embed/5QJ2YAaTKoU",
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-SSkLnaxKv6M",
+        "name": "Latest tech / hardware review",
+        "description": "New performance testing and hardware review is live.",
+        "thumbnailUrl": ["https://i.ytimg.com/vi/SSkLnaxKv6M/hqdefault.jpg"],
+        "uploadDate": "2026-01-24T18:00:00+00:00",
+        "contentUrl": "https://youtu.be/SSkLnaxKv6M",
+        "embedUrl": "https://www.youtube.com/embed/SSkLnaxKv6M",
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-9frGXH0f3_0",
+        "name": "Gameplay",
+        "description": "Gameplay upload from LegacyXV2.",
+        "thumbnailUrl": ["https://i.ytimg.com/vi/9frGXH0f3_0/hqdefault.jpg"],
+        "uploadDate": "2026-01-22T18:00:00+00:00",
+        "contentUrl": "https://youtu.be/9frGXH0f3_0",
+        "embedUrl": "https://www.youtube.com/embed/9frGXH0f3_0",
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
+      }
+    ]
   }
   </script>
 </head>
@@ -63,65 +108,174 @@
     <!-- TOP NAV -->
     <nav class="topnav">
       <div class="navlinks">
-        <a class="navlink" href="/index.html">Home</a>
+        <a class="navlink" href="/">Home</a>
         <a class="navlink active" href="/updates.html">Updates</a>
       </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO FRAME -->
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
 
       <div class="heroFrame__inner">
         <div class="heroTop">
           <div class="heroTop__label">
-            <span class="heroTop__dot"></span>
+            <span class="heroTop__dot" aria-hidden="true"></span>
             UPDATES
-            <span class="heroTop__dot"></span>
+            <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
 
         <div class="heroMain">
-          <div class="heroLogo">
-            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" />
+          <div class="heroLogo" aria-hidden="true">
+            <img class="heroLogo__img" src="logo.png" alt="" loading="lazy" />
           </div>
 
           <div class="heroCopy">
             <h1 class="heroTitle">UPDATES</h1>
+
             <p class="heroSub">
-              New uploads • Series notes • PC hardware reviews
+              New content coming on the following days - WEDNESDAY / FRIDAY / SUNDAY 6pm UK Time
             </p>
 
-            <div class="heroChips">
+            <div class="heroChips" aria-hidden="true">
               <span class="chip">NEW UPLOADS</span>
-              <span class="chip">REVIEWS</span>
-              <span class="chip">BENCHMARKS</span>
+              <span class="chip">SERIES NOTES</span>
+              <span class="chip">PC REVIEWS</span>
             </div>
 
-            <a class="miniLink" href="/index.html">← Back to Home</a>
+            <div class="heroCtas">
+              <a class="miniLink" href="/">Back to home →</a>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- CONTENT -->
+    <!-- PANELS -->
     <section class="grid2">
+
+      <!-- LATEST -->
       <section class="panel">
         <div class="panelHead">
-          <h2 class="panelTitle">Latest Updates</h2>
+          <h2 class="panelTitle">LATEST</h2>
         </div>
 
         <div class="panelBody">
-          <p class="aboutLead">
-            Updates, new uploads, and hardware reviews will appear here.
-          </p>
+
+          <!-- 🔥 NEW SERIES -->
+          <article class="update update--video" id="video-5QJ2YAaTKoU">
+            <div class="updateTop">
+              <div class="updateMeta">New Series</div>
+              <span class="newBadge">NEW</span>
+            </div>
+
+            <h3 class="updateTitle">New series now live</h3>
+
+            <a class="thumbLink"
+               href="https://youtu.be/5QJ2YAaTKoU"
+               target="_blank"
+               rel="noopener">
+              <img
+                class="thumbImg"
+                src="https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg"
+                alt="New series thumbnail"
+                loading="lazy" />
+            </a>
+
+            <p class="updateBody">
+              A brand-new series has launched. Full playthrough starts now.
+            </p>
+
+            <a class="miniLink"
+               href="https://youtu.be/5QJ2YAaTKoU"
+               target="_blank"
+               rel="noopener">▶ Watch on YouTube</a>
+          </article>
+
+          <hr style="border:0;border-top:1px solid rgba(255,140,0,0.18);margin:16px 0;opacity:.9;">
+
+          <!-- 🧠 HARDWARE REVIEW -->
+          <article class="update update--video" id="video-SSkLnaxKv6M">
+            <div class="updateTop">
+              <div class="updateMeta">Hardware Review</div>
+            </div>
+
+            <h3 class="updateTitle">Latest tech / hardware review</h3>
+
+            <a class="thumbLink"
+               href="https://youtu.be/SSkLnaxKv6M"
+               target="_blank"
+               rel="noopener">
+              <img
+                class="thumbImg"
+                src="https://i.ytimg.com/vi/SSkLnaxKv6M/hqdefault.jpg"
+                alt="Hardware review thumbnail"
+                loading="lazy" />
+            </a>
+
+            <p class="updateBody">
+              New performance testing and hardware review is live.
+            </p>
+
+            <a class="miniLink"
+               href="https://youtu.be/SSkLnaxKv6M"
+               target="_blank"
+               rel="noopener">▶ Watch review</a>
+          </article>
+
+          <hr style="border:0;border-top:1px solid rgba(255,140,0,0.18);margin:16px 0;opacity:.9;">
+
+          <!-- PREVIOUS VIDEO -->
+          <article class="update update--video" id="video-9frGXH0f3_0">
+            <div class="updateTop">
+              <div class="updateMeta">22 Jan 2026</div>
+            </div>
+
+            <h3 class="updateTitle">Gameplay</h3>
+
+            <a class="thumbLink"
+               href="https://youtu.be/9frGXH0f3_0"
+               target="_blank"
+               rel="noopener">
+              <img
+                class="thumbImg"
+                src="https://i.ytimg.com/vi/9frGXH0f3_0/hqdefault.jpg"
+                alt="Previous video thumbnail"
+                loading="lazy" />
+            </a>
+
+            <a class="miniLink"
+               href="https://youtu.be/9frGXH0f3_0"
+               target="_blank"
+               rel="noopener">▶ Watch on YouTube</a>
+          </article>
+
         </div>
       </section>
+
+      <!-- SOCIAL MEDIA -->
+      <section class="panel">
+        <div class="panelHead panelHead--split">
+          <h2 class="panelTitle">SOCIAL MEDIA</h2>
+          <a class="miniLink" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">Channel →</a>
+        </div>
+
+        <div class="panelBody">
+          <div class="linksGrid">
+            <a class="btnPrimary" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">▶ YouTube</a>
+            <a class="btnGhost" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+            <a class="btnGhost" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </section>
+
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> — LegacyXV2</p>
+      <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
     </footer>
+
   </main>
 
   <script>
