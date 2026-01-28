@@ -673,6 +673,7 @@ body{
 
   .rigGrid{ grid-template-columns: 1fr; }
 }
+
 /* ---------- Hero identity lock-in ---------- */
 .heroIdentity{
   display:flex;
@@ -697,17 +698,31 @@ body{
   color:#fff;
   font-weight:600;
 }
+
 /* =========================
-   Updates page – Social panel width fix
+   Updates page – Social panel width + height fix
+   (ONLY applies when <body class="updates">)
 ========================= */
 
-.panel--social {
-  max-width: 420px;
-  margin: 0 auto;
+/* Stop the right panel stretching to match the tall left panel */
+body.updates .grid2{
+  align-items: start;
 }
 
-.panel--social .btnPrimary,
-.panel--social .btnGhost {
+body.updates .grid2 > .panel{
+  align-self: start;
+}
+
+/* Keep the social panel snug and right-aligned on desktop */
+body.updates .panel--social{
+  max-width: 420px;
+  width: 100%;
+  justify-self: end;
+}
+
+/* Keep button sizing the same */
+body.updates .panel--social .btnPrimary,
+body.updates .panel--social .btnGhost{
   width: auto;
   min-width: 180px;
 }
