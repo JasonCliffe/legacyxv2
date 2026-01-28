@@ -4,6 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- ✅ Optional safety: if someone goes /updates, send them to /updates.html -->
+  <script>
+    if (location.pathname === "/updates") {
+      location.replace("/updates.html");
+    }
+  </script>
+
   <!-- Primary SEO -->
   <title>LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews</title>
   <meta name="description" content="LegacyXV2 creates completionist gaming playthroughs and in-depth PC hardware reviews—GPUs, CPUs, motherboards, benchmarks, builds, and tech." />
@@ -63,7 +70,6 @@
         "height": 630
       },
 
-      /* Brand entity */
       {
         "@type": "Organization",
         "@id": "https://legacyxv2-site.pages.dev/#brand",
@@ -82,7 +88,6 @@
         "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" }
       },
 
-      /* Creator identity (LegacyXV2 is the creator) */
       {
         "@type": "Organization",
         "@id": "https://legacyxv2-site.pages.dev/#creator",
@@ -103,7 +108,6 @@
         "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" }
       },
 
-      /* Founder / Owner */
       {
         "@type": "Person",
         "@id": "https://legacyxv2-site.pages.dev/#founder",
