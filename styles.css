@@ -737,20 +737,26 @@ body.updates .panel--social .btnGhost{
   min-width: 0;
 }
 /* =========================
-   Fix: Mobile "Desktop site" view
-   Keeps real desktop perfect
+   Fix: Phones + Tablets using "Desktop site"
+   (targets real device width; doesn't affect real desktop PCs)
 ========================= */
 
-/* On touch devices (phones/tablets), even if "Desktop site" is enabled,
-   stack the 2-column layout so the right panel doesn't look floating. */
-@media (hover: none) and (pointer: coarse){
+@media only screen and (max-device-width: 1024px){
+  /* Stack columns so the right panel doesn't look like it's floating */
   .grid2{
     grid-template-columns: 1fr !important;
   }
 
-  /* make sure panels are full width when stacked */
+  /* Ensure panels take full width when stacked */
   .grid2 > .panel{
-    justify-self: stretch !important;
     width: 100% !important;
+    justify-self: stretch !important;
+    align-self: start !important;
+  }
+
+  /* Social panel should not be restricted on touch devices */
+  .panel--social{
+    max-width: none !important;
+    margin-top: 16px;
   }
 }
