@@ -713,16 +713,26 @@ body.updates .grid2 > .panel{
   align-self: start;
 }
 
-/* Keep the social panel snug and right-aligned on desktop */
+/* Make the social panel match Home's right-column width (no "small" max-width cap) */
 body.updates .panel--social{
-  max-width: 420px;
+  max-width: none;        /* IMPORTANT: removes the 420px cap */
   width: 100%;
-  justify-self: end;
+  justify-self: stretch;  /* fill the grid column */
+  align-self: start;      /* don't stretch taller */
 }
 
-/* Keep button sizing the same */
+/* Keep layout consistent (YouTube full width, TikTok + Instagram 2 columns like Home) */
+body.updates .panel--social .linksGrid{
+  grid-template-columns: 1fr 1fr;
+}
+
+body.updates .panel--social .linksGrid a:nth-child(1){
+  grid-column: 1 / -1;
+}
+
+/* Buttons should fill their grid cells (prevents "small" look) */
 body.updates .panel--social .btnPrimary,
 body.updates .panel--social .btnGhost{
-  width: auto;
-  min-width: 180px;
+  width: 100%;
+  min-width: 0;
 }
