@@ -697,3 +697,17 @@ body{
   color:#fff;
   font-weight:600;
 }
+/* =========================
+   Updates page – Social panel width fix
+========================= */
+
+.panel--social {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.panel--social .btnPrimary,
+.panel--social .btnGhost {
+  width: auto;
+  min-width: 180px;
+}
