@@ -30,7 +30,7 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org (Updates page) -->
+  <!-- Schema.org (Updates page: WebPage + ItemList + VideoObject entries) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,14 +43,77 @@
         "description": "New uploads, series notes, PC hardware reviews, benchmarks, and tech updates from LegacyXV2.",
         "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
         "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
+        "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage" }
       },
       {
         "@type": "ImageObject",
-        "@id": "https://legacyxv2-site.pages.dev/#ogimage",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage",
         "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
         "width": 1200,
         "height": 630
+      },
+
+      /* Feed container for Google: this is your "Latest" list */
+      {
+        "@type": "ItemList",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#latest",
+        "name": "LegacyXV2 Latest Uploads & Reviews",
+        "itemListOrder": "https://schema.org/ItemListOrderDescending",
+        "numberOfItems": 3,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "url": "https://youtu.be/5QJ2YAaTKoU", "item": { "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU" } },
+          { "@type": "ListItem", "position": 2, "url": "https://youtu.be/SSkLnaxKv6M", "item": { "@id": "https://legacyxv2-site.pages.dev/updates.html#video-SSkLnaxKv6M" } },
+          { "@type": "ListItem", "position": 3, "url": "https://youtu.be/9frGXH0f3_0", "item": { "@id": "https://legacyxv2-site.pages.dev/updates.html#video-9frGXH0f3_0" } }
+        ]
+      },
+
+      /* VideoObject #1 */
+      {
+        "@type": "VideoObject",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU",
+        "name": "New series now live",
+        "description": "A brand-new series has launched. Full playthrough starts now.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg"
+        ],
+        "contentUrl": "https://youtu.be/5QJ2YAaTKoU",
+        "embedUrl": "https://www.youtube.com/embed/5QJ2YAaTKoU",
+        "url": "https://youtu.be/5QJ2YAaTKoU",
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" },
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+      },
+
+      /* VideoObject #2 */
+      {
+        "@type": "VideoObject",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-SSkLnaxKv6M",
+        "name": "Latest tech / hardware review",
+        "description": "New performance testing and hardware review is live.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/SSkLnaxKv6M/hqdefault.jpg"
+        ],
+        "contentUrl": "https://youtu.be/SSkLnaxKv6M",
+        "embedUrl": "https://www.youtube.com/embed/SSkLnaxKv6M",
+        "url": "https://youtu.be/SSkLnaxKv6M",
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" },
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+      },
+
+      /* VideoObject #3 */
+      {
+        "@type": "VideoObject",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-9frGXH0f3_0",
+        "name": "Gameplay",
+        "description": "Gameplay upload from LegacyXV2.",
+        "thumbnailUrl": [
+          "https://i.ytimg.com/vi/9frGXH0f3_0/hqdefault.jpg"
+        ],
+        "contentUrl": "https://youtu.be/9frGXH0f3_0",
+        "embedUrl": "https://www.youtube.com/embed/9frGXH0f3_0",
+        "url": "https://youtu.be/9frGXH0f3_0",
+        "uploadDate": "2026-01-22",
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" },
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       }
     ]
   }
