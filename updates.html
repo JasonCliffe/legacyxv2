@@ -10,17 +10,19 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/updates.html" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (page-specific) -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2-site.pages.dev/updates.html" />
   <meta property="og:title" content="LegacyXV2 — Updates, New Uploads & Hardware Reviews" />
   <meta property="og:description" content="Latest uploads + series notes + PC hardware reviews and benchmarks from LegacyXV2." />
   <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:secure_url" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:alt" content="LegacyXV2 — Updates, New Uploads & Hardware Reviews" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Updates, New Uploads & Hardware Reviews" />
   <meta name="twitter:description" content="Latest uploads + series notes + PC hardware reviews and benchmarks from LegacyXV2." />
@@ -32,17 +34,23 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": "https://legacyxv2-site.pages.dev/updates.html#collection",
-    "url": "https://legacyxv2-site.pages.dev/updates.html",
-    "name": "LegacyXV2 Updates",
-    "description": "Updates from LegacyXV2 — new uploads, series notes, and PC hardware reviews.",
-    "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
-    "about": [
-      "Gaming playthroughs",
-      "PC hardware reviews",
-      "Benchmarks",
-      "Tech content"
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#collection",
+        "url": "https://legacyxv2-site.pages.dev/updates.html",
+        "name": "LegacyXV2 Updates",
+        "description": "Updates from LegacyXV2 — new uploads, series notes, and PC hardware reviews.",
+        "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
+        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/updates.html",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
+          "width": 1200,
+          "height": 630
+        }
+      }
     ]
   }
   </script>
