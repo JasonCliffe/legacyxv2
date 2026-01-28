@@ -31,7 +31,7 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org: Brand + Founder + Creator + YouTube Channel -->
+  <!-- Schema.org: Brand + Founder + Creator (valid types only) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,14 +85,10 @@
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Owner",
         "url": "https://legacyxv2-site.pages.dev/",
-        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "sameAs": [
-          "https://youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
 
+      /* Creator identity for the channel/brand (valid Schema.org type) */
       {
         "@type": "Person",
         "@id": "https://legacyxv2-site.pages.dev/#creator",
@@ -106,16 +102,22 @@
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ],
-        "subjectOf": { "@id": "https://legacyxv2-site.pages.dev/#youtubechannel" }
+        "subjectOf": { "@id": "https://legacyxv2-site.pages.dev/#youtube" }
       },
+
+      /* YouTube presence (use a valid type, not YouTubeChannel) */
       {
-        "@type": "YouTubeChannel",
-        "@id": "https://legacyxv2-site.pages.dev/#youtubechannel",
-        "name": "LegacyXV2",
+        "@type": "Organization",
+        "@id": "https://legacyxv2-site.pages.dev/#youtube",
+        "name": "LegacyXV2 on YouTube",
         "url": "https://youtube.com/@legacyxv2",
         "sameAs": [
           "https://www.youtube.com/@legacyxv2"
-        ]
+        ],
+        "potentialAction": {
+          "@type": "SubscribeAction",
+          "target": "https://youtube.com/@legacyxv2?sub_confirmation=1"
+        }
       }
     ]
   }
