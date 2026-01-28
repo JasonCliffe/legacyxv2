@@ -736,3 +736,21 @@ body.updates .panel--social .btnGhost{
   width: 100%;
   min-width: 0;
 }
+/* =========================
+   Fix: Mobile "Desktop site" view
+   Keeps real desktop perfect
+========================= */
+
+/* On touch devices (phones/tablets), even if "Desktop site" is enabled,
+   stack the 2-column layout so the right panel doesn't look floating. */
+@media (hover: none) and (pointer: coarse){
+  .grid2{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* make sure panels are full width when stacked */
+  .grid2 > .panel{
+    justify-self: stretch !important;
+    width: 100% !important;
+  }
+}
