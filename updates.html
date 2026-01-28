@@ -4,6 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- 🔒 Force correct URL (prevents /updates blank page issue) -->
+  <script>
+    if (location.pathname === "/updates") {
+      location.replace("/updates.html");
+    }
+  </script>
+
   <!-- Primary SEO -->
   <title>LegacyXV2 — Updates, New Uploads & Hardware Reviews</title>
   <meta name="description" content="Latest LegacyXV2 updates: new YouTube uploads, series notes, PC hardware reviews, benchmarks, and tech posts." />
@@ -20,82 +27,105 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LegacyXV2 — Updates & New Uploads" />
-  <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and PC hardware reviews." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org: Updates + Video Rich Results -->
+  <!-- Schema.org: Updates Page -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage",
-        "url": "https://legacyxv2-site.pages.dev/updates.html",
-        "name": "LegacyXV2 — Updates & New Uploads",
-        "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
-        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
-      },
-
-      {
-        "@type": "ItemList",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#latest",
-        "name": "Latest LegacyXV2 Videos",
-        "itemListOrder": "https://schema.org/ItemListOrderDescending",
-        "numberOfItems": 3,
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "item": { "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU" } },
-          { "@type": "ListItem", "position": 2, "item": { "@id": "https://legacyxv2-site.pages.dev/updates.html#video-SSkLnaxKv6M" } },
-          { "@type": "ListItem", "position": 3, "item": { "@id": "https://legacyxv2-site.pages.dev/updates.html#video-9frGXH0f3_0" } }
-        ]
-      },
-
-      {
-        "@type": "VideoObject",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU",
-        "name": "New series now live",
-        "description": "A brand-new series has launched. Full playthrough starts now.",
-        "thumbnailUrl": "https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg",
-        "uploadDate": "2026-01-26",
-        "contentUrl": "https://youtu.be/5QJ2YAaTKoU",
-        "embedUrl": "https://www.youtube.com/embed/5QJ2YAaTKoU",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
-      },
-
-      {
-        "@type": "VideoObject",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-SSkLnaxKv6M",
-        "name": "Latest tech / hardware review",
-        "description": "New performance testing and hardware review is live.",
-        "thumbnailUrl": "https://i.ytimg.com/vi/SSkLnaxKv6M/hqdefault.jpg",
-        "uploadDate": "2026-01-24",
-        "contentUrl": "https://youtu.be/SSkLnaxKv6M",
-        "embedUrl": "https://www.youtube.com/embed/SSkLnaxKv6M",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
-      },
-
-      {
-        "@type": "VideoObject",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-9frGXH0f3_0",
-        "name": "Gameplay",
-        "description": "Gameplay upload from LegacyXV2.",
-        "thumbnailUrl": "https://i.ytimg.com/vi/9frGXH0f3_0/hqdefault.jpg",
-        "uploadDate": "2026-01-22",
-        "contentUrl": "https://youtu.be/9frGXH0f3_0",
-        "embedUrl": "https://www.youtube.com/embed/9frGXH0f3_0",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
-      }
-    ]
+    "@type": "WebPage",
+    "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage",
+    "url": "https://legacyxv2-site.pages.dev/updates.html",
+    "name": "LegacyXV2 — Updates & New Uploads",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://legacyxv2-site.pages.dev/#website"
+    },
+    "about": {
+      "@type": "Organization",
+      "@id": "https://legacyxv2-site.pages.dev/#brand"
+    },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg"
+    }
   }
   </script>
 </head>
 
 <body>
-  <!-- Your existing body stays exactly the same -->
+  <main class="wrap">
+
+    <!-- TOP NAV -->
+    <nav class="topnav">
+      <div class="navlinks">
+        <a class="navlink" href="/index.html">Home</a>
+        <a class="navlink active" href="/updates.html">Updates</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="heroFrame">
+      <div class="heroFrame__glow" aria-hidden="true"></div>
+
+      <div class="heroFrame__inner">
+        <div class="heroTop">
+          <div class="heroTop__label">
+            <span class="heroTop__dot"></span>
+            UPDATES
+            <span class="heroTop__dot"></span>
+          </div>
+        </div>
+
+        <div class="heroMain">
+          <div class="heroLogo">
+            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" />
+          </div>
+
+          <div class="heroCopy">
+            <h1 class="heroTitle">UPDATES</h1>
+            <p class="heroSub">
+              New uploads • Series notes • PC hardware reviews
+            </p>
+
+            <div class="heroChips">
+              <span class="chip">NEW UPLOADS</span>
+              <span class="chip">REVIEWS</span>
+              <span class="chip">BENCHMARKS</span>
+            </div>
+
+            <a class="miniLink" href="/index.html">← Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT -->
+    <section class="grid2">
+      <section class="panel">
+        <div class="panelHead">
+          <h2 class="panelTitle">Latest Updates</h2>
+        </div>
+
+        <div class="panelBody">
+          <p class="aboutLead">
+            Updates, new uploads, and hardware reviews will appear here.
+          </p>
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> — LegacyXV2</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
