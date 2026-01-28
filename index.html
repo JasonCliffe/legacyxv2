@@ -28,7 +28,7 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org Structured Data -->
+  <!-- Schema.org Structured Data (Brand is the creator, not personal name) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,19 +40,23 @@
         "name": "LegacyXV2",
         "description": "Completionist gaming playthroughs and in-depth PC hardware reviews.",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#creator" }
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
       {
-        "@type": "Person",
-        "@id": "https://legacyxv2-site.pages.dev/#creator",
-        "name": "Jason Cliffe",
+        "@type": "Organization",
+        "@id": "https://legacyxv2-site.pages.dev/#brand",
+        "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "jobTitle": "Content Creator",
+        "logo": "https://legacyxv2-site.pages.dev/logo.png",
         "sameAs": [
           "https://youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
-        ]
+        ],
+        "founder": {
+          "@type": "Person",
+          "name": "Jason Cliffe"
+        }
       }
     ]
   }
