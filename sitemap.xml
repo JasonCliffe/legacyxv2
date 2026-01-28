@@ -3,11 +3,13 @@
 
   <url>
     <loc>https://legacyxv2-site.pages.dev/</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://legacyxv2-site.pages.dev/updates.html</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
