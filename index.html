@@ -10,25 +10,30 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/" />
 
-  <!-- Open Graph (social previews) -->
+  <!-- Open Graph (explicit, fixes Meta warning) -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2-site.pages.dev/" />
   <meta property="og:title" content="LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews" />
   <meta property="og:description" content="Completionist playthroughs + PC hardware reviews (GPUs/CPUs/benchmarks/builds). New uploads weekly." />
   <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:secure_url" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:alt" content="LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter Card -->
+  <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews" />
   <meta name="twitter:description" content="Completionist playthroughs + PC hardware reviews (GPUs/CPUs/benchmarks/builds). New uploads weekly." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
+  <!-- (Optional but good) Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org Structured Data (Brand is the creator, not personal name) -->
+  <!-- Schema.org Structured Data (Brand + Person) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,20 +48,53 @@
         "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
       {
+        "@type": "WebPage",
+        "@id": "https://legacyxv2-site.pages.dev/#webpage",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "name": "LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews",
+        "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
+        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
+          "width": 1200,
+          "height": 630
+        }
+      },
+      {
         "@type": "Organization",
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "logo": "https://legacyxv2-site.pages.dev/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/logo.png"
+        },
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" },
         "sameAs": [
           "https://youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
-        ],
-        "founder": {
-          "@type": "Person",
-          "name": "Jason Cliffe"
-        }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://legacyxv2-site.pages.dev/#founder",
+        "name": "Jason Cliffe",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "jobTitle": "Founder",
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "sameAs": [
+          "https://youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
       }
     ]
   }
