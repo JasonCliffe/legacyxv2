@@ -28,27 +28,64 @@
   <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
-  <!-- IMPORTANT: absolute path so it works on any route -->
+
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org: Updates page + VideoObjects -->
+ 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://legacyxv2-site.pages.dev/#website",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "name": "LegacyXV2",
+        "inLanguage": "en-GB",
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#creator" }
+      },
+      {
+        "@type": "Brand",
+        "@id": "https://legacyxv2-site.pages.dev/#brand",
+        "name": "LegacyXV2",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "logo": "https://legacyxv2-site.pages.dev/logo.png",
+        "sameAs": [
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://legacyxv2-site.pages.dev/#creator",
+        "name": "Jason Cliffe",
+        "jobTitle": "Founder / Creator",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "sameAs": [
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
+      },
+
       {
         "@type": "WebPage",
         "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage",
         "url": "https://legacyxv2-site.pages.dev/updates.html",
         "name": "LegacyXV2 — Updates & New Uploads",
         "description": "New uploads, series notes, PC hardware reviews, benchmarks, and tech updates from LegacyXV2.",
-        "primaryImageOfPage": {
-          "@type": "ImageObject",
-          "@id": "https://legacyxv2-site.pages.dev/updates.html#ogimage",
-          "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
-          "width": 1200,
-          "height": 630
-        }
+        "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
+        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://legacyxv2-site.pages.dev/#ogimage",
+        "url": "https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
+        "width": 1200,
+        "height": 630
       },
 
       {
@@ -60,7 +97,9 @@
         "uploadDate": "2026-01-26T18:00:00+00:00",
         "contentUrl": "https://youtu.be/5QJ2YAaTKoU",
         "embedUrl": "https://www.youtube.com/embed/5QJ2YAaTKoU",
-        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/updates.html"
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
       },
       {
         "@type": "VideoObject",
@@ -71,7 +110,9 @@
         "uploadDate": "2026-01-24T18:00:00+00:00",
         "contentUrl": "https://youtu.be/SSkLnaxKv6M",
         "embedUrl": "https://www.youtube.com/embed/SSkLnaxKv6M",
-        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/updates.html"
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
       },
       {
         "@type": "VideoObject",
@@ -82,7 +123,9 @@
         "uploadDate": "2026-01-22T18:00:00+00:00",
         "contentUrl": "https://youtu.be/9frGXH0f3_0",
         "embedUrl": "https://www.youtube.com/embed/9frGXH0f3_0",
-        "mainEntityOfPage": "https://legacyxv2-site.pages.dev/updates.html"
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
       }
     ]
   }
@@ -108,7 +151,7 @@
         <div class="heroTop">
           <div class="heroTop__label">
             <span class="heroTop__dot" aria-hidden="true"></span>
-           UPDATEs
+            UPDATEs
             <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
@@ -120,7 +163,7 @@
           </div>
 
           <div class="heroCopy">
-          
+
             <h1 class="heroTitle"></h1>
 
             <p class="heroSub">
