@@ -10,7 +10,7 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/updates.html" />
 
-  <!-- Open Graph (keep main OG image as-is) -->
+  <!-- Open Graph -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2-site.pages.dev/updates.html" />
@@ -28,9 +28,10 @@
   <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
+  <!-- Styles -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org: Updates page + VideoObjects + YouTubeChannel lock -->
+  <!-- Structured Data: Website + Brand/Creator + YouTube Channel entity + Breadcrumbs + VideoObjects -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,12 +42,7 @@
         "url": "https://legacyxv2-site.pages.dev/",
         "name": "LegacyXV2",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "sameAs": [
-          "https://www.youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
 
       {
@@ -54,13 +50,16 @@
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "logo": "https://legacyxv2-site.pages.dev/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/logo.png"
+        },
+        "image": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" },
         "sameAs": [
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
-        ],
-        "subjectOf": { "@id": "https://legacyxv2-site.pages.dev/#youtube" }
+        ]
       },
 
       {
@@ -69,23 +68,15 @@
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2-site.pages.dev/",
-        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "sameAs": [
-          "https://www.youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
 
+      /* STEP 1: YouTube channel entity (ties site <-> channel <-> creator) */
       {
-        "@type": "YouTubeChannel",
-        "@id": "https://legacyxv2-site.pages.dev/#youtube",
+        "@type": "Organization",
+        "@id": "https://www.youtube.com/@legacyxv2#channel",
         "name": "LegacyXV2",
         "url": "https://www.youtube.com/@legacyxv2",
-        "description": "Official LegacyXV2 YouTube channel: completionist gaming playthroughs and PC hardware reviews.",
-        "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
         "sameAs": [
           "https://legacyxv2-site.pages.dev/",
           "https://www.tiktok.com/@legacyxv2",
@@ -113,6 +104,26 @@
       },
 
       {
+        "@type": "BreadcrumbList",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://legacyxv2-site.pages.dev/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Updates",
+            "item": "https://legacyxv2-site.pages.dev/updates.html"
+          }
+        ]
+      },
+
+  
+      {
         "@type": "VideoObject",
         "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU",
         "name": "New series now live",
@@ -121,7 +132,7 @@
         "uploadDate": "2026-01-28T18:00:00+00:00",
         "contentUrl": "https://youtu.be/5QJ2YAaTKoU",
         "embedUrl": "https://www.youtube.com/embed/5QJ2YAaTKoU",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#youtube" },
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
         "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
       },
@@ -134,7 +145,7 @@
         "uploadDate": "2026-01-09T18:00:00+00:00",
         "contentUrl": "https://youtu.be/SSkLnaxKv6M",
         "embedUrl": "https://www.youtube.com/embed/SSkLnaxKv6M",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#youtube" },
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
         "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
       },
@@ -147,7 +158,7 @@
         "uploadDate": "2026-01-21T18:00:00+00:00",
         "contentUrl": "https://youtu.be/9frGXH0f3_0",
         "embedUrl": "https://www.youtube.com/embed/9frGXH0f3_0",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#youtube" },
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
         "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage" }
       }
@@ -175,7 +186,7 @@
         <div class="heroTop">
           <div class="heroTop__label">
             <span class="heroTop__dot" aria-hidden="true"></span>
-            UPDATEs
+            UPDATES
             <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
@@ -283,7 +294,7 @@
           <!-- PREVIOUS VIDEO -->
           <article class="update update--video" id="video-9frGXH0f3_0">
             <div class="updateTop">
-              <div class="updateMeta">22 Jan 2026</div>
+              <div class="updateMeta">21 Jan 2026</div>
             </div>
 
             <h3 class="updateTitle">Gameplay</h3>
