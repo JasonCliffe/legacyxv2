@@ -28,10 +28,20 @@
   <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
-  <!-- Styles -->
+  <link rel="dns-prefetch" href="//www.youtube.com">
+  <link rel="dns-prefetch" href="//i.ytimg.com">
+  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+
+  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/og-legacyxv2.jpg">
+
+  <!-- Preload the first (top) thumbnail to make the page feel instant -->
+  <link rel="preload" as="image" href="https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg" crossorigin>
+
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Structured Data: Website + Brand/Creator + YouTube Channel entity + Breadcrumbs + VideoObjects -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,48 +52,33 @@
         "url": "https://legacyxv2-site.pages.dev/",
         "name": "LegacyXV2",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#creator" }
       },
-
       {
         "@type": "Brand",
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://legacyxv2-site.pages.dev/logo.png"
-        },
-        "image": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" },
+        "logo": "https://legacyxv2-site.pages.dev/logo.png",
         "sameAs": [
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ]
       },
-
       {
         "@type": "Person",
         "@id": "https://legacyxv2-site.pages.dev/#creator",
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2-site.pages.dev/",
-        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
-      },
-
-      /* STEP 1: YouTube channel entity (ties site <-> channel <-> creator) */
-      {
-        "@type": "Organization",
-        "@id": "https://www.youtube.com/@legacyxv2#channel",
-        "name": "LegacyXV2",
-        "url": "https://www.youtube.com/@legacyxv2",
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "sameAs": [
-          "https://legacyxv2-site.pages.dev/",
+          "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ]
       },
-
       {
         "@type": "WebPage",
         "@id": "https://legacyxv2-site.pages.dev/updates.html#webpage",
@@ -94,7 +89,6 @@
         "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
       },
-
       {
         "@type": "ImageObject",
         "@id": "https://legacyxv2-site.pages.dev/#ogimage",
@@ -103,26 +97,6 @@
         "height": 630
       },
 
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#breadcrumbs",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://legacyxv2-site.pages.dev/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Updates",
-            "item": "https://legacyxv2-site.pages.dev/updates.html"
-          }
-        ]
-      },
-
-  
       {
         "@type": "VideoObject",
         "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU",
@@ -193,7 +167,7 @@
 
         <div class="heroMain">
           <div class="heroLogo" aria-hidden="true">
-            <img class="heroLogo__img" src="/logo.png" alt="" loading="lazy" />
+            <img class="heroLogo__img" src="/logo.png" alt="" loading="eager" fetchpriority="high" decoding="async" />
           </div>
 
           <div class="heroCopy">
@@ -245,7 +219,8 @@
                 class="thumbImg"
                 src="https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg"
                 alt="New series thumbnail"
-                loading="lazy" />
+                loading="lazy"
+                decoding="async" />
             </a>
 
             <p class="updateBody">
@@ -276,7 +251,8 @@
                 class="thumbImg"
                 src="https://i.ytimg.com/vi/SSkLnaxKv6M/hqdefault.jpg"
                 alt="Hardware review thumbnail"
-                loading="lazy" />
+                loading="lazy"
+                decoding="async" />
             </a>
 
             <p class="updateBody">
@@ -307,7 +283,8 @@
                 class="thumbImg"
                 src="https://i.ytimg.com/vi/9frGXH0f3_0/hqdefault.jpg"
                 alt="Previous video thumbnail"
-                loading="lazy" />
+                loading="lazy"
+                decoding="async" />
             </a>
 
             <a class="miniLink"
