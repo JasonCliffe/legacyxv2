@@ -28,10 +28,9 @@
   <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
-
   <link rel="stylesheet" href="/styles.css" />
 
- 
+  <!-- Structured Data: Site + Brand + Creator + Updates page + VideoObjects (DATES FIXED TO REAL YT PUBLISH DATES) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -42,14 +41,17 @@
         "url": "https://legacyxv2-site.pages.dev/",
         "name": "LegacyXV2",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#creator" }
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
       {
         "@type": "Brand",
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "logo": "https://legacyxv2-site.pages.dev/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/logo.png"
+        },
         "sameAs": [
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
@@ -62,12 +64,7 @@
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2-site.pages.dev/",
-        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "sameAs": [
-          "https://www.youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
 
       {
@@ -94,8 +91,8 @@
         "name": "New series now live",
         "description": "A brand-new series has launched. Full playthrough starts now.",
         "thumbnailUrl": ["https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg"],
-        "uploadDate": "2026-01-26T18:00:00+00:00",
-        "contentUrl": "https://youtu.be/5QJ2YAaTKoU",
+        "uploadDate": "2026-01-28T18:00:00+00:00",
+        "contentUrl": "https://www.youtube.com/watch?v=5QJ2YAaTKoU",
         "embedUrl": "https://www.youtube.com/embed/5QJ2YAaTKoU",
         "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
@@ -105,10 +102,10 @@
         "@type": "VideoObject",
         "@id": "https://legacyxv2-site.pages.dev/updates.html#video-SSkLnaxKv6M",
         "name": "Latest tech / hardware review",
-        "description": "New performance testing and hardware review is live.",
+        "description": "In-depth PC hardware review including performance testing and benchmarks.",
         "thumbnailUrl": ["https://i.ytimg.com/vi/SSkLnaxKv6M/hqdefault.jpg"],
-        "uploadDate": "2026-01-24T18:00:00+00:00",
-        "contentUrl": "https://youtu.be/SSkLnaxKv6M",
+        "uploadDate": "2026-01-09T18:00:00+00:00",
+        "contentUrl": "https://www.youtube.com/watch?v=SSkLnaxKv6M",
         "embedUrl": "https://www.youtube.com/embed/SSkLnaxKv6M",
         "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
@@ -120,8 +117,8 @@
         "name": "Gameplay",
         "description": "Gameplay upload from LegacyXV2.",
         "thumbnailUrl": ["https://i.ytimg.com/vi/9frGXH0f3_0/hqdefault.jpg"],
-        "uploadDate": "2026-01-22T18:00:00+00:00",
-        "contentUrl": "https://youtu.be/9frGXH0f3_0",
+        "uploadDate": "2026-01-21T18:00:00+00:00",
+        "contentUrl": "https://www.youtube.com/watch?v=9frGXH0f3_0",
         "embedUrl": "https://www.youtube.com/embed/9frGXH0f3_0",
         "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "creator": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
@@ -151,19 +148,17 @@
         <div class="heroTop">
           <div class="heroTop__label">
             <span class="heroTop__dot" aria-hidden="true"></span>
-            UPDATEs
+            UPDATES
             <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
 
         <div class="heroMain">
           <div class="heroLogo" aria-hidden="true">
-            <!-- IMPORTANT: absolute path -->
             <img class="heroLogo__img" src="/logo.png" alt="" loading="lazy" />
           </div>
 
           <div class="heroCopy">
-
             <h1 class="heroTitle"></h1>
 
             <p class="heroSub">
