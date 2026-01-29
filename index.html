@@ -35,9 +35,9 @@
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
   <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org: LegacyXV2 identity lock + YouTubeChannel authority -->
+  <!-- Structured Data: Website + Brand + Creator + YouTube Channel entity + Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,14 +49,8 @@
         "name": "LegacyXV2",
         "description": "Gaming playthroughs and in-depth PC hardware reviews.",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "sameAs": [
-          "https://www.youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
-
       {
         "@type": "WebPage",
         "@id": "https://legacyxv2-site.pages.dev/#webpage",
@@ -67,7 +61,6 @@
         "mainEntity": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
       },
-
       {
         "@type": "ImageObject",
         "@id": "https://legacyxv2-site.pages.dev/#ogimage",
@@ -76,9 +69,8 @@
         "height": 630
       },
 
-      /* Brand entity */
       {
-        "@type": "Organization",
+        "@type": "Brand",
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
@@ -91,39 +83,48 @@
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
-        ],
-        "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" },
-        "subjectOf": { "@id": "https://legacyxv2-site.pages.dev/#youtube" }
+        ]
       },
 
-      /* Founder / Creator */
       {
         "@type": "Person",
-        "@id": "https://legacyxv2-site.pages.dev/#founder",
+        "@id": "https://legacyxv2-site.pages.dev/#creator",
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2-site.pages.dev/",
-        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+      },
+
+      /* STEP 1: YouTube channel entity lock-in */
+      {
+        "@type": "Organization",
+        "@id": "https://www.youtube.com/@legacyxv2#channel",
+        "name": "LegacyXV2",
+        "url": "https://www.youtube.com/@legacyxv2",
         "sameAs": [
-          "https://www.youtube.com/@legacyxv2",
+          "https://legacyxv2-site.pages.dev/",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ]
       },
 
+      /* STEP 2: Breadcrumbs (clean + future-proof) */
       {
-        "@type": "YouTubeChannel",
-        "@id": "https://legacyxv2-site.pages.dev/#youtube",
-        "name": "LegacyXV2",
-        "url": "https://www.youtube.com/@legacyxv2",
-        "description": "Official LegacyXV2 YouTube channel: completionist gaming playthroughs and PC hardware reviews.",
-        "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "creator": { "@id": "https://legacyxv2-site.pages.dev/#founder" },
-        "sameAs": [
-          "https://legacyxv2-site.pages.dev/",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
+        "@type": "BreadcrumbList",
+        "@id": "https://legacyxv2-site.pages.dev/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://legacyxv2-site.pages.dev/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Updates",
+            "item": "https://legacyxv2-site.pages.dev/updates.html"
+          }
         ]
       }
     ]
