@@ -35,9 +35,18 @@
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
   <link rel="icon" href="/favicon.ico" />
+
+  <link rel="dns-prefetch" href="//www.youtube.com">
+  <link rel="dns-prefetch" href="//i.ytimg.com">
+  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+
+  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/og-legacyxv2.jpg">
+
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Structured Data: Website + Brand + Creator + YouTube Channel entity + Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -95,7 +104,6 @@
         "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
 
-      /* STEP 1: YouTube channel entity lock-in */
       {
         "@type": "Organization",
         "@id": "https://www.youtube.com/@legacyxv2#channel",
@@ -108,7 +116,6 @@
         ]
       },
 
-      /* STEP 2: Breadcrumbs (clean + future-proof) */
       {
         "@type": "BreadcrumbList",
         "@id": "https://legacyxv2-site.pages.dev/#breadcrumbs",
@@ -158,7 +165,7 @@
 
         <div class="heroMain">
           <div class="heroLogo">
-            <img src="logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" />
+            <img src="logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="eager" fetchpriority="high" decoding="async" />
           </div>
 
           <div class="heroCopy">
@@ -202,6 +209,7 @@
             src="https://www.youtube.com/embed/EZhBBKnVXdI"
             title="LegacyXV2 Introduction"
             loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
         </div>
@@ -220,7 +228,7 @@
           <!-- MAIN GAMING PC -->
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="pc-gaming.jpg" alt="Main gaming PC" loading="lazy" />
+              <img src="pc-gaming.jpg" alt="Main gaming PC" loading="lazy" decoding="async" />
               <span class="rigLabel">Main Gaming PC</span>
             </div>
 
@@ -244,7 +252,7 @@
           <!-- EDITING PC -->
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="pc-editing.jpg" alt="Editing PC" loading="lazy" />
+              <img src="pc-editing.jpg" alt="Editing PC" loading="lazy" decoding="async" />
               <span class="rigLabel">Editing PC</span>
             </div>
 
@@ -268,7 +276,7 @@
           <!-- TESTING PC -->
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="pc-testing.jpg" alt="Testing PC" loading="lazy" />
+              <img src="pc-testing.jpg" alt="Testing PC" loading="lazy" decoding="async" />
               <span class="rigLabel">Testing PC</span>
             </div>
 
