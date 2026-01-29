@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ✅ Optional safety: if someone goes /updates, send them to /updates.html -->
   <script>
     if (location.pathname === "/updates") {
       location.replace("/updates.html");
@@ -38,7 +37,6 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Schema.org: LegacyXV2 = Brand + Creator (Organization), Jason = Founder/Owner (Person) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,9 +46,8 @@
         "@id": "https://legacyxv2-site.pages.dev/#website",
         "url": "https://legacyxv2-site.pages.dev/",
         "name": "LegacyXV2",
-        "description": "Gaming playthroughs and in-depth PC hardware reviews.",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#creator" }
       },
       {
         "@type": "WebPage",
@@ -59,7 +56,6 @@
         "name": "LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews",
         "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
         "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "mainEntity": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
         "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
       },
       {
@@ -69,52 +65,30 @@
         "width": 1200,
         "height": 630
       },
-
       {
-        "@type": "Organization",
+        "@type": "Brand",
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://legacyxv2-site.pages.dev/logo.png"
-        },
-        "image": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" },
+        "logo": "https://legacyxv2-site.pages.dev/logo.png",
         "sameAs": [
-          "https://youtube.com/@legacyxv2",
+          "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
-        ],
-        "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" }
+        ]
       },
-
-      {
-        "@type": "Organization",
-        "@id": "https://legacyxv2-site.pages.dev/#creator",
-        "name": "LegacyXV2",
-        "alternateName": "LegacyXV2 (Creator)",
-        "url": "https://legacyxv2-site.pages.dev/",
-        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/#webpage" },
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://legacyxv2-site.pages.dev/logo.png"
-        },
-        "image": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" },
-        "sameAs": [
-          "https://youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ],
-        "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" }
-      },
-
       {
         "@type": "Person",
-        "@id": "https://legacyxv2-site.pages.dev/#founder",
+        "@id": "https://legacyxv2-site.pages.dev/#creator",
         "name": "Jason Cliffe",
-        "jobTitle": "Founder / Owner",
+        "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2-site.pages.dev/",
-        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "sameAs": [
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
       }
     ]
   }
@@ -151,23 +125,23 @@
           </div>
 
           <div class="heroCopy">
-        <div class="heroIdentity">
+            <div class="heroIdentity">
 
-  <div class="heroRole">
-    BRAND • CONTENT CREATOR
-  </div>
+              <div class="heroRole">
+                BRAND • CONTENT CREATOR
+              </div>
 
-  <h1 class="heroTitle">LEGACYXV2</h1>
+              <h1 class="heroTitle">LEGACYXV2</h1>
 
-  <div class="heroFounder">
-    Founded &amp; Created by <strong>Jason Cliffe</strong>
-  </div>
+              <div class="heroFounder">
+                Founded &amp; Created by <strong>Jason Cliffe</strong>
+              </div>
 
-  <p class="heroSub">
-    Thorough gaming playthroughs • Retro &amp; modern titles • PC hardware &amp; tech reviews
-  </p>
+              <p class="heroSub">
+                Thorough gaming playthroughs • Retro &amp; modern titles • PC hardware &amp; tech reviews
+              </p>
 
-</div>
+            </div>
 
             <div class="heroChips" aria-hidden="true">
               <span class="chip">Playthroughs</span>
