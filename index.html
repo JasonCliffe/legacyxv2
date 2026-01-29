@@ -37,6 +37,7 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Schema.org: LegacyXV2 identity lock + YouTubeChannel authority -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,9 +47,16 @@
         "@id": "https://legacyxv2-site.pages.dev/#website",
         "url": "https://legacyxv2-site.pages.dev/",
         "name": "LegacyXV2",
+        "description": "Gaming playthroughs and in-depth PC hardware reviews.",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#creator" }
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "sameAs": [
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
       },
+
       {
         "@type": "WebPage",
         "@id": "https://legacyxv2-site.pages.dev/#webpage",
@@ -56,8 +64,10 @@
         "name": "LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews",
         "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
         "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "mainEntity": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
       },
+
       {
         "@type": "ImageObject",
         "@id": "https://legacyxv2-site.pages.dev/#ogimage",
@@ -65,27 +75,53 @@
         "width": 1200,
         "height": 630
       },
+
+      /* Brand entity */
       {
-        "@type": "Brand",
+        "@type": "Organization",
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "logo": "https://legacyxv2-site.pages.dev/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/logo.png"
+        },
+        "image": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" },
         "sameAs": [
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
-        ]
+        ],
+        "founder": { "@id": "https://legacyxv2-site.pages.dev/#founder" },
+        "subjectOf": { "@id": "https://legacyxv2-site.pages.dev/#youtube" }
       },
+
+      /* Founder / Creator */
       {
         "@type": "Person",
-        "@id": "https://legacyxv2-site.pages.dev/#creator",
+        "@id": "https://legacyxv2-site.pages.dev/#founder",
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2-site.pages.dev/",
         "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "sameAs": [
           "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
+      },
+
+      {
+        "@type": "YouTubeChannel",
+        "@id": "https://legacyxv2-site.pages.dev/#youtube",
+        "name": "LegacyXV2",
+        "url": "https://www.youtube.com/@legacyxv2",
+        "description": "Official LegacyXV2 YouTube channel: completionist gaming playthroughs and PC hardware reviews.",
+        "inLanguage": "en-GB",
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "creator": { "@id": "https://legacyxv2-site.pages.dev/#founder" },
+        "sameAs": [
+          "https://legacyxv2-site.pages.dev/",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ]
