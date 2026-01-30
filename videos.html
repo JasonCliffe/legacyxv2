@@ -10,13 +10,6 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/videos.html" />
 
-  <!-- Performance hints (Videos page) -->
-  <link rel="preload" as="image" href="/bg.jpg" />
-  <link rel="preconnect" href="https://www.youtube.com" crossorigin />
-  <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
-  <link rel="dns-prefetch" href="//www.youtube.com" />
-  <link rel="dns-prefetch" href="//i.ytimg.com" />
-
   <!-- Open Graph -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
@@ -35,9 +28,19 @@
   <meta name="twitter:description" content="Playlists hub: Resident Evil, Elden Ring, WWE 2K25, Call of Duty Zombies and more — embedded and organized." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
+  <!-- Performance hints -->
+  <link rel="dns-prefetch" href="//www.youtube.com" />
+  <link rel="dns-prefetch" href="//i.ytimg.com" />
+  <link rel="preconnect" href="https://www.youtube.com" crossorigin />
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+
+  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="/logo.png" fetchpriority="high" />
+  <link rel="preload" as="image" href="/og-legacyxv2.jpg" />
+
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org: Site + Brand + Playlist hub + Breadcrumbs -->
+  <!-- Schema.org: Site + Brand + Creator + YouTubeChannel + WebPage + Breadcrumbs + ItemList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -55,9 +58,38 @@
         "@id": "https://legacyxv2-site.pages.dev/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2-site.pages.dev/",
-        "logo": "https://legacyxv2-site.pages.dev/logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://legacyxv2-site.pages.dev/logo.png"
+        },
         "sameAs": [
           "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ],
+        "founder": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
+        "subjectOf": { "@id": "https://www.youtube.com/@legacyxv2#channel" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://legacyxv2-site.pages.dev/#creator",
+        "name": "Jason Cliffe",
+        "jobTitle": "Founder / Creator",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "sameAs": [
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
+      },
+      {
+        "@type": "YouTubeChannel",
+        "@id": "https://www.youtube.com/@legacyxv2#channel",
+        "name": "LegacyXV2",
+        "url": "https://www.youtube.com/@legacyxv2",
+        "sameAs": [
+          "https://legacyxv2-site.pages.dev/",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ]
@@ -69,9 +101,9 @@
         "name": "LegacyXV2 — Videos & Playlists",
         "description": "Playlist hub for LegacyXV2: organized embedded YouTube playlists across games and series.",
         "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
-        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "breadcrumb": { "@id": "https://legacyxv2-site.pages.dev/videos.html#breadcrumbs" }
       },
-
       {
         "@type": "BreadcrumbList",
         "@id": "https://legacyxv2-site.pages.dev/videos.html#breadcrumbs",
@@ -90,7 +122,6 @@
           }
         ]
       },
-
       {
         "@type": "ItemList",
         "@id": "https://legacyxv2-site.pages.dev/videos.html#playlists",
@@ -148,7 +179,7 @@
 
         <div class="heroMain">
           <div class="heroLogo">
-            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" />
+            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="eager" fetchpriority="high" decoding="async" />
           </div>
 
           <div class="heroCopy">
