@@ -715,10 +715,10 @@ body.updates .grid2 > .panel{
 
 /* Make the social panel match Home's right-column width (no "small" max-width cap) */
 body.updates .panel--social{
-  max-width: none;        /* IMPORTANT: removes the 420px cap */
+  max-width: none;
   width: 100%;
-  justify-self: stretch;  /* fill the grid column */
-  align-self: start;      /* don't stretch taller */
+  justify-self: stretch;
+  align-self: start;
 }
 
 /* Keep layout consistent (YouTube full width, TikTok + Instagram 2 columns like Home) */
@@ -736,119 +736,84 @@ body.updates .panel--social .btnGhost{
   width: 100%;
   min-width: 0;
 }
-/* =========================
-   Fix: Phones + Tablets using "Desktop site"
-   (targets real device width; doesn't affect real desktop PCs)
-========================= */
 
-@media only screen and (max-device-width: 1024px){
-  /* Stack columns so the right panel doesn't look like it's floating */
+/* =========================
+   Fix: Mobile "Desktop site" view
+   Keeps real desktop perfect
+========================= */
+@media (hover: none) and (pointer: coarse){
   .grid2{
     grid-template-columns: 1fr !important;
   }
 
-  /* Ensure panels take full width when stacked */
+  /* make sure panels are full width when stacked */
   .grid2 > .panel{
-    width: 100% !important;
     justify-self: stretch !important;
-    align-self: start !important;
+    width: 100% !important;
   }
+}
 
-  /* Social panel should not be restricted on touch devices */
-  .panel--social{
-    max-width: none !important;
-    margin-top: 16px;
-  }
 /* =========================
-   VIDEOS PAGE – Playlists grid/cards
-   (used by videos.html)
+   Videos page (scoped) — moved from videos.html
+   ONLY applies when <body class="videos">
 ========================= */
-
-.playlistGrid{
+body.videos .playlistGrid{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
 }
 
-.playlistCard{
+body.videos .playlistCard{
   border-radius: 16px;
-  overflow: hidden;
+  overflow:hidden;
   border: 1px solid rgba(255,140,0,0.18);
   background: rgba(0,0,0,0.28);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-  position: relative;
 }
 
-/* subtle HUD edge glow */
-.playlistCard::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  pointer-events:none;
-  background: radial-gradient(420px 180px at 15% 15%, rgba(255,90,0,0.10), transparent 60%);
-  filter: blur(10px);
-  opacity: 0.85;
-}
-
-.playlistHead{
-  position: relative;
-  z-index: 1;
+body.videos .playlistHead{
   padding: 12px 12px 0;
 }
 
-.playlistTitle{
-  margin: 0 0 10px;
+body.videos .playlistTitle{
+  margin: 0 0 8px;
   font-size: 13px;
   font-weight: 1000;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: rgba(255,238,221,0.92);
-  text-shadow: 0 0 14px rgba(255,90,0,0.16);
 }
 
-.playlistFrame{
-  position: relative;
-  z-index: 1;
+body.videos .playlistFrame{
   aspect-ratio: 16 / 9;
-  background: rgba(0,0,0,0.45);
   border-top: 1px solid rgba(255,140,0,0.18);
   border-bottom: 1px solid rgba(255,140,0,0.18);
-  overflow: hidden;
+  background: rgba(0,0,0,0.45);
 }
 
-.playlistFrame iframe{
+body.videos .playlistFrame iframe{
   width:100%;
   height:100%;
-  border: 0;
+  border:0;
   display:block;
 }
 
-.playlistFoot{
-  position: relative;
-  z-index: 1;
+body.videos .playlistFoot{
   padding: 12px;
   display:flex;
-  align-items:center;
   justify-content: space-between;
+  align-items:center;
   gap: 10px;
 }
 
-.playlistNote{
-  margin: 0;
+body.videos .playlistNote{
+  margin:0;
   font-size: 12px;
   color: rgba(255,238,221,0.72);
   line-height: 1.45;
 }
 
-/* Tablet */
+/* Tablet/Small desktop */
 @media (max-width: 980px){
-  .playlistGrid{ grid-template-columns: 1fr; }
-}
-
-/* Mobile */
-@media (max-width: 520px){
-  .playlistFoot{
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  body.videos .playlistGrid{ grid-template-columns: 1fr; }
 }
