@@ -817,3 +817,62 @@ body.videos .playlistNote{
 @media (max-width: 980px){
   body.videos .playlistGrid{ grid-template-columns: 1fr; }
 }
+/* ===========================
+   TOP NAV — stable centered row
+   Fixes: swapping/replacing, drifting, wrap weirdness
+   =========================== */
+
+.topnav{
+  /* keep the nav centered as a whole */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* optional: gives breathing room */
+  padding: 10px 12px;
+}
+
+.navlinks{
+  /* stable row */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  /* IMPORTANT: prevents "hardware replaces games" wrap behaviour */
+  flex-wrap: nowrap;
+
+  /* IMPORTANT: prevents flex from squeezing buttons */
+  min-width: 0;
+
+  /* On smaller screens this allows scroll instead of wrap */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* keep it centered while still scrollable */
+  max-width: 100%;
+  padding: 6px;
+
+  /* hide scrollbar (keeps it clean) */
+  scrollbar-width: none;          /* Firefox */
+}
+.navlinks::-webkit-scrollbar{
+  display: none;                  /* Chrome/Safari */
+}
+
+.navlink{
+  /* stops buttons shrinking and "moving" */
+  flex: 0 0 auto;
+
+  /* keeps all buttons same "size feel" */
+  white-space: nowrap;
+  text-align: center;
+
+  /* if your existing .navlink already styles padding/height,
+     keep it — this just stabilises sizing */
+  min-width: 96px;
+}
+
+@media (max-width: 520px){
+  .navlink{ min-width: 88px; }
+}
