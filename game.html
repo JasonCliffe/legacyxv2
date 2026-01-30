@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary SEO -->
+  <title>LegacyXV2 — Game Recommendations</title>
+  <meta name="description" content="Recommended games to experience at least once — iconic survival horror, action, and RPG titles curated by LegacyXV2." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://legacyxv2-site.pages.dev/game.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="LegacyXV2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://legacyxv2-site.pages.dev/game.html" />
+  <meta property="og:title" content="LegacyXV2 — Game Recommendations" />
+  <meta property="og:description" content="Essential games everyone should play at least once." />
+  <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LegacyXV2 — Game Recommendations" />
+  <meta name="twitter:description" content="Essential games everyone should play at least once." />
+  <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+
+  <!-- Performance -->
+  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Schema.org: Site + Brand + WebPage + Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://legacyxv2-site.pages.dev/#website",
+        "url":"https://legacyxv2-site.pages.dev/",
+        "name":"LegacyXV2",
+        "inLanguage":"en-GB",
+        "publisher":{"@id":"https://legacyxv2-site.pages.dev/#brand"}
+      },
+      {
+        "@type":"Brand",
+        "@id":"https://legacyxv2-site.pages.dev/#brand",
+        "name":"LegacyXV2",
+        "url":"https://legacyxv2-site.pages.dev/",
+        "logo":"https://legacyxv2-site.pages.dev/logo.png",
+        "sameAs":[
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://legacyxv2-site.pages.dev/game.html#webpage",
+        "url":"https://legacyxv2-site.pages.dev/game.html",
+        "name":"LegacyXV2 — Game Recommendations",
+        "description":"Recommended games to experience at least once — curated by LegacyXV2.",
+        "isPartOf":{"@id":"https://legacyxv2-site.pages.dev/#website"},
+        "about":{"@id":"https://legacyxv2-site.pages.dev/#brand"},
+        "primaryImageOfPage":{"@id":"https://legacyxv2-site.pages.dev/#ogimage"}
+      },
+      {
+        "@type":"ImageObject",
+        "@id":"https://legacyxv2-site.pages.dev/#ogimage",
+        "url":"https://legacyxv2-site.pages.dev/og-legacyxv2.jpg",
+        "width":1200,
+        "height":630
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://legacyxv2-site.pages.dev/game.html#breadcrumbs",
+        "itemListElement":[
+          {
+            "@type":"ListItem",
+            "position":1,
+            "name":"Home",
+            "item":"https://legacyxv2-site.pages.dev/"
+          },
+          {
+            "@type":"ListItem",
+            "position":2,
+            "name":"Games",
+            "item":"https://legacyxv2-site.pages.dev/game.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Page-only styling (CSS option A: no styles.css changes needed) -->
+  <style>
+    /* Breadcrumb UI */
+    .crumbs{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,140,0,0.18);
+      background:rgba(0,0,0,0.24);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+      margin: 12px 0 0;
+    }
+    .crumbs a{
+      text-decoration:none;
+      color: rgba(255,238,221,0.88);
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .crumbSep{
+      opacity:.6;
+      color: rgba(255,140,0,0.85);
+      font-weight: 900;
+    }
+    .crumbHere{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.6px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.95);
+      opacity: .9;
+    }
+
+    /* Grid + cards */
+    .gamesGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .gameCard{
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.26);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+      transform: translateZ(0);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .gameCard:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,140,0,0.35);
+      box-shadow:
+        0 10px 26px rgba(0,0,0,0.35),
+        0 0 0 1px rgba(255,140,0,0.18) inset,
+        0 0 22px rgba(255,140,0,0.12);
+    }
+
+    .gameMedia{
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: rgba(0,0,0,0.35);
+      border-bottom: 1px solid rgba(255,140,0,0.18);
+      overflow:hidden;
+    }
+
+    .gameMedia img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.02);
+      transition: transform .25s ease;
+    }
+
+    .gameCard:hover .gameMedia img{
+      transform: scale(1.06);
+    }
+
+    .gameBody{
+      padding: 12px;
+    }
+
+    .gameTitle{
+      margin: 0 0 6px;
+      font-size: 13px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.95);
+    }
+
+    .gameDesc{
+      margin: 0 0 10px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255,238,221,0.72);
+    }
+
+    .gameLinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content: space-between;
+    }
+
+    .miniLinksRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .gameTag{
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.18);
+      color: rgba(255,238,221,0.85);
+      opacity: .95;
+    }
+
+    .gameQuick{
+      text-decoration:none;
+      font-size:12px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.88);
+      border-bottom: 1px solid rgba(255,140,0,0.22);
+      padding-bottom: 2px;
+    }
+    .gameQuick:hover{ opacity: 1; border-bottom-color: rgba(255,140,0,0.55); }
+
+    /* Disclaimer */
+    .artDisclaimer{
+      margin:0;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,238,221,0.72);
+    }
+
+    @media (max-width: 980px){
+      .gamesGrid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body class="games">
+  <main class="wrap">
+
+    <!-- TOP NAV -->
+    <nav class="topnav">
+      <div class="navlinks">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/videos.html">Videos</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+        <a class="navlink active" href="/game.html">Games</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="heroFrame">
+      <div class="heroFrame__glow" aria-hidden="true"></div>
+
+      <div class="heroFrame__inner">
+        <div class="heroTop">
+          <div class="heroTop__label">
+            <span class="heroTop__dot"></span>
+            GAME RECOMMENDATIONS
+            <span class="heroTop__dot"></span>
+          </div>
+        </div>
+
+        <div class="heroMain">
+          <div class="heroLogo">
+            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy">
+          </div>
+
+          <div class="heroCopy">
+            <h1 class="heroTitle">ESSENTIAL GAMES</h1>
+            <p class="heroSub">
+              If you’ve never played these titles — start here.
+            </p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Survival Horror</span>
+              <span class="chip">Action</span>
+              <span class="chip">RPG</span>
+            </div>
+
+            <!-- Breadcrumb UI (matches schema) -->
+            <div class="crumbs" aria-label="Breadcrumb">
+              <a href="/">Home</a>
+              <span class="crumbSep">›</span>
+              <span class="crumbHere">Games</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- GAMES GRID -->
+    <section class="panel">
+      <div class="panelHead panelHead--split">
+        <h2 class="panelTitle">Must-Play Games</h2>
+        <a class="miniLink" href="/videos.html">Playlists →</a>
+      </div>
+
+      <div class="panelBody">
+        <div class="gamesGrid">
+
+          <!-- Resident Evil 4 Remake -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/re4-remake.jpg" alt="Resident Evil 4 Remake box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Resident Evil 4 Remake</h3>
+              <p class="gameDesc">One of the greatest survival horror games ever modernised.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Horror • Action</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html#pl-re4">Playlist →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Resident Evil 2 Remake -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/re2-remake.jpg" alt="Resident Evil 2 Remake box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Resident Evil 2 Remake</h3>
+              <p class="gameDesc">Atmospheric, tense, and a benchmark for modern remakes.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Horror</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html#pl-re2">Playlist →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Resident Evil 7 -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/resident-evil-7.jpg" alt="Resident Evil 7 box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Resident Evil 7</h3>
+              <p class="gameDesc">A return to pure horror with a first-person perspective.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Horror</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html#pl-re7">Playlist →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Resident Evil 8 -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/resident-evil-8.jpg" alt="Resident Evil 8 box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Resident Evil 8</h3>
+              <p class="gameDesc">Horror blended with action and unforgettable set-pieces.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Horror • Action</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html#pl-re8">Playlist →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Devil May Cry 3 -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/devil-may-cry-3.jpg" alt="Devil May Cry 3 box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Devil May Cry 3</h3>
+              <p class="gameDesc">Stylish combat that defined character action games.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Action</span>
+                <div class="miniLinksRow">
+                  <!-- no playlist provided for DMC (yet) -->
+                  <a class="gameQuick" href="/videos.html">Playlists →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Devil May Cry 5 -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/devil-may-cry-5.jpg" alt="Devil May Cry 5 box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Devil May Cry 5</h3>
+              <p class="gameDesc">Peak combat mechanics with modern visuals.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Action</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html">Playlists →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dead Rising -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/dead-rising-1.jpg" alt="Dead Rising box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Dead Rising</h3>
+              <p class="gameDesc">Sandbox chaos with time pressure and dark humour.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Action</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html">Playlists →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dead Rising 2 -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/dead-rising-2.jpg" alt="Dead Rising 2 box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Dead Rising 2</h3>
+              <p class="gameDesc">Expanded systems and weapon crafting madness.</p>
+              <div class="gameLinks">
+                <span class="gameTag">Action</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html">Playlists →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Elden Ring -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/elden-ring.jpg" alt="Elden Ring box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Elden Ring</h3>
+              <p class="gameDesc">Open-world Souls design at its absolute peak.</p>
+              <div class="gameLinks">
+                <span class="gameTag">RPG</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html#pl-elden">Playlist →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dark Souls Trilogy -->
+          <article class="gameCard">
+            <div class="gameMedia">
+              <img src="/box/dark-souls-trilogy.jpg" alt="Dark Souls Trilogy box art" loading="lazy" decoding="async">
+            </div>
+            <div class="gameBody">
+              <h3 class="gameTitle">Dark Souls I, II &amp; III</h3>
+              <p class="gameDesc">Foundational action RPGs that shaped a generation.</p>
+              <div class="gameLinks">
+                <span class="gameTag">RPG</span>
+                <div class="miniLinksRow">
+                  <a class="gameQuick" href="/videos.html">Playlists →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <section class="panel panel--disclaimer">
+      <div class="panelBody">
+        <p class="artDisclaimer">
+          Game artwork © respective publishers. Used for identification and editorial purposes.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
