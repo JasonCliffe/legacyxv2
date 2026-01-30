@@ -4,8 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Primary SEO -->
   <title>LegacyXV2 — Videos & Playlists</title>
-  <meta name="description" content="LegacyXV2 playlist hub — full gaming series including Resident Evil, Elden Ring, WWE 2K25, and Call of Duty Zombies." />
+  <meta name="description" content="LegacyXV2 playlists hub: Resident Evil series, Elden Ring, WWE 2K25, and Call of Duty Zombies playthroughs — embedded and organized." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/videos.html" />
 
@@ -14,100 +15,498 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2-site.pages.dev/videos.html" />
   <meta property="og:title" content="LegacyXV2 — Videos & Playlists" />
-  <meta property="og:description" content="Watch full LegacyXV2 gaming series — Resident Evil, Elden Ring, WWE 2K25, Call of Duty Zombies, and more." />
+  <meta property="og:description" content="Playlists hub: Resident Evil, Elden Ring, WWE 2K25, Call of Duty Zombies and more — embedded and organized." />
   <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:secure_url" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:alt" content="LegacyXV2 — Videos & Playlists" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-  <!-- Twitter -->
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Videos & Playlists" />
-  <meta name="twitter:description" content="Official LegacyXV2 playlist hub." />
+  <meta name="twitter:description" content="Playlists hub: Resident Evil, Elden Ring, WWE 2K25, Call of Duty Zombies and more — embedded and organized." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- =========================
-       PLAYLIST SCHEMA (LOCKED)
-  ========================== -->
+  <!-- Schema.org: Playlist hub (ItemList of CreativeWorkSeries) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
-
       {
-        "@type": "CreativeWorkSeries",
-        "@id": "https://legacyxv2-site.pages.dev/videos.html#resident-evil-series",
-        "name": "Resident Evil Playthrough Series",
-        "description": "Complete Resident Evil playthrough series by LegacyXV2, covering Resident Evil 0 through Resident Evil 8.",
-        "publisher": {
-          "@type": "Organization",
-          "name": "LegacyXV2",
-          "url": "https://legacyxv2-site.pages.dev/"
-        },
-        "creator": {
-          "@type": "Person",
-          "name": "Jason Cliffe"
-        },
+        "@type": "WebSite",
+        "@id": "https://legacyxv2-site.pages.dev/#website",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "name": "LegacyXV2",
         "inLanguage": "en-GB",
-        "hasPart": {
-          "@type": "ItemList",
-          "itemListOrder": "ItemListOrderAscending",
-          "itemListElement": [
-            { "@type": "CreativeWork", "name": "Resident Evil 0", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZg9sb8IAMvQP_wDciAfsGII" },
-            { "@type": "CreativeWork", "name": "Resident Evil 1", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZjpVtXZIaKhPHADD_o-b0vQ" },
-            { "@type": "CreativeWork", "name": "Resident Evil 2", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZjMvQrUbqkwOuaRj2NhntOH" },
-            { "@type": "CreativeWork", "name": "Resident Evil 3", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZj1ZP8k0KbGHBe16vIKDkep" },
-            { "@type": "CreativeWork", "name": "Resident Evil 4", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZi_g4_5aZ9SpXbjAdFHrZXo" },
-            { "@type": "CreativeWork", "name": "Resident Evil 5", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZhZFBRbQsx8ln4bog402JxF" },
-            { "@type": "CreativeWork", "name": "Resident Evil 6", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZihmmIAILkTwtcUGDW4L6qk" },
-            { "@type": "CreativeWork", "name": "Resident Evil 7", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZjNOyCcLL0PLlNGk9TlZ4uE" },
-            { "@type": "CreativeWork", "name": "Resident Evil 8", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZgyaX3grawo9BCaWGZ0gXP2" }
-          ]
-        }
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
-
       {
-        "@type": "CreativeWorkSeries",
-        "name": "Elden Ring Playthrough",
-        "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZgDQ7JzfjZyTk1DvSV28cUV",
-        "publisher": { "@type": "Organization", "name": "LegacyXV2" },
-        "creator": { "@type": "Person", "name": "Jason Cliffe" }
-      },
-
-      {
-        "@type": "CreativeWorkSeries",
-        "name": "WWE 2K25 Playthrough",
-        "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZguNsOECKQKuauf_SE-1ZhC",
-        "publisher": { "@type": "Organization", "name": "LegacyXV2" },
-        "creator": { "@type": "Person", "name": "Jason Cliffe" }
-      },
-
-      {
-        "@type": "CreativeWorkSeries",
-        "name": "Call of Duty Zombies Series",
-        "description": "Call of Duty Zombies playthroughs across multiple Black Ops titles.",
-        "publisher": { "@type": "Organization", "name": "LegacyXV2" },
-        "creator": { "@type": "Person", "name": "Jason Cliffe" },
-        "hasPart": [
-          { "@type": "CreativeWork", "name": "Black Ops 3 Zombies", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZi12AVSbICqenqiApUBidQD" },
-          { "@type": "CreativeWork", "name": "Black Ops 6 Zombies", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZj7jrcQPv7FxKwToJRx_TL4" },
-          { "@type": "CreativeWork", "name": "Black Ops 7 Zombies", "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZiREmU3lTzpOc2T3NwJjqEm" }
+        "@type": "Brand",
+        "@id": "https://legacyxv2-site.pages.dev/#brand",
+        "name": "LegacyXV2",
+        "url": "https://legacyxv2-site.pages.dev/",
+        "logo": "https://legacyxv2-site.pages.dev/logo.png",
+        "sameAs": [
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
         ]
       },
-
       {
-        "@type": "CreativeWorkSeries",
-        "name": "Hogwarts Legacy Playthrough",
-        "sameAs": "https://youtube.com/playlist?list=PLee0iYLRqgZhACOC0---tMnFecJv39lPR",
-        "publisher": { "@type": "Organization", "name": "LegacyXV2" },
-        "creator": { "@type": "Person", "name": "Jason Cliffe" }
+        "@type": "WebPage",
+        "@id": "https://legacyxv2-site.pages.dev/videos.html#webpage",
+        "url": "https://legacyxv2-site.pages.dev/videos.html",
+        "name": "LegacyXV2 — Videos & Playlists",
+        "description": "Playlist hub for LegacyXV2: organized embedded YouTube playlists across games and series.",
+        "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
+        "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://legacyxv2-site.pages.dev/videos.html#playlists",
+        "name": "LegacyXV2 Playlists",
+        "itemListOrder": "https://schema.org/ItemListOrderAscending",
+        "numberOfItems": 15,
+        "mainEntityOfPage": { "@id": "https://legacyxv2-site.pages.dev/videos.html#webpage" },
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 8", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZgyaX3grawo9BCaWGZ0gXP2" } },
+          { "@type": "ListItem", "position": 2,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 7", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZjNOyCcLL0PLlNGk9TlZ4uE" } },
+          { "@type": "ListItem", "position": 3,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 6", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZihmmIAILkTwtcUGDW4L6qk" } },
+          { "@type": "ListItem", "position": 4,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 5", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZhZFBRbQsx8ln4bog402JxF" } },
+          { "@type": "ListItem", "position": 5,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 4", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZi_g4_5aZ9SpXbjAdFHrZXo" } },
+          { "@type": "ListItem", "position": 6,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 3", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZj1ZP8k0KbGHBe16vIKDkep" } },
+          { "@type": "ListItem", "position": 7,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 2", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZjMvQrUbqkwOuaRj2NhntOH" } },
+          { "@type": "ListItem", "position": 8,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 1", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZjpVtXZIaKhPHADD_o-b0vQ" } },
+          { "@type": "ListItem", "position": 9,  "item": { "@type": "CreativeWorkSeries", "name": "Resident Evil 0", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZg9sb8IAMvQP_wDciAfsGII" } },
+          { "@type": "ListItem", "position": 10, "item": { "@type": "CreativeWorkSeries", "name": "Elden Ring", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZgDQ7JzfjZyTk1DvSV28cUV" } },
+          { "@type": "ListItem", "position": 11, "item": { "@type": "CreativeWorkSeries", "name": "WWE 2K25", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZguNsOECKQKuauf_SE-1ZhC" } },
+          { "@type": "ListItem", "position": 12, "item": { "@type": "CreativeWorkSeries", "name": "Call of Duty Black Ops 7 Zombies", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZiREmU3lTzpOc2T3NwJjqEm" } },
+          { "@type": "ListItem", "position": 13, "item": { "@type": "CreativeWorkSeries", "name": "Call of Duty Black Ops 6 Zombies", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZj7jrcQPv7FxKwToJRx_TL4" } },
+          { "@type": "ListItem", "position": 14, "item": { "@type": "CreativeWorkSeries", "name": "Call of Duty Black Ops 3 Zombies", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZi12AVSbICqenqiApUBidQD" } },
+          { "@type": "ListItem", "position": 15, "item": { "@type": "CreativeWorkSeries", "name": "Hogwarts Legacy", "url": "https://youtube.com/playlist?list=PLee0iYLRqgZhACOC0---tMnFecJv39lPR" } }
+        ]
       }
-
     ]
   }
   </script>
+
+  <!-- Small page-only styles (safe) -->
+  <style>
+    .playlistGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .playlistCard{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.28);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+    }
+    .playlistHead{
+      padding: 12px 12px 0;
+    }
+    .playlistTitle{
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.92);
+    }
+    .playlistFrame{
+      aspect-ratio: 16 / 9;
+      border-top: 1px solid rgba(255,140,0,0.18);
+      border-bottom: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.45);
+    }
+    .playlistFrame iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+    .playlistFoot{
+      padding: 12px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+    }
+    .playlistNote{
+      margin:0;
+      font-size: 12px;
+      color: rgba(255,238,221,0.72);
+      line-height: 1.45;
+    }
+
+    @media (max-width: 980px){
+      .playlistGrid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- BODY CONTENT UNCHANGED -->
+  <main class="wrap">
+
+    <!-- TOP NAV -->
+    <nav class="topnav">
+      <div class="navlinks">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink active" href="/videos.html">Videos</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+      </div>
+    </nav>
+
+    <!-- HERO FRAME -->
+    <header class="heroFrame">
+      <div class="heroFrame__glow" aria-hidden="true"></div>
+
+      <div class="heroFrame__inner">
+        <div class="heroTop">
+          <div class="heroTop__label">
+            <span class="heroTop__dot" aria-hidden="true"></span>
+            VIDEOS &amp; PLAYLISTS
+            <span class="heroTop__dot" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="heroMain">
+          <div class="heroLogo">
+            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" />
+          </div>
+
+          <div class="heroCopy">
+            <h1 class="heroTitle">LEGACYXV2</h1>
+            <p class="heroSub">
+              Embedded playlists — pick a series and start watching. New uploads are posted on Updates.
+            </p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Resident Evil</span>
+              <span class="chip">COD Zombies</span>
+              <span class="chip">Playthroughs</span>
+            </div>
+
+            <div class="heroCtas">
+              <a class="miniLink" href="/updates.html">Go to updates →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- PLAYLISTS PANEL -->
+    <section class="panel">
+      <div class="panelHead panelHead--split">
+        <h2 class="panelTitle">Playlists</h2>
+        <a class="miniLink" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">Channel →</a>
+      </div>
+
+      <div class="panelBody">
+        <div class="playlistGrid">
+
+          <!-- Resident Evil 8 -->
+          <article class="playlistCard" id="pl-re8">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 8</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZgyaX3grawo9BCaWGZ0gXP2"
+                title="Resident Evil 8 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZgyaX3grawo9BCaWGZ0gXP2" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 7 -->
+          <article class="playlistCard" id="pl-re7">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 7</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjNOyCcLL0PLlNGk9TlZ4uE"
+                title="Resident Evil 7 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZjNOyCcLL0PLlNGk9TlZ4uE" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 6 (UPDATED LINK) -->
+          <article class="playlistCard" id="pl-re6">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 6</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZihmmIAILkTwtcUGDW4L6qk"
+                title="Resident Evil 6 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZihmmIAILkTwtcUGDW4L6qk" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 5 -->
+          <article class="playlistCard" id="pl-re5">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 5</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZhZFBRbQsx8ln4bog402JxF"
+                title="Resident Evil 5 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZhZFBRbQsx8ln4bog402JxF" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 4 -->
+          <article class="playlistCard" id="pl-re4">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 4</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZi_g4_5aZ9SpXbjAdFHrZXo"
+                title="Resident Evil 4 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZi_g4_5aZ9SpXbjAdFHrZXo" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 3 -->
+          <article class="playlistCard" id="pl-re3">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 3</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZj1ZP8k0KbGHBe16vIKDkep"
+                title="Resident Evil 3 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZj1ZP8k0KbGHBe16vIKDkep" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 2 -->
+          <article class="playlistCard" id="pl-re2">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 2</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjMvQrUbqkwOuaRj2NhntOH"
+                title="Resident Evil 2 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZjMvQrUbqkwOuaRj2NhntOH" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 1 -->
+          <article class="playlistCard" id="pl-re1">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 1</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjpVtXZIaKhPHADD_o-b0vQ"
+                title="Resident Evil 1 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZjpVtXZIaKhPHADD_o-b0vQ" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Resident Evil 0 -->
+          <article class="playlistCard" id="pl-re0">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Resident Evil 0</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZg9sb8IAMvQP_wDciAfsGII"
+                title="Resident Evil 0 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZg9sb8IAMvQP_wDciAfsGII" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Elden Ring -->
+          <article class="playlistCard" id="pl-elden">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Elden Ring</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZgDQ7JzfjZyTk1DvSV28cUV"
+                title="Elden Ring playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZgDQ7JzfjZyTk1DvSV28cUV" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- WWE 2K25 -->
+          <article class="playlistCard" id="pl-wwe2k25">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">WWE 2K25</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZguNsOECKQKuauf_SE-1ZhC"
+                title="WWE 2K25 playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZguNsOECKQKuauf_SE-1ZhC" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- COD BO7 Zombies -->
+          <article class="playlistCard" id="pl-bo7z">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">COD Black Ops 7 Zombies</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZiREmU3lTzpOc2T3NwJjqEm"
+                title="COD Black Ops 7 Zombies playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Zombies playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZiREmU3lTzpOc2T3NwJjqEm" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- COD BO6 Zombies -->
+          <article class="playlistCard" id="pl-bo6z">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">COD Black Ops 6 Zombies</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZj7jrcQPv7FxKwToJRx_TL4"
+                title="COD Black Ops 6 Zombies playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Zombies playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZj7jrcQPv7FxKwToJRx_TL4" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- COD BO3 Zombies -->
+          <article class="playlistCard" id="pl-bo3z">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">COD Black Ops 3 Zombies</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZi12AVSbICqenqiApUBidQD"
+                title="COD Black Ops 3 Zombies playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Zombies playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZi12AVSbICqenqiApUBidQD" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+          <!-- Hogwarts Legacy -->
+          <article class="playlistCard" id="pl-hogwarts">
+            <div class="playlistHead">
+              <h3 class="playlistTitle">Hogwarts Legacy</h3>
+            </div>
+            <div class="playlistFrame">
+              <iframe
+                src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZhACOC0---tMnFecJv39lPR"
+                title="Hogwarts Legacy playlist"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="playlistFoot">
+              <p class="playlistNote">Full playthrough playlist.</p>
+              <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZhACOC0---tMnFecJv39lPR" target="_blank" rel="noopener">Open →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
