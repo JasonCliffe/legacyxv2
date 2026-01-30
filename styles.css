@@ -876,3 +876,54 @@ body.videos .playlistNote{
 @media (max-width: 520px){
   .navlink{ min-width: 88px; }
 }
+/* ===========================
+   TOP NAV — stable centered row
+   Desktop: centered, no scroll (prevents "<")
+   Mobile: scrollable row (no wrapping/reordering)
+   =========================== */
+
+.topnav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 10px 12px;
+}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+
+  /* keep order stable */
+  flex-wrap: nowrap;
+
+  /* desktop: no overflow UI */
+  overflow: visible;
+
+  /* keep centered */
+  max-width: 100%;
+  padding: 6px;
+}
+
+.navlink{
+  flex: 0 0 auto;
+  white-space: nowrap;
+  text-align: center;
+
+  /* IMPORTANT: remove big min-width so they fit */
+  min-width: 0;
+}
+
+/* Only on small screens do we allow horizontal scrolling */
+@media (max-width: 720px){
+  .navlinks{
+    justify-content: flex-start;      /* scroll starts at left */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;            /* Firefox */
+  }
+  .navlinks::-webkit-scrollbar{
+    display:none;                     /* Chrome/Safari */
+  }
+}
