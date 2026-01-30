@@ -10,6 +10,13 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/videos.html" />
 
+  <!-- Performance hints (Videos page) -->
+  <link rel="preload" as="image" href="/bg.jpg" />
+  <link rel="preconnect" href="https://www.youtube.com" crossorigin />
+  <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
+  <link rel="dns-prefetch" href="//www.youtube.com" />
+  <link rel="dns-prefetch" href="//i.ytimg.com" />
+
   <!-- Open Graph -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
@@ -30,7 +37,7 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Schema.org: Playlist hub (ItemList of CreativeWorkSeries) -->
+  <!-- Schema.org: Site + Brand + Playlist hub + Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,6 +71,26 @@
         "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
         "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
+
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://legacyxv2-site.pages.dev/videos.html#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://legacyxv2-site.pages.dev/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Videos",
+            "item": "https://legacyxv2-site.pages.dev/videos.html"
+          }
+        ]
+      },
+
       {
         "@type": "ItemList",
         "@id": "https://legacyxv2-site.pages.dev/videos.html#playlists",
@@ -92,65 +119,9 @@
     ]
   }
   </script>
-
-  <!-- Small page-only styles (safe) -->
-  <style>
-    .playlistGrid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    .playlistCard{
-      border-radius: 16px;
-      overflow:hidden;
-      border: 1px solid rgba(255,140,0,0.18);
-      background: rgba(0,0,0,0.28);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-    }
-    .playlistHead{
-      padding: 12px 12px 0;
-    }
-    .playlistTitle{
-      margin: 0 0 8px;
-      font-size: 13px;
-      font-weight: 1000;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.92);
-    }
-    .playlistFrame{
-      aspect-ratio: 16 / 9;
-      border-top: 1px solid rgba(255,140,0,0.18);
-      border-bottom: 1px solid rgba(255,140,0,0.18);
-      background: rgba(0,0,0,0.45);
-    }
-    .playlistFrame iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
-    .playlistFoot{
-      padding: 12px;
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
-      gap: 10px;
-    }
-    .playlistNote{
-      margin:0;
-      font-size: 12px;
-      color: rgba(255,238,221,0.72);
-      line-height: 1.45;
-    }
-
-    @media (max-width: 980px){
-      .playlistGrid{ grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 
-<body>
+<body class="videos">
   <main class="wrap">
 
     <!-- TOP NAV -->
@@ -212,14 +183,13 @@
 
           <!-- Resident Evil 8 -->
           <article class="playlistCard" id="pl-re8">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 8</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 8</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZgyaX3grawo9BCaWGZ0gXP2"
                 title="Resident Evil 8 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -231,14 +201,13 @@
 
           <!-- Resident Evil 7 -->
           <article class="playlistCard" id="pl-re7">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 7</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 7</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjNOyCcLL0PLlNGk9TlZ4uE"
                 title="Resident Evil 7 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -248,16 +217,15 @@
             </div>
           </article>
 
-          <!-- Resident Evil 6 (UPDATED LINK) -->
+          <!-- Resident Evil 6 -->
           <article class="playlistCard" id="pl-re6">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 6</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 6</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZihmmIAILkTwtcUGDW4L6qk"
                 title="Resident Evil 6 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -269,14 +237,13 @@
 
           <!-- Resident Evil 5 -->
           <article class="playlistCard" id="pl-re5">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 5</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 5</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZhZFBRbQsx8ln4bog402JxF"
                 title="Resident Evil 5 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -288,14 +255,13 @@
 
           <!-- Resident Evil 4 -->
           <article class="playlistCard" id="pl-re4">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 4</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 4</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZi_g4_5aZ9SpXbjAdFHrZXo"
                 title="Resident Evil 4 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -307,14 +273,13 @@
 
           <!-- Resident Evil 3 -->
           <article class="playlistCard" id="pl-re3">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 3</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 3</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZj1ZP8k0KbGHBe16vIKDkep"
                 title="Resident Evil 3 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -326,14 +291,13 @@
 
           <!-- Resident Evil 2 -->
           <article class="playlistCard" id="pl-re2">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 2</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 2</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjMvQrUbqkwOuaRj2NhntOH"
                 title="Resident Evil 2 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -345,14 +309,13 @@
 
           <!-- Resident Evil 1 -->
           <article class="playlistCard" id="pl-re1">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 1</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 1</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjpVtXZIaKhPHADD_o-b0vQ"
                 title="Resident Evil 1 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -364,14 +327,13 @@
 
           <!-- Resident Evil 0 -->
           <article class="playlistCard" id="pl-re0">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Resident Evil 0</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Resident Evil 0</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZg9sb8IAMvQP_wDciAfsGII"
                 title="Resident Evil 0 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -383,14 +345,13 @@
 
           <!-- Elden Ring -->
           <article class="playlistCard" id="pl-elden">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Elden Ring</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Elden Ring</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZgDQ7JzfjZyTk1DvSV28cUV"
                 title="Elden Ring playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -402,14 +363,13 @@
 
           <!-- WWE 2K25 -->
           <article class="playlistCard" id="pl-wwe2k25">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">WWE 2K25</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">WWE 2K25</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZguNsOECKQKuauf_SE-1ZhC"
                 title="WWE 2K25 playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -421,14 +381,13 @@
 
           <!-- COD BO7 Zombies -->
           <article class="playlistCard" id="pl-bo7z">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">COD Black Ops 7 Zombies</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">COD Black Ops 7 Zombies</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZiREmU3lTzpOc2T3NwJjqEm"
                 title="COD Black Ops 7 Zombies playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -440,14 +399,13 @@
 
           <!-- COD BO6 Zombies -->
           <article class="playlistCard" id="pl-bo6z">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">COD Black Ops 6 Zombies</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">COD Black Ops 6 Zombies</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZj7jrcQPv7FxKwToJRx_TL4"
                 title="COD Black Ops 6 Zombies playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -459,14 +417,13 @@
 
           <!-- COD BO3 Zombies -->
           <article class="playlistCard" id="pl-bo3z">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">COD Black Ops 3 Zombies</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">COD Black Ops 3 Zombies</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZi12AVSbICqenqiApUBidQD"
                 title="COD Black Ops 3 Zombies playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -478,14 +435,13 @@
 
           <!-- Hogwarts Legacy -->
           <article class="playlistCard" id="pl-hogwarts">
-            <div class="playlistHead">
-              <h3 class="playlistTitle">Hogwarts Legacy</h3>
-            </div>
+            <div class="playlistHead"><h3 class="playlistTitle">Hogwarts Legacy</h3></div>
             <div class="playlistFrame">
               <iframe
                 src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZhACOC0---tMnFecJv39lPR"
                 title="Hogwarts Legacy playlist"
                 loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
