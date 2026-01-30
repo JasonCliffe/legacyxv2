@@ -36,6 +36,7 @@
 
   <link rel="icon" href="/favicon.ico" />
 
+  <!-- Performance hints -->
   <link rel="dns-prefetch" href="//www.youtube.com">
   <link rel="dns-prefetch" href="//i.ytimg.com">
   <link rel="preconnect" href="https://www.youtube.com" crossorigin>
@@ -47,6 +48,7 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- Schema.org: Site + Brand + Creator + YouTubeChannel + Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -68,7 +70,8 @@
         "isPartOf": { "@id": "https://legacyxv2-site.pages.dev/#website" },
         "about": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
         "mainEntity": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
-        "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" }
+        "primaryImageOfPage": { "@id": "https://legacyxv2-site.pages.dev/#ogimage" },
+        "breadcrumb": { "@id": "https://legacyxv2-site.pages.dev/#breadcrumbs" }
       },
       {
         "@type": "ImageObject",
@@ -92,7 +95,9 @@
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
-        ]
+        ],
+        "founder": { "@id": "https://legacyxv2-site.pages.dev/#creator" },
+        "subjectOf": { "@id": "https://www.youtube.com/@legacyxv2#channel" }
       },
 
       {
@@ -101,11 +106,16 @@
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2-site.pages.dev/",
-        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
+        "worksFor": { "@id": "https://legacyxv2-site.pages.dev/#brand" },
+        "sameAs": [
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
       },
 
       {
-        "@type": "Organization",
+        "@type": "YouTubeChannel",
         "@id": "https://www.youtube.com/@legacyxv2#channel",
         "name": "LegacyXV2",
         "url": "https://www.youtube.com/@legacyxv2",
@@ -125,12 +135,6 @@
             "position": 1,
             "name": "Home",
             "item": "https://legacyxv2-site.pages.dev/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Updates",
-            "item": "https://legacyxv2-site.pages.dev/updates.html"
           }
         ]
       }
@@ -145,10 +149,10 @@
     <!-- TOP NAV -->
     <nav class="topnav">
       <div class="navlinks">
-  <a class="navlink active" href="/">Home</a>
-  <a class="navlink" href="/videos.html">Videos</a>
-  <a class="navlink" href="/updates.html">Updates</a>
-    </div>
+        <a class="navlink active" href="/">Home</a>
+        <a class="navlink" href="/videos.html">Videos</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+      </div>
     </nav>
 
     <!-- HERO FRAME -->
@@ -171,10 +175,7 @@
 
           <div class="heroCopy">
             <div class="heroIdentity">
-
-              <div class="heroRole">
-                BRAND • CONTENT CREATOR
-              </div>
+              <div class="heroRole">BRAND • CONTENT CREATOR</div>
 
               <h1 class="heroTitle">LEGACYXV2</h1>
 
@@ -185,7 +186,6 @@
               <p class="heroSub">
                 Thorough gaming playthroughs • Retro &amp; modern titles • PC hardware &amp; tech reviews
               </p>
-
             </div>
 
             <div class="heroChips" aria-hidden="true">
