@@ -28,6 +28,7 @@
   <meta name="twitter:description" content="New uploads (Wed/Fri/Sun 6pm UK), series notes, and latest PC hardware reviews + benchmarks." />
   <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
 
+  <!-- Performance hints -->
   <link rel="dns-prefetch" href="//www.youtube.com">
   <link rel="dns-prefetch" href="//i.ytimg.com">
   <link rel="preconnect" href="https://www.youtube.com" crossorigin>
@@ -38,10 +39,11 @@
   <link rel="preload" as="image" href="/og-legacyxv2.jpg">
 
   <!-- Preload the first (top) thumbnail to make the page feel instant -->
-  <link rel="preload" as="image" href="https://i.ytimg.com/vi/5QJ2YAaTKoU/hqdefault.jpg" crossorigin>
+  <link rel="preload" as="image" href="https://i.ytimg.com/vi/dbEOv8_0dF0/hqdefault.jpg" crossorigin>
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -52,7 +54,7 @@
         "url": "https://legacyxv2-site.pages.dev/",
         "name": "LegacyXV2",
         "inLanguage": "en-GB",
-        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#creator" }
+        "publisher": { "@id": "https://legacyxv2-site.pages.dev/#brand" }
       },
       {
         "@type": "Brand",
@@ -98,8 +100,27 @@
       },
 
       {
+        "@type": "BreadcrumbList",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://legacyxv2-site.pages.dev/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Updates",
+            "item": "https://legacyxv2-site.pages.dev/updates.html"
+          }
+        ]
+      },
+
+      {
         "@type": "VideoObject",
-        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-5QJ2YAaTKoU",
+        "@id": "https://legacyxv2-site.pages.dev/updates.html#video-dbEOv8_0dF0",
         "name": "New series now live",
         "description": "A brand-new series has launched. Full playthrough starts now.",
         "thumbnailUrl": ["https://i.ytimg.com/vi/dbEOv8_0dF0/hqdefault.jpg"],
@@ -147,10 +168,10 @@
     <!-- TOP NAV -->
     <nav class="topnav">
       <div class="navlinks">
-  <a class="navlink" href="/">Home</a>
-  <a class="navlink" href="/videos.html">Videos</a>
-  <a class="navlink active" href="/updates.html">Updates</a>
-</div>
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/videos.html">Videos</a>
+        <a class="navlink active" href="/updates.html">Updates</a>
+      </div>
     </nav>
 
     <!-- HERO FRAME -->
@@ -204,7 +225,7 @@
         <div class="panelBody">
 
           <!-- 🔥 NEW SERIES -->
-          <article class="update update--video" id="video-5QJ2YAaTKoU">
+          <article class="update update--video" id="video-dbEOv8_0dF0">
             <div class="updateTop">
               <div class="updateMeta">New Series</div>
               <span class="newBadge">NEW</span>
