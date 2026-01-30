@@ -17,6 +17,10 @@
   <meta property="og:title" content="LegacyXV2 — Game Recommendations" />
   <meta property="og:description" content="Essential games everyone should play at least once." />
   <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:secure_url" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:alt" content="LegacyXV2 — Game Recommendations" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -63,7 +67,8 @@
         "description":"Recommended games to experience at least once — curated by LegacyXV2.",
         "isPartOf":{"@id":"https://legacyxv2-site.pages.dev/#website"},
         "about":{"@id":"https://legacyxv2-site.pages.dev/#brand"},
-        "primaryImageOfPage":{"@id":"https://legacyxv2-site.pages.dev/#ogimage"}
+        "primaryImageOfPage":{"@id":"https://legacyxv2-site.pages.dev/#ogimage"},
+        "breadcrumb":{"@id":"https://legacyxv2-site.pages.dev/game.html#breadcrumbs"}
       },
       {
         "@type":"ImageObject",
@@ -94,7 +99,7 @@
   }
   </script>
 
-  <!-- Page-only styling (CSS option A: no styles.css changes needed) -->
+  <!-- Page-only styling (no styles.css changes needed) -->
   <style>
     /* Breadcrumb UI */
     .crumbs{
@@ -130,13 +135,20 @@
       opacity: .9;
     }
 
-    /* Grid + cards */
+    /* Grid (portrait cards) */
     .gamesGrid{
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 14px;
     }
+    @media (max-width: 1100px){
+      .gamesGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px){
+      .gamesGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
 
+    /* Card */
     .gameCard{
       border-radius: 18px;
       overflow: hidden;
@@ -146,7 +158,6 @@
       transform: translateZ(0);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-
     .gameCard:hover{
       transform: translateY(-3px);
       border-color: rgba(255,140,0,0.35);
@@ -156,23 +167,22 @@
         0 0 22px rgba(255,140,0,0.12);
     }
 
+    /* ✅ Portrait box-art frame */
     .gameMedia{
       position: relative;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 2 / 3;
       background: rgba(0,0,0,0.35);
       border-bottom: 1px solid rgba(255,140,0,0.18);
       overflow:hidden;
     }
-
     .gameMedia img{
       width:100%;
       height:100%;
       object-fit: cover;
       display:block;
-      transform: scale(1.02);
+      transform: scale(1.01);
       transition: transform .25s ease;
     }
-
     .gameCard:hover .gameMedia img{
       transform: scale(1.06);
     }
@@ -180,21 +190,20 @@
     .gameBody{
       padding: 12px;
     }
-
     .gameTitle{
       margin: 0 0 6px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 1000;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: rgba(255,238,221,0.95);
     }
-
     .gameDesc{
       margin: 0 0 10px;
       font-size: 12px;
       line-height: 1.5;
       color: rgba(255,238,221,0.72);
+      min-height: 36px; /* keeps rows tidy even if text length differs */
     }
 
     .gameLinks{
@@ -204,7 +213,6 @@
       align-items:center;
       justify-content: space-between;
     }
-
     .miniLinksRow{
       display:flex;
       gap:10px;
@@ -234,8 +242,12 @@
       color: rgba(255,238,221,0.88);
       border-bottom: 1px solid rgba(255,140,0,0.22);
       padding-bottom: 2px;
+      transition: opacity .15s ease, border-color .15s ease;
     }
-    .gameQuick:hover{ opacity: 1; border-bottom-color: rgba(255,140,0,0.55); }
+    .gameQuick:hover{
+      opacity: 1;
+      border-bottom-color: rgba(255,140,0,0.55);
+    }
 
     /* Disclaimer */
     .artDisclaimer{
@@ -243,10 +255,6 @@
       font-size: 12px;
       line-height: 1.6;
       color: rgba(255,238,221,0.72);
-    }
-
-    @media (max-width: 980px){
-      .gamesGrid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -260,8 +268,8 @@
         <a class="navlink" href="/">Home</a>
         <a class="navlink" href="/videos.html">Videos</a>
         <a class="navlink" href="/updates.html">Updates</a>
-       <a class="navlink active" href="/game.html">Games</a>
-<a class="navlink" href="/hardware.html">Hardware</a>
+        <a class="navlink active" href="/game.html">Games</a>
+        <a class="navlink" href="/hardware.html">Hardware</a>
       </div>
     </nav>
 
@@ -280,7 +288,7 @@
 
         <div class="heroMain">
           <div class="heroLogo">
-            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy">
+            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" decoding="async">
           </div>
 
           <div class="heroCopy">
@@ -396,7 +404,6 @@
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
                 <div class="miniLinksRow">
-                  <!-- no playlist provided for DMC (yet) -->
                   <a class="gameQuick" href="/videos.html">Playlists →</a>
                 </div>
               </div>
