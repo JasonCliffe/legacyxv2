@@ -43,6 +43,34 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- ✅ NAV FIX (page-only): stops items shifting/replacing each other + keeps nav centered -->
+  <style>
+    /* Force nav to center and keep every link same “footprint” */
+    .topnav { display:flex; justify-content:center; }
+    .navlinks{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .navlink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space: nowrap;
+      text-decoration: none;
+      /* Stop “active” state from changing width via borders/padding */
+      box-sizing: border-box;
+    }
+    /* If your CSS adds a left chevron via ::before on active links, kill it */
+    .navlink::before,
+    .navlink::after{
+      content: none !important;
+    }
+  </style>
+
   <!-- Schema.org: Site + Brand + Creator + YouTubeChannel + WebPage + Breadcrumbs + Videos -->
   <script type="application/ld+json">
   {
@@ -182,14 +210,14 @@
   <main class="wrap">
 
     <!-- TOP NAV -->
-    <nav class="topnav">
+    <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
-  <a class="navlink" href="/">Home</a>
-  <a class="navlink" href="/videos.html">Videos</a>
-  <a class="navlink active" href="/updates.html">Updates</a>
-  <a class="navlink" href="/game.html">Games</a>
-<a class="navlink" href="/hardware.html">Hardware</a>
-</div>
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/videos.html">Videos</a>
+        <a class="navlink active" href="/updates.html">Updates</a>
+        <a class="navlink" href="/game.html">Games</a>
+        <a class="navlink" href="/hardware.html">Hardware</a>
+      </div>
     </nav>
 
     <!-- HERO FRAME -->
