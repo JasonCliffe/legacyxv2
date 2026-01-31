@@ -43,10 +43,9 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- ✅ NAV FIX (page-only): stops items shifting/replacing each other + keeps nav centered -->
+  <!-- ✅ NAV FIX (page-only): stops shifting/replacing + keeps nav centered + removes any injected chevrons -->
   <style>
-    /* Force nav to center and keep every link same “footprint” */
-    .topnav { display:flex; justify-content:center; }
+    .topnav{ display:flex; justify-content:center; }
     .navlinks{
       display:flex;
       justify-content:center;
@@ -61,10 +60,11 @@
       justify-content:center;
       white-space: nowrap;
       text-decoration: none;
-      /* Stop “active” state from changing width via borders/padding */
       box-sizing: border-box;
+      /* prevents width jitter if "active" adds border/weight */
+      border-left: 0 !important;
+      border-right: 0 !important;
     }
-    /* If your CSS adds a left chevron via ::before on active links, kill it */
     .navlink::before,
     .navlink::after{
       content: none !important;
