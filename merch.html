@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary SEO -->
+  <title>LegacyXV2 — Merch (Coming Soon)</title>
+  <meta name="description" content="LegacyXV2 official merchandise. Apparel and designs coming soon. Contact via email for early interest and requests." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://legacyxv2-site.pages.dev/merch.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="LegacyXV2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://legacyxv2-site.pages.dev/merch.html" />
+  <meta property="og:title" content="LegacyXV2 — Merch (Coming Soon)" />
+  <meta property="og:description" content="Official LegacyXV2 merchandise coming soon. Apparel and designs in development." />
+  <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Performance -->
+  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Page-only helpers (safe, scoped) -->
+  <style>
+    .merchGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .emailBox{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+      justify-content: space-between;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.24);
+      background: rgba(0,0,0,0.32);
+    }
+
+    .emailMono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 14px;
+      letter-spacing: .6px;
+      color: rgba(255,238,221,0.92);
+      user-select: text;
+    }
+
+    .emailActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btnSmall{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      text-decoration:none;
+      cursor:pointer;
+
+      color:#1a0b06;
+      background: linear-gradient(135deg, var(--ember3), var(--ember2));
+      border: none;
+      box-shadow:
+        0 0 16px rgba(255,90,0,0.28),
+        0 0 36px rgba(255,179,0,0.18);
+    }
+
+    .btnSmall.ghost{
+      background: rgba(0,0,0,0.30);
+      color: rgba(255,238,221,0.9);
+      border: 1px solid rgba(255,140,0,0.26);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .toast{
+      position: fixed;
+      left:50%;
+      bottom:26px;
+      transform: translateX(-50%) translateY(20px);
+      opacity:0;
+      pointer-events:none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color:#1a0b06;
+      background: linear-gradient(135deg, var(--ember3), var(--ember2));
+      box-shadow:
+        0 0 22px rgba(255,90,0,0.38),
+        0 0 44px rgba(255,179,0,0.22);
+      transition: opacity .2s ease, transform .2s ease;
+      z-index: 999;
+    }
+
+    .toast.show{
+      opacity:1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+
+<body class="merch">
+  <main class="wrap">
+
+    <!-- TOP NAV -->
+    <nav class="topnav">
+      <div class="navlinks">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/videos.html">Videos</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+        <a class="navlink" href="/game.html">Games</a>
+        <a class="navlink" href="/hardware.html">Hardware</a>
+        <a class="navlink active" href="/merch.html">Merch</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="heroFrame">
+      <div class="heroFrame__glow" aria-hidden="true"></div>
+
+      <div class="heroFrame__inner">
+        <div class="heroTop">
+          <div class="heroTop__label">
+            <span class="heroTop__dot"></span>
+            MERCHANDISE
+            <span class="heroTop__dot"></span>
+          </div>
+        </div>
+
+        <div class="heroMain">
+          <div class="heroLogo">
+            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" decoding="async">
+          </div>
+
+          <div class="heroCopy">
+            <h1 class="heroTitle">COMING SOON</h1>
+            <p class="heroSub">
+              Official LegacyXV2 apparel and designs are in development.
+              If you’re interested in early merch or have a request, get in touch below.
+            </p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">T-Shirts</span>
+              <span class="chip">Hoodies</span>
+              <span class="chip">Limited Runs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTACT PANEL -->
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">Merch Requests</h2>
+      </div>
+
+      <div class="panelBody merchGrid">
+        <p>
+          Until the merch store launches, you can contact me directly for
+          interest, sizing questions, or design ideas.
+        </p>
+
+        <div class="emailBox">
+          <div class="emailMono" id="merchEmail" aria-label="Email address"></div>
+
+          <div class="emailActions">
+            <a class="btnSmall" id="btnMail" href="#">Open email →</a>
+            <button class="btnSmall ghost" id="btnCopy" type="button">Copy</button>
+          </div>
+        </div>
+
+        <p style="font-size:12px;color:rgba(255,238,221,0.7)">
+          Please include item type (T-shirt / hoodie), size, colour, and any design ideas.
+        </p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
+    </footer>
+
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Copied</div>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // === EMAIL PROTECTION ===
+    const user = "legacyxv2";
+    const domain = "outlook.com";
+    const email = `${user}@${domain}`;
+
+    const emailEl = document.getElementById("merchEmail");
+    const mailBtn = document.getElementById("btnMail");
+    const copyBtn = document.getElementById("btnCopy");
+    const toast = document.getElementById("toast");
+
+    emailEl.textContent = email;
+
+    const mailto =
+      `mailto:${email}` +
+      `?subject=Merch%20request%20(Coming%20Soon)` +
+      `&body=Hi%20LegacyXV2,%0D%0A%0D%0A` +
+      `Item:%0D%0A` +
+      `Size:%0D%0A` +
+      `Colour:%0D%0A` +
+      `Design idea:%0D%0A%0D%0AThanks!`;
+
+    mailBtn.href = mailto;
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 1400);
+    }
+
+    copyBtn.addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(email);
+        showToast("Email copied");
+      }catch{
+        const range = document.createRange();
+        range.selectNodeContents(emailEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        try{
+          document.execCommand("copy");
+          showToast("Email copied");
+        }catch{
+          showToast("Copy failed");
+        }
+        sel.removeAllRanges();
+      }
+    });
+  </script>
+</body>
+</html>
