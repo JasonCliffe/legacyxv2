@@ -40,6 +40,33 @@
 
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- ✅ NAV FIX (page-only): centered + stable + removes any injected chevrons) -->
+  <style>
+    .topnav{ display:flex; justify-content:center; }
+    .navlinks{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .navlink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space: nowrap;
+      text-decoration: none;
+      box-sizing: border-box;
+      border-left: 0 !important;
+      border-right: 0 !important;
+    }
+    .navlink::before,
+    .navlink::after{
+      content: none !important;
+    }
+  </style>
+
   <!-- Schema.org: Site + Brand + Creator + YouTubeChannel + WebPage + Breadcrumbs -->
   <script type="application/ld+json">
   {
@@ -126,7 +153,7 @@
   }
   </script>
 
-  <!-- Page-only layout helpers (CSS option A: keep styles.css untouched) -->
+  <!-- Page-only layout helpers -->
   <style>
     .hwGrid2{
       display:grid;
@@ -207,14 +234,14 @@
 <body class="hardware">
   <main class="wrap">
 
-    <!-- TOP NAV (add Hardware link) -->
-    <nav class="topnav">
+    <!-- TOP NAV (consistent order with other pages) -->
+    <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
         <a class="navlink" href="/videos.html">Videos</a>
         <a class="navlink" href="/updates.html">Updates</a>
-   <a class="navlink active" href="/hardware.html">Hardware</a>
-  <a class="navlink" href="/game.html">Games</a>
+        <a class="navlink" href="/game.html">Games</a>
+        <a class="navlink active" href="/hardware.html">Hardware</a>
       </div>
     </nav>
 
@@ -283,7 +310,6 @@
               Recommendations below are a simple Q1 2026 snapshot so you can quickly match parts to a budget tier.
             </p>
             <div style="height:12px"></div>
-            </p>
           </div>
         </div>
       </div>
@@ -303,7 +329,6 @@
         <div style="height:14px"></div>
 
         <div class="recGrid">
-          <!-- CPUs: AM4 -->
           <article class="recCard">
             <div class="recTitle">
               AM4 CPUs
@@ -316,7 +341,6 @@
             </ul>
           </article>
 
-          <!-- CPUs: Intel -->
           <article class="recCard">
             <div class="recTitle">
               Intel CPUs
@@ -329,7 +353,6 @@
             </ul>
           </article>
 
-          <!-- CPUs: AM5 -->
           <article class="recCard">
             <div class="recTitle">
               AM5 CPUs
@@ -346,7 +369,6 @@
         <div style="height:14px"></div>
 
         <div class="recGrid">
-          <!-- GPUs: Low -->
           <article class="recCard">
             <div class="recTitle">
               GPU — Low-end
@@ -358,7 +380,6 @@
             </ul>
           </article>
 
-          <!-- GPUs: Mid -->
           <article class="recCard">
             <div class="recTitle">
               GPU — Mid-range
@@ -370,7 +391,6 @@
             </ul>
           </article>
 
-          <!-- GPUs: High -->
           <article class="recCard">
             <div class="recTitle">
               GPU — High-end
@@ -387,7 +407,8 @@
 
         <p class="mutedNote">
           Notes:
-          <br>• Ensure bios has been updated to recent update and ensure all drivers are fully up to date: <strong>This will be updated when new products have been reviewed</strong>.
+          <br>• Ensure bios has been updated to recent update and ensure all drivers are fully up to date:
+          <strong>This will be updated when new products have been reviewed</strong>.
         </p>
       </div>
     </section>
