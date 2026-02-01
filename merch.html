@@ -3,118 +3,184 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LegacyXV2 — Merch</title>
-  <meta name="description" content="LegacyXV2 merch — drop previews and enquiries." />
 
-  <!-- IMPORTANT: this matches your repo layout -->
-  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- Primary SEO -->
+  <title>LegacyXV2 — Merch (Drop One Preview)</title>
+  <meta name="description" content="LegacyXV2 merch — Drop One preview. Premium designs. Limited release. Enquiries open." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://legacyxv2-site.pages.dev/merch.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="LegacyXV2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://legacyxv2-site.pages.dev/merch.html" />
+  <meta property="og:title" content="LegacyXV2 — Merch (Drop One Preview)" />
+  <meta property="og:description" content="Drop One preview. Premium designs. Limited release. Enquiries open." />
+  <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:secure_url" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+  <meta property="og:image:alt" content="LegacyXV2 — Merch" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LegacyXV2 — Merch (Drop One Preview)" />
+  <meta name="twitter:description" content="Drop One preview. Premium designs. Limited release. Enquiries open." />
+  <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
+
+  <link rel="icon" href="/favicon.ico" />
+
+  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+
+  <!-- IMPORTANT: matches your site -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- ✅ NAV FIX (page-only): stops items shifting/replacing each other + keeps nav centered -->
+  <style>
+    .topnav { display:flex; justify-content:center; }
+    .navlinks{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+    .navlink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      white-space: nowrap;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+    .navlink::before,
+    .navlink::after{
+      content: none !important;
+    }
+  </style>
 </head>
 
-<body class="merch">
+<body>
+  <main class="wrap">
 
-  <div class="wrap">
-
-    <!-- ================= NAV (matches your site) ================= -->
-    <header class="topnav" role="navigation" aria-label="Primary">
+    <!-- TOP NAV (matches index.html) -->
+    <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
         <a class="navlink" href="/videos.html">Videos</a>
         <a class="navlink" href="/updates.html">Updates</a>
-        <a class="navlink" href="/games.html">Games</a>
+        <a class="navlink" href="/game.html">Games</a>
         <a class="navlink" href="/hardware.html">Hardware</a>
         <a class="navlink active" href="/merch.html">Merch</a>
       </div>
-    </header>
+    </nav>
 
-    <!-- ================= HERO FRAME (matches your site) ================= -->
-    <section class="heroFrame">
-      <div class="heroFrame__glow"></div>
+    <!-- HERO FRAME (same structure as index) -->
+    <header class="heroFrame">
+      <div class="heroFrame__glow" aria-hidden="true"></div>
 
       <div class="heroFrame__inner">
         <div class="heroTop">
           <div class="heroTop__label">
-            <span class="heroTop__dot"></span>
-            MERCH
-            <span class="heroTop__dot"></span>
+            <span class="heroTop__dot" aria-hidden="true"></span>
+            DROP ONE — MERCH PREVIEW
+            <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
 
-        <div class="heroMain" style="grid-template-columns: 1fr; text-align:left;">
-          <div class="heroIdentity">
-            <h1 class="heroTitle" style="font-size:42px; margin-bottom:6px;">LegacyXV2 Merch</h1>
-            <p class="heroSub" style="margin-bottom:0;">
-              Drop One preview. Premium designs. Limited release.
-            </p>
+        <div class="heroMain">
+          <div class="heroLogo">
+            <img src="logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="eager" fetchpriority="high" decoding="async" />
+          </div>
 
-            <div class="heroChips" style="margin-top:14px;">
-              <span class="chip">COMING SOON</span>
-              <span class="chip">DROP ONE</span>
-              <span class="chip">BLACK EDITION</span>
+          <div class="heroCopy">
+            <div class="heroIdentity">
+              <div class="heroRole">MERCH • COMING SOON</div>
+
+              <h1 class="heroTitle">LegacyXV2 Merch</h1>
+
+              <div class="heroFounder">
+                First drop preview — premium designs • limited release
+              </div>
+
+              <p class="heroSub">
+                These are preview mockups to show direction. Checkout links will be added later.
+                For requests and sizing queries, use the enquiry email below.
+              </p>
+            </div>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Drop One</span>
+              <span class="chip">Black Edition</span>
+              <span class="chip">Coming Soon</span>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- ================= PANELS (matches your site) ================= -->
+    <!-- DROP ONE -->
     <section class="panel introPanel">
       <div class="panelHead panelHead--split">
         <h2 class="panelTitle">Drop One — Preview</h2>
-        <a class="miniLink" href="#enquiries">ENQUIRIES</a>
+        <a class="miniLink" href="#enquiries">Enquiries →</a>
       </div>
 
       <div class="panelBody">
-        <p style="margin-bottom:14px;">
-          These are preview mockups to show the first drop direction. Checkout links will be added later.
-        </p>
-
-        <!-- Product grid (uses your existing "rig" card system so it matches visually) -->
         <div class="rigGrid">
 
-          <!-- Product 1 -->
+          <!-- Image 1 -->
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="/merch/inferno-enforcer-tee.jpg" alt="LegacyXV2 — Inferno Enforcer Tee">
-              <div class="rigLabel">TEE</div>
+              <img src="/merch/inferno-enforcer-tee.jpg" alt="LegacyXV2 — Inferno Enforcer Tee" loading="lazy" decoding="async" />
+              <span class="rigLabel">TEE</span>
             </div>
+
             <div class="rigContent">
               <h3 class="rigTitle">LegacyXV2 — Inferno Enforcer Tee</h3>
               <ul class="rigList">
-                <li>Front: Enforcer artwork / wordmark layout</li>
+                <li>Heavy graphic tee featuring the Inferno Enforcer artwork</li>
+                <li>Designed to stand out — built for fans</li>
                 <li>Colour: Black</li>
                 <li>Status: Coming soon</li>
               </ul>
             </div>
           </article>
 
-          <!-- Product 2 -->
+          <!-- Image 2 -->
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="/merch/inferno-core-hoodie.jpg" alt="LegacyXV2 — Inferno Core Hoodie">
-              <div class="rigLabel">HOODIE</div>
+              <img src="/merch/inferno-core-hoodie.jpg" alt="LegacyXV2 — Inferno Core Hoodie" loading="lazy" decoding="async" />
+              <span class="rigLabel">HOODIE</span>
             </div>
+
             <div class="rigContent">
               <h3 class="rigTitle">LegacyXV2 — Inferno Core Hoodie</h3>
               <ul class="rigList">
                 <li>Front: LegacyXV2 wordmark (centre chest)</li>
                 <li>Back: LD emblem (large upper-back)</li>
                 <li>Colour: Black</li>
+                <li>Status: Coming soon</li>
               </ul>
             </div>
           </article>
 
-          <!-- Product 3 -->
+          <!-- Image 3 -->
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="/merch/inferno-skull-tee.jpg" alt="LegacyXV2 — Inferno Skull Tee">
-              <div class="rigLabel">TEE</div>
+              <img src="/merch/inferno-skull-tee.jpg" alt="LegacyXV2 — Inferno Skull Tee" loading="lazy" decoding="async" />
+              <span class="rigLabel">TEE</span>
             </div>
+
             <div class="rigContent">
               <h3 class="rigTitle">LegacyXV2 — Inferno Skull Tee</h3>
               <ul class="rigList">
-                <li>Front: Skull mark + wordmark</li>
+                <li>Front: Skull mark + LegacyXV2 wordmark</li>
                 <li>Back: None (clean)</li>
                 <li>Colour: Black</li>
+                <li>Status: Coming soon</li>
               </ul>
             </div>
           </article>
@@ -123,43 +189,52 @@
       </div>
     </section>
 
-    <!-- ================= ENQUIRIES ================= -->
+    <!-- ENQUIRIES (email protected) -->
     <section class="panel" id="enquiries">
       <div class="panelHead">
         <h2 class="panelTitle">Merch Enquiries</h2>
       </div>
 
       <div class="panelBody">
-        <p>
-          Want to request a size, suggest a product, or get notified when the drop goes live?
-          Email:
+        <p class="aboutLead" style="margin-bottom: 10px;">
+          Requests, sizing, ideas, or early interest — email me here:
+        </p>
+
+        <p style="margin: 0;">
           <strong><span id="merchEmail"></span></strong>
         </p>
-        <p style="margin-top:10px;">
-          (Email is protected on-page to reduce spam bots.)
+
+        <p style="margin-top: 10px; opacity: .85;">
         </p>
       </div>
     </section>
 
     <footer class="footer">
-      © <span id="yr"></span> LegacyXV2
+      <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
     </footer>
 
-  </div>
+  </main>
 
   <script>
-    // Email protection (no raw email in HTML)
+    // Footer year (matches your index behaviour)
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Email protection (no raw email in HTML source)
     (function () {
       const user = "legacyxv2";
       const domain = "outlook.com";
+      const email = user + "@" + domain;
+
       const el = document.getElementById("merchEmail");
-      if (el) {
-        el.innerHTML = '<a class="miniLink" href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>';
-      }
-      const yr = document.getElementById("yr");
-      if (yr) yr.textContent = new Date().getFullYear();
+      if (!el) return;
+
+      const a = document.createElement("a");
+      a.className = "miniLink";
+      a.href = "mailto:" + email;
+      a.textContent = email;
+
+      el.appendChild(a);
     })();
   </script>
-
 </body>
 </html>
