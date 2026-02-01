@@ -4,237 +4,195 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Soft launch: prevent indexing until store goes live -->
+  <meta name="robots" content="noindex,follow" />
+
   <!-- Primary SEO -->
-  <title>LegacyXV2 — Merch (Drop One Preview)</title>
-  <meta name="description" content="LegacyXV2 merch — Drop One preview. Premium designs. Limited release. Enquiries open." />
-  <meta name="robots" content="index,follow" />
+  <title>LegacyXV2 Merch — Drop One Preview</title>
+  <meta name="description" content="LegacyXV2 official merchandise. Premium designs. Limited releases. Drop One preview." />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/merch.html" />
 
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="LegacyXV2" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://legacyxv2-site.pages.dev/merch.html" />
-  <meta property="og:title" content="LegacyXV2 — Merch (Drop One Preview)" />
-  <meta property="og:description" content="Drop One preview. Premium designs. Limited release. Enquiries open." />
-  <meta property="og:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
-  <meta property="og:image:secure_url" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
-  <meta property="og:image:alt" content="LegacyXV2 — Merch" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LegacyXV2 — Merch (Drop One Preview)" />
-  <meta name="twitter:description" content="Drop One preview. Premium designs. Limited release. Enquiries open." />
-  <meta name="twitter:image" content="https://legacyxv2-site.pages.dev/og-legacyxv2.jpg" />
-
   <link rel="icon" href="/favicon.ico" />
-
-  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
-  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
-
-  <!-- IMPORTANT: matches your site -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- ✅ NAV FIX (page-only): stops items shifting/replacing each other + keeps nav centered -->
+  <!-- NAV FIX (same as index) -->
   <style>
     .topnav { display:flex; justify-content:center; }
     .navlinks{
       display:flex;
       justify-content:center;
       align-items:center;
-      gap: 12px;
-      flex-wrap: wrap;
-      width: 100%;
+      gap:12px;
+      flex-wrap:wrap;
+      width:100%;
     }
     .navlink{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      white-space: nowrap;
-      text-decoration: none;
-      box-sizing: border-box;
+      white-space:nowrap;
+      text-decoration:none;
     }
     .navlink::before,
-    .navlink::after{
-      content: none !important;
-    }
+    .navlink::after{ content:none!important; }
   </style>
+
+  <!-- Product Schema: Coming Soon -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "name": "LegacyXV2 — Inferno Enforcer Tee",
+        "brand": { "@type": "Brand", "name": "LegacyXV2" },
+        "description": "Heavy graphic tee featuring the Inferno Enforcer artwork.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "priceCurrency": "GBP",
+          "price": "0.00",
+          "url": "https://legacyxv2-site.pages.dev/merch.html"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "LegacyXV2 — Inferno Core Hoodie",
+        "brand": { "@type": "Brand", "name": "LegacyXV2" },
+        "description": "Premium black hoodie with LegacyXV2 front wordmark and Inferno Core back emblem.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "priceCurrency": "GBP",
+          "price": "0.00",
+          "url": "https://legacyxv2-site.pages.dev/merch.html"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "LegacyXV2 — Inferno Skull Tee",
+        "brand": { "@type": "Brand", "name": "LegacyXV2" },
+        "description": "Inferno Skull graphic tee with bold central artwork.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/PreOrder",
+          "priceCurrency": "GBP",
+          "price": "0.00",
+          "url": "https://legacyxv2-site.pages.dev/merch.html"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <main class="wrap">
+<main class="wrap">
 
-    <!-- TOP NAV (matches index.html) -->
-    <nav class="topnav" aria-label="Primary">
-      <div class="navlinks">
-        <a class="navlink" href="/">Home</a>
-        <a class="navlink" href="/videos.html">Videos</a>
-        <a class="navlink" href="/updates.html">Updates</a>
-        <a class="navlink" href="/game.html">Games</a>
-        <a class="navlink" href="/hardware.html">Hardware</a>
-        <a class="navlink active" href="/merch.html">Merch</a>
-      </div>
-    </nav>
+  <!-- NAV -->
+  <nav class="topnav" aria-label="Primary">
+    <div class="navlinks">
+      <a class="navlink" href="/">Home</a>
+      <a class="navlink" href="/videos.html">Videos</a>
+      <a class="navlink" href="/updates.html">Updates</a>
+      <a class="navlink" href="/game.html">Games</a>
+      <a class="navlink" href="/hardware.html">Hardware</a>
+      <a class="navlink active" href="/merch.html">Merch</a>
+    </div>
+  </nav>
 
-    <!-- HERO FRAME (same structure as index) -->
-    <header class="heroFrame">
-      <div class="heroFrame__glow" aria-hidden="true"></div>
+  <!-- PAGE HEADER -->
+  <header class="panel introPanel">
+    <div class="panelHead">
+      <h1 class="panelTitle">LegacyXV2 Merch</h1>
+    </div>
+    <div class="panelBody">
+      <p class="aboutLead">First drop preview.</p>
+      <p>Premium designs. Limited release. Built for fans.</p>
+    </div>
+  </header>
 
-      <div class="heroFrame__inner">
-        <div class="heroTop">
-          <div class="heroTop__label">
-            <span class="heroTop__dot" aria-hidden="true"></span>
-            DROP ONE — MERCH PREVIEW
-            <span class="heroTop__dot" aria-hidden="true"></span>
+  <!-- DROP ONE -->
+  <section class="panel">
+    <div class="panelHead">
+      <h2 class="panelTitle">Drop One — Preview</h2>
+    </div>
+
+    <div class="panelBody">
+      <div class="rigGrid">
+
+        <!-- PRODUCT 1 -->
+        <article class="rigCard">
+          <div class="rigMedia">
+            <img src="/merch/inferno-enforcer-tee.jpg" alt="LegacyXV2 Inferno Enforcer Tee" loading="lazy" />
+            <span class="rigLabel">Coming Soon</span>
           </div>
-        </div>
-
-        <div class="heroMain">
-          <div class="heroLogo">
-            <img src="logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="eager" fetchpriority="high" decoding="async" />
+          <div class="rigContent">
+            <h3 class="rigTitle">LegacyXV2 — Inferno Enforcer Tee</h3>
+            <p>Heavy graphic tee featuring the Inferno Enforcer artwork. Designed to stand out.</p>
           </div>
+        </article>
 
-          <div class="heroCopy">
-            <div class="heroIdentity">
-              <div class="heroRole">MERCH • COMING SOON</div>
-
-              <h1 class="heroTitle">LegacyXV2 Merch</h1>
-
-              <div class="heroFounder">
-                First drop preview — premium designs • limited release
-              </div>
-
-              <p class="heroSub">
-                These are preview mockups to show direction. Checkout links will be added later.
-                For requests and sizing queries, use the enquiry email below.
-              </p>
-            </div>
-
-            <div class="heroChips" aria-hidden="true">
-              <span class="chip">Drop One</span>
-              <span class="chip">Black Edition</span>
-              <span class="chip">Coming Soon</span>
-            </div>
+        <!-- PRODUCT 2 -->
+        <article class="rigCard">
+          <div class="rigMedia">
+            <img src="/merch/inferno-core-hoodie.jpg" alt="LegacyXV2 Inferno Core Hoodie" loading="lazy" />
+            <span class="rigLabel">Coming Soon</span>
           </div>
-        </div>
+          <div class="rigContent">
+            <h3 class="rigTitle">LegacyXV2 — Inferno Core Hoodie</h3>
+            <p>Premium black hoodie with chest wordmark and Inferno Core back emblem.</p>
+          </div>
+        </article>
+
+        <!-- PRODUCT 3 -->
+        <article class="rigCard">
+          <div class="rigMedia">
+            <img src="/merch/inferno-skull-tee.jpg" alt="LegacyXV2 Inferno Skull Tee" loading="lazy" />
+            <span class="rigLabel">Coming Soon</span>
+          </div>
+          <div class="rigContent">
+            <h3 class="rigTitle">LegacyXV2 — Inferno Skull Tee</h3>
+            <p>Bold skull design with ember detailing. Clean front layout.</p>
+          </div>
+        </article>
+
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- DROP ONE -->
-    <section class="panel introPanel">
-      <div class="panelHead panelHead--split">
-        <h2 class="panelTitle">Drop One — Preview</h2>
-        <a class="miniLink" href="#enquiries">Enquiries →</a>
-      </div>
+  <!-- CONTACT / INTEREST -->
+  <section class="panel">
+    <div class="panelHead">
+      <h2 class="panelTitle">Merch Enquiries</h2>
+    </div>
+    <div class="panelBody">
+      <p>
+        Interested in upcoming drops or merch requests?
+        <br>
+        Email:
+        <strong>
+          <span data-user="legacyxv2" data-domain="outlook.com"></span>
+        </strong>
+      </p>
+    </div>
+  </section>
 
-      <div class="panelBody">
-        <div class="rigGrid">
+  <footer class="footer">
+    <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
+  </footer>
 
-          <!-- Image 1 -->
-          <article class="rigCard">
-            <div class="rigMedia">
-              <img src="/merch/inferno-enforcer-tee.jpg" alt="LegacyXV2 — Inferno Enforcer Tee" loading="lazy" decoding="async" />
-              <span class="rigLabel">TEE</span>
-            </div>
+</main>
 
-            <div class="rigContent">
-              <h3 class="rigTitle">LegacyXV2 — Inferno Enforcer Tee</h3>
-              <ul class="rigList">
-                <li>Heavy graphic tee featuring the Inferno Enforcer artwork</li>
-                <li>Designed to stand out — built for fans</li>
-                <li>Colour: Black</li>
-                <li>Status: Coming soon</li>
-              </ul>
-            </div>
-          </article>
+<script>
+  // Email obfuscation
+  const e = document.querySelector("[data-user]");
+  if(e){
+    const addr = e.dataset.user + "@" + e.dataset.domain;
+    e.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-          <!-- Image 2 -->
-          <article class="rigCard">
-            <div class="rigMedia">
-              <img src="/merch/inferno-core-hoodie.jpg" alt="LegacyXV2 — Inferno Core Hoodie" loading="lazy" decoding="async" />
-              <span class="rigLabel">HOODIE</span>
-            </div>
-
-            <div class="rigContent">
-              <h3 class="rigTitle">LegacyXV2 — Inferno Core Hoodie</h3>
-              <ul class="rigList">
-                <li>Front: LegacyXV2 wordmark (centre chest)</li>
-                <li>Back: LD emblem (large upper-back)</li>
-                <li>Colour: Black</li>
-                <li>Status: Coming soon</li>
-              </ul>
-            </div>
-          </article>
-
-          <!-- Image 3 -->
-          <article class="rigCard">
-            <div class="rigMedia">
-              <img src="/merch/inferno-skull-tee.jpg" alt="LegacyXV2 — Inferno Skull Tee" loading="lazy" decoding="async" />
-              <span class="rigLabel">TEE</span>
-            </div>
-
-            <div class="rigContent">
-              <h3 class="rigTitle">LegacyXV2 — Inferno Skull Tee</h3>
-              <ul class="rigList">
-                <li>Front: Skull mark + LegacyXV2 wordmark</li>
-                <li>Back: None (clean)</li>
-                <li>Colour: Black</li>
-                <li>Status: Coming soon</li>
-              </ul>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ENQUIRIES (email protected) -->
-    <section class="panel" id="enquiries">
-      <div class="panelHead">
-        <h2 class="panelTitle">Merch Enquiries</h2>
-      </div>
-
-      <div class="panelBody">
-        <p class="aboutLead" style="margin-bottom: 10px;">
-          Requests, sizing, ideas, or early interest — email me here:
-        </p>
-
-        <p style="margin: 0;">
-          <strong><span id="merchEmail"></span></strong>
-        </p>
-
-        <p style="margin-top: 10px; opacity: .85;">
-        </p>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <p>© <span id="year"></span> — Designed by Jason Cliffe</p>
-    </footer>
-
-  </main>
-
-  <script>
-    // Footer year (matches your index behaviour)
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Email protection (no raw email in HTML source)
-    (function () {
-      const user = "legacyxv2";
-      const domain = "outlook.com";
-      const email = user + "@" + domain;
-
-      const el = document.getElementById("merchEmail");
-      if (!el) return;
-
-      const a = document.createElement("a");
-      a.className = "miniLink";
-      a.href = "mailto:" + email;
-      a.textContent = email;
-
-      el.appendChild(a);
-    })();
-  </script>
 </body>
 </html>
