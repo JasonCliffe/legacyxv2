@@ -7,37 +7,15 @@
   <!-- Soft launch: prevent indexing until store goes live -->
   <meta name="robots" content="noindex,follow" />
 
-  <!-- Primary SEO -->
-  <title>LegacyXV2 Merch — Drop One Preview</title>
+  <!-- Primary -->
+  <title>LegacyXV2 — Merch (Drop One Preview)</title>
   <meta name="description" content="LegacyXV2 official merchandise. Premium designs. Limited releases. Drop One preview." />
   <link rel="canonical" href="https://legacyxv2-site.pages.dev/merch.html" />
 
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- NAV FIX (same as index) -->
-  <style>
-    .topnav { display:flex; justify-content:center; }
-    .navlinks{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      width:100%;
-    }
-    .navlink{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      white-space:nowrap;
-      text-decoration:none;
-    }
-    .navlink::before,
-    .navlink::after{ content:none!important; }
-  </style>
-
-  <!-- Product Schema: Coming Soon -->
+  <!-- Product Schema (Coming Soon) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,7 +37,7 @@
         "@type": "Product",
         "name": "LegacyXV2 — Inferno Core Hoodie",
         "brand": { "@type": "Brand", "name": "LegacyXV2" },
-        "description": "Premium black hoodie with LegacyXV2 front wordmark and Inferno Core back emblem.",
+        "description": "Premium black hoodie with LegacyXV2 wordmark front and Inferno Core back print.",
         "offers": {
           "@type": "Offer",
           "availability": "https://schema.org/PreOrder",
@@ -86,7 +64,7 @@
   </script>
 </head>
 
-<body>
+<body class="merch">
 <main class="wrap">
 
   <!-- NAV -->
@@ -101,21 +79,45 @@
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
-  <header class="panel introPanel">
-    <div class="panelHead">
-      <h1 class="panelTitle">LegacyXV2 Merch</h1>
-    </div>
-    <div class="panelBody">
-      <p class="aboutLead">First drop preview.</p>
-      <p>Premium designs. Limited release. Built for fans.</p>
+  <!-- HERO -->
+  <header class="heroFrame">
+    <div class="heroFrame__glow" aria-hidden="true"></div>
+
+    <div class="heroFrame__inner">
+      <div class="heroTop">
+        <div class="heroTop__label">
+          <span class="heroTop__dot"></span>
+          OFFICIAL MERCH
+          <span class="heroTop__dot"></span>
+        </div>
+      </div>
+
+      <div class="heroMain">
+        <div class="heroLogo">
+          <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="eager" decoding="async" />
+        </div>
+
+        <div class="heroCopy">
+          <h1 class="heroTitle">MERCH</h1>
+          <p class="heroSub">
+            Premium apparel. Limited drops. Built to last.
+          </p>
+
+          <div class="heroChips">
+            <span class="chip">Limited</span>
+            <span class="chip">Premium</span>
+            <span class="chip">Drop One</span>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- DROP ONE -->
   <section class="panel">
-    <div class="panelHead">
+    <div class="panelHead panelHead--split">
       <h2 class="panelTitle">Drop One — Preview</h2>
+      <a class="miniLink" href="/drop-one.html">View Drop →</a>
     </div>
 
     <div class="panelBody">
@@ -128,8 +130,8 @@
             <span class="rigLabel">Coming Soon</span>
           </div>
           <div class="rigContent">
-            <h3 class="rigTitle">LegacyXV2 — Inferno Enforcer Tee</h3>
-            <p>Heavy graphic tee featuring the Inferno Enforcer artwork. Designed to stand out.</p>
+            <h3 class="rigTitle">Inferno Enforcer Tee</h3>
+            <p>Heavy graphic tee featuring the Inferno Enforcer artwork.</p>
           </div>
         </article>
 
@@ -140,8 +142,8 @@
             <span class="rigLabel">Coming Soon</span>
           </div>
           <div class="rigContent">
-            <h3 class="rigTitle">LegacyXV2 — Inferno Core Hoodie</h3>
-            <p>Premium black hoodie with chest wordmark and Inferno Core back emblem.</p>
+            <h3 class="rigTitle">Inferno Core Hoodie</h3>
+            <p>Premium black hoodie with front wordmark and large back print.</p>
           </div>
         </article>
 
@@ -152,8 +154,8 @@
             <span class="rigLabel">Coming Soon</span>
           </div>
           <div class="rigContent">
-            <h3 class="rigTitle">LegacyXV2 — Inferno Skull Tee</h3>
-            <p>Bold skull design with ember detailing. Clean front layout.</p>
+            <h3 class="rigTitle">Inferno Skull Tee</h3>
+            <p>Bold skull design with ember detailing and clean layout.</p>
           </div>
         </article>
 
@@ -161,7 +163,7 @@
     </div>
   </section>
 
-  <!-- CONTACT / INTEREST -->
+  <!-- ENQUIRIES -->
   <section class="panel">
     <div class="panelHead">
       <h2 class="panelTitle">Merch Enquiries</h2>
@@ -171,9 +173,7 @@
         Interested in upcoming drops or merch requests?
         <br>
         Email:
-        <strong>
-          <span data-user="legacyxv2" data-domain="outlook.com"></span>
-        </strong>
+        <strong><span data-user="legacyxv2" data-domain="outlook.com"></span></strong>
       </p>
     </div>
   </section>
@@ -186,13 +186,12 @@
 
 <script>
   // Email obfuscation
-  const e = document.querySelector("[data-user]");
-  if(e){
-    const addr = e.dataset.user + "@" + e.dataset.domain;
-    e.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
+  const el = document.querySelector("[data-user]");
+  if (el) {
+    const addr = el.dataset.user + "@" + el.dataset.domain;
+    el.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
   }
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
