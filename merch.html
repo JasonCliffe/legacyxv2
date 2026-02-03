@@ -15,6 +15,113 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- ✅ Merch page-only fixes: image centering + enquiry form styling -->
+  <style>
+    /* Make product media behave consistently and keep images centered */
+    body.merch .rigMedia{
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+
+      /* Keeps all cards uniform even if images differ */
+      aspect-ratio: 16 / 9;
+
+      /* Helps when object-fit: contain leaves space */
+      background: rgba(0,0,0,.35);
+    }
+
+    /* Center the actual image correctly */
+    body.merch .rigMedia > img{
+      width: 100%;
+      height: 100%;
+      display: block;
+
+      /* Show whole mockup; avoids awkward cropping */
+      object-fit: contain;
+      object-position: center center;
+
+      /* Prevent any inherited weirdness */
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    /* Label stays pinned */
+    body.merch .rigLabel{
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      z-index: 2;
+    }
+
+    /* Enquiry form layout */
+    .merchForm{
+      display: grid;
+      gap: 12px;
+      max-width: 820px;
+    }
+
+    .merchForm .row{
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 720px){
+      .merchForm .row{ grid-template-columns: 1fr; }
+    }
+
+    .merchForm label{
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 6px;
+    }
+
+    .merchForm input,
+    .merchForm textarea{
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 14px;
+      border: 1px solid rgba(255,140,0,.35);
+      background: rgba(0,0,0,.35);
+      color: inherit;
+      padding: 12px 12px;
+      outline: none;
+    }
+
+    .merchForm textarea{
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .merchForm input:focus,
+    .merchForm textarea:focus{
+      border-color: rgba(255,140,0,.65);
+      box-shadow: 0 0 0 3px rgba(255,140,0,.12);
+    }
+
+    .merchForm .actions{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    /* If your global CSS already defines .btnPrimary/.btnGhost, this will blend in.
+       If not, it still looks fine because anchors/buttons inherit your theme. */
+    .merchForm button.btnPrimary{
+      cursor: pointer;
+      border: 0;
+    }
+
+    .smallNote{
+      font-size: 0.9rem;
+      opacity: 0.85;
+      line-height: 1.45;
+    }
+  </style>
+
   <!-- Product Schema (Coming Soon) -->
   <script type="application/ld+json">
   {
@@ -126,7 +233,7 @@
         <!-- PRODUCT 1 -->
         <article class="rigCard">
           <div class="rigMedia">
-            <img src="/merch/inferno-enforcer-tee.jpg" alt="LegacyXV2 Inferno Enforcer Tee" loading="lazy" />
+            <img src="/merch/inferno-enforcer-tee.jpg" alt="LegacyXV2 Inferno Enforcer Tee" loading="lazy" decoding="async" />
             <span class="rigLabel">Coming Soon</span>
           </div>
           <div class="rigContent">
@@ -138,7 +245,7 @@
         <!-- PRODUCT 2 -->
         <article class="rigCard">
           <div class="rigMedia">
-            <img src="/merch/inferno-core-hoodie.jpg" alt="LegacyXV2 Inferno Core Hoodie" loading="lazy" />
+            <img src="/merch/inferno-core-hoodie.jpg" alt="LegacyXV2 Inferno Core Hoodie" loading="lazy" decoding="async" />
             <span class="rigLabel">Coming Soon</span>
           </div>
           <div class="rigContent">
@@ -150,7 +257,7 @@
         <!-- PRODUCT 3 -->
         <article class="rigCard">
           <div class="rigMedia">
-            <img src="/merch/inferno-skull-tee.jpg" alt="LegacyXV2 Inferno Skull Tee" loading="lazy" />
+            <img src="/merch/inferno-skull-tee.jpg" alt="LegacyXV2 Inferno Skull Tee" loading="lazy" decoding="async" />
             <span class="rigLabel">Coming Soon</span>
           </div>
           <div class="rigContent">
@@ -164,17 +271,43 @@
   </section>
 
   <!-- ENQUIRIES -->
-  <section class="panel">
+  <section class="panel" id="enquiries">
     <div class="panelHead">
       <h2 class="panelTitle">Merch Enquiries</h2>
     </div>
+
     <div class="panelBody">
-      <p>
-        Interested in upcoming drops or merch requests?
-        <br>
-        Email:
-        <strong><span data-user="legacyxv2" data-domain="outlook.com"></span></strong>
+      <p class="smallNote">
+        Interested in Drop One or want to request a product? Send a quick message below — it will open your email app
+        with everything pre-filled.
       </p>
+
+      <form class="merchForm" id="merchForm">
+        <div class="row">
+          <div>
+            <label for="fromName">Name (optional)</label>
+            <input id="fromName" name="fromName" type="text" placeholder="Your name" autocomplete="name" />
+          </div>
+
+          <div>
+            <label for="topic">Topic</label>
+            <input id="topic" name="topic" type="text" placeholder="Drop One / sizing / request / collab" value="Merch enquiry" />
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btnPrimary">Send Enquiry →</button>
+          <span class="smallNote">
+            Or email directly:
+            <strong><span data-user="legacyxv2" data-domain="outlook.com"></span></strong>
+          </span>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -185,13 +318,47 @@
 </main>
 
 <script>
-  // Email obfuscation
-  const el = document.querySelector("[data-user]");
-  if (el) {
-    const addr = el.dataset.user + "@" + el.dataset.domain;
-    el.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
-  }
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // Email obfuscation + mailto form handler
+  (function () {
+    const el = document.querySelector("[data-user]");
+    let addr = "";
+    if (el) {
+      addr = el.dataset.user + "@" + el.dataset.domain;
+      el.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
+    }
+
+    // Form -> opens user's email client with subject/body filled
+    const form = document.getElementById("merchForm");
+    if (form && addr) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const name = (document.getElementById("fromName").value || "").trim();
+        const topic = (document.getElementById("topic").value || "Merch enquiry").trim();
+        const msg = (document.getElementById("message").value || "").trim();
+
+        const subject = `LegacyXV2 Merch — ${topic}`;
+        const lines = [];
+        if (name) lines.push(`Name: ${name}`);
+        lines.push(`Website: https://legacyxv2-site.pages.dev/merch.html`);
+        lines.push("");
+        lines.push(msg);
+
+        const body = lines.join("\n");
+
+        // Encode safely for mailto
+        const mailto =
+          `mailto:${encodeURIComponent(addr)}` +
+          `?subject=${encodeURIComponent(subject)}` +
+          `&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailto;
+      });
+    }
+
+    const year = document.getElementById("year");
+    if (year) year.textContent = new Date().getFullYear();
+  })();
 </script>
 </body>
 </html>
