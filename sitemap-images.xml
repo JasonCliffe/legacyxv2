@@ -3,10 +3,21 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <url>
-    <loc>https://legacyxv2-site.pages.dev/merch.html</loc>
+    <loc>https://legacyxv2.co.uk/merch.html</loc>
+
     <image:image>
-      <image:loc>https://legacyxv2-site.pages.dev/merch/inferno-core-hoodie.jpg</image:loc>
+      <image:loc>https://legacyxv2.co.uk/merch/inferno-enforcer-tee.jpg</image:loc>
+      <image:title>LegacyXV2 Inferno Enforcer Tee</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://legacyxv2.co.uk/merch/inferno-core-hoodie.jpg</image:loc>
       <image:title>LegacyXV2 Inferno Core Hoodie</image:title>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://legacyxv2.co.uk/merch/inferno-skull-tee.jpg</image:loc>
+      <image:title>LegacyXV2 Inferno Skull Tee</image:title>
     </image:image>
   </url>
 
