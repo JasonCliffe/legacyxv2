@@ -212,8 +212,8 @@
 </main>
 
 <script>
-  // Email obfuscation + mailto form handler
   (function () {
+    // Email obfuscation + mailto form handler
     const el = document.querySelector("[data-user]");
     let addr = "";
 
@@ -222,7 +222,6 @@
       el.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
     }
 
-    // Form -> opens user's email client with subject/body filled
     const form = document.getElementById("merchForm");
     if (form && addr) {
       form.addEventListener("submit", function (e) {
