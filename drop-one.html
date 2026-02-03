@@ -18,7 +18,7 @@
 <body class="dropone">
   <main class="wrap">
 
-    <!-- TOP NAV (identical to site) -->
+    <!-- TOP NAV -->
     <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
@@ -176,7 +176,6 @@
 
   <script>
     (function () {
-      // Email obfuscation
       const el = document.querySelector("[data-user]");
       let addr = "";
 
@@ -185,7 +184,6 @@
         el.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
       }
 
-      // Form -> opens user's email client with subject/body filled
       const form = document.getElementById("dropForm");
       if (form && addr) {
         form.addEventListener("submit", function (e) {
@@ -213,7 +211,6 @@
         });
       }
 
-      // Footer year
       const year = document.getElementById("year");
       if (year) year.textContent = new Date().getFullYear();
     })();
