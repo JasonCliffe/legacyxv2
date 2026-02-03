@@ -70,8 +70,8 @@ export async function onRequestPost(context) {
     const pageLabel = cleanPage === "drop-one" ? "Drop One" : "Merch";
     const sourceUrl =
       cleanPage === "drop-one"
-        ? "https://legacyxv2-site.pages.dev/drop-one.html"
-        : "https://legacyxv2-site.pages.dev/merch.html";
+        ? "https://legacyxv2.co.uk/drop-one.html"
+        : "https://legacyxv2.co.uk/merch.html";
 
     const subject = `LegacyXV2 ${pageLabel} — ${cleanTopic}`;
 
