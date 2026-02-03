@@ -53,13 +53,7 @@ body{
   padding: 22px 16px 46px;
 }
 
-/* ================= NAV =================
-   ✅ Fixed:
-   - No swapping/replacing items
-   - Centered on desktop
-   - Mobile scroll instead of wrap
-   - Removes any "<" / chevrons from pseudo-elements
-======================================== */
+/* ================= NAV ================= */
 .topnav{
   display:flex;
   justify-content:center;
@@ -84,13 +78,9 @@ body{
   justify-content:center;
   gap: 10px;
 
-  /* keep order stable */
   flex-wrap: nowrap;
-
-  /* desktop: no scroll UI */
   overflow: visible;
 
-  /* flex sizing safety */
   max-width: 100%;
   min-width: 0;
 }
@@ -111,14 +101,12 @@ body{
 
   transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease, background 140ms ease, border-color 140ms ease;
 
-  /* stability */
   flex: 0 0 auto;
   white-space: nowrap;
   text-align: center;
   box-sizing: border-box;
 }
 
-/* Kill any injected chevrons/arrows from pseudo-elements (stops the "<") */
 .navlink::before,
 .navlink::after{
   content: none !important;
@@ -142,7 +130,6 @@ body{
     0 0 42px rgba(255,179,0,0.26);
 }
 
-/* Mobile: allow horizontal scroll instead of wrapping */
 @media (max-width: 720px){
   .navlinks{
     justify-content: flex-start;
@@ -180,7 +167,6 @@ body{
   filter: blur(16px);
   opacity: 1;
 
-  /* subtle ember flicker */
   animation: emberFlicker 6.5s ease-in-out infinite;
 }
 
@@ -195,7 +181,6 @@ body{
   padding: 18px;
 }
 
-/* Inner frame + scanlines */
 .heroFrame__inner::before{
   content:"";
   position:absolute;
@@ -354,7 +339,6 @@ body{
     0 0 60px rgba(255,179,0,0.08);
 }
 
-/* soft ember glow */
 .panel::before{
   content:"";
   position:absolute;
@@ -366,7 +350,6 @@ body{
   animation: emberFlicker 8s ease-in-out infinite;
 }
 
-/* inner HUD frame */
 .panel::after{
   content:"";
   position:absolute;
@@ -418,7 +401,6 @@ body{
   color: rgba(255,238,221,0.92);
 }
 
-/* Micro-hover glow (desktop only) */
 @media (hover:hover) and (pointer:fine){
   .panel{
     transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
@@ -432,7 +414,7 @@ body{
   }
 }
 
-/* ================= INTRODUCTION PANEL (slightly more hero-like) ================= */
+/* ================= INTRODUCTION PANEL ================= */
 .introPanel{
   border: 1px solid rgba(255,179,0,0.34);
   box-shadow:
@@ -459,17 +441,15 @@ body{
   display:block;
 }
 
-/* ================= PC SPECS SECTION ================= */
+/* ================= PC SPECS ================= */
 .specsPanel{}
 
-/* 3 rigs responsive grid */
 .rigGrid{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
-/* rig card: no layout change elsewhere */
 .rigCard{
   border-radius: 16px;
   overflow:hidden;
@@ -493,12 +473,13 @@ body{
   transform: scale(1.02);
 }
 
-/* Ember tint + HUD feel on rig images */
+/* Overlay (z-index fixed so badges can sit above it when needed) */
 .rigMedia::after{
   content:"";
   position:absolute;
   inset:0;
   pointer-events:none;
+  z-index: 1;
   background:
     linear-gradient(180deg, rgba(255,90,0,0.08), rgba(0,0,0,0.55));
   box-shadow:
@@ -746,10 +727,7 @@ body{
 
 /* =========================
    Updates page – Social panel width + height fix
-   (ONLY applies when <body class="updates">)
 ========================= */
-
-/* Stop the right panel stretching to match the tall left panel */
 body.updates .grid2{
   align-items: start;
 }
@@ -758,7 +736,6 @@ body.updates .grid2 > .panel{
   align-self: start;
 }
 
-/* Make the social panel match Home's right-column width (no "small" max-width cap) */
 body.updates .panel--social{
   max-width: none;
   width: 100%;
@@ -766,7 +743,6 @@ body.updates .panel--social{
   align-self: start;
 }
 
-/* Keep layout consistent (YouTube full width, TikTok + Instagram 2 columns like Home) */
 body.updates .panel--social .linksGrid{
   grid-template-columns: 1fr 1fr;
 }
@@ -775,7 +751,6 @@ body.updates .panel--social .linksGrid a:nth-child(1){
   grid-column: 1 / -1;
 }
 
-/* Buttons should fill their grid cells (prevents "small" look) */
 body.updates .panel--social .btnPrimary,
 body.updates .panel--social .btnGhost{
   width: 100%;
@@ -784,14 +759,11 @@ body.updates .panel--social .btnGhost{
 
 /* =========================
    Fix: Mobile "Desktop site" view
-   Keeps real desktop perfect
 ========================= */
 @media (hover: none) and (pointer: coarse){
   .grid2{
     grid-template-columns: 1fr !important;
   }
-
-  /* make sure panels are full width when stacked */
   .grid2 > .panel{
     justify-self: stretch !important;
     width: 100% !important;
@@ -799,8 +771,7 @@ body.updates .panel--social .btnGhost{
 }
 
 /* =========================
-   Videos page (scoped) — moved from videos.html
-   ONLY applies when <body class="videos">
+   Videos page (scoped)
 ========================= */
 body.videos .playlistGrid{
   display:grid;
@@ -858,52 +829,52 @@ body.videos .playlistNote{
   line-height: 1.45;
 }
 
-/* Tablet/Small desktop */
 @media (max-width: 980px){
   body.videos .playlistGrid{ grid-template-columns: 1fr; }
 }
+
 /* =========================
    Merch pages — image centering + enquiry form
    Applies only when <body class="merch">
 ========================= */
-
-/* Merch cards: use stable media box and center artwork */
 body.merch .rigMedia{
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
 
-  /* Keeps all product cards uniform */
   aspect-ratio: 16 / 9;
-
-  /* Helps when object-fit: contain leaves space */
   background: rgba(0,0,0,0.35);
 }
 
-/* Override global "cover + zoom" for merch images */
+/* Keep image above overlay, but below badge */
 body.merch .rigMedia img{
   width: 100%;
   height: 100%;
   display: block;
 
-  /* KEY: show full mockup, centered (no cropping) */
   object-fit: contain;
   object-position: center center;
 
-  /* Cancel global zoom from .rigMedia img */
   transform: none;
-
   max-width: 100%;
   max-height: 100%;
+  position: relative;
+  z-index: 0;
 }
 
-/* Ensure label is pinned above overlays */
+/* Put badge above overlay */
 body.merch .rigLabel{
   z-index: 2;
 }
 
-/* Enquiry form layout */
+/* Enquiry note */
+body.merch .smallNote{
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.45;
+}
+
 body.merch .merchForm{
   display: grid;
   gap: 12px;
@@ -957,22 +928,15 @@ body.merch .merchForm .actions{
   align-items: center;
 }
 
-body.merch .smallNote{
-  font-size: 0.9rem;
-  opacity: 0.85;
-  line-height: 1.45;
-}
-
-/* Make the submit button behave like your existing .btnPrimary */
 body.merch .merchForm button.btnPrimary{
   cursor: pointer;
   border: 0;
 }
+
 /* =========================
    Drop One page — layout + image centering + enquiry form
    Applies only when <body class="dropone">
 ========================= */
-
 body.dropone .heroPanel .heroLead{
   margin: 0 0 6px;
   font-size: 16px;
@@ -988,7 +952,12 @@ body.dropone .heroPanel .heroSub{
   line-height: 1.55;
 }
 
-/* Product grid (matches your site "card" vibe, not a new layout system) */
+body.dropone .smallNote{
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.45;
+}
+
 body.dropone .productGrid{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1021,7 +990,6 @@ body.dropone .productMedia{
   background: rgba(0,0,0,0.35);
 }
 
-/* KEY: show full mockup centered, no crop, no zoom */
 body.dropone .productMedia img{
   width: 100%;
   height: 100%;
@@ -1069,7 +1037,6 @@ body.dropone .productDesc{
   color: rgba(255,238,221,0.78);
 }
 
-/* Enquiry form styling (matches merch behaviour) */
 body.dropone .dropForm{
   display: grid;
   gap: 12px;
