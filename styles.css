@@ -77,7 +77,7 @@ body{
   align-items:center;
   justify-content:center;
   gap: 10px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   overflow: visible;
   max-width: 100%;
   min-width: 0;
@@ -135,6 +135,7 @@ body{
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     padding: 6px 4px;
+    flex-wrap: nowrap;
   }
   .navlinks::-webkit-scrollbar{ display:none; }
 }
@@ -303,6 +304,22 @@ body{
   text-shadow: 0 0 10px rgba(0,0,0,0.55);
 }
 
+/* Home-specific text bits that exist in your HTML */
+.heroRole{
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.78);
+  margin-bottom: 10px;
+}
+
+.heroFounder{
+  font-size: 13px;
+  color: rgba(255,238,221,0.9);
+  margin: 0 0 10px;
+}
+
 .heroChips{
   display:flex;
   flex-wrap: wrap;
@@ -412,6 +429,24 @@ body{
   }
 }
 
+/* ================= HOME: INTRO VIDEO (fix “cramped”) ================= */
+.introVideo{
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  aspect-ratio: 16 / 9;
+}
+
+.introVideo iframe{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
 /* ================= PC SPECS / RIG GRID ================= */
 .rigGrid{
   display:grid;
@@ -483,7 +518,43 @@ body{
   color: rgba(255,238,221,0.92);
 }
 
-/* ================= LINKS ================= */
+.rigList{
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(255,238,221,0.84);
+  line-height: 1.55;
+  font-size: 13px;
+}
+
+.rigList li{ margin: 6px 0; }
+
+/* ================= HOME: ABOUT + SOCIAL SIDE BY SIDE ================= */
+.grid2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 980px){
+  .grid2{ grid-template-columns: 1fr; }
+}
+
+/* About subtle divider (exists in your HTML) */
+.aboutDivider{
+  height: 1px;
+  background: rgba(255,140,0,0.18);
+  margin: 12px 0 12px;
+  border-radius: 999px;
+}
+
+/* Social links layout */
+.linksGrid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
 .btnPrimary{
   display:flex;
   align-items:center;
@@ -513,6 +584,33 @@ body{
   filter: brightness(1.06);
 }
 
+.btnGhost{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 14px 16px;
+  border-radius: 16px;
+
+  font-weight: 1000;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-decoration:none;
+
+  color: rgba(255,238,221,0.92);
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,140,0,0.22);
+
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+
+  transition: transform 140ms ease, filter 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.btnGhost:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,179,0,0.40);
+  background: rgba(0,0,0,0.40);
+}
+
 .miniLink{
   display:inline-block;
   padding: 8px 12px;
@@ -535,6 +633,164 @@ body{
 .miniLink:hover{
   transform: translateY(-1px);
   filter: brightness(1.05);
+}
+
+/* ================= VIDEOS PAGE: TILE GRID ================= */
+.playlistGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 980px){
+  .playlistGrid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px){
+  .playlistGrid{ grid-template-columns: 1fr; }
+}
+
+.playlistCard{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+}
+
+.playlistHead{
+  padding: 12px 12px 10px;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.25);
+}
+
+.playlistTitle{
+  margin: 0;
+  font-size: 13px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.92);
+}
+
+.playlistFrame{
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+}
+
+.playlistFrame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display:block;
+}
+
+.playlistFoot{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+}
+
+.playlistNote{
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255,238,221,0.72);
+}
+
+/* ================= UPDATES PAGE: TILE GRID (no social) ================= */
+.updatesGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 980px){
+  .updatesGrid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px){
+  .updatesGrid{ grid-template-columns: 1fr; }
+}
+
+.updateCard{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  display:flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.updateTop{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.22);
+}
+
+.updateMeta{
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.80);
+}
+
+.newBadge{
+  font-size: 11px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a0b06;
+  background: linear-gradient(135deg, var(--ember3), var(--ember2));
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.updateBodyWrap{
+  padding: 12px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.updateTitle{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.92);
+}
+
+.thumbLink{
+  display:block;
+  border-radius: 14px;
+  overflow:hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.35);
+  aspect-ratio: 16 / 9;
+}
+
+.thumbImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+.updateText{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255,238,221,0.78);
 }
 
 /* ================= FOOTER ================= */
@@ -571,7 +827,7 @@ body{
 }
 
 /* =========================
-   SHARED: form + status polish
+   Turnstile + status (kept from your latest)
 ========================= */
 .smallNote{
   font-size: 0.9rem;
@@ -579,40 +835,89 @@ body{
   line-height: 1.45;
 }
 
-.turnstileSlot .cf-turnstile{
+.turnstileWrap{
   margin-top: 6px;
+  display: grid;
+  gap: 8px;
+  align-items: start;
+}
+
+.turnstileWrap .cf-turnstile{
+  display: inline-block;
+}
+
+.tinyNote{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255,238,221,0.68);
 }
 
 .formStatus{
-  margin: 10px 0 0;
-  min-height: 1.2em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-left: 6px;
+  padding: 8px 12px;
+
+  min-height: 36px;
+  border-radius: 14px;
+
   font-size: 13px;
-  line-height: 1.45;
-  opacity: 0.95;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
+
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,140,0,0.20);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 160ms ease, transform 160ms ease, border-color 160ms ease;
 }
 
-.formStatus.ok{
-  color: rgba(170, 255, 190, 0.92);
-  text-shadow: 0 0 10px rgba(0,0,0,0.55);
+.formStatus:not(:empty){
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.formStatus.err{
-  color: rgba(255, 170, 170, 0.92);
-  text-shadow: 0 0 10px rgba(0,0,0,0.55);
+.formStatus[data-kind="busy"]{
+  color: rgba(255,238,221,0.88);
+  border-color: rgba(255,179,0,0.30);
+  box-shadow:
+    0 0 14px rgba(255,179,0,0.12),
+    inset 0 0 0 1px rgba(0,0,0,0.35);
+}
+
+.formStatus[data-kind="ok"]{
+  color: rgba(185, 255, 210, 0.92);
+  border-color: rgba(120, 255, 170, 0.26);
+  box-shadow:
+    0 0 14px rgba(120, 255, 170, 0.10),
+    inset 0 0 0 1px rgba(0,0,0,0.35);
+}
+
+.formStatus[data-kind="error"]{
+  color: rgba(255, 185, 185, 0.94);
+  border-color: rgba(255, 120, 120, 0.28);
+  box-shadow:
+    0 0 14px rgba(255, 120, 120, 0.10),
+    inset 0 0 0 1px rgba(0,0,0,0.35);
 }
 
 button.btnPrimary{
   cursor: pointer;
+  border: 0;
 }
 
 button.btnPrimary:disabled{
-  opacity: 0.7;
+  opacity: 0.72;
   cursor: not-allowed;
   filter: saturate(0.9);
 }
 
 /* =========================
-   Merch page — image centering + enquiry form
+   Merch page — keep your previous rules
 ========================= */
 body.merch .rigMedia{
   position: relative;
@@ -627,9 +932,9 @@ body.merch .rigMedia img{
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;            /* ✅ show full mockup */
-  object-position: center center; /* ✅ centered */
-  transform: none;                /* ✅ cancel global zoom */
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
   max-width: 100%;
   max-height: 100%;
 }
@@ -689,7 +994,7 @@ body.merch .merchForm .actions{
 }
 
 /* =========================
-   Drop One page — layout + image centering + enquiry form
+   Drop One page — keep your previous rules
 ========================= */
 body.dropone .heroPanel .heroLead{
   margin: 0 0 6px;
@@ -832,103 +1137,4 @@ body.dropone .dropForm .actions{
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
-}
-/* =========================
-   SHARED: form + status polish (Turnstile + status)
-   Matches the current HTML/JS (uses data-kind + .turnstileWrap)
-========================= */
-
-.smallNote{
-  font-size: 0.9rem;
-  opacity: 0.85;
-  line-height: 1.45;
-}
-
-/* Turnstile wrapper */
-.turnstileWrap{
-  margin-top: 6px;
-  display: grid;
-  gap: 8px;
-  align-items: start;
-}
-
-.turnstileWrap .cf-turnstile{
-  /* keep it aligned and not jammed into edges */
-  display: inline-block;
-}
-
-.tinyNote{
-  margin: 0;
-  font-size: 12px;
-  color: rgba(255,238,221,0.68);
-}
-
-/* Status line */
-.formStatus{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-left: 6px;
-  padding: 8px 12px;
-
-  min-height: 36px;
-  border-radius: 14px;
-
-  font-size: 13px;
-  line-height: 1.35;
-  letter-spacing: 0.2px;
-
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,140,0,0.20);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
-
-  opacity: 0;                 /* hidden until it has text */
-  transform: translateY(2px);
-  transition: opacity 160ms ease, transform 160ms ease, border-color 160ms ease;
-}
-
-/* When JS sets text, it becomes visible */
-.formStatus:not(:empty){
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* BUSY */
-.formStatus[data-kind="busy"]{
-  color: rgba(255,238,221,0.88);
-  border-color: rgba(255,179,0,0.30);
-  box-shadow:
-    0 0 14px rgba(255,179,0,0.12),
-    inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-/* OK */
-.formStatus[data-kind="ok"]{
-  color: rgba(185, 255, 210, 0.92);
-  border-color: rgba(120, 255, 170, 0.26);
-  box-shadow:
-    0 0 14px rgba(120, 255, 170, 0.10),
-    inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-/* ERROR */
-.formStatus[data-kind="error"]{
-  color: rgba(255, 185, 185, 0.94);
-  border-color: rgba(255, 120, 120, 0.28);
-  box-shadow:
-    0 0 14px rgba(255, 120, 120, 0.10),
-    inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-/* Buttons (submit) */
-button.btnPrimary{
-  cursor: pointer;
-  border: 0;
-}
-
-button.btnPrimary:disabled{
-  opacity: 0.72;
-  cursor: not-allowed;
-  filter: saturate(0.9);
 }
