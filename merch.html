@@ -9,7 +9,7 @@
 
   <title>LegacyXV2 — Merch (Drop One Preview)</title>
   <meta name="description" content="LegacyXV2 official merchandise. Premium designs. Limited releases. Drop One preview." />
-  <link rel="canonical" href="https://legacyxv2-site.pages.dev/merch.html" />
+  <link rel="canonical" href="https://legacyxv2.co.uk/merch.html" />
 
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
@@ -32,7 +32,7 @@
           "availability": "https://schema.org/PreOrder",
           "priceCurrency": "GBP",
           "price": "0.00",
-          "url": "https://legacyxv2-site.pages.dev/merch.html"
+          "url": "https://legacyxv2.co.uk/merch.html"
         }
       },
       {
@@ -45,7 +45,7 @@
           "availability": "https://schema.org/PreOrder",
           "priceCurrency": "GBP",
           "price": "0.00",
-          "url": "https://legacyxv2-site.pages.dev/merch.html"
+          "url": "https://legacyxv2.co.uk/merch.html"
         }
       },
       {
@@ -58,7 +58,7 @@
           "availability": "https://schema.org/PreOrder",
           "priceCurrency": "GBP",
           "price": "0.00",
-          "url": "https://legacyxv2-site.pages.dev/merch.html"
+          "url": "https://legacyxv2.co.uk/merch.html"
         }
       }
     ]
@@ -235,17 +235,14 @@
     }
 
     function getTurnstileToken(){
-      // Turnstile injects a hidden input: name="cf-turnstile-response"
       const input = form.querySelector('input[name="cf-turnstile-response"]');
       return (input && input.value ? input.value : "").trim();
     }
 
     function resetTurnstile(){
-      // Official reset method
       if (window.turnstile && typeof window.turnstile.reset === "function") {
         try { window.turnstile.reset(); } catch (_) {}
       }
-      // Also clear hidden field in case browser keeps it
       const input = form.querySelector('input[name="cf-turnstile-response"]');
       if (input) input.value = "";
     }
@@ -287,12 +284,9 @@
             return;
           }
 
-          // Success: clear fields + reset widget
           form.reset();
           resetTurnstile();
           setStatus("Sent ✅", "ok");
-
-          // Optional: clear status after a moment
           setTimeout(() => setStatus("", ""), 4000);
 
         } catch (err) {
