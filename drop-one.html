@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 
-<body>
+<body class="dropone">
   <main class="wrap">
 
     <!-- TOP NAV (identical to site) -->
@@ -38,7 +38,7 @@
       <div class="panelBody">
         <p class="heroLead">Inferno Collection</p>
         <p class="heroSub">
-          First official LegacyXV2 merch release.  
+          First official LegacyXV2 merch release preview.
           Premium designs. Limited run. Built for fans.
         </p>
       </div>
@@ -127,17 +127,43 @@
     </section>
 
     <!-- ENQUIRIES -->
-    <section class="panel">
+    <section class="panel" id="enquiries">
       <div class="panelHead">
         <h2 class="panelTitle">Drop One Enquiries</h2>
       </div>
+
       <div class="panelBody">
-        <p>
-          Interested in Drop One or early access?
+        <p class="smallNote">
+          Want early access, sizing questions, or to request a product? Send a quick message below — it opens your email app
+          with everything pre-filled.
         </p>
-        <p class="emailProtect">
-          Email: <span>legacyxv2</span> <span>[at]</span> <span>outlook</span> <span>[dot]</span> <span>com</span>
-        </p>
+
+        <form class="dropForm" id="dropForm">
+          <div class="row">
+            <div>
+              <label for="fromName">Name (optional)</label>
+              <input id="fromName" name="fromName" type="text" placeholder="Your name" autocomplete="name" />
+            </div>
+
+            <div>
+              <label for="topic">Topic</label>
+              <input id="topic" name="topic" type="text" value="Drop One enquiry" />
+            </div>
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btnPrimary">Send Enquiry →</button>
+            <span class="smallNote">
+              Or email directly:
+              <strong><span data-user="legacyxv2" data-domain="outlook.com"></span></strong>
+            </span>
+          </div>
+        </form>
       </div>
     </section>
 
@@ -149,7 +175,48 @@
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+      // Email obfuscation
+      const el = document.querySelector("[data-user]");
+      let addr = "";
+
+      if (el) {
+        addr = el.dataset.user + "@" + el.dataset.domain;
+        el.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
+      }
+
+      // Form -> opens user's email client with subject/body filled
+      const form = document.getElementById("dropForm");
+      if (form && addr) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = (document.getElementById("fromName").value || "").trim();
+          const topic = (document.getElementById("topic").value || "Drop One enquiry").trim();
+          const msg = (document.getElementById("message").value || "").trim();
+
+          const subject = `LegacyXV2 Drop One — ${topic}`;
+          const lines = [];
+          if (name) lines.push(`Name: ${name}`);
+          lines.push(`Website: https://legacyxv2-site.pages.dev/drop-one.html`);
+          lines.push("");
+          lines.push(msg);
+
+          const body = lines.join("\n");
+
+          const mailto =
+            `mailto:${encodeURIComponent(addr)}` +
+            `?subject=${encodeURIComponent(subject)}` +
+            `&body=${encodeURIComponent(body)}`;
+
+          window.location.href = mailto;
+        });
+      }
+
+      // Footer year
+      const year = document.getElementById("year");
+      if (year) year.textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
