@@ -15,6 +15,9 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
+  <!-- Turnstile (Cloudflare) -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <!-- Product Schema (Coming Soon) -->
   <script type="application/ld+json">
   {
@@ -171,11 +174,10 @@
 
     <div class="panelBody">
       <p class="smallNote">
-        Interested in Drop One or want to request a product? Send a quick message below — it will open your email app
-        with everything pre-filled.
+        Interested in Drop One or want to request a product? Send a quick message below.
       </p>
 
-      <form class="merchForm" id="merchForm">
+      <form class="merchForm" id="merchForm" novalidate>
         <div class="row">
           <div>
             <label for="fromName">Name (optional)</label>
@@ -193,14 +195,24 @@
           <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
         </div>
 
+        <!-- Turnstile widget -->
+        <div class="turnstileWrap">
+          <div class="cf-turnstile"
+               data-sitekey="0x4AAAAAACXP03rjX-pyk88U"
+               data-theme="dark"></div>
+          <p class="smallNote turnstileNote">Anti-spam protection enabled.</p>
+        </div>
+
         <div class="actions">
-          <button type="submit" class="btnPrimary">Send Enquiry →</button>
+          <button type="submit" class="btnPrimary" id="sendBtn">Send Enquiry →</button>
 
           <span class="smallNote">
             Or email directly:
             <strong><span data-user="legacyxv2" data-domain="outlook.com"></span></strong>
           </span>
         </div>
+
+        <div id="formStatus" class="formStatus" role="status" aria-live="polite"></div>
       </form>
     </div>
   </section>
@@ -213,44 +225,86 @@
 
 <script>
   (function () {
-    // Email obfuscation + mailto form handler
+    // Email obfuscation (display only)
     const el = document.querySelector("[data-user]");
-    let addr = "";
-
     if (el) {
-      addr = el.dataset.user + "@" + el.dataset.domain;
+      const addr = el.dataset.user + "@" + el.dataset.domain;
       el.innerHTML = `<a href="mailto:${addr}">${addr}</a>`;
     }
 
+    const year = document.getElementById("year");
+    if (year) year.textContent = new Date().getFullYear();
+
     const form = document.getElementById("merchForm");
-    if (form && addr) {
-      form.addEventListener("submit", function (e) {
+    const statusEl = document.getElementById("formStatus");
+    const btn = document.getElementById("sendBtn");
+
+    function setStatus(msg, type){
+      if (!statusEl) return;
+      statusEl.textContent = msg || "";
+      statusEl.dataset.type = type || "";
+    }
+
+    function getTurnstileToken(){
+      // Turnstile automatically injects a hidden input named "cf-turnstile-response"
+      const tokenEl = form ? form.querySelector('input[name="cf-turnstile-response"]') : null;
+      return tokenEl ? tokenEl.value : "";
+    }
+
+    if (form) {
+      form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
         const name = (document.getElementById("fromName").value || "").trim();
         const topic = (document.getElementById("topic").value || "Merch enquiry").trim();
         const msg = (document.getElementById("message").value || "").trim();
+        const token = getTurnstileToken();
 
-        const subject = `LegacyXV2 Merch — ${topic}`;
-        const lines = [];
-        if (name) lines.push(`Name: ${name}`);
-        lines.push(`Website: https://legacyxv2-site.pages.dev/merch.html`);
-        lines.push("");
-        lines.push(msg);
+        if (!msg) {
+          setStatus("Please enter a message.", "error");
+          return;
+        }
+        if (!token) {
+          setStatus("Please complete the anti-spam check.", "error");
+          return;
+        }
 
-        const body = lines.join("\n");
+        setStatus("Sending…", "info");
+        btn.disabled = true;
 
-        const mailto =
-          `mailto:${encodeURIComponent(addr)}` +
-          `?subject=${encodeURIComponent(subject)}` +
-          `&body=${encodeURIComponent(body)}`;
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              page: "merch",
+              name,
+              topic,
+              message: msg,
+              turnstileToken: token
+            })
+          });
 
-        window.location.href = mailto;
+          const data = await res.json().catch(() => ({}));
+
+          if (!res.ok || data.ok !== true) {
+            throw new Error(data.error || "Send failed. Please try again.");
+          }
+
+          setStatus("Sent. Thanks — we’ll get back to you.", "success");
+          form.reset();
+
+          // Reset Turnstile so it can be used again
+          if (window.turnstile) window.turnstile.reset();
+
+        } catch (err) {
+          setStatus(err.message || "Send failed. Please try again.", "error");
+          if (window.turnstile) window.turnstile.reset();
+        } finally {
+          btn.disabled = false;
+        }
       });
     }
-
-    const year = document.getElementById("year");
-    if (year) year.textContent = new Date().getFullYear();
   })();
 </script>
 </body>
