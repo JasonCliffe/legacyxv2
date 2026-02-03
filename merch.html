@@ -15,7 +15,7 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Turnstile (Cloudflare) -->
+  <!-- Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <!-- Product Schema (Coming Soon) -->
@@ -102,9 +102,7 @@
 
         <div class="heroCopy">
           <h1 class="heroTitle">MERCH</h1>
-          <p class="heroSub">
-            Premium apparel. Limited drops. Built to last.
-          </p>
+          <p class="heroSub">Premium apparel. Limited drops. Built to last.</p>
 
           <div class="heroChips">
             <span class="chip">Limited</span>
@@ -174,45 +172,48 @@
 
     <div class="panelBody">
       <p class="smallNote">
-        Interested in Drop One or want to request a product? Send a quick message below.
+        Send a message below. This form sends directly to our inbox (no mail app pop-up).
       </p>
 
       <form class="merchForm" id="merchForm" novalidate>
         <div class="row">
           <div>
-            <label for="fromName">Name (optional)</label>
-            <input id="fromName" name="fromName" type="text" placeholder="Your name" autocomplete="name" />
+            <label for="m_name">Name (optional)</label>
+            <input id="m_name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="80" />
           </div>
 
           <div>
-            <label for="topic">Topic</label>
-            <input id="topic" name="topic" type="text" placeholder="Drop One / sizing / request / collab" value="Merch enquiry" />
+            <label for="m_email">Email (optional)</label>
+            <input id="m_email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="120" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="m_topic">Topic</label>
+            <input id="m_topic" name="topic" type="text" value="Merch enquiry" maxlength="120" />
+          </div>
+
+          <div class="turnstileSlot">
+            <label>Verification</label>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAA0pQ3h7X_pyI8e8U" data-theme="dark"></div>
           </div>
         </div>
 
         <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
-        </div>
-
-        <!-- Turnstile widget -->
-        <div class="turnstileWrap">
-          <div class="cf-turnstile"
-               data-sitekey="0x4AAAAAACXP03rjX-pyk88U"
-               data-theme="dark"></div>
-          <p class="smallNote turnstileNote">Anti-spam protection enabled.</p>
+          <label for="m_message">Message</label>
+          <textarea id="m_message" name="message" placeholder="Type your message here..." required maxlength="4000"></textarea>
         </div>
 
         <div class="actions">
-          <button type="submit" class="btnPrimary" id="sendBtn">Send Enquiry →</button>
-
+          <button type="submit" class="btnPrimary" id="m_submit">Send Enquiry →</button>
           <span class="smallNote">
             Or email directly:
             <strong><span data-user="legacyxv2" data-domain="outlook.com"></span></strong>
           </span>
         </div>
 
-        <div id="formStatus" class="formStatus" role="status" aria-live="polite"></div>
+        <p class="formStatus" id="m_status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
@@ -236,75 +237,81 @@
     if (year) year.textContent = new Date().getFullYear();
 
     const form = document.getElementById("merchForm");
-    const statusEl = document.getElementById("formStatus");
-    const btn = document.getElementById("sendBtn");
+    const statusEl = document.getElementById("m_status");
+    const submitBtn = document.getElementById("m_submit");
+    const topicEl = document.getElementById("m_topic");
 
-    function setStatus(msg, type){
-      if (!statusEl) return;
+    function setStatus(msg, ok) {
       statusEl.textContent = msg || "";
-      statusEl.dataset.type = type || "";
+      statusEl.classList.toggle("ok", !!ok);
+      statusEl.classList.toggle("err", !ok);
+      if (!msg) statusEl.classList.remove("ok","err");
     }
 
-    function getTurnstileToken(){
-      // Turnstile automatically injects a hidden input named "cf-turnstile-response"
-      const tokenEl = form ? form.querySelector('input[name="cf-turnstile-response"]') : null;
-      return tokenEl ? tokenEl.value : "";
+    function getTurnstileToken() {
+      // Turnstile auto-injects a hidden input named "cf-turnstile-response"
+      const tokenEl = form.querySelector('input[name="cf-turnstile-response"]');
+      return (tokenEl && tokenEl.value) ? tokenEl.value : "";
     }
 
-    if (form) {
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault();
+    function resetTurnstile() {
+      // Resets all widgets on the page (simple + reliable)
+      if (window.turnstile && typeof window.turnstile.reset === "function") {
+        try { window.turnstile.reset(); } catch(e) {}
+      }
+    }
 
-        const name = (document.getElementById("fromName").value || "").trim();
-        const topic = (document.getElementById("topic").value || "Merch enquiry").trim();
-        const msg = (document.getElementById("message").value || "").trim();
-        const token = getTurnstileToken();
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      setStatus("", true);
 
-        if (!msg) {
-          setStatus("Please enter a message.", "error");
+      const payload = {
+        page: "merch",
+        name: (document.getElementById("m_name").value || "").trim(),
+        email: (document.getElementById("m_email").value || "").trim(),
+        topic: (topicEl.value || "").trim(),
+        message: (document.getElementById("m_message").value || "").trim(),
+        turnstileToken: getTurnstileToken()
+      };
+
+      if (!payload.topic) return setStatus("Topic is required.", false);
+      if (!payload.message) return setStatus("Message is required.", false);
+      if (!payload.turnstileToken) return setStatus("Please complete the verification.", false);
+
+      submitBtn.disabled = true;
+      submitBtn.classList.add("isLoading");
+      submitBtn.textContent = "Sending…";
+
+      try {
+        const resp = await fetch("/api/enquiry", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await resp.json().catch(() => ({}));
+
+        if (!resp.ok || !data.ok) {
+          setStatus(data.error || "Send failed. Please try again.", false);
+          resetTurnstile();
           return;
         }
-        if (!token) {
-          setStatus("Please complete the anti-spam check.", "error");
-          return;
-        }
 
-        setStatus("Sending…", "info");
-        btn.disabled = true;
+        // ✅ success: clear fields, keep topic default, reset captcha
+        form.reset();
+        topicEl.value = "Merch enquiry";
+        resetTurnstile();
 
-        try {
-          const res = await fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              page: "merch",
-              name,
-              topic,
-              message: msg,
-              turnstileToken: token
-            })
-          });
-
-          const data = await res.json().catch(() => ({}));
-
-          if (!res.ok || data.ok !== true) {
-            throw new Error(data.error || "Send failed. Please try again.");
-          }
-
-          setStatus("Sent. Thanks — we’ll get back to you.", "success");
-          form.reset();
-
-          // Reset Turnstile so it can be used again
-          if (window.turnstile) window.turnstile.reset();
-
-        } catch (err) {
-          setStatus(err.message || "Send failed. Please try again.", "error");
-          if (window.turnstile) window.turnstile.reset();
-        } finally {
-          btn.disabled = false;
-        }
-      });
-    }
+        setStatus("Sent successfully. We’ll get back to you soon.", true);
+      } catch (err) {
+        setStatus("Network error. Please try again.", false);
+        resetTurnstile();
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("isLoading");
+        submitBtn.textContent = "Send Enquiry →";
+      }
+    });
   })();
 </script>
 </body>
