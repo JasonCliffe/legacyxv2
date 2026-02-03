@@ -2,39 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://legacyxv2-site.pages.dev/</loc>
+    <loc>https://legacyxv2.co.uk/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://legacyxv2-site.pages.dev/videos.html</loc>
+    <loc>https://legacyxv2.co.uk/videos.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://legacyxv2-site.pages.dev/updates.html</loc>
+    <loc>https://legacyxv2.co.uk/updates.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://legacyxv2-site.pages.dev/hardware.html</loc>
+    <loc>https://legacyxv2.co.uk/hardware.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://legacyxv2-site.pages.dev/game.html</loc>
+    <loc>https://legacyxv2.co.uk/game.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
+  <!-- Merch (kept in sitemap intentionally for future go-live) -->
   <url>
-    <loc>https://legacyxv2-site.pages.dev/merch.html</loc>
+    <loc>https://legacyxv2.co.uk/merch.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- Drop One (kept in sitemap intentionally for future go-live) -->
+  <url>
+    <loc>https://legacyxv2.co.uk/drop-one.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
