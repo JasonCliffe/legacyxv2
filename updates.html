@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Primary SEO -->
   <title>LegacyXV2 — Updates & New Uploads</title>
   <meta name="description" content="Latest LegacyXV2 updates including new series, gameplay uploads, and PC hardware reviews." />
   <meta name="robots" content="index,follow" />
@@ -17,19 +18,110 @@
   <meta property="og:description" content="New uploads (Wed/Fri/Sun 6pm UK), series launches, and PC hardware reviews." />
   <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
   <meta property="og:image:secure_url" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
+  <meta property="og:image:alt" content="LegacyXV2 — Updates & New Uploads" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
+  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Updates & New Uploads" />
   <meta name="twitter:description" content="New uploads, gameplay, and PC hardware reviews from LegacyXV2." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
+  <!-- Performance -->
+  <link rel="dns-prefetch" href="//www.youtube.com">
+  <link rel="dns-prefetch" href="//i.ytimg.com">
   <link rel="preconnect" href="https://www.youtube.com" crossorigin>
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
 
   <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
   <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/og-legacyxv2.jpg">
 
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Schema.org: Site + Brand + Creator + WebPage + Breadcrumbs + OG Image -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://legacyxv2.co.uk/#website",
+        "url":"https://legacyxv2.co.uk/",
+        "name":"LegacyXV2",
+        "inLanguage":"en-GB",
+        "publisher":{"@id":"https://legacyxv2.co.uk/#brand"}
+      },
+      {
+        "@type":"Brand",
+        "@id":"https://legacyxv2.co.uk/#brand",
+        "name":"LegacyXV2",
+        "url":"https://legacyxv2.co.uk/",
+        "logo":{
+          "@type":"ImageObject",
+          "url":"https://legacyxv2.co.uk/logo.png"
+        },
+        "sameAs":[
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ],
+        "founder":{"@id":"https://legacyxv2.co.uk/#creator"},
+        "image":{"@id":"https://legacyxv2.co.uk/#ogimage"}
+      },
+      {
+        "@type":"Person",
+        "@id":"https://legacyxv2.co.uk/#creator",
+        "name":"Jason Cliffe",
+        "jobTitle":"Founder / Creator",
+        "url":"https://legacyxv2.co.uk/",
+        "worksFor":{"@id":"https://legacyxv2.co.uk/#brand"},
+        "sameAs":[
+          "https://www.youtube.com/@legacyxv2",
+          "https://www.tiktok.com/@legacyxv2",
+          "https://www.instagram.com/legacyxv2"
+        ]
+      },
+      {
+        "@type":"ImageObject",
+        "@id":"https://legacyxv2.co.uk/#ogimage",
+        "url":"https://legacyxv2.co.uk/og-legacyxv2.jpg",
+        "width":1200,
+        "height":630
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://legacyxv2.co.uk/updates.html#webpage",
+        "url":"https://legacyxv2.co.uk/updates.html",
+        "name":"LegacyXV2 — Updates & New Uploads",
+        "description":"Latest LegacyXV2 updates including new series, gameplay uploads, and PC hardware reviews.",
+        "isPartOf":{"@id":"https://legacyxv2.co.uk/#website"},
+        "about":{"@id":"https://legacyxv2.co.uk/#brand"},
+        "primaryImageOfPage":{"@id":"https://legacyxv2.co.uk/#ogimage"},
+        "breadcrumb":{"@id":"https://legacyxv2.co.uk/updates.html#breadcrumbs"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://legacyxv2.co.uk/updates.html#breadcrumbs",
+        "itemListElement":[
+          {
+            "@type":"ListItem",
+            "position":1,
+            "name":"Home",
+            "item":"https://legacyxv2.co.uk/"
+          },
+          {
+            "@type":"ListItem",
+            "position":2,
+            "name":"Updates",
+            "item":"https://legacyxv2.co.uk/updates.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="updates">
