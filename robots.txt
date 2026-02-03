@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://legacyxv2.co.uk/sitemap.xml
-Sitemap: https://legacyxv2.co.uk/sitemap-images.xml
+Sitemap: https://legacyxv2.co.uk/sitemap-index.xml
