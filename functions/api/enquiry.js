@@ -40,31 +40,48 @@ export async function onRequestPost(context) {
       context.request.headers.get("X-Forwarded-For") ||
       "";
 
-    const verifyResp = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      method: "POST",
-      headers: { "content-type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({
-        secret,
-        response: token,
-        remoteip: ip
-      })
-    });
+    const verifyResp = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret,
+          response: token,
+          remoteip: ip
+        })
+      }
+    );
 
     const verify = await verifyResp.json();
     if (!verify.success) {
       return json({ ok: false, error: "Verification failed. Try again." }, 400);
     }
 
-    // Resend send
-    const resendKey = context.env.RESEND_API_KEY;
-    const toEmail = context.env.TO_EMAIL;
-    const fromEmail = context.env.FROM_EMAIL;
+    // =========================
+    // Resend configuration (supports BOTH naming styles)
+    // =========================
+    const resendKey = context.env.RESEND_API_KEY || context.env.RESEND_KEY;
 
-    if (!resendKey || !toEmail || !fromEmail) {
-      return json(
-        { ok: false, error: "Server missing RESEND_API_KEY / TO_EMAIL / FROM_EMAIL." },
-        500
-      );
+    // Your Cloudflare screenshot uses RESEND_TO_EMAIL / RESEND_FROM_EMAIL
+    const toEmail =
+      context.env.TO_EMAIL ||
+      context.env.RESEND_TO_EMAIL ||
+      context.env.RESEND_TO;
+
+    const fromEmail =
+      context.env.FROM_EMAIL ||
+      context.env.RESEND_FROM_EMAIL ||
+      context.env.RESEND_FROM;
+
+    // Helpful missing-var output (does NOT leak secret values)
+    const missing = [];
+    if (!resendKey) missing.push("RESEND_API_KEY");
+    if (!toEmail) missing.push("TO_EMAIL or RESEND_TO_EMAIL");
+    if (!fromEmail) missing.push("FROM_EMAIL or RESEND_FROM_EMAIL");
+
+    if (missing.length) {
+      return json({ ok: false, error: `Server missing: ${missing.join(", ")}` }, 500);
     }
 
     const pageLabel = cleanPage === "drop-one" ? "Drop One" : "Merch";
@@ -82,8 +99,13 @@ export async function onRequestPost(context) {
       cleanEmail ? `Email: ${cleanEmail}` : null,
       "",
       cleanMessage
-    ].filter(Boolean).join("\n");
+    ]
+      .filter(Boolean)
+      .join("\n");
 
+    // =========================
+    // Resend send
+    // =========================
     const resendResp = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
@@ -100,8 +122,18 @@ export async function onRequestPost(context) {
     });
 
     if (!resendResp.ok) {
-      const detail = await resendResp.text();
-      return json({ ok: false, error: "Email send failed.", detail: detail.slice(0, 800) }, 502);
+      const detailText = await resendResp.text();
+
+      // Return detail to the client so you can see the true reason.
+      // (This can include Resend error messages; it does NOT include your API key.)
+      return json(
+        {
+          ok: false,
+          error: "Email send failed.",
+          detail: detailText.slice(0, 1200)
+        },
+        502
+      );
     }
 
     return json({ ok: true }, 200);
