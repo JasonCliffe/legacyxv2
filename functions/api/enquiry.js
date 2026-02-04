@@ -1,3 +1,18 @@
+export async function onRequestGet(context) {
+  // Healthcheck / debug endpoint (no secrets exposed)
+  // Visit: https://www.legacyxv2.co.uk/api/enquiry
+  return json({
+    ok: true,
+    service: "enquiry",
+    env: {
+      TURNSTILE_SECRET: !!context.env.TURNSTILE_SECRET,
+      RESEND_API_KEY: !!(context.env.RESEND_API_KEY || context.env.RESEND_KEY),
+      TO_EMAIL: !!(context.env.TO_EMAIL || context.env.RESEND_TO_EMAIL || context.env.RESEND_TO),
+      FROM_EMAIL: !!(context.env.FROM_EMAIL || context.env.RESEND_FROM_EMAIL || context.env.RESEND_FROM)
+    }
+  });
+}
+
 export async function onRequestPost(context) {
   try {
     // Optional: basic same-origin protection
@@ -40,9 +55,9 @@ export async function onRequestPost(context) {
       context.request.headers.get("X-Forwarded-For") ||
       "";
 
-    const verifyResp = await fetch(
-      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-      {
+    let verifyResp;
+    try {
+      verifyResp = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
         method: "POST",
         headers: { "content-type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
@@ -50,20 +65,20 @@ export async function onRequestPost(context) {
           response: token,
           remoteip: ip
         })
-      }
-    );
+      });
+    } catch (err) {
+      return json({ ok: false, error: "Turnstile verify fetch failed." }, 502);
+    }
 
     const verify = await verifyResp.json();
     if (!verify.success) {
       return json({ ok: false, error: "Verification failed. Try again." }, 400);
     }
 
-    // =========================
     // Resend configuration (supports BOTH naming styles)
-    // =========================
     const resendKey = context.env.RESEND_API_KEY || context.env.RESEND_KEY;
 
-    // Your Cloudflare screenshot uses RESEND_TO_EMAIL / RESEND_FROM_EMAIL
+    // Cloudflare uses RESEND_TO_EMAIL / RESEND_FROM_EMAIL
     const toEmail =
       context.env.TO_EMAIL ||
       context.env.RESEND_TO_EMAIL ||
@@ -74,7 +89,6 @@ export async function onRequestPost(context) {
       context.env.RESEND_FROM_EMAIL ||
       context.env.RESEND_FROM;
 
-    // Helpful missing-var output (does NOT leak secret values)
     const missing = [];
     if (!resendKey) missing.push("RESEND_API_KEY");
     if (!toEmail) missing.push("TO_EMAIL or RESEND_TO_EMAIL");
@@ -99,33 +113,30 @@ export async function onRequestPost(context) {
       cleanEmail ? `Email: ${cleanEmail}` : null,
       "",
       cleanMessage
-    ]
-      .filter(Boolean)
-      .join("\n");
+    ].filter(Boolean).join("\n");
 
-    // =========================
-    // Resend send
-    // =========================
-    const resendResp = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [toEmail],
-        subject,
-        text,
-        reply_to: cleanEmail || undefined
-      })
-    });
+    let resendResp;
+    try {
+      resendResp = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: [toEmail],
+          subject,
+          text,
+          reply_to: cleanEmail || undefined
+        })
+      });
+    } catch (err) {
+      return json({ ok: false, error: "Resend fetch failed." }, 502);
+    }
 
     if (!resendResp.ok) {
       const detailText = await resendResp.text();
-
-      // Return detail to the client so you can see the true reason.
-      // (This can include Resend error messages; it does NOT include your API key.)
       return json(
         {
           ok: false,
@@ -138,7 +149,11 @@ export async function onRequestPost(context) {
 
     return json({ ok: true }, 200);
   } catch (e) {
-    return json({ ok: false, error: "Unexpected error." }, 500);
+    // Return the error message for debugging (safe-ish; doesn’t include env values)
+    return json(
+      { ok: false, error: "Unexpected error.", detail: String(e?.message || e).slice(0, 500) },
+      500
+    );
   }
 }
 
