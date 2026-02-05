@@ -64,6 +64,53 @@
     ]
   }
   </script>
+
+  <!-- Page-only: GDPR UI (strict) -->
+  <style>
+    .gdprBox{
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,140,0,0.22);
+      background: rgba(0,0,0,0.20);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+    }
+    .gdprText{
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.55;
+      color: rgba(255,238,221,0.74);
+    }
+    .gdprText a{
+      color: rgba(255,238,221,0.9);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,140,0,0.22);
+      padding-bottom: 1px;
+    }
+    .gdprText a:hover{ border-bottom-color: rgba(255,140,0,0.55); }
+
+    .gdprCheck{
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,140,0,0.16);
+    }
+    .gdprCheck input{
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: #ffb300;
+    }
+    .gdprCheck label{
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255,238,221,0.82);
+      opacity: 1 !important;
+    }
+  </style>
 </head>
 
 <body class="merch">
@@ -205,17 +252,27 @@
           <p class="tinyNote">Anti-spam protection enabled.</p>
         </div>
 
+        <!-- GDPR Notice (Strict) -->
+        <div class="gdprBox" role="note" aria-label="Privacy notice">
+          <p class="gdprText">
+            <strong>Privacy notice (GDPR):</strong> We use the details you submit to respond to your enquiry (and, if provided, to reply by email).
+            Your message may be processed by our email delivery provider and protected by Cloudflare anti-spam.
+            Enquiry data is retained for up to <strong>90 days</strong> unless we must keep it longer for legal reasons.
+            Read the full <a href="/privacy.html">Privacy Notice</a>.
+          </p>
+
+          <div class="gdprCheck">
+            <input type="checkbox" id="m_privacy" required />
+            <label for="m_privacy">
+              I have read and understand the <a href="/privacy.html">Privacy Notice</a>.
+            </label>
+          </div>
+        </div>
+
         <div class="actions">
           <button type="submit" class="btnPrimary" id="m_submit">Send Enquiry →</button>
           <span class="formStatus" id="m_status" aria-live="polite"></span>
         </div>
-
-        <!-- GDPR / Privacy notice -->
-        <p class="tinyNote" style="margin-top:10px">
-          By sending this enquiry you agree that we may use the details you provide to respond to your request.
-          We only use your data for support/merch enquiries and do not sell it. If you include an email address,
-          we may reply to you. You can request deletion at any time.
-        </p>
       </form>
     </div>
   </section>
@@ -254,10 +311,20 @@
       if (input) input.value = "";
     }
 
+    function privacyAccepted(){
+      const cb = document.getElementById("m_privacy");
+      return !!(cb && cb.checked);
+    }
+
     if (form) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         setStatus("", "");
+
+        if (!privacyAccepted()) {
+          setStatus("Please confirm you’ve read the Privacy Notice.", "error");
+          return;
+        }
 
         const payload = {
           page: "merch",
