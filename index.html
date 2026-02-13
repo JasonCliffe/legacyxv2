@@ -38,8 +38,11 @@
   <link rel="preconnect" href="https://www.youtube.com" crossorigin>
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
 
-  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
-  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+  <!-- Preload: background + logo (lightweight modern formats) -->
+  <link rel="preload" as="image" href="/bg-1280.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/logo-512.webp" fetchpriority="high">
+
+  <!-- Keep OG preload (social share image) -->
   <link rel="preload" as="image" href="/og-legacyxv2.jpg">
 
   <link rel="stylesheet" href="/styles.css" />
@@ -82,7 +85,7 @@
         "url": "https://legacyxv2.co.uk/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://legacyxv2.co.uk/logo.png"
+          "url": "https://legacyxv2.co.uk/logo-512.webp"
         },
         "image": { "@id": "https://legacyxv2.co.uk/#ogimage" },
         "sameAs": [
@@ -152,7 +155,20 @@
 
         <div class="heroMain">
           <div class="heroLogo">
-            <img src="logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="eager" fetchpriority="high" decoding="async" />
+            <picture>
+              <source srcset="/logo-512.avif" type="image/avif">
+              <source srcset="/logo-512.webp" type="image/webp">
+              <img
+                src="/logo-512.webp"
+                alt="LegacyXV2 logo"
+                class="heroLogo__img"
+                width="512"
+                height="512"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
           </div>
 
           <div class="heroCopy">
@@ -201,7 +217,16 @@
 
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="pc-gaming.jpg" alt="Main gaming PC" loading="lazy" decoding="async" />
+              <img
+                src="/pc-gaming-800.webp"
+                srcset="/pc-gaming-480.webp 480w, /pc-gaming-800.webp 800w"
+                sizes="(max-width: 520px) 100vw, (max-width: 980px) 50vw, 360px"
+                alt="Main gaming PC"
+                width="800"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
               <span class="rigLabel">Main Gaming PC</span>
             </div>
             <div class="rigContent">
@@ -223,7 +248,16 @@
 
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="pc-editing.jpg" alt="Editing PC" loading="lazy" decoding="async" />
+              <img
+                src="/pc-editing-800.webp"
+                srcset="/pc-editing-480.webp 480w, /pc-editing-800.webp 800w"
+                sizes="(max-width: 520px) 100vw, (max-width: 980px) 50vw, 360px"
+                alt="Editing PC"
+                width="800"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
               <span class="rigLabel">Editing PC</span>
             </div>
             <div class="rigContent">
@@ -245,7 +279,16 @@
 
           <article class="rigCard">
             <div class="rigMedia">
-              <img src="pc-testing.jpg" alt="Testing PC" loading="lazy" decoding="async" />
+              <img
+                src="/pc-testing-800.webp"
+                srcset="/pc-testing-480.webp 480w, /pc-testing-800.webp 800w"
+                sizes="(max-width: 520px) 100vw, (max-width: 980px) 50vw, 360px"
+                alt="Testing PC"
+                width="800"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
               <span class="rigLabel">Testing PC</span>
             </div>
             <div class="rigContent">
