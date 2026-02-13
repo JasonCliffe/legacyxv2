@@ -35,7 +35,14 @@
 
   <!-- Preload: background + logo (WebP only) -->
   <link rel="preload" as="image" href="/bg-1280.webp" fetchpriority="high">
-  <link rel="preload" as="image" href="/logo-512.webp" fetchpriority="high">
+  <link
+  rel="preload"
+  as="image"
+  href="/logo-256.webp"
+  fetchpriority="high"
+  imagesrcset="/logo-256.webp 256w, /logo-512.webp 512w"
+  imagesizes="(max-width: 520px) 220px, 280px"
+/>
 
   <!-- Keep OG preload (social share image) -->
   <link rel="preload" as="image" href="/og-legacyxv2.jpg">
