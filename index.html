@@ -151,18 +151,22 @@
         <div class="heroMain">
           <div class="heroLogo">
             <picture>
-              <source srcset="/logo-512.webp" type="image/webp">
-              <img
-                src="/logo-512.webp"
-                alt="LegacyXV2 logo"
-                class="heroLogo__img"
-                width="512"
-                height="512"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </picture>
+  <source
+    type="image/webp"
+    srcset="/logo-256.webp 256w, /logo-512.webp 512w"
+    sizes="(max-width: 520px) 220px, 280px"
+  >
+  <img
+    src="/logo-512.webp"
+    alt="LegacyXV2 logo"
+    class="heroLogo__img"
+    width="512"
+    height="512"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+</picture>
           </div>
 
           <div class="heroCopy">
