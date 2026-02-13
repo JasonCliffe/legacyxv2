@@ -28,16 +28,20 @@ body{
 
   background-color: var(--bg);
 
-  /* ✅ Modern responsive background with format + size selection */
+  
+  background-image:
+    radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
+    linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
+    url("/bg-1280.webp");
+
+  /* Prefer higher-res assets when supported (NO AVIF, because you don't have it) */
   background-image:
     radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
     linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
     image-set(
-      url("bg-1280.avif") type("image/avif") 1x,
-      url("bg-1920.avif") type("image/avif") 2x,
-      url("bg-1280.webp") type("image/webp") 1x,
-      url("bg-1920.webp") type("image/webp") 2x,
-      url("bg.jpg") type("image/jpeg") 1x
+      url("/bg-1280.webp") 1x,
+      url("/bg-1920.webp") 2x,
+      url("/bg.jpg") 1x
     );
 
   background-size: cover;
@@ -264,6 +268,9 @@ body{
     inset 0 0 0 2px rgba(0,0,0,0.55);
   position:relative;
   aspect-ratio: 1 / 1;
+
+  
+  z-index: 5;
 }
 
 .heroLogo::before,
