@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <script>
-    if (location.pathname === "/updates") location.replace("/updates.html");
+    if (location.pathname === "/updates") {
+      location.replace("/updates.html");
+    }
   </script>
 
   <title>LegacyXV2 — Gaming Playthroughs & PC Hardware Reviews</title>
@@ -31,7 +33,7 @@
 
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- ✅ Only preload the LCP candidate (logo) - and make it the SMALL one -->
+  <!-- ✅ Keep ONLY the logo preload (high value, low risk) -->
   <link
     rel="preload"
     as="image"
@@ -40,8 +42,6 @@
     imagesrcset="/logo-256.webp 256w, /logo-512.webp 512w"
     imagesizes="(max-width: 520px) 220px, 280px"
   />
-
-  <!-- ✅ Do NOT preload background images (they are decorative; keep off critical path) -->
 
   <link rel="stylesheet" href="/styles.css" />
 
@@ -159,9 +159,8 @@
                 srcset="/logo-256.webp 256w, /logo-512.webp 512w"
                 sizes="(max-width: 520px) 220px, 280px"
               >
-              <!-- ✅ Default MUST be 256 to avoid accidental 512 download -->
               <img
-                src="/logo-256.webp"
+                src="/logo-512.webp"
                 alt="LegacyXV2 logo"
                 class="heroLogo__img"
                 width="512"
@@ -175,7 +174,9 @@
 
           <div class="heroCopy">
             <div class="heroRole">BRAND • CONTENT CREATOR</div>
+
             <h1 class="heroTitle">LEGACYXV2</h1>
+
             <p class="heroSub">
               Thorough gaming playthroughs • Retro &amp; modern titles • PC hardware &amp; tech reviews
             </p>
@@ -196,18 +197,19 @@
       </div>
 
       <div class="panelBody">
-        <!-- ✅ Click-to-load YouTube (ZERO YouTube network on initial load) -->
-        <!-- IMPORTANT: put a local poster at /yt-intro-480.webp (instructions below) -->
+        <!-- ✅ Click-to-load YouTube (on-site playback after click) -->
         <div class="introVideo ytLite" data-yt="EZhBBKnVXdI" role="group" aria-label="LegacyXV2 Introduction video">
           <button class="ytLite__btn" type="button" aria-label="Play LegacyXV2 Introduction video">
             <span class="ytLite__play" aria-hidden="true"></span>
           </button>
 
+          <!-- ✅ Local poster (YOU will upload: /yt-intro-480.webp) -->
           <img
             class="ytLite__thumb"
             src="/yt-intro-480.webp"
             alt=""
-            loading="lazy"
+            loading="eager"
+            fetchpriority="low"
             decoding="async"
             width="480"
             height="270"
@@ -334,13 +336,21 @@
         </div>
 
         <div class="panelBody aboutBody">
-          <p class="aboutLead">Completionist playthroughs and in-depth PC hardware coverage.</p>
+          <p class="aboutLead">
+            Completionist playthroughs and in-depth PC hardware coverage.
+          </p>
+
           <div class="aboutDivider" aria-hidden="true"></div>
+
           <p>
             I create detailed playthroughs of various games, covering both retro and modern titles
             across genres such as story-driven games, FPS, horror, and action.
           </p>
-          <p>I’m a completionist, so expect thorough playthroughs and walkthroughs rather than rushed content.</p>
+
+          <p>
+            I’m a completionist, so expect thorough playthroughs and walkthroughs rather than rushed content.
+          </p>
+
           <p>
             I also review PC hardware and tech, including CPUs, motherboards, and full builds,
             featuring brands like NVIDIA, AMD, Intel, and Corsair.
@@ -371,10 +381,9 @@
   </main>
 
   <script>
-    // tiny + late
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Click-to-load YouTube iframe (on-site playback)
+    // ✅ Click-to-load YouTube iframe (on-site playback)
     (function () {
       const wrap = document.querySelector(".ytLite");
       if (!wrap) return;
@@ -383,12 +392,29 @@
       const btn = wrap.querySelector(".ytLite__btn");
 
       function load() {
+        // Add preconnect only when needed (avoids "unused preconnect" penalties)
+        const pc1 = document.createElement("link");
+        pc1.rel = "preconnect";
+        pc1.href = "https://www.youtube.com";
+        pc1.crossOrigin = "anonymous";
+        document.head.appendChild(pc1);
+
+        const pc2 = document.createElement("link");
+        pc2.rel = "preconnect";
+        pc2.href = "https://i.ytimg.com";
+        pc2.crossOrigin = "anonymous";
+        document.head.appendChild(pc2);
+
         const iframe = document.createElement("iframe");
-        iframe.src = "https://www.youtube.com/embed/" + encodeURIComponent(id) + "?autoplay=1&rel=0&modestbranding=1";
+        iframe.src =
+          "https://www.youtube.com/embed/" +
+          encodeURIComponent(id) +
+          "?autoplay=1&rel=0&modestbranding=1";
         iframe.title = "LegacyXV2 Introduction";
         iframe.loading = "lazy";
         iframe.referrerPolicy = "strict-origin-when-cross-origin";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         iframe.allowFullscreen = true;
 
         wrap.innerHTML = "";
@@ -397,7 +423,10 @@
 
       btn.addEventListener("click", load, { once: true });
       btn.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); load(); }
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          load();
+        }
       });
     })();
   </script>
