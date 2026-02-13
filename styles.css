@@ -27,10 +27,19 @@ body{
   color:var(--text);
 
   background-color: var(--bg);
+
+  /* ✅ Modern responsive background with format + size selection */
   background-image:
     radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
     linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
-    url("bg.jpg");
+    image-set(
+      url("bg-1280.avif") type("image/avif") 1x,
+      url("bg-1920.avif") type("image/avif") 2x,
+      url("bg-1280.webp") type("image/webp") 1x,
+      url("bg-1920.webp") type("image/webp") 2x,
+      url("bg.jpg") type("image/jpeg") 1x
+    );
+
   background-size: cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -429,7 +438,7 @@ body{
   }
 }
 
-/* ================= HOME: INTRO VIDEO (fix “cramped”) ================= */
+/* ================= HOME: INTRO VIDEO ================= */
 .introVideo{
   width: 100%;
   border-radius: 16px;
@@ -813,7 +822,7 @@ body{
 }
 
 /* =========================
-   Turnstile + status (single clean version)
+   Turnstile + status 
 ========================= */
 .smallNote{
   font-size: 0.9rem;
@@ -903,7 +912,7 @@ button.btnPrimary:disabled{
 }
 
 /* =========================
-   Merch page — keep your previous rules
+   Merch page
 ========================= */
 body.merch .rigMedia{
   position: relative;
@@ -980,7 +989,7 @@ body.merch .merchForm .actions{
 }
 
 /* =========================
-   Drop One page — keep your previous rules
+   Drop One page 
 ========================= */
 body.dropone .heroPanel .heroLead{
   margin: 0 0 6px;
@@ -1126,8 +1135,7 @@ body.dropone .dropForm .actions{
 }
 
 /* =========================
-   UPDATES — final lock (NO TITLES / NO DESCRIPTIONS)
-   Even if updates.html accidentally contains them, they will not show.
+   UPDATES 
 ========================= */
 body.updates .updateTitle,
 body.updates .updateText{
