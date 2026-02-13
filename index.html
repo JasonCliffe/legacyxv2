@@ -38,7 +38,7 @@
   <link rel="preconnect" href="https://www.youtube.com" crossorigin>
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
 
-  <!-- Preload: background + logo (lightweight modern formats) -->
+  <!-- Preload: background + logo (WebP only) -->
   <link rel="preload" as="image" href="/bg-1280.webp" fetchpriority="high">
   <link rel="preload" as="image" href="/logo-512.webp" fetchpriority="high">
 
@@ -156,7 +156,6 @@
         <div class="heroMain">
           <div class="heroLogo">
             <picture>
-              <source srcset="/logo-512.avif" type="image/avif">
               <source srcset="/logo-512.webp" type="image/webp">
               <img
                 src="/logo-512.webp"
