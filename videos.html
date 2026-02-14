@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://www.youtube.com" crossorigin />
   <link rel="preconnect" href="https://i.ytimg.com" crossorigin />
 
+  <!-- Preload for fast paint (safe even if WebP used in CSS) -->
   <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high" />
   <link rel="preload" as="image" href="/logo.png" fetchpriority="high" />
   <link rel="preload" as="image" href="/og-legacyxv2.jpg" />
@@ -400,6 +401,9 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Enable "ready" enhancements after first paint
+    requestAnimationFrame(() => document.documentElement.classList.add("ready"));
   </script>
 </body>
 </html>
