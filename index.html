@@ -160,17 +160,17 @@
                 sizes="(max-width: 520px) 220px, 280px"
               >
               <img
-  src="/logo-256.webp"
-  srcset="/logo-256.webp 256w, /logo-512.webp 512w"
-  sizes="(max-width: 520px) 220px, 280px"
-  width="256"
-  height="256"
-  loading="eager"
-  fetchpriority="high"
-  decoding="async"
-  alt="LegacyXV2 logo"
-  class="heroLogo__img"
-/>
+                src="/logo-256.webp"
+                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
+                sizes="(max-width: 520px) 220px, 280px"
+                width="256"
+                height="256"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="LegacyXV2 logo"
+                class="heroLogo__img"
+              />
             </picture>
           </div>
 
@@ -205,7 +205,7 @@
             <span class="ytLite__play" aria-hidden="true"></span>
           </button>
 
-          <!-- ✅ Local poster (YOU will upload: /yt-intro-480.webp) -->
+          <!-- ✅ Local poster -->
           <img
             class="ytLite__thumb"
             src="/yt-intro-480.webp"
@@ -242,8 +242,8 @@
             <div class="rigMedia">
               <img
                 src="/pc-gaming-800.webp"
-                srcset="/pc-gaming-480.webp 480w, /pc-gaming-800.webp 800w"
-                sizes="(max-width: 520px) 100vw, (max-width: 980px) 50vw, 360px"
+                srcset="/pc-gaming-400.webp 400w, /pc-gaming-800.webp 800w"
+                sizes="(max-width: 980px) 100vw, 33vw"
                 alt="Main gaming PC"
                 width="800"
                 height="500"
@@ -273,8 +273,8 @@
             <div class="rigMedia">
               <img
                 src="/pc-editing-800.webp"
-                srcset="/pc-editing-480.webp 480w, /pc-editing-800.webp 800w"
-                sizes="(max-width: 520px) 100vw, (max-width: 980px) 50vw, 360px"
+                srcset="/pc-editing-400.webp 400w, /pc-editing-800.webp 800w"
+                sizes="(max-width: 980px) 100vw, 33vw"
                 alt="Editing PC"
                 width="800"
                 height="500"
@@ -304,8 +304,8 @@
             <div class="rigMedia">
               <img
                 src="/pc-testing-800.webp"
-                srcset="/pc-testing-480.webp 480w, /pc-testing-800.webp 800w"
-                sizes="(max-width: 520px) 100vw, (max-width: 980px) 50vw, 360px"
+                srcset="/pc-testing-400.webp 400w, /pc-testing-800.webp 800w"
+                sizes="(max-width: 980px) 100vw, 33vw"
                 alt="Testing PC"
                 width="800"
                 height="500"
@@ -383,60 +383,53 @@
   </main>
 
   <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Enable heavy visual effects AFTER first paint (helps Lighthouse hit 100)
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.documentElement.classList.add("ready");
-    });
-  });
+    // ✅ Click-to-load YouTube iframe (on-site playback)
+    (function () {
+      const wrap = document.querySelector(".ytLite");
+      if (!wrap) return;
 
-  // ✅ Click-to-load YouTube iframe (on-site playback)
-  (function () {
-    const wrap = document.querySelector(".ytLite");
-    if (!wrap) return;
+      const id = wrap.getAttribute("data-yt");
+      const btn = wrap.querySelector(".ytLite__btn");
 
-    const id = wrap.getAttribute("data-yt");
-    const btn = wrap.querySelector(".ytLite__btn");
+      function load() {
+        const pc1 = document.createElement("link");
+        pc1.rel = "preconnect";
+        pc1.href = "https://www.youtube.com";
+        pc1.crossOrigin = "anonymous";
+        document.head.appendChild(pc1);
 
-    function load() {
-      const pc1 = document.createElement("link");
-      pc1.rel = "preconnect";
-      pc1.href = "https://www.youtube.com";
-      pc1.crossOrigin = "anonymous";
-      document.head.appendChild(pc1);
+        const pc2 = document.createElement("link");
+        pc2.rel = "preconnect";
+        pc2.href = "https://i.ytimg.com";
+        pc2.crossOrigin = "anonymous";
+        document.head.appendChild(pc2);
 
-      const pc2 = document.createElement("link");
-      pc2.rel = "preconnect";
-      pc2.href = "https://i.ytimg.com";
-      pc2.crossOrigin = "anonymous";
-      document.head.appendChild(pc2);
+        const iframe = document.createElement("iframe");
+        iframe.src =
+          "https://www.youtube.com/embed/" +
+          encodeURIComponent(id) +
+          "?autoplay=1&rel=0&modestbranding=1";
+        iframe.title = "LegacyXV2 Introduction";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        iframe.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
 
-      const iframe = document.createElement("iframe");
-      iframe.src =
-        "https://www.youtube.com/embed/" +
-        encodeURIComponent(id) +
-        "?autoplay=1&rel=0&modestbranding=1";
-      iframe.title = "LegacyXV2 Introduction";
-      iframe.loading = "lazy";
-      iframe.referrerPolicy = "strict-origin-when-cross-origin";
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      iframe.allowFullscreen = true;
-
-      wrap.innerHTML = "";
-      wrap.appendChild(iframe);
-    }
-
-    btn.addEventListener("click", load, { once: true });
-    btn.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        load();
+        wrap.innerHTML = "";
+        wrap.appendChild(iframe);
       }
-    });
-  })();
-</script>
+
+      btn.addEventListener("click", load, { once: true });
+      btn.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          load();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
