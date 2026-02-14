@@ -27,23 +27,29 @@ body{
   color:var(--text);
   background-color: var(--bg);
 
-  /* Fallback (works everywhere) */
+  /* MAX PERF: initial paint uses gradients only (NO image request) */
+  background-image:
+    radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
+    linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82));
+  background-size: cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment: scroll;
+
+  min-height: 100svh;
+}
+
+/* MAX PERF: load background image only after first paint */
+html.ready body{
   background-image:
     radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
     linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
     url("/bg-1280.webp");
-
-  background-size: cover;
-  background-position:center;
-  background-repeat:no-repeat;
-
-  background-attachment: scroll;
-  min-height: 100svh;
 }
 
-/* Prefer image-set when supported */
+/* Use high-res when supported (WebP) — only after .ready */
 @supports (background-image: image-set(url("/bg-1280.webp") 1x)){
-  body{
+  html.ready body{
     background-image:
       radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
       linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
@@ -78,7 +84,7 @@ body{
   background: rgba(0,0,0,0.45);
   border: 1px solid var(--border);
 
-  /* IMPORTANT: defer blur until .ready for Lighthouse */
+  /* MAX PERF: no blur on first paint */
   backdrop-filter: none;
 
   position: sticky;
@@ -86,8 +92,8 @@ body{
   z-index: 50;
 }
 
-/* Turn on expensive blur AFTER first paint */
-.ready .topnav{
+/* MAX PERF: enable blur after first paint */
+html.ready .topnav{
   backdrop-filter: blur(10px);
 }
 
@@ -168,6 +174,13 @@ body{
 
   border: 1px solid rgba(255,179,0,0.42);
   background: linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.34));
+
+  /* MAX PERF: reduce heavy shadow on first paint */
+  box-shadow: 0 0 18px rgba(255,90,0,0.14);
+}
+
+/* MAX PERF: restore full shadow after first paint */
+html.ready .heroFrame{
   box-shadow:
     0 0 34px rgba(255,90,0,0.22),
     0 0 90px rgba(255,179,0,0.12);
@@ -183,22 +196,22 @@ body{
     radial-gradient(780px 280px at 85% 38%, rgba(255,179,0,0.22), transparent 62%),
     radial-gradient(700px 340px at 50% 120%, rgba(255,42,0,0.20), transparent 60%);
 
-  /* IMPORTANT: no blur + no animation during first paint */
+  /* MAX PERF: disable blur + animation until ready */
   filter: none;
+  opacity: 0;
+}
+
+/* restore glow after first paint */
+html.ready .heroFrame__glow{
+  filter: blur(16px);
   opacity: 1;
-  animation: none;
+  animation: emberFlicker 6.5s ease-in-out infinite;
 }
 
 @keyframes emberFlicker{
   0%, 100% { opacity: 0.98; transform: translateY(0px); }
   40%      { opacity: 0.93; transform: translateY(0.4px); }
   70%      { opacity: 1;    transform: translateY(-0.3px); }
-}
-
-/* Turn on glow AFTER first paint */
-.ready .heroFrame__glow{
-  filter: blur(10px);
-  animation: emberFlicker 6.5s ease-in-out 2;
 }
 
 .heroFrame__inner{
@@ -275,13 +288,20 @@ body{
   overflow:hidden;
   background: rgba(0,0,0,0.34);
   border: 1px solid rgba(255,179,0,0.35);
+
+  /* MAX PERF: lighter first paint */
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.55);
+
+  position:relative;
+  aspect-ratio: 1 / 1;
+  z-index: 5;
+}
+
+html.ready .heroLogo{
   box-shadow:
     0 0 24px rgba(255,90,0,0.22),
     0 0 52px rgba(255,179,0,0.12),
     inset 0 0 0 2px rgba(0,0,0,0.55);
-  position:relative;
-  aspect-ratio: 1 / 1;
-  z-index: 5;
 }
 
 .heroLogo::before,
@@ -317,6 +337,12 @@ body{
   font-weight: 1000;
   text-transform: uppercase;
   letter-spacing: 2px;
+
+  /* MAX PERF: reduce expensive text-shadow initially */
+  text-shadow: 0 0 10px rgba(0,0,0,0.65);
+}
+
+html.ready .heroTitle{
   text-shadow:
     0 0 16px rgba(255,90,0,0.26),
     0 0 36px rgba(255,179,0,0.14);
@@ -339,12 +365,6 @@ body{
   text-transform: uppercase;
   color: rgba(255,238,221,0.78);
   margin-bottom: 10px;
-}
-
-.heroFounder{
-  font-size: 13px;
-  color: rgba(255,238,221,0.9);
-  margin: 0 0 10px;
 }
 
 .heroChips{
@@ -376,6 +396,12 @@ body{
   border: 1px solid rgba(255,179,0,0.30);
   overflow:hidden;
   position: relative;
+
+  /* MAX PERF: lighter shadow first paint */
+  box-shadow: 0 0 14px rgba(255,90,0,0.08);
+}
+
+html.ready .panel{
   box-shadow:
     0 0 26px rgba(255,90,0,0.12),
     0 0 60px rgba(255,179,0,0.08);
@@ -388,15 +414,14 @@ body{
   pointer-events:none;
   background: radial-gradient(520px 220px at 10% 10%, rgba(255,90,0,0.12), transparent 60%);
 
-  /* IMPORTANT: no blur + no animation during first paint */
+  /* MAX PERF: disable blur/animation until ready */
   filter: none;
-  opacity: 0.85;
-  animation: none;
+  opacity: 0;
 }
 
-/* Turn on expensive panel glow AFTER first paint */
-.ready .panel::before{
+html.ready .panel::before{
   filter: blur(10px);
+  opacity: 0.85;
   animation: emberFlicker 8s ease-in-out infinite;
 }
 
@@ -475,7 +500,6 @@ body{
   aspect-ratio: 16 / 9;
 }
 
-/* Click-to-load YouTube */
 .ytLite{
   position: relative;
   display: grid;
@@ -496,6 +520,13 @@ body{
   height: 100%;
   object-fit: cover;
   display: block;
+
+  /* keep very light */
+  filter: none;
+  transform: none;
+}
+
+html.ready .ytLite__thumb{
   filter: saturate(1.02) contrast(1.02);
   transform: scale(1.02);
 }
@@ -576,6 +607,10 @@ body{
   height:100%;
   object-fit: cover;
   display:block;
+  transform: none;
+}
+
+html.ready .rigMedia img{
   transform: scale(1.02);
 }
 
@@ -642,7 +677,6 @@ body{
   .grid2{ grid-template-columns: 1fr; }
 }
 
-/* About subtle divider */
 .aboutDivider{
   height: 1px;
   background: rgba(255,140,0,0.18);
