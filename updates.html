@@ -253,6 +253,13 @@
   </main>
 
   <script>
+    // ✅ enable full visuals after first paint
+    (function () {
+      requestAnimationFrame(function () {
+        document.documentElement.classList.add("ready");
+      });
+    })();
+
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
