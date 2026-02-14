@@ -180,7 +180,7 @@ body{
   filter: blur(16px);
   opacity: 1;
 
-  animation: emberFlicker 8s ease-in-out 3;
+  animation: emberFlicker 6.5s ease-in-out 2;
 }
 
 @keyframes emberFlicker{
