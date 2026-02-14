@@ -1073,3 +1073,68 @@ html.ready .rigMedia img{
   color: rgba(255,238,221,0.92);
   box-shadow: 0 0 18px rgba(255,42,0,0.14);
 }
+/* ================= UPDATES GRID ================= */
+.updatesGrid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 820px){
+  .updatesGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1180px){
+  .updatesGrid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.updateCard{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+}
+
+.updateTop{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.22);
+}
+
+.updateMeta{
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.80);
+}
+
+.updateBodyWrap{
+  padding: 12px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumbLink{
+  display:block;
+  border-radius: 14px;
+  overflow:hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.35);
+  aspect-ratio: 16 / 9;
+}
+
+.thumbImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
