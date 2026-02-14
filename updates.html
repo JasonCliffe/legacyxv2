@@ -25,6 +25,18 @@
   <meta name="twitter:description" content="New uploads, gameplay, and PC hardware reviews from LegacyXV2." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- ✅ Fix: use the WebP logo system (same as homepage) -->
+  <link
+    rel="preload"
+    as="image"
+    href="/logo-256.webp"
+    fetchpriority="high"
+    imagesrcset="/logo-256.webp 256w, /logo-512.webp 512w"
+    imagesizes="(max-width: 520px) 220px, 280px"
+  />
+
   <link rel="stylesheet" href="/styles.css?v=10" />
 
   <script type="application/ld+json">
@@ -44,7 +56,7 @@
         "@id":"https://legacyxv2.co.uk/#brand",
         "name":"LegacyXV2",
         "url":"https://legacyxv2.co.uk/",
-        "logo":{"@type":"ImageObject","url":"https://legacyxv2.co.uk/logo.png"},
+        "logo":{"@type":"ImageObject","url":"https://legacyxv2.co.uk/logo-512.webp"},
         "sameAs":[
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
@@ -125,13 +137,25 @@
 
         <div class="heroMain">
           <div class="heroLogo">
-            <img
-              src="/logo.png"
-              alt="LegacyXV2 logo"
-              class="heroLogo__img"
-              loading="eager"
-              decoding="async"
-            />
+            <picture>
+              <source
+                type="image/webp"
+                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
+                sizes="(max-width: 520px) 220px, 280px"
+              >
+              <img
+                src="/logo-256.webp"
+                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
+                sizes="(max-width: 520px) 220px, 280px"
+                width="256"
+                height="256"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="LegacyXV2 logo"
+                class="heroLogo__img"
+              />
+            </picture>
           </div>
 
           <div class="heroCopy">
