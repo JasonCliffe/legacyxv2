@@ -400,10 +400,16 @@
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+      // Year
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
 
-    // Enable "ready" enhancements after first paint
-    requestAnimationFrame(() => document.documentElement.classList.add("ready"));
+      // Enable "ready" enhancements after first paint (consistent across pages)
+      requestAnimationFrame(function () {
+        document.documentElement.classList.add("ready");
+      });
+    })();
   </script>
 </body>
 </html>
