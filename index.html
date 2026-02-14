@@ -33,7 +33,6 @@
 
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- ✅ Keep ONLY the logo preload (high value, low risk) -->
   <link
     rel="preload"
     as="image"
@@ -199,13 +198,11 @@
       </div>
 
       <div class="panelBody">
-        <!-- ✅ Click-to-load YouTube (on-site playback after click) -->
         <div class="introVideo ytLite" data-yt="EZhBBKnVXdI" role="group" aria-label="LegacyXV2 Introduction video">
           <button class="ytLite__btn" type="button" aria-label="Play LegacyXV2 Introduction video">
             <span class="ytLite__play" aria-hidden="true"></span>
           </button>
 
-          <!-- ✅ Local poster -->
           <img
             class="ytLite__thumb"
             src="/yt-intro-480.webp"
@@ -383,22 +380,19 @@
   </main>
 
   <script>
-    // ✅ Add .ready AFTER first paint to enable heavier effects + background image
-    (function () {
-      const html = document.documentElement;
-      const go = () => html.classList.add("ready");
-      requestAnimationFrame(() => requestAnimationFrame(go));
-    })();
+    // Enable "ready" enhancements after first paint
+    requestAnimationFrame(() => document.documentElement.classList.add("ready"));
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ✅ Click-to-load YouTube iframe (on-site playback)
+    // Click-to-load YouTube iframe
     (function () {
       const wrap = document.querySelector(".ytLite");
       if (!wrap) return;
 
       const id = wrap.getAttribute("data-yt");
       const btn = wrap.querySelector(".ytLite__btn");
+      if (!id || !btn) return;
 
       function load() {
         const pc1 = document.createElement("link");
