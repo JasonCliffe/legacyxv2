@@ -177,7 +177,7 @@ body{
     radial-gradient(700px 260px at 18% 35%, rgba(255,90,0,0.30), transparent 62%),
     radial-gradient(780px 280px at 85% 38%, rgba(255,179,0,0.22), transparent 62%),
     radial-gradient(700px 340px at 50% 120%, rgba(255,42,0,0.20), transparent 60%);
-  filter: blur(16px);
+  filter: blur(10px);
   opacity: 1;
 
   animation: emberFlicker 6.5s ease-in-out 2;
