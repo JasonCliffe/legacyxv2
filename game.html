@@ -4,13 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary SEO -->
   <title>LegacyXV2 — Game Recommendations</title>
   <meta name="description" content="Recommended games to experience at least once — iconic survival horror, action, and RPG titles curated by LegacyXV2." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2.co.uk/game.html" />
 
-  <!-- Open Graph -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2.co.uk/game.html" />
@@ -22,19 +20,25 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Game Recommendations" />
   <meta name="twitter:description" content="Essential games everyone should play at least once." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
-  <!-- Performance -->
-  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
-  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
+  <link rel="icon" href="/favicon.ico" />
 
-  <link rel="stylesheet" href="/styles.css" />
+  <!-- Keep ONLY the logo preload (high value, low risk) -->
+  <link
+    rel="preload"
+    as="image"
+    href="/logo-256.webp"
+    fetchpriority="high"
+    imagesrcset="/logo-256.webp 256w, /logo-512.webp 512w"
+    imagesizes="(max-width: 520px) 220px, 280px"
+  />
 
-  <!-- Schema.org -->
+  <link rel="stylesheet" href="/styles.css?v=10" />
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -52,7 +56,7 @@
         "@id":"https://legacyxv2.co.uk/#brand",
         "name":"LegacyXV2",
         "url":"https://legacyxv2.co.uk/",
-        "logo":"https://legacyxv2.co.uk/logo.png",
+        "logo":"https://legacyxv2.co.uk/logo-512.webp",
         "sameAs":[
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
@@ -81,30 +85,17 @@
         "@type":"BreadcrumbList",
         "@id":"https://legacyxv2.co.uk/game.html#breadcrumbs",
         "itemListElement":[
-          {
-            "@type":"ListItem",
-            "position":1,
-            "name":"Home",
-            "item":"https://legacyxv2.co.uk/"
-          },
-          {
-            "@type":"ListItem",
-            "position":2,
-            "name":"Games",
-            "item":"https://legacyxv2.co.uk/game.html"
-          }
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://legacyxv2.co.uk/"},
+          {"@type":"ListItem","position":2,"name":"Games","item":"https://legacyxv2.co.uk/game.html"}
         ]
       }
     ]
   }
   </script>
 
-  <!-- Page-only styling -->
   <style>
     .crumbs{
-      display:flex;
-      align-items:center;
-      gap:10px;
+      display:flex; align-items:center; gap:10px;
       padding:10px 12px;
       border-radius:14px;
       border:1px solid rgba(255,140,0,0.18);
@@ -253,7 +244,6 @@
 <body class="games">
   <main class="wrap">
 
-    <!-- TOP NAV -->
     <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
@@ -265,29 +255,40 @@
       </div>
     </nav>
 
-    <!-- HERO -->
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
 
       <div class="heroFrame__inner">
         <div class="heroTop">
           <div class="heroTop__label">
-            <span class="heroTop__dot"></span>
+            <span class="heroTop__dot" aria-hidden="true"></span>
             GAME RECOMMENDATIONS
-            <span class="heroTop__dot"></span>
+            <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
 
         <div class="heroMain">
           <div class="heroLogo">
-            <img src="/logo.png" alt="LegacyXV2 logo" class="heroLogo__img" loading="lazy" decoding="async">
+            <picture>
+              <source type="image/webp" srcset="/logo-256.webp 256w, /logo-512.webp 512w" sizes="(max-width: 520px) 220px, 280px">
+              <img
+                src="/logo-256.webp"
+                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
+                sizes="(max-width: 520px) 220px, 280px"
+                width="256"
+                height="256"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="LegacyXV2 logo"
+                class="heroLogo__img"
+              />
+            </picture>
           </div>
 
           <div class="heroCopy">
             <h1 class="heroTitle">ESSENTIAL GAMES</h1>
-            <p class="heroSub">
-              If you’ve never played these titles — start here.
-            </p>
+            <p class="heroSub">If you’ve never played these titles — start here.</p>
 
             <div class="heroChips" aria-hidden="true">
               <span class="chip">Survival Horror</span>
@@ -299,7 +300,6 @@
       </div>
     </header>
 
-    <!-- GAMES GRID -->
     <section class="panel">
       <div class="panelHead panelHead--split">
         <h2 class="panelTitle">Must-Play Games</h2>
@@ -309,7 +309,6 @@
       <div class="panelBody">
         <div class="gamesGrid">
 
-          <!-- Resident Evil 4 Remake -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/re4-remake.jpg" alt="Resident Evil 4 Remake box art" loading="lazy" decoding="async">
@@ -319,14 +318,11 @@
               <p class="gameDesc">One of the greatest survival horror games ever modernised.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror • Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html#pl-re4">Playlist →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html#pl-re4">Playlist →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Resident Evil 2 Remake -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/re2-remake.jpg" alt="Resident Evil 2 Remake box art" loading="lazy" decoding="async">
@@ -336,14 +332,11 @@
               <p class="gameDesc">Atmospheric, tense, and a benchmark for modern remakes.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html#pl-re2">Playlist →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html#pl-re2">Playlist →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Resident Evil 7 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/resident-evil-7.jpg" alt="Resident Evil 7 box art" loading="lazy" decoding="async">
@@ -353,14 +346,11 @@
               <p class="gameDesc">A return to pure horror with a first-person perspective.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html#pl-re7">Playlist →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html#pl-re7">Playlist →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Resident Evil 8 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/resident-evil-8.jpg" alt="Resident Evil 8 box art" loading="lazy" decoding="async">
@@ -370,14 +360,11 @@
               <p class="gameDesc">Horror blended with action and unforgettable set-pieces.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror • Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html#pl-re8">Playlist →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html#pl-re8">Playlist →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Devil May Cry 3 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/devil-may-cry-3.jpg" alt="Devil May Cry 3 box art" loading="lazy" decoding="async">
@@ -387,14 +374,11 @@
               <p class="gameDesc">Stylish combat that defined character action games.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html">Playlists →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html">Playlists →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Devil May Cry 5 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/devil-may-cry-5.jpg" alt="Devil May Cry 5 box art" loading="lazy" decoding="async">
@@ -404,14 +388,11 @@
               <p class="gameDesc">Peak combat mechanics with modern visuals.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html">Playlists →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html">Playlists →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Dead Rising -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/dead-rising-1.jpg" alt="Dead Rising box art" loading="lazy" decoding="async">
@@ -421,14 +402,11 @@
               <p class="gameDesc">Sandbox chaos with time pressure and dark humour.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html">Playlists →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html">Playlists →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Dead Rising 2 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/dead-rising-2.jpg" alt="Dead Rising 2 box art" loading="lazy" decoding="async">
@@ -438,14 +416,11 @@
               <p class="gameDesc">Expanded systems and weapon crafting madness.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html">Playlists →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html">Playlists →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Elden Ring -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/elden-ring.jpg" alt="Elden Ring box art" loading="lazy" decoding="async">
@@ -455,14 +430,11 @@
               <p class="gameDesc">Open-world Souls design at its absolute peak.</p>
               <div class="gameLinks">
                 <span class="gameTag">RPG</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html#pl-elden">Playlist →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html#pl-elden">Playlist →</a></div>
               </div>
             </div>
           </article>
 
-          <!-- Dark Souls Trilogy -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/dark-souls-trilogy.jpg" alt="Dark Souls Trilogy box art" loading="lazy" decoding="async">
@@ -472,9 +444,7 @@
               <p class="gameDesc">Foundational action RPGs that shaped a generation.</p>
               <div class="gameLinks">
                 <span class="gameTag">RPG</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="/videos.html">Playlists →</a>
-                </div>
+                <div class="miniLinksRow"><a class="gameQuick" href="/videos.html">Playlists →</a></div>
               </div>
             </div>
           </article>
@@ -483,12 +453,9 @@
       </div>
     </section>
 
-    <!-- DISCLAIMER -->
     <section class="panel panel--disclaimer">
       <div class="panelBody">
-        <p class="artDisclaimer">
-          Game artwork © respective publishers. Used for identification and editorial purposes.
-        </p>
+        <p class="artDisclaimer">Game artwork © respective publishers. Used for identification and editorial purposes.</p>
       </div>
     </section>
 
@@ -500,6 +467,7 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    requestAnimationFrame(function () { document.documentElement.classList.add("ready"); });
   </script>
 </body>
 </html>
