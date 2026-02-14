@@ -1019,3 +1019,57 @@ html.ready .rigMedia img{
   .heroChips{ justify-content: center; }
   .rigGrid{ grid-template-columns: 1fr; }
 }
+
+/* ================= SMALL UI HELPERS ================= */
+.smallNote,
+.tinyNote{
+  margin: 0 0 10px;
+  line-height: 1.6;
+  color: rgba(255,238,221,0.74);
+}
+
+.tinyNote{
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* Actions row for forms */
+.actions{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Status pill */
+.formStatus{
+  display:inline-flex;
+  align-items:center;
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,140,0,0.22);
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,238,221,0.72);
+}
+
+.formStatus[data-kind="busy"]{
+  border-color: rgba(255,179,0,0.30);
+  color: rgba(255,238,221,0.85);
+}
+
+.formStatus[data-kind="ok"]{
+  border-color: rgba(255,179,0,0.40);
+  color: rgba(255,238,221,0.92);
+  box-shadow: 0 0 18px rgba(255,90,0,0.14);
+}
+
+.formStatus[data-kind="error"]{
+  border-color: rgba(255,90,0,0.40);
+  color: rgba(255,238,221,0.92);
+  box-shadow: 0 0 18px rgba(255,42,0,0.14);
+}
