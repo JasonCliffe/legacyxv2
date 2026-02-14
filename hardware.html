@@ -4,13 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary SEO -->
   <title>LegacyXV2 — Hardware Reviews, Benchmarks & Q1 2026 Recommendations</title>
   <meta name="description" content="LegacyXV2 hardware hub: YouTube hardware reviews playlist plus Q1 2026 CPU/GPU recommendations for budget, mid-range, and high-end gaming builds." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2.co.uk/hardware.html" />
 
-  <!-- Open Graph -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2.co.uk/hardware.html" />
@@ -22,25 +20,25 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Hardware Reviews & Q1 2026 Recommendations" />
   <meta name="twitter:description" content="Hardware reviews playlist + Q1 2026 CPU/GPU recommendations for gaming systems." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
-  <!-- Performance hints -->
-  <link rel="dns-prefetch" href="//www.youtube.com">
-  <link rel="dns-prefetch" href="//i.ytimg.com">
-  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
-  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+  <link rel="icon" href="/favicon.ico" />
 
-  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
-  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
-  <link rel="preload" as="image" href="/og-legacyxv2.jpg">
+  <!-- Keep ONLY the logo preload -->
+  <link
+    rel="preload"
+    as="image"
+    href="/logo-256.webp"
+    fetchpriority="high"
+    imagesrcset="/logo-256.webp 256w, /logo-512.webp 512w"
+    imagesizes="(max-width: 520px) 220px, 280px"
+  />
 
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=10" />
 
-  <!-- Schema.org: Site + Brand + Creator + YouTubeChannel + WebPage + Breadcrumbs -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,10 +56,7 @@
         "@id": "https://legacyxv2.co.uk/#brand",
         "name": "LegacyXV2",
         "url": "https://legacyxv2.co.uk/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://legacyxv2.co.uk/logo.png"
-        },
+        "logo": { "@type": "ImageObject", "url": "https://legacyxv2.co.uk/logo-512.webp" },
         "sameAs": [
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
@@ -108,25 +103,14 @@
         "@type": "BreadcrumbList",
         "@id": "https://legacyxv2.co.uk/hardware.html#breadcrumbs",
         "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://legacyxv2.co.uk/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Hardware",
-            "item": "https://legacyxv2.co.uk/hardware.html"
-          }
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://legacyxv2.co.uk/" },
+          { "@type": "ListItem", "position": 2, "name": "Hardware", "item": "https://legacyxv2.co.uk/hardware.html" }
         ]
       }
     ]
   }
   </script>
 
-  <!-- Page-only layout helpers -->
   <style>
     .hwGrid2{
       display:grid;
@@ -207,7 +191,6 @@
 <body class="hardware">
   <main class="wrap">
 
-    <!-- TOP NAV (consistent order with other pages) -->
     <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
@@ -219,7 +202,6 @@
       </div>
     </nav>
 
-    <!-- HERO FRAME -->
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
 
@@ -233,16 +215,27 @@
         </div>
 
         <div class="heroMain">
-          <div class="heroLogo" aria-hidden="true">
-            <img class="heroLogo__img" src="/logo.png" alt="" loading="eager" fetchpriority="high" decoding="async" />
+          <div class="heroLogo">
+            <picture>
+              <source type="image/webp" srcset="/logo-256.webp 256w, /logo-512.webp 512w" sizes="(max-width: 520px) 220px, 280px">
+              <img
+                src="/logo-256.webp"
+                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
+                sizes="(max-width: 520px) 220px, 280px"
+                width="256"
+                height="256"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="LegacyXV2 logo"
+                class="heroLogo__img"
+              />
+            </picture>
           </div>
 
           <div class="heroCopy">
             <h1 class="heroTitle">BUILD SMARTER</h1>
-
-            <p class="heroSub">
-              Hardware reviews, benchmarks, and recommended parts for gaming builds.
-            </p>
+            <p class="heroSub">Hardware reviews, benchmarks, and recommended parts for gaming builds.</p>
 
             <div class="heroChips" aria-hidden="true">
               <span class="chip">CPUs</span>
@@ -254,7 +247,6 @@
       </div>
     </header>
 
-    <!-- PLAYLIST + QUICK NOTES -->
     <section class="panel">
       <div class="panelHead panelHead--split">
         <h2 class="panelTitle">Hardware Reviews Playlist</h2>
@@ -284,7 +276,6 @@
       </div>
     </section>
 
-    <!-- Q1 2026 RECOMMENDATIONS -->
     <section class="panel">
       <div class="panelHead">
         <h2 class="panelTitle">Q1 2026 Recommendations</h2>
@@ -299,10 +290,7 @@
 
         <div class="recGrid">
           <article class="recCard">
-            <div class="recTitle">
-              AM4 CPUs
-              <span class="recTag">Budget → High</span>
-            </div>
+            <div class="recTitle">AM4 CPUs <span class="recTag">Budget → High</span></div>
             <ul class="recList">
               <li><strong>Low-end:</strong> Ryzen 5 5500</li>
               <li><strong>Mid-tier:</strong> Ryzen 7 5700X</li>
@@ -311,10 +299,7 @@
           </article>
 
           <article class="recCard">
-            <div class="recTitle">
-              Intel CPUs
-              <span class="recTag">DDR4 / DDR5</span>
-            </div>
+            <div class="recTitle">Intel CPUs <span class="recTag">DDR4 / DDR5</span></div>
             <ul class="recList">
               <li><strong>Low-end:</strong> Core i5-12400F</li>
               <li><strong>Mid-tier:</strong> Core i7-14700KF</li>
@@ -323,10 +308,7 @@
           </article>
 
           <article class="recCard">
-            <div class="recTitle">
-              AM5 CPUs
-              <span class="recTag">Budget → High</span>
-            </div>
+            <div class="recTitle">AM5 CPUs <span class="recTag">Budget → High</span></div>
             <ul class="recList">
               <li><strong>Low-end:</strong> Ryzen 5 7500F</li>
               <li><strong>Mid-range:</strong> Ryzen 5 7600X3D <em>or</em> Ryzen 7 7700X</li>
@@ -339,10 +321,7 @@
 
         <div class="recGrid">
           <article class="recCard">
-            <div class="recTitle">
-              GPU — Low-end
-              <span class="recTag">Value</span>
-            </div>
+            <div class="recTitle">GPU — Low-end <span class="recTag">Value</span></div>
             <ul class="recList">
               <li>RTX 5060</li>
               <li>AMD RX 9060</li>
@@ -350,10 +329,7 @@
           </article>
 
           <article class="recCard">
-            <div class="recTitle">
-              GPU — Mid-range
-              <span class="recTag">Best all-round</span>
-            </div>
+            <div class="recTitle">GPU — Mid-range <span class="recTag">Best all-round</span></div>
             <ul class="recList">
               <li>RTX 5070 / 5070 Ti</li>
               <li>AMD RX 9060 XT / 9070</li>
@@ -361,10 +337,7 @@
           </article>
 
           <article class="recCard">
-            <div class="recTitle">
-              GPU — High-end
-              <span class="recTag">Top tier</span>
-            </div>
+            <div class="recTitle">GPU — High-end <span class="recTag">Top tier</span></div>
             <ul class="recList">
               <li>RTX 5080 / 5090</li>
               <li>AMD RX 9070 XT</li>
@@ -376,7 +349,7 @@
 
         <p class="mutedNote">
           Notes:
-          <br>• Ensure bios has been updated to recent update and ensure all drivers are fully up to date:
+          <br>• Ensure BIOS is updated and all drivers are up to date.
           <strong>This will be updated when new products have been reviewed</strong>.
         </p>
       </div>
@@ -390,6 +363,7 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+    requestAnimationFrame(function () { document.documentElement.classList.add("ready"); });
   </script>
 </body>
 </html>
