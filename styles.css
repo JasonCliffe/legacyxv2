@@ -894,3 +894,70 @@ html.ready .rigMedia img{
   .heroChips{ justify-content: center; }
   .rigGrid{ grid-template-columns: 1fr; }
 }
+/* ================= VIDEOS: PLAYLIST GRID ================= */
+.playlistGrid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 860px){
+  .playlistGrid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.playlistCard{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  display:flex;
+  flex-direction:column;
+}
+
+.playlistHead{
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.22));
+}
+
+.playlistTitle{
+  margin: 0;
+  font-size: 13px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.92);
+}
+
+.playlistFrame{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+}
+
+.playlistFrame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.playlistFoot{
+  padding: 12px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 10px;
+}
+
+.playlistNote{
+  margin: 0;
+  font-size: 13px;
+  color: rgba(255,238,221,0.78);
+}
