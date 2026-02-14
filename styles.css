@@ -19,7 +19,6 @@
 }
 
 *{ box-sizing:border-box; }
-
 html{ min-height:100%; }
 body{ min-height:100svh; }
 
@@ -28,11 +27,12 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color:var(--text);
   background-color: var(--bg);
+  min-height: 100svh;
   position: relative;
 }
 
 /* =========================================================
-   BACKGROUND (fixed full-page coverage)
+   BACKGROUND
 ========================================================= */
 body::before{
   content:"";
@@ -45,9 +45,6 @@ body::before{
   background:
     radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
     linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82));
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* Load background image only after first paint */
@@ -61,7 +58,7 @@ html.ready body::before{
   background-repeat: no-repeat;
 }
 
-/* WebP (prefer) */
+/*  WebP  */
 @supports (background-image: image-set(url("/bg-1280.webp") 1x)){
   html.ready body::before{
     background:
@@ -91,9 +88,6 @@ body::after{
   opacity: 1;
 }
 
-/* =========================================================
-   LAYOUT
-========================================================= */
 .wrap{
   max-width: 1120px;
   margin: 0 auto;
@@ -113,6 +107,7 @@ body::after{
   background: rgba(0,0,0,0.45);
   border: 1px solid var(--border);
 
+  /* MAX PERF: no blur on first paint */
   backdrop-filter: none;
 
   position: sticky;
@@ -120,6 +115,7 @@ body::after{
   z-index: 50;
 }
 
+/* MAX PERF: enable blur after first paint */
 html.ready .topnav{
   backdrop-filter: blur(10px);
 }
@@ -201,9 +197,11 @@ html.ready .topnav{
   border: 1px solid rgba(255,179,0,0.42);
   background: linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.34));
 
+  /* MAX PERF: reduce heavy shadow on first paint */
   box-shadow: 0 0 18px rgba(255,90,0,0.14);
 }
 
+/* MAX PERF: restore full shadow after first paint */
 html.ready .heroFrame{
   box-shadow:
     0 0 34px rgba(255,90,0,0.22),
@@ -220,10 +218,12 @@ html.ready .heroFrame{
     radial-gradient(780px 280px at 85% 38%, rgba(255,179,0,0.22), transparent 62%),
     radial-gradient(700px 340px at 50% 120%, rgba(255,42,0,0.20), transparent 60%);
 
+  /* MAX PERF: disable blur + animation until ready */
   filter: none;
   opacity: 0;
 }
 
+/* restore glow after first paint */
 html.ready .heroFrame__glow{
   filter: blur(16px);
   opacity: 1;
@@ -311,6 +311,7 @@ html.ready .heroFrame__glow{
   background: rgba(0,0,0,0.34);
   border: 1px solid rgba(255,179,0,0.35);
 
+  /* MAX PERF: lighter first paint */
   box-shadow: inset 0 0 0 2px rgba(0,0,0,0.55);
 
   position:relative;
@@ -358,6 +359,8 @@ html.ready .heroLogo{
   font-weight: 1000;
   text-transform: uppercase;
   letter-spacing: 2px;
+
+  /* MAX PERF: reduce expensive text-shadow initially */
   text-shadow: 0 0 10px rgba(0,0,0,0.65);
 }
 
@@ -415,6 +418,8 @@ html.ready .heroTitle{
   border: 1px solid rgba(255,179,0,0.30);
   overflow:hidden;
   position: relative;
+
+  /* MAX PERF: lighter shadow first paint */
   box-shadow: 0 0 14px rgba(255,90,0,0.08);
 }
 
@@ -430,6 +435,8 @@ html.ready .panel{
   inset:-2px;
   pointer-events:none;
   background: radial-gradient(520px 220px at 10% 10%, rgba(255,90,0,0.12), transparent 60%);
+
+  /* MAX PERF: disable blur/animation until ready */
   filter: none;
   opacity: 0;
 }
@@ -491,98 +498,85 @@ html.ready .panel::before{
   color: rgba(255,238,221,0.92);
 }
 
-/* ================= LINKS / BUTTONS ================= */
-.btnPrimary{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 16px 18px;
-  border-radius: 16px;
-
-  font-weight: 1000;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  text-decoration:none;
-
-  color: #1a0b06;
-  background: linear-gradient(135deg, var(--ember3), var(--ember2));
-  border: 1px solid rgba(255, 140, 0, 0.25);
-
-  box-shadow:
-    0 0 18px rgba(255, 90, 0, 0.26),
-    0 0 52px rgba(255,179,0,0.16),
-    inset 0 0 0 1px rgba(0,0,0,0.25);
-
-  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+@media (hover:hover) and (pointer:fine){
+  .panel{
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  }
+  .panel:hover{
+    transform: translateY(-2px);
+    border-color: rgba(255,179,0,0.44);
+    box-shadow:
+      0 0 36px rgba(255,90,0,0.18),
+      0 0 90px rgba(255,179,0,0.12);
+  }
 }
 
-.btnPrimary:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.06);
+/* ================= VIDEOS: PLAYLIST GRID ================= */
+.playlistGrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
 
-.btnGhost{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding: 14px 16px;
+@media (min-width: 820px){
+  .playlistGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1180px){
+  .playlistGrid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.playlistCard{
   border-radius: 16px;
-
-  font-weight: 1000;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  text-decoration:none;
-
-  color: rgba(255,238,221,0.92);
-  background: rgba(0,0,0,0.28);
+  overflow: hidden;
   border: 1px solid rgba(255,140,0,0.22);
-
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
-
-  transition: transform 140ms ease, filter 140ms ease, border-color 140ms ease, background 140ms ease;
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  position: relative;
 }
 
-.btnGhost:hover{
-  transform: translateY(-1px);
-  border-color: rgba(255,179,0,0.40);
-  background: rgba(0,0,0,0.40);
+.playlistHead{
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  background: linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.12));
 }
 
-.miniLink{
-  display:inline-block;
-  padding: 8px 12px;
-  border-radius: 12px;
-  font-size: 12px;
+.playlistTitle{
+  margin: 0;
+  font-size: 13px;
   font-weight: 1000;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
-  text-decoration:none;
-
-  color: #1a0b06;
-  background: linear-gradient(135deg, var(--ember3), var(--ember2));
-  box-shadow:
-    0 0 18px rgba(255, 90, 0, 0.26),
-    0 0 52px rgba(255,179,0,0.16);
-
-  transition: transform 140ms ease, filter 140ms ease;
+  color: rgba(255,238,221,0.92);
 }
 
-.miniLink:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.05);
+.playlistFrame{
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,0.28);
 }
 
-/* Status text under forms */
-.formStatus{
+.playlistFrame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.playlistFoot{
+  padding: 12px 14px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(255,140,0,0.12);
+  background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.22));
+}
+
+.playlistNote{
+  margin: 0;
   font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.78);
+  color: rgba(255,238,221,0.74);
 }
-.formStatus[data-kind="ok"]{ color: rgba(255,179,0,0.95); }
-.formStatus[data-kind="error"]{ color: rgba(255,90,0,0.95); }
-.formStatus[data-kind="busy"]{ color: rgba(255,238,221,0.82); }
 
 /* ================= HOME: INTRO VIDEO ================= */
 .introVideo{
@@ -615,6 +609,8 @@ html.ready .panel::before{
   height: 100%;
   object-fit: cover;
   display: block;
+
+  /* keep very light */
   filter: none;
   transform: none;
 }
@@ -783,286 +779,85 @@ html.ready .rigMedia img{
   gap: 10px;
 }
 
-/* ================= VIDEOS: PLAYLIST GRID (single canonical version) ================= */
-.playlistGrid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-@media (min-width: 860px){
-  .playlistGrid{ grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1180px){
-  .playlistGrid{ grid-template-columns: repeat(3, 1fr); }
-}
-
-.playlistCard{
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,140,0,0.22);
-  background: rgba(0,0,0,0.28);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-  display:flex;
-  flex-direction:column;
-}
-
-.playlistHead{
-  padding: 12px 14px;
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-  background: linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.12));
-}
-
-.playlistTitle{
-  margin: 0;
-  font-size: 13px;
-  font-weight: 1000;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.92);
-}
-
-.playlistFrame{
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: rgba(0,0,0,0.28);
-}
-
-.playlistFrame iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-.playlistFoot{
-  padding: 12px 14px 14px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-top: 1px solid rgba(255,140,0,0.12);
-  background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.22));
-}
-
-.playlistNote{
-  margin: 0;
-  font-size: 12px;
-  color: rgba(255,238,221,0.74);
-}
-
-/* ================= UPDATES ================= */
-.updatesGrid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-@media (min-width: 860px){
-  .updatesGrid{ grid-template-columns: repeat(3, 1fr); }
-}
-
-.updateCard{
-  border-radius: 16px;
-  overflow:hidden;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.28);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-  display:flex;
-  flex-direction:column;
-}
-
-.updateTop{
-  padding: 12px 14px;
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-  background: linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.12));
-}
-
-.updateMeta{
-  font-size: 12px;
-  font-weight: 1000;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.82);
-}
-
-.updateBodyWrap{
-  padding: 12px 14px 14px;
-  display:flex;
-  flex-direction:column;
-  gap: 12px;
-}
-
-.thumbLink{
-  display:block;
-  border-radius: 14px;
-  overflow:hidden;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.25);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-.thumbImg{
-  width:100%;
-  height:auto;
-  display:block;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-/* ================= FORMS (Merch + Drop One) ================= */
-.smallNote{
-  margin: 0 0 12px;
-  font-size: 13px;
-  line-height: 1.6;
-  color: rgba(255,238,221,0.82);
-}
-
-.row{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-@media (max-width: 720px){
-  .row{ grid-template-columns: 1fr; }
-}
-
-.merchForm,
-.dropForm{
-  display:flex;
-  flex-direction:column;
-  gap: 12px;
-}
-
-label{
-  display:block;
-  font-size: 12px;
-  font-weight: 1000;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.82);
-  margin: 0 0 6px;
-}
-
-input,
-textarea{
-  width:100%;
-  padding: 12px 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.28);
-  color: rgba(255,238,221,0.92);
-  outline: none;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-textarea{
-  min-height: 120px;
-  resize: vertical;
-}
-
-input:focus,
-textarea:focus{
-  border-color: rgba(255,179,0,0.40);
-  box-shadow:
-    0 0 0 3px rgba(255,179,0,0.14),
-    inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-.turnstileWrap{
-  border-radius: 16px;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.18);
-  padding: 12px;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-.tinyNote{
-  margin: 8px 0 0;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255,238,221,0.65);
-}
-
-.actions{
+/* ================= LINKS / BUTTONS ================= */
+.btnPrimary{
   display:flex;
   align-items:center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* ================= DROP ONE: PRODUCT GRID ================= */
-.productGrid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-@media (min-width: 860px){
-  .productGrid{ grid-template-columns: repeat(3, 1fr); }
-}
-
-.productCard{
+  justify-content:center;
+  padding: 16px 18px;
   border-radius: 16px;
-  overflow:hidden;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.28);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-}
 
-.productMedia{
-  position:relative;
-  aspect-ratio: 16 / 10;
-  overflow:hidden;
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-}
-
-.productMedia img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
-
-.productBadge{
-  position:absolute;
-  left: 12px;
-  bottom: 12px;
-  padding: 6px 10px;
-  font-size: 11px;
   font-weight: 1000;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
-  border-radius: 999px;
-  color:#1a0b06;
+  text-decoration:none;
+
+  color: #1a0b06;
+  background: linear-gradient(135deg, var(--ember3), var(--ember2));
+  border: 1px solid rgba(255, 140, 0, 0.25);
+
+  box-shadow:
+    0 0 18px rgba(255, 90, 0, 0.26),
+    0 0 52px rgba(255,179,0,0.16),
+    inset 0 0 0 1px rgba(0,0,0,0.25);
+
+  transition: transform 140ms ease, filter 140ms ease, box-shadow 140ms ease;
+}
+
+.btnPrimary:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.btnGhost{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 14px 16px;
+  border-radius: 16px;
+
+  font-weight: 1000;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-decoration:none;
+
+  color: rgba(255,238,221,0.92);
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,140,0,0.22);
+
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+
+  transition: transform 140ms ease, filter 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.btnGhost:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,179,0,0.40);
+  background: rgba(0,0,0,0.40);
+}
+
+.miniLink{
+  display:inline-block;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 1000;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-decoration:none;
+
+  color: #1a0b06;
   background: linear-gradient(135deg, var(--ember3), var(--ember2));
   box-shadow:
-    0 0 14px rgba(255,90,0,0.35),
-    0 0 28px rgba(255,179,0,0.18);
+    0 0 18px rgba(255, 90, 0, 0.26),
+    0 0 52px rgba(255,179,0,0.16);
+
+  transition: transform 140ms ease, filter 140ms ease;
 }
 
-.productBody{
-  padding: 12px 12px 14px;
-}
-
-.productTitle{
-  margin: 0 0 8px;
-  font-size: 13px;
-  font-weight: 1000;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.92);
-}
-
-.productDesc{
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(255,238,221,0.78);
+.miniLink:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
 }
 
 /* ================= FOOTER ================= */
@@ -1097,196 +892,50 @@ textarea:focus{
   .heroChips{ justify-content: center; }
   .rigGrid{ grid-template-columns: 1fr; }
 }
-/* =========================================================
-   UPDATES GRID (updates.html)
-========================================================= */
 
-.updatesGrid{
-  display:grid;
+/* =========================================================
+   SAFETY:
+========================================================= */
+.playlistGrid{
+  display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
 }
-
 @media (min-width: 820px){
-  .updatesGrid{
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .playlistGrid{ grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (min-width: 1180px){
-  .updatesGrid{
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .playlistGrid{ grid-template-columns: repeat(3, 1fr); }
 }
-
-.updateCard{
-  border-radius: 18px;
-  overflow:hidden;
+.playlistCard{
+  border-radius: 16px;
+  overflow: hidden;
   border: 1px solid rgba(255,140,0,0.22);
   background: rgba(0,0,0,0.28);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
   display:flex;
   flex-direction:column;
 }
-
-.updateTop{
-  padding: 10px 14px;
+.playlistHead{
+  padding: 12px 14px;
   border-bottom: 1px solid rgba(255,140,0,0.18);
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.18));
+  background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.22));
 }
-
-.updateMeta{
-  font-size: 11px;
+.playlistTitle{
+  margin: 0;
+  font-size: 13px;
   font-weight: 1000;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: rgba(255,238,221,0.78);
-}
-
-.updateBodyWrap{
-  padding: 12px;
-  display:flex;
-  flex-direction:column;
-  gap: 12px;
-}
-
-.thumbLink{
-  display:block;
-  border-radius: 14px;
-  overflow:hidden;
-  border: 1px solid rgba(255,140,0,0.18);
-}
-
-.thumbImg{
-  width:100%;
-  display:block;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.updateCard .miniLink{
-  align-self:flex-start;
-}
-
-
-/* =========================================================
-   DROP ONE PRODUCT GRID (drop-one.html)
-========================================================= */
-
-.productGrid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-@media (min-width: 820px){
-  .productGrid{
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1180px){
-  .productGrid{
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.productCard{
-  border-radius: 18px;
-  overflow:hidden;
-  border: 1px solid rgba(255,140,0,0.22);
-  background: rgba(0,0,0,0.28);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-  display:flex;
-  flex-direction:column;
-}
-
-.productMedia{
-  position:relative;
-  aspect-ratio: 1 / 1;
-  overflow:hidden;
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-}
-
-.productMedia img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
-
-.productBadge{
-  position:absolute;
-  left:12px;
-  bottom:12px;
-  padding:6px 10px;
-  font-size:11px;
-  font-weight:1000;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  color:#1a0b06;
-  background: linear-gradient(135deg, var(--ember3), var(--ember2));
-  border-radius:999px;
-  box-shadow:
-    0 0 14px rgba(255,90,0,0.35),
-    0 0 28px rgba(255,179,0,0.18);
-}
-
-.productBody{
-  padding: 12px;
-}
-
-.productTitle{
-  margin:0 0 8px;
-  font-size:13px;
-  font-weight:1000;
-  letter-spacing:1px;
-  text-transform:uppercase;
   color: rgba(255,238,221,0.92);
 }
-
-.productDesc{
-  margin:0;
-  font-size:13px;
-  line-height:1.55;
-  color: rgba(255,238,221,0.78);
-}
-
-/* =========================================================
-   FIX: PLAYLIST GRID (videos.html) 
-========================================================= */
-
-.playlistGrid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-@media (min-width: 820px){
-  .playlistGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-@media (min-width: 1180px){
-  .playlistGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-.playlistCard{
-  border-radius: 16px;
-  overflow:hidden;
-  border: 1px solid rgba(255,140,0,0.22);
-  background: rgba(0,0,0,0.28);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-  display:flex;
-  flex-direction:column;
-}
-
 .playlistFrame{
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,140,0,0.18);
 }
-
 .playlistFrame iframe{
   position:absolute;
   inset:0;
@@ -1294,138 +943,17 @@ textarea:focus{
   height:100%;
   border:0;
 }
-
-
-/* =========================================================
-   FIX: UPDATES GRID (updates.html) — CONSISTENT CARD RHYTHM
-========================================================= */
-
-.updateBodyWrap{
-  padding: 12px;
-  display:flex;
-  flex-direction:column;
-  gap: 12px;
-}
-
-.thumbLink{
-  display:block;
-  border-radius: 14px;
-  overflow:hidden;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.25);
-}
-
-.thumbImg{
-  width:100%;
-  display:block;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.updateCard .miniLink{
-  align-self:flex-start;
-  margin-top: auto; /* pins the button lower when card heights differ */
-}
-
-
-/* =========================================================
-   FIX: MERCH + DROP ONE FORMS (merch.html / drop-one.html)
-========================================================= */
-
-.smallNote{
-  margin: 0 0 12px;
-  font-size: 13px;
-  line-height: 1.55;
-  color: rgba(255,238,221,0.78);
-}
-
-.tinyNote{
-  margin: 8px 0 0;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255,238,221,0.62);
-}
-
-.row{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-@media (max-width: 720px){
-  .row{ grid-template-columns: 1fr; }
-}
-
-label{
-  display:block;
-  margin: 0 0 6px;
-  font-size: 12px;
-  font-weight: 1000;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.80);
-}
-
-input[type="text"],
-input[type="email"],
-textarea{
-  width:100%;
-  border-radius: 14px;
-  padding: 12px 12px;
-  font-size: 14px;
-  color: rgba(255,238,221,0.92);
-
-  background: rgba(0,0,0,0.28);
-  border: 1px solid rgba(255,140,0,0.22);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
-
-  outline: none;
-}
-
-textarea{
-  min-height: 140px;
-  resize: vertical;
-}
-
-input:focus,
-textarea:focus{
-  border-color: rgba(255,179,0,0.45);
-  box-shadow:
-    0 0 0 3px rgba(255,179,0,0.12),
-    inset 0 0 0 1px rgba(0,0,0,0.45);
-}
-
-.turnstileWrap{
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,140,0,0.16);
-  background: rgba(0,0,0,0.18);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
-}
-
-.actions{
-  margin-top: 12px;
+.playlistFoot{
+  padding: 12px 14px 14px;
   display:flex;
   align-items:center;
+  justify-content:space-between;
   gap: 12px;
-  flex-wrap: wrap;
+  border-top: 1px solid rgba(255,140,0,0.12);
+  background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.22));
 }
-
-.formStatus{
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.75);
-}
-
-.formStatus[data-kind="ok"]{ color: rgba(255,179,0,0.95); }
-.formStatus[data-kind="error"]{ color: rgba(255,90,0,0.95); }
-.formStatus[data-kind="busy"]{ color: rgba(255,238,221,0.75); opacity: .9; }
-
-button.btnPrimary:disabled{
-  opacity: .6;
-  cursor: not-allowed;
-  transform: none;
+.playlistNote{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255,238,221,0.74);
 }
