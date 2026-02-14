@@ -26,44 +26,68 @@ body{
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   color:var(--text);
   background-color: var(--bg);
+  min-height: 100svh;
+  position: relative;
+}
 
-  /* MAX PERF: initial paint uses gradients only (NO image request) */
-  background-image:
+/* =========================================================
+   BACKGROUND
+========================================================= */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  /* First paint = gradients only */
+  background:
     radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
     linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82));
-  background-size: cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-attachment: scroll;
-
-  min-height: 100svh;
 }
 
-/* MAX PERF: load background image only after first paint */
-html.ready body{
-  background-image:
+/* Load background image only after first paint */
+html.ready body::before{
+  background:
     radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
     linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
-    url("/bg-1280.webp");
+    url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Use high-res when supported (WebP) — only after .ready */
+/* Prefer WebP when available (optional) */
 @supports (background-image: image-set(url("/bg-1280.webp") 1x)){
-  html.ready body{
-    background-image:
+  html.ready body::before{
+    background:
       radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
       linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
       image-set(
         url("/bg-1280.webp") 1x,
         url("/bg-1920.webp") 2x
       );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 
-@media (max-width: 820px){
-  html, body{ height:auto; }
-  body{ min-height: 100svh; }
+/* Optional extra vignette overlay */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 420px at 12% 0%, rgba(255,140,0,.14), transparent 60%),
+    radial-gradient(900px 500px at 88% 10%, rgba(255,179,0,.10), transparent 62%),
+    linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.62));
+  opacity: 1;
 }
+
+/* IMPORTANT: remove the old "height:auto" hack (it breaks long-page visuals) */
 
 .wrap{
   max-width: 1120px;
@@ -487,6 +511,73 @@ html.ready .panel::before{
       0 0 36px rgba(255,90,0,0.18),
       0 0 90px rgba(255,179,0,0.12);
   }
+}
+
+/* ================= VIDEOS: PLAYLIST GRID ================= */
+.playlistGrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 820px){
+  .playlistGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1180px){
+  .playlistGrid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.playlistCard{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.22);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  position: relative;
+}
+
+.playlistHead{
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  background: linear-gradient(180deg, rgba(0,0,0,0.32), rgba(0,0,0,0.12));
+}
+
+.playlistTitle{
+  margin: 0;
+  font-size: 13px;
+  font-weight: 1000;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.92);
+}
+
+.playlistFrame{
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,0.28);
+}
+
+.playlistFrame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.playlistFoot{
+  padding: 12px 14px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(255,140,0,0.12);
+  background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.22));
+}
+
+.playlistNote{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255,238,221,0.74);
 }
 
 /* ================= HOME: INTRO VIDEO ================= */
