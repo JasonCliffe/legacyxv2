@@ -37,13 +37,11 @@ body{
   background-position:center;
   background-repeat:no-repeat;
 
-  
   background-attachment: scroll;
-
   min-height: 100svh;
 }
 
-
+/* Prefer image-set when supported */
 @supports (background-image: image-set(url("/bg-1280.webp") 1x)){
   body{
     background-image:
@@ -79,11 +77,18 @@ body{
 
   background: rgba(0,0,0,0.45);
   border: 1px solid var(--border);
-  backdrop-filter: blur(10px);
+
+  /* IMPORTANT: defer blur until .ready for Lighthouse */
+  backdrop-filter: none;
 
   position: sticky;
   top: 12px;
   z-index: 50;
+}
+
+/* Turn on expensive blur AFTER first paint */
+.ready .topnav{
+  backdrop-filter: blur(10px);
 }
 
 .navlinks{
@@ -177,16 +182,23 @@ body{
     radial-gradient(700px 260px at 18% 35%, rgba(255,90,0,0.30), transparent 62%),
     radial-gradient(780px 280px at 85% 38%, rgba(255,179,0,0.22), transparent 62%),
     radial-gradient(700px 340px at 50% 120%, rgba(255,42,0,0.20), transparent 60%);
-  filter: blur(10px);
-  opacity: 1;
 
-  animation: emberFlicker 6.5s ease-in-out 2;
+  /* IMPORTANT: no blur + no animation during first paint */
+  filter: none;
+  opacity: 1;
+  animation: none;
 }
 
 @keyframes emberFlicker{
   0%, 100% { opacity: 0.98; transform: translateY(0px); }
   40%      { opacity: 0.93; transform: translateY(0.4px); }
   70%      { opacity: 1;    transform: translateY(-0.3px); }
+}
+
+/* Turn on glow AFTER first paint */
+.ready .heroFrame__glow{
+  filter: blur(10px);
+  animation: emberFlicker 6.5s ease-in-out 2;
 }
 
 .heroFrame__inner{
@@ -375,8 +387,16 @@ body{
   inset:-2px;
   pointer-events:none;
   background: radial-gradient(520px 220px at 10% 10%, rgba(255,90,0,0.12), transparent 60%);
-  filter: blur(10px);
+
+  /* IMPORTANT: no blur + no animation during first paint */
+  filter: none;
   opacity: 0.85;
+  animation: none;
+}
+
+/* Turn on expensive panel glow AFTER first paint */
+.ready .panel::before{
+  filter: blur(10px);
   animation: emberFlicker 8s ease-in-out infinite;
 }
 
