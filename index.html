@@ -383,54 +383,60 @@
   </main>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ✅ Click-to-load YouTube iframe (on-site playback)
-    (function () {
-      const wrap = document.querySelector(".ytLite");
-      if (!wrap) return;
+  // Enable heavy visual effects AFTER first paint (helps Lighthouse hit 100)
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.documentElement.classList.add("ready");
+    });
+  });
 
-      const id = wrap.getAttribute("data-yt");
-      const btn = wrap.querySelector(".ytLite__btn");
+  // ✅ Click-to-load YouTube iframe (on-site playback)
+  (function () {
+    const wrap = document.querySelector(".ytLite");
+    if (!wrap) return;
 
-      function load() {
-        // Add preconnect only when needed (avoids "unused preconnect" penalties)
-        const pc1 = document.createElement("link");
-        pc1.rel = "preconnect";
-        pc1.href = "https://www.youtube.com";
-        pc1.crossOrigin = "anonymous";
-        document.head.appendChild(pc1);
+    const id = wrap.getAttribute("data-yt");
+    const btn = wrap.querySelector(".ytLite__btn");
 
-        const pc2 = document.createElement("link");
-        pc2.rel = "preconnect";
-        pc2.href = "https://i.ytimg.com";
-        pc2.crossOrigin = "anonymous";
-        document.head.appendChild(pc2);
+    function load() {
+      const pc1 = document.createElement("link");
+      pc1.rel = "preconnect";
+      pc1.href = "https://www.youtube.com";
+      pc1.crossOrigin = "anonymous";
+      document.head.appendChild(pc1);
 
-        const iframe = document.createElement("iframe");
-        iframe.src =
-          "https://www.youtube.com/embed/" +
-          encodeURIComponent(id) +
-          "?autoplay=1&rel=0&modestbranding=1";
-        iframe.title = "LegacyXV2 Introduction";
-        iframe.loading = "lazy";
-        iframe.referrerPolicy = "strict-origin-when-cross-origin";
-        iframe.allow =
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
+      const pc2 = document.createElement("link");
+      pc2.rel = "preconnect";
+      pc2.href = "https://i.ytimg.com";
+      pc2.crossOrigin = "anonymous";
+      document.head.appendChild(pc2);
 
-        wrap.innerHTML = "";
-        wrap.appendChild(iframe);
+      const iframe = document.createElement("iframe");
+      iframe.src =
+        "https://www.youtube.com/embed/" +
+        encodeURIComponent(id) +
+        "?autoplay=1&rel=0&modestbranding=1";
+      iframe.title = "LegacyXV2 Introduction";
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allow =
+        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+
+      wrap.innerHTML = "";
+      wrap.appendChild(iframe);
+    }
+
+    btn.addEventListener("click", load, { once: true });
+    btn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        load();
       }
-
-      btn.addEventListener("click", load, { once: true });
-      btn.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          load();
-        }
-      });
-    })();
-  </script>
+    });
+  })();
+</script>
 </body>
 </html>
