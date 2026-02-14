@@ -4,13 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Primary SEO -->
   <title>LegacyXV2 — Updates & New Uploads</title>
   <meta name="description" content="Latest LegacyXV2 updates including new series, gameplay uploads, and PC hardware reviews." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2.co.uk/updates.html" />
 
-  <!-- Open Graph -->
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2.co.uk/updates.html" />
@@ -22,25 +20,13 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Updates & New Uploads" />
   <meta name="twitter:description" content="New uploads, gameplay, and PC hardware reviews from LegacyXV2." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
-  <!-- Performance -->
-  <link rel="dns-prefetch" href="//www.youtube.com">
-  <link rel="dns-prefetch" href="//i.ytimg.com">
-  <link rel="preconnect" href="https://www.youtube.com" crossorigin>
-  <link rel="preconnect" href="https://i.ytimg.com" crossorigin>
+  <link rel="stylesheet" href="/styles.css?v=10" />
 
-  <link rel="preload" as="image" href="/bg.jpg" fetchpriority="high">
-  <link rel="preload" as="image" href="/logo.png" fetchpriority="high">
-  <link rel="preload" as="image" href="/og-legacyxv2.jpg">
-
-  <link rel="stylesheet" href="/styles.css" />
-
-  <!-- Schema.org: Site + Brand + Creator + WebPage + Breadcrumbs + OG Image -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -58,10 +44,7 @@
         "@id":"https://legacyxv2.co.uk/#brand",
         "name":"LegacyXV2",
         "url":"https://legacyxv2.co.uk/",
-        "logo":{
-          "@type":"ImageObject",
-          "url":"https://legacyxv2.co.uk/logo.png"
-        },
+        "logo":{"@type":"ImageObject","url":"https://legacyxv2.co.uk/logo.png"},
         "sameAs":[
           "https://www.youtube.com/@legacyxv2",
           "https://www.tiktok.com/@legacyxv2",
@@ -105,18 +88,8 @@
         "@type":"BreadcrumbList",
         "@id":"https://legacyxv2.co.uk/updates.html#breadcrumbs",
         "itemListElement":[
-          {
-            "@type":"ListItem",
-            "position":1,
-            "name":"Home",
-            "item":"https://legacyxv2.co.uk/"
-          },
-          {
-            "@type":"ListItem",
-            "position":2,
-            "name":"Updates",
-            "item":"https://legacyxv2.co.uk/updates.html"
-          }
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://legacyxv2.co.uk/"},
+          {"@type":"ListItem","position":2,"name":"Updates","item":"https://legacyxv2.co.uk/updates.html"}
         ]
       }
     ]
@@ -127,7 +100,6 @@
 <body class="updates">
   <main class="wrap">
 
-    <!-- NAV -->
     <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
@@ -139,35 +111,37 @@
       </div>
     </nav>
 
-    <!-- HERO -->
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
 
       <div class="heroFrame__inner">
         <div class="heroTop">
           <div class="heroTop__label">
-            <span class="heroTop__dot"></span>
+            <span class="heroTop__dot" aria-hidden="true"></span>
             UPDATES
-            <span class="heroTop__dot"></span>
+            <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
 
         <div class="heroMain">
           <div class="heroLogo">
-            <img src="/logo.png" alt="" class="heroLogo__img" />
+            <img
+              src="/logo.png"
+              alt="LegacyXV2 logo"
+              class="heroLogo__img"
+              loading="eager"
+              decoding="async"
+            />
           </div>
 
           <div class="heroCopy">
             <h1 class="heroTitle">WHAT’S NEW</h1>
-            <p class="heroSub">
-              New uploads — Wednesday / Friday / Sunday at 6pm UK time
-            </p>
+            <p class="heroSub">New uploads — Wednesday / Friday / Sunday at 6pm UK time</p>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- LATEST -->
     <section class="panel">
       <div class="panelHead">
         <h2 class="panelTitle">Latest</h2>
@@ -176,7 +150,6 @@
       <div class="panelBody">
         <div class="updatesGrid">
 
-          <!-- SERIES -->
           <article class="updateCard">
             <div class="updateTop">
               <div class="updateMeta">Series</div>
@@ -187,18 +160,18 @@
                 <img
                   class="thumbImg"
                   src="https://i.ytimg.com/vi/FUw5FgkgzRk/hqdefault.jpg"
-                  alt="Series thumbnail"
+                  alt="Series upload thumbnail"
                   loading="lazy"
+                  decoding="async"
+                  width="480"
+                  height="360"
                 />
               </a>
 
-              <a class="miniLink" href="https://youtu.be/FUw5FgkgzRk" target="_blank" rel="noopener">
-                ▶ Watch on YouTube
-              </a>
+              <a class="miniLink" href="https://youtu.be/FUw5FgkgzRk" target="_blank" rel="noopener">▶ Watch on YouTube</a>
             </div>
           </article>
 
-          <!-- TECH / HARDWARE -->
           <article class="updateCard">
             <div class="updateTop">
               <div class="updateMeta">Tech / Hardware</div>
@@ -209,18 +182,18 @@
                 <img
                   class="thumbImg"
                   src="https://i.ytimg.com/vi/SSkLnaxKv6M/hqdefault.jpg"
-                  alt="Tech hardware thumbnail"
+                  alt="Tech upload thumbnail"
                   loading="lazy"
+                  decoding="async"
+                  width="480"
+                  height="360"
                 />
               </a>
 
-              <a class="miniLink" href="https://youtu.be/SSkLnaxKv6M" target="_blank" rel="noopener">
-                ▶ Watch review
-              </a>
+              <a class="miniLink" href="https://youtu.be/SSkLnaxKv6M" target="_blank" rel="noopener">▶ Watch review</a>
             </div>
           </article>
 
-          <!-- GAMEPLAY -->
           <article class="updateCard">
             <div class="updateTop">
               <div class="updateMeta">Gameplay</div>
@@ -231,14 +204,15 @@
                 <img
                   class="thumbImg"
                   src="https://i.ytimg.com/vi/LOY9G5670vg/hqdefault.jpg"
-                  alt="Gameplay thumbnail"
+                  alt="Gameplay upload thumbnail"
                   loading="lazy"
+                  decoding="async"
+                  width="480"
+                  height="360"
                 />
               </a>
 
-              <a class="miniLink" href="https://youtu.be/LOY9G5670vg" target="_blank" rel="noopener">
-                ▶ Watch on YouTube
-              </a>
+              <a class="miniLink" href="https://youtu.be/LOY9G5670vg" target="_blank" rel="noopener">▶ Watch on YouTube</a>
             </div>
           </article>
 
@@ -253,14 +227,10 @@
   </main>
 
   <script>
-    // ✅ enable full visuals after first paint
-    (function () {
-      requestAnimationFrame(function () {
-        document.documentElement.classList.add("ready");
-      });
-    })();
-
     document.getElementById("year").textContent = new Date().getFullYear();
+    requestAnimationFrame(function () {
+      document.documentElement.classList.add("ready");
+    });
   </script>
 </body>
 </html>
