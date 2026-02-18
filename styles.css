@@ -1389,3 +1389,8 @@ body.modal-open{ overflow: hidden; }
   }
 
 }
+
+/* Samsung Internet */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+img { max-width: 100%; height: auto; }
+
