@@ -531,6 +531,38 @@ html.ready .panel::before{
 }
 
 /* =========================================================
+   MEDIA THUMBS
+========================================================= */
+.mediaThumb,
+.thumbLink,
+.rigMedia,
+.playlistFrame{
+  position: relative;
+  width:100%;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  overflow:hidden;
+}
+
+/* default 16:9 */
+.mediaThumb,
+.thumbLink,
+.playlistFrame{ aspect-ratio: 16 / 9; }
+
+/* make images fill without absolute assumptions */
+.mediaThumb img,
+.thumbImg,
+.rigMedia img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* rig media ratio */
+.rigMedia{ aspect-ratio: 16 / 10; }
+
+/* =========================================================
    CARD BASE
 ========================================================= */
 .mediaCard,
@@ -547,42 +579,6 @@ html.ready .panel::before{
   min-width: 0;
 }
 
-/* =========================================================
-   MEDIA THUMBS 
-========================================================= */
-.mediaThumb,
-.thumbLink,
-.rigMedia,
-.playlistFrame{
-  position: relative;
-  width:100%;
-  background: rgba(0,0,0,0.35);
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-  overflow:hidden;
-}
-
-/* default 16:9 for general media blocks */
-.mediaThumb,
-.thumbLink,
-.playlistFrame{ aspect-ratio: 16 / 9; }
-
-.mediaThumb img,
-.thumbImg,
-.rigMedia img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit: cover;
-}
-
-/* rig media uses a nicer ratio for PC pics */
-.rigMedia{ aspect-ratio: 16 / 10; }
-.rigMedia img{ position:absolute; inset:0; }
-
-/* =========================================================
-   MEDIA BODY
-========================================================= */
 .mediaBody{
   padding: 12px 14px 14px;
   display:flex;
@@ -825,6 +821,127 @@ html.ready .ytLite__thumb{
   font-size: 13px;
 }
 .rigList li{ margin: 6px 0; }
+
+/* =========================================================
+   GAMES PAGE 
+========================================================= */
+.gamesGrid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+@media (max-width: 1100px){
+  .gamesGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px){
+  .gamesGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.gameCard{
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.26);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  transform: translateZ(0);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.gameCard:hover{
+  transform: translateY(-3px);
+  border-color: rgba(255,140,0,0.35);
+  box-shadow:
+    0 10px 26px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(255,140,0,0.18) inset,
+    0 0 22px rgba(255,140,0,0.12);
+}
+
+.gameMedia{
+  position: relative;
+  aspect-ratio: 2 / 3;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  overflow:hidden;
+}
+.gameMedia img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1.01);
+  transition: transform .25s ease;
+}
+.gameCard:hover .gameMedia img{ transform: scale(1.06); }
+
+.gameBody{ padding: 12px; }
+.gameTitle{
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.95);
+}
+.gameDesc{
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255,238,221,0.72);
+  min-height: 36px;
+}
+.gameLinks{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content: space-between;
+}
+.miniLinksRow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.gameTag{
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.18);
+  color: rgba(255,238,221,0.85);
+  opacity: .95;
+}
+
+.gameQuick{
+  text-decoration:none;
+  font-size:12px;
+  font-weight: 900;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.88);
+  border-bottom: 1px solid rgba(255,140,0,0.22);
+  padding-bottom: 2px;
+  transition: opacity .15s ease, border-color .15s ease;
+  cursor: pointer;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.gameQuick:hover{
+  opacity: 1;
+  border-bottom-color: rgba(255,140,0,0.55);
+}
+
+.artDisclaimer{
+  margin:0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255,238,221,0.72);
+}
 
 /* ================= ABOUT / LINKS ================= */
 .aboutDivider{
