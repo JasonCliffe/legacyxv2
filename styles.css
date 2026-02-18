@@ -22,12 +22,6 @@
 html{ min-height:100%; }
 body{ min-height:100svh; }
 
-img, picture, video, canvas, svg{
-  max-width:100%;
-  height:auto;
-  display:block;
-}
-
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
@@ -35,8 +29,11 @@ body{
   background-color: var(--bg);
   min-height: 100svh;
   position: relative;
-  overflow-x: hidden;
 }
+
+/* Basic link safety */
+a{ color: inherit; }
+a:hover{ opacity: .98; }
 
 /* =========================================================
    BACKGROUND
@@ -48,6 +45,7 @@ body::before{
   z-index: -2;
   pointer-events: none;
 
+  /* Default: gradients + background image */
   background:
     radial-gradient(1200px 600px at 50% 0%, rgba(255,90,0,0.18), transparent 60%),
     linear-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.82)),
@@ -106,6 +104,7 @@ body::after{
   background: rgba(0,0,0,0.45);
   border: 1px solid var(--border);
 
+  /* MAX PERF: no blur on first paint */
   backdrop-filter: none;
 
   position: sticky;
@@ -304,7 +303,9 @@ html.ready .heroFrame__glow{
   overflow:hidden;
   background: rgba(0,0,0,0.34);
   border: 1px solid rgba(255,179,0,0.35);
+
   box-shadow: inset 0 0 0 2px rgba(0,0,0,0.55);
+
   position:relative;
   aspect-ratio: 1 / 1;
   z-index: 5;
@@ -341,6 +342,7 @@ html.ready .heroLogo{
   width:100%;
   height:100%;
   object-fit: cover;
+  display:block;
 }
 
 .heroTitle{
@@ -481,10 +483,6 @@ html.ready .panel::before{
   color: rgba(255,238,221,0.92);
 }
 
-.panel--disclaimer .panelBody{
-  padding: 12px 16px;
-}
-
 @media (hover:hover) and (pointer:fine){
   .panel{
     transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
@@ -498,77 +496,21 @@ html.ready .panel::before{
   }
 }
 
-/* =========================================================
-   UNIVERSAL GRIDS 
-========================================================= */
-.grid2{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  align-items: start;
-}
-@media (max-width: 980px){
-  .grid2{ grid-template-columns: 1fr; }
-}
-
-/* generic responsive grid for cards */
-.cardsGrid,
-.playlistGrid,
-.updatesGrid{
+/* ================= UNIVERSAL GRIDS ================= */
+.cardsGrid{
   display:grid;
   grid-template-columns: 1fr;
   gap: 14px;
 }
+
 @media (min-width: 820px){
-  .cardsGrid,
-  .playlistGrid,
-  .updatesGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cardsGrid{ grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1180px){
-  .cardsGrid,
-  .playlistGrid,
-  .updatesGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cardsGrid{ grid-template-columns: repeat(3, 1fr); }
 }
 
-/* =========================================================
-   MEDIA THUMBS
-========================================================= */
-.mediaThumb,
-.thumbLink,
-.rigMedia,
-.playlistFrame{
-  position: relative;
-  width:100%;
-  background: rgba(0,0,0,0.35);
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-  overflow:hidden;
-}
-
-/* default 16:9 */
-.mediaThumb,
-.thumbLink,
-.playlistFrame{ aspect-ratio: 16 / 9; }
-
-/* make images fill without absolute assumptions */
-.mediaThumb img,
-.thumbImg,
-.rigMedia img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-}
-
-/* rig media ratio */
-.rigMedia{ aspect-ratio: 16 / 10; }
-
-/* =========================================================
-   CARD BASE
-========================================================= */
-.mediaCard,
-.playlistCard,
-.updateCard,
-.rigCard{
+.mediaCard{
   border-radius: 16px;
   overflow:hidden;
   border: 1px solid rgba(255,140,0,0.22);
@@ -577,6 +519,23 @@ html.ready .panel::before{
   display:flex;
   flex-direction:column;
   min-width: 0;
+}
+
+.mediaThumb{
+  position:relative;
+  width:100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+}
+
+.mediaThumb img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
 }
 
 .mediaBody{
@@ -609,9 +568,152 @@ html.ready .panel::before{
   flex-wrap: wrap;
 }
 
-/* =========================================================
-   VIDEOS: PLAYLIST CARDS
-========================================================= */
+/* ================= GAMES: GRID + CARDS ================= */
+body.games .gamesGrid{
+  display:grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 1100px){
+  body.games .gamesGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px){
+  body.games .gamesGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+body.games .gameCard{
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.26);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  transform: translateZ(0);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  display:flex;
+  flex-direction:column;
+}
+
+body.games .gameCard:hover{
+  transform: translateY(-3px);
+  border-color: rgba(255,140,0,0.35);
+  box-shadow:
+    0 10px 26px rgba(0,0,0,0.35),
+    0 0 0 1px rgba(255,140,0,0.18) inset,
+    0 0 22px rgba(255,140,0,0.12);
+}
+
+body.games .gameMedia{
+  position: relative;
+  aspect-ratio: 2 / 3;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  overflow:hidden;
+}
+
+body.games .gameMedia img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: scale(1.01);
+  transition: transform .25s ease;
+}
+
+body.games .gameCard:hover .gameMedia img{
+  transform: scale(1.06);
+}
+
+body.games .gameBody{ padding: 12px; }
+
+body.games .gameTitle{
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.95);
+}
+
+body.games .gameDesc{
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255,238,221,0.72);
+  min-height: 36px;
+}
+
+body.games .gameLinks{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content: space-between;
+}
+
+body.games .miniLinksRow{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+body.games .gameTag{
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.18);
+  color: rgba(255,238,221,0.85);
+  opacity: .95;
+}
+
+body.games .gameQuick{
+  text-decoration:none;
+  font-size:12px;
+  font-weight: 900;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.88);
+  border-bottom: 1px solid rgba(255,140,0,0.22);
+  padding-bottom: 2px;
+  transition: opacity .15s ease, border-color .15s ease;
+  cursor: pointer;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+body.games .gameQuick:hover{
+  opacity: 1;
+  border-bottom-color: rgba(255,140,0,0.55);
+}
+
+/* ================= VIDEOS: PLAYLIST GRID ================= */
+.playlistGrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 820px){
+  .playlistGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1180px){
+  .playlistGrid{ grid-template-columns: repeat(3, 1fr); }
+}
+.playlistCard{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.22);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  display:flex;
+  flex-direction:column;
+}
 .playlistHead{
   padding: 12px 14px;
   border-bottom: 1px solid rgba(255,140,0,0.18);
@@ -624,6 +726,13 @@ html.ready .panel::before{
   letter-spacing: 1px;
   text-transform: uppercase;
   color: rgba(255,238,221,0.92);
+}
+.playlistFrame{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,140,0,0.18);
 }
 .playlistFrame iframe{
   position:absolute;
@@ -647,35 +756,7 @@ html.ready .panel::before{
   color: rgba(255,238,221,0.74);
 }
 
-/* =========================================================
-   UPDATES CARDS
-========================================================= */
-.updateTop{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 12px;
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.22);
-}
-.updateMeta{
-  font-size: 12px;
-  font-weight: 1000;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.80);
-}
-.updateBodyWrap{
-  padding: 12px;
-  display:flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* =========================================================
-   HOME: INTRO VIDEO 
-========================================================= */
+/* ================= HOME: INTRO VIDEO ================= */
 .introVideo{
   width: 100%;
   border-radius: 16px;
@@ -690,28 +771,31 @@ html.ready .panel::before{
   position: relative;
   display: grid;
   place-items: center;
-  width:100%;
-  height:100%;
 }
+
 .ytLite iframe{
   width: 100%;
   height: 100%;
   display: block;
   border: 0;
 }
+
 .ytLite__thumb{
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   filter: none;
   transform: none;
 }
+
 html.ready .ytLite__thumb{
   filter: saturate(1.02) contrast(1.02);
   transform: scale(1.02);
 }
+
 .ytLite::after{
   content:"";
   position:absolute;
@@ -720,6 +804,7 @@ html.ready .ytLite__thumb{
   background: radial-gradient(600px 240px at 50% 30%, rgba(255,179,0,0.10), transparent 60%),
               linear-gradient(180deg, rgba(255,90,0,0.10), rgba(0,0,0,0.55));
 }
+
 .ytLite__btn{
   position: absolute;
   inset: 0;
@@ -730,6 +815,7 @@ html.ready .ytLite__thumb{
   cursor: pointer;
   z-index: 2;
 }
+
 .ytLite__play{
   width: 76px;
   height: 54px;
@@ -741,6 +827,7 @@ html.ready .ytLite__thumb{
     inset 0 0 0 1px rgba(0,0,0,0.25);
   position: relative;
 }
+
 .ytLite__play::before{
   content:"";
   position:absolute;
@@ -752,24 +839,44 @@ html.ready .ytLite__thumb{
   border-top: 11px solid transparent;
   border-bottom: 11px solid transparent;
 }
+
 .ytLite__btn:focus-visible{
   outline: 3px solid rgba(255,179,0,0.45);
   outline-offset: 4px;
 }
 
-/* =========================================================
-   HARDWARE / PC SPECS
-========================================================= */
+/* ================= PC SPECS / RIG GRID ================= */
 .rigGrid{
   display:grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
-@media (min-width: 820px){
-  .rigGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.rigCard{
+  border-radius: 16px;
+  overflow:hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
 }
-@media (min-width: 1180px){
-  .rigGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.rigMedia{
+  position:relative;
+  overflow:hidden;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  aspect-ratio: 16 / 10;
+}
+
+.rigMedia img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  transform: none;
+}
+
+html.ready .rigMedia img{
+  transform: scale(1.02);
 }
 
 .rigMedia::after{
@@ -820,130 +927,21 @@ html.ready .ytLite__thumb{
   line-height: 1.55;
   font-size: 13px;
 }
+
 .rigList li{ margin: 6px 0; }
 
-/* =========================================================
-   GAMES PAGE 
-========================================================= */
-.gamesGrid{
+/* ================= HOME: ABOUT + SOCIAL SIDE BY SIDE ================= */
+.grid2{
   display:grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
-}
-@media (max-width: 1100px){
-  .gamesGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-@media (max-width: 720px){
-  .gamesGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  align-items: start;
 }
 
-.gameCard{
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.26);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-  transform: translateZ(0);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.gameCard:hover{
-  transform: translateY(-3px);
-  border-color: rgba(255,140,0,0.35);
-  box-shadow:
-    0 10px 26px rgba(0,0,0,0.35),
-    0 0 0 1px rgba(255,140,0,0.18) inset,
-    0 0 22px rgba(255,140,0,0.12);
+@media (max-width: 980px){
+  .grid2{ grid-template-columns: 1fr; }
 }
 
-.gameMedia{
-  position: relative;
-  aspect-ratio: 2 / 3;
-  background: rgba(0,0,0,0.35);
-  border-bottom: 1px solid rgba(255,140,0,0.18);
-  overflow:hidden;
-}
-.gameMedia img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  display:block;
-  transform: scale(1.01);
-  transition: transform .25s ease;
-}
-.gameCard:hover .gameMedia img{ transform: scale(1.06); }
-
-.gameBody{ padding: 12px; }
-.gameTitle{
-  margin: 0 0 6px;
-  font-size: 12px;
-  font-weight: 1000;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.95);
-}
-.gameDesc{
-  margin: 0 0 10px;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(255,238,221,0.72);
-  min-height: 36px;
-}
-.gameLinks{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-  justify-content: space-between;
-}
-.miniLinksRow{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  align-items:center;
-}
-
-.gameTag{
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .8px;
-  text-transform: uppercase;
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,140,0,0.18);
-  background: rgba(0,0,0,0.18);
-  color: rgba(255,238,221,0.85);
-  opacity: .95;
-}
-
-.gameQuick{
-  text-decoration:none;
-  font-size:12px;
-  font-weight: 900;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  color: rgba(255,238,221,0.88);
-  border-bottom: 1px solid rgba(255,140,0,0.22);
-  padding-bottom: 2px;
-  transition: opacity .15s ease, border-color .15s ease;
-  cursor: pointer;
-  background: none;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-}
-.gameQuick:hover{
-  opacity: 1;
-  border-bottom-color: rgba(255,140,0,0.55);
-}
-
-.artDisclaimer{
-  margin:0;
-  font-size: 12px;
-  line-height: 1.6;
-  color: rgba(255,238,221,0.72);
-}
-
-/* ================= ABOUT / LINKS ================= */
 .aboutDivider{
   height: 1px;
   background: rgba(255,140,0,0.18);
@@ -957,12 +955,13 @@ html.ready .ytLite__thumb{
   gap: 10px;
 }
 
-/* ================= FORMS ================= */
+/* ================= ENQUIRIES ================= */
 .formGrid{
   display:grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
+
 @media (min-width: 820px){
   .formGrid{ grid-template-columns: 1fr 1fr; }
   .formGrid .full{ grid-column: 1 / -1; }
@@ -1125,17 +1124,41 @@ html.ready .ytLite__thumb{
   color: rgba(255,238,221,0.55);
 }
 .footer a{
-  color: rgba(255,238,221,0.75);
+  color: rgba(255,238,221,0.72);
   text-decoration:none;
   border-bottom: 1px solid rgba(255,140,0,0.22);
-  padding-bottom: 1px;
 }
 .footer a:hover{
-  border-bottom-color: rgba(255,179,0,0.50);
+  border-bottom-color: rgba(255,140,0,0.55);
 }
 .footerSep{
-  opacity: .7;
-  margin: 0 6px;
+  opacity:.7;
+  margin: 0 8px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 980px){
+  .heroMain{ grid-template-columns: 240px 1fr; }
+  .heroTitle{ font-size: 46px; }
+  .rigGrid{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px){
+  .heroMain{
+    grid-template-columns: 240px 1fr;
+    text-align: left;
+  }
+  .heroTitle{ font-size: 42px; }
+}
+
+@media (max-width: 520px){
+  .heroMain{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .heroTitle{ font-size: 34px; }
+  .heroChips{ justify-content: center; }
+  .rigGrid{ grid-template-columns: 1fr; }
 }
 
 /* ================= SMALL UI HELPERS ================= */
@@ -1145,6 +1168,7 @@ html.ready .ytLite__thumb{
   line-height: 1.6;
   color: rgba(255,238,221,0.74);
 }
+
 .tinyNote{
   margin-top: 10px;
   font-size: 12px;
@@ -1173,24 +1197,91 @@ html.ready .ytLite__thumb{
   background: rgba(0,0,0,0.22);
   color: rgba(255,238,221,0.72);
 }
+
 .formStatus[data-kind="busy"]{
   border-color: rgba(255,179,0,0.30);
   color: rgba(255,238,221,0.85);
 }
+
 .formStatus[data-kind="ok"]{
   border-color: rgba(255,179,0,0.40);
   color: rgba(255,238,221,0.92);
   box-shadow: 0 0 18px rgba(255,90,0,0.14);
 }
+
 .formStatus[data-kind="error"]{
   border-color: rgba(255,90,0,0.40);
   color: rgba(255,238,221,0.92);
   box-shadow: 0 0 18px rgba(255,42,0,0.14);
 }
 
-/* =========================================================
-   MODAL 
-========================================================= */
+/* ================= UPDATES GRID ================= */
+.updatesGrid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 820px){
+  .updatesGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1180px){
+  .updatesGrid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.updateCard{
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.28);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+}
+
+.updateTop{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.22);
+}
+
+.updateMeta{
+  font-size: 12px;
+  font-weight: 1000;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,238,221,0.80);
+}
+
+.updateBodyWrap{
+  padding: 12px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumbLink{
+  display:block;
+  border-radius: 14px;
+  overflow:hidden;
+  border: 1px solid rgba(255,140,0,0.18);
+  background: rgba(0,0,0,0.35);
+  aspect-ratio: 16 / 9;
+}
+
+.thumbImg{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+
+/* ================= MODAL ================= */
 .modal{
   position: fixed;
   inset: 0;
@@ -1271,18 +1362,3 @@ html.ready .modal__panel{ backdrop-filter: blur(10px); }
 }
 
 body.modal-open{ overflow: hidden; }
-
-/* ================= RESPONSIVE HERO ================= */
-@media (max-width: 980px){
-  .heroMain{ grid-template-columns: 240px 1fr; }
-  .heroTitle{ font-size: 46px; }
-}
-@media (max-width: 720px){
-  .heroMain{ grid-template-columns: 240px 1fr; text-align:left; }
-  .heroTitle{ font-size: 42px; }
-}
-@media (max-width: 520px){
-  .heroMain{ grid-template-columns: 1fr; text-align:center; }
-  .heroTitle{ font-size: 34px; }
-  .heroChips{ justify-content: center; }
-}
