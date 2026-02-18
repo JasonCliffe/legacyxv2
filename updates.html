@@ -1,33 +1,32 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>LegacyXV2 — Updates & New Uploads</title>
-  <meta name="description" content="Latest LegacyXV2 updates including new series, gameplay uploads, and PC hardware reviews." />
+  <title>LegacyXV2 — Updates</title>
+  <meta name="description" content="Watch featured series, uploads, playlists, and upcoming content from LegacyXV2." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2.co.uk/updates.html" />
 
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2.co.uk/updates.html" />
-  <meta property="og:title" content="LegacyXV2 — Updates & New Uploads" />
-  <meta property="og:description" content="New uploads (Wed/Fri/Sun 6pm UK), series launches, and PC hardware reviews." />
+  <meta property="og:title" content="LegacyXV2 — Updates" />
+  <meta property="og:description" content="Featured series + key playlists + channel updates & upcoming." />
   <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
   <meta property="og:image:secure_url" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
-  <meta property="og:image:alt" content="LegacyXV2 — Updates & New Uploads" />
+  <meta property="og:image:alt" content="LegacyXV2 — Updates" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LegacyXV2 — Updates & New Uploads" />
-  <meta name="twitter:description" content="New uploads, gameplay, and PC hardware reviews from LegacyXV2." />
+  <meta name="twitter:title" content="LegacyXV2 — Updates" />
+  <meta name="twitter:description" content="Featured series + key playlists + channel updates & upcoming." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- use the WebP logo system (same as homepage) -->
   <link
     rel="preload"
     as="image"
@@ -37,79 +36,70 @@
     imagesizes="(max-width: 520px) 220px, 280px"
   />
 
-  <link rel="stylesheet" href="/styles.css?v=12" />
+  <link rel="stylesheet" href="/styles.css" />
 
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"WebSite",
-        "@id":"https://legacyxv2.co.uk/#website",
-        "url":"https://legacyxv2.co.uk/",
-        "name":"LegacyXV2",
-        "inLanguage":"en-GB",
-        "publisher":{"@id":"https://legacyxv2.co.uk/#brand"}
-      },
-      {
-        "@type":"Brand",
-        "@id":"https://legacyxv2.co.uk/#brand",
-        "name":"LegacyXV2",
-        "url":"https://legacyxv2.co.uk/",
-        "logo":{"@type":"ImageObject","url":"https://legacyxv2.co.uk/logo-512.webp"},
-        "sameAs":[
-          "https://www.youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ],
-        "founder":{"@id":"https://legacyxv2.co.uk/#creator"},
-        "image":{"@id":"https://legacyxv2.co.uk/#ogimage"}
-      },
-      {
-        "@type":"Person",
-        "@id":"https://legacyxv2.co.uk/#creator",
-        "name":"Jason Cliffe",
-        "jobTitle":"Founder / Creator",
-        "url":"https://legacyxv2.co.uk/",
-        "worksFor":{"@id":"https://legacyxv2.co.uk/#brand"},
-        "sameAs":[
-          "https://www.youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
-      },
-      {
-        "@type":"ImageObject",
-        "@id":"https://legacyxv2.co.uk/#ogimage",
-        "url":"https://legacyxv2.co.uk/og-legacyxv2.jpg",
-        "width":1200,
-        "height":630
-      },
-      {
-        "@type":"WebPage",
-        "@id":"https://legacyxv2.co.uk/updates.html#webpage",
-        "url":"https://legacyxv2.co.uk/updates.html",
-        "name":"LegacyXV2 — Updates & New Uploads",
-        "description":"Latest LegacyXV2 updates including new series, gameplay uploads, and PC hardware reviews.",
-        "isPartOf":{"@id":"https://legacyxv2.co.uk/#website"},
-        "about":{"@id":"https://legacyxv2.co.uk/#brand"},
-        "primaryImageOfPage":{"@id":"https://legacyxv2.co.uk/#ogimage"},
-        "breadcrumb":{"@id":"https://legacyxv2.co.uk/updates.html#breadcrumbs"}
-      },
-      {
-        "@type":"BreadcrumbList",
-        "@id":"https://legacyxv2.co.uk/updates.html#breadcrumbs",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://legacyxv2.co.uk/"},
-          {"@type":"ListItem","position":2,"name":"Updates","item":"https://legacyxv2.co.uk/updates.html"}
-        ]
-      }
-    ]
-  }
-  </script>
+  <style>
+    /* Updates page layout */
+    .laneGrid{ display:grid; gap:14px; grid-template-columns: 1fr; }
+    @media (min-width: 820px){ .laneGrid{ grid-template-columns: repeat(2, 1fr); } }
+
+    .featuredLane{ grid-column: 1 / -1; }
+
+    .laneKicker{
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.72);
+    }
+
+    .laneSub{
+      margin: 0 0 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,238,221,0.78);
+    }
+
+    .laneActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 10px;
+    }
+
+    .ytMini{
+      font-size:12px;
+      font-weight:1000;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      text-decoration:none;
+      color: rgba(255,238,221,0.88);
+      border-bottom: 1px solid rgba(255,140,0,0.22);
+      padding-bottom: 2px;
+    }
+    .ytMini:hover{ border-bottom-color: rgba(255,140,0,0.55); }
+
+    /* Modal player sizing (uses your existing .modal styles) */
+    .modal__player{
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,140,0,0.18);
+      border-radius: 14px;
+      overflow:hidden;
+    }
+    .modal__player iframe{
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+    }
+  </style>
 </head>
 
-<body class="updates">
+<body>
   <main class="wrap">
 
     <nav class="topnav" aria-label="Primary">
@@ -130,7 +120,7 @@
         <div class="heroTop">
           <div class="heroTop__label">
             <span class="heroTop__dot" aria-hidden="true"></span>
-            UPDATES
+            UPDATES & PLAYLISTS
             <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
@@ -138,11 +128,7 @@
         <div class="heroMain">
           <div class="heroLogo">
             <picture>
-              <source
-                type="image/webp"
-                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
-                sizes="(max-width: 520px) 220px, 280px"
-              >
+              <source type="image/webp" srcset="/logo-256.webp 256w, /logo-512.webp 512w" sizes="(max-width: 520px) 220px, 280px">
               <img
                 src="/logo-256.webp"
                 srcset="/logo-256.webp 256w, /logo-512.webp 512w"
@@ -159,84 +145,181 @@
           </div>
 
           <div class="heroCopy">
-            <h1 class="heroTitle">WHAT’S NEW</h1>
-            <p class="heroSub">New uploads — Wednesday / Friday / Sunday at 6pm UK time</p>
+            <h1 class="heroTitle">UPDATES</h1>
+            <p class="heroSub">Featured series, permanent lanes, and what’s coming next.</p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Watch on site</span>
+              <span class="chip">Playlists</span>
+              <span class="chip">Upcoming</span>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- Lanes -->
     <section class="panel">
       <div class="panelHead">
-        <h2 class="panelTitle">Latest</h2>
+        <h2 class="panelTitle">Playlists</h2>
       </div>
 
       <div class="panelBody">
-        <div class="updatesGrid">
+        <div class="laneGrid">
 
-          <article class="updateCard">
-            <div class="updateTop">
-              <div class="updateMeta">Series</div>
+          <!-- 1) FEATURED (FULL WIDTH) -->
+          <article class="mediaCard featuredLane">
+            <div class="mediaThumb">
+              <img src="/og-legacyxv2.jpg" alt="Featured series artwork" loading="lazy" decoding="async">
             </div>
+            <div class="mediaBody">
+              <div class="laneKicker">Featured Series</div>
+              <h3 class="mediaTitle">FEATURED SERIES</h3>
+              <p class="laneSub">Rotating slot — only the playlist + heading/subtext changes.</p>
 
-            <div class="updateBodyWrap">
-              <a class="thumbLink" href="https://youtu.be/FUw5FgkgzRk" target="_blank" rel="noopener">
-                <img
-                  class="thumbImg"
-                  src="https://i.ytimg.com/vi/FUw5FgkgzRk/hqdefault.jpg"
-                  alt="Series upload thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                  width="480"
-                  height="360"
-                />
-              </a>
+              <div class="laneActions">
+                <button
+                  class="btnPrimary"
+                  type="button"
+                  data-watch
+                  data-title="Featured Series"
+                  data-list="PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU"
+                >Watch here</button>
 
-              <a class="miniLink" href="https://youtu.be/FUw5FgkgzRk" target="_blank" rel="noopener">▶ Watch on YouTube</a>
-            </div>
-          </article>
-
-          <article class="updateCard">
-            <div class="updateTop">
-              <div class="updateMeta">Tech / Hardware / PC Builds</div>
-            </div>
-
-            <div class="updateBodyWrap">
-              <a class="thumbLink" href="https://youtu.bephrIe61prow" target="_blank" rel="noopener">
-                <img
-                  class="thumbImg"
-                  src="https://i.ytimg.com/vi/phrIe61prow/hqdefault.jpg"
-                  alt="Tech upload thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                  width="480"
-                  height="360"
-                />
-              </a>
-
-              <a class="miniLink" href="https://youtu.be/SphrIe61prow" target="_blank" rel="noopener">▶ Watch review</a>
+                <a class="ytMini" target="_blank" rel="noopener"
+                   href="https://youtube.com/playlist?list=PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU"
+                >YouTube →</a>
+              </div>
             </div>
           </article>
 
-          <article class="updateCard">
-            <div class="updateTop">
-              <div class="updateMeta">Gameplay</div>
+          <!-- 2) COD -->
+          <article class="mediaCard">
+            <div class="mediaThumb">
+              <img src="/og-legacyxv2.jpg" alt="Call of Duty lane artwork" loading="lazy" decoding="async">
             </div>
+            <div class="mediaBody">
+              <div class="laneKicker">Permanent Lane</div>
+              <h3 class="mediaTitle">CALL OF DUTY — MP / MODS / ZOMBIES</h3>
+              <p class="laneSub">Multiplayer, mods, and zombies runs — the core FPS lane.</p>
 
-            <div class="updateBodyWrap">
-              <a class="thumbLink" href="https://youtu.be/N1W3Il62czA" target="_blank" rel="noopener">
-                <img
-                  class="thumbImg"
-                  src="https://i.ytimg.com/vi/N1W3Il62czA/hqdefault.jpg"
-                  alt="Gameplay upload thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                  width="480"
-                  height="360"
-                />
-              </a>
+              <div class="laneActions">
+                <button
+                  class="btnPrimary"
+                  type="button"
+                  data-watch
+                  data-title="Call of Duty — MP / Mods / Zombies"
+                  data-list="PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr"
+                >Watch here</button>
 
-              <a class="miniLink" href="https://youtu.be/N1W3Il62czA" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+                <a class="ytMini" target="_blank" rel="noopener"
+                   href="https://youtube.com/playlist?list=PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr"
+                >YouTube →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3) RESIDENT EVIL -->
+          <article class="mediaCard">
+            <div class="mediaThumb">
+              <img src="/og-legacyxv2.jpg" alt="Resident Evil lane artwork" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaBody">
+              <div class="laneKicker">Permanent Lane</div>
+              <h3 class="mediaTitle">RESIDENT EVIL</h3>
+              <p class="laneSub">Resident Evil 0–9 playthrough authority lane.</p>
+
+              <div class="laneActions">
+                <button
+                  class="btnPrimary"
+                  type="button"
+                  data-watch
+                  data-title="Resident Evil"
+                  data-list="PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4"
+                >Watch here</button>
+
+                <a class="ytMini" target="_blank" rel="noopener"
+                   href="https://youtube.com/playlist?list=PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4"
+                >YouTube →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4) HORROR / SURVIVAL -->
+          <article class="mediaCard">
+            <div class="mediaThumb">
+              <img src="/og-legacyxv2.jpg" alt="Horror and survival lane artwork" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaBody">
+              <div class="laneKicker">Permanent Lane</div>
+              <h3 class="mediaTitle">HORROR / SURVIVAL GAMEPLAY</h3>
+              <p class="laneSub">Evergreen horror and survival content — tension, atmosphere, story.</p>
+
+              <div class="laneActions">
+                <button
+                  class="btnPrimary"
+                  type="button"
+                  data-watch
+                  data-title="Horror / Survival Gameplay"
+                  data-list="PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX"
+                >Watch here</button>
+
+                <a class="ytMini" target="_blank" rel="noopener"
+                   href="https://youtube.com/playlist?list=PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX"
+                >YouTube →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5) PC BUILDS / TECH -->
+          <article class="mediaCard">
+            <div class="mediaThumb">
+              <img src="/og-legacyxv2.jpg" alt="PC builds and tech lane artwork" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaBody">
+              <div class="laneKicker">Permanent Lane</div>
+              <h3 class="mediaTitle">PC BUILDS &amp; TECH REVIEWS</h3>
+              <p class="laneSub">GPUs, CPUs, motherboards, benchmarks, builds — the authority lane.</p>
+
+              <div class="laneActions">
+                <button
+                  class="btnPrimary"
+                  type="button"
+                  data-watch
+                  data-title="PC Builds & Tech Reviews"
+                  data-list="PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN"
+                >Watch here</button>
+
+                <a class="ytMini" target="_blank" rel="noopener"
+                   href="https://youtube.com/playlist?list=PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN"
+                >YouTube →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6) CHANNEL UPDATES -->
+          <article class="mediaCard">
+            <div class="mediaThumb">
+              <img src="/og-legacyxv2.jpg" alt="Channel updates lane artwork" loading="lazy" decoding="async">
+            </div>
+            <div class="mediaBody">
+              <div class="laneKicker">Permanent Lane</div>
+              <h3 class="mediaTitle">CHANNEL UPDATES &amp; UPCOMING</h3>
+              <p class="laneSub">What’s next, what’s changing, and what to expect soon.</p>
+
+              <div class="laneActions">
+                <button
+                  class="btnPrimary"
+                  type="button"
+                  data-watch
+                  data-title="Channel Updates & Upcoming"
+                  data-list="PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_"
+                >Watch here</button>
+
+                <a class="ytMini" target="_blank" rel="noopener"
+                   href="https://youtube.com/playlist?list=PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_"
+                >YouTube →</a>
+              </div>
             </div>
           </article>
 
@@ -245,23 +328,102 @@
     </section>
 
     <footer class="footer">
-  <p>
-    © <span id="year"></span> LegacyXV2
-    <span class="footerSep">•</span>
-    Digital infrastructure by 
-    <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">
-      Obsidian Creative
-    </a>
-  </p>
-</footer>
+      <p>
+        © <span id="year"></span> LegacyXV2
+        <span class="footerSep">•</span>
+        Digital infrastructure by
+        <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
+      </p>
+    </footer>
 
   </main>
 
+  <!-- MODAL PLAYER -->
+  <div class="modal" id="ytModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="ytModalTitle">
+      <div class="modal__head">
+        <h3 class="modal__title" id="ytModalTitle">Watch</h3>
+        <button class="modal__close" type="button" aria-label="Close" data-close>✕</button>
+      </div>
+
+      <div class="modal__body">
+        <div class="modal__player" id="ytModalPlayer"></div>
+      </div>
+
+      <div class="modal__foot">
+        <button class="btnGhost" type="button" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    requestAnimationFrame(function () {
-      document.documentElement.classList.add("ready");
-    });
+    requestAnimationFrame(() => document.documentElement.classList.add("ready"));
+
+    (function(){
+      const modal = document.getElementById("ytModal");
+      const titleEl = document.getElementById("ytModalTitle");
+      const playerWrap = document.getElementById("ytModalPlayer");
+      const body = document.body;
+
+      let lastFocus = null;
+
+      function openModal(title, playlistId){
+        lastFocus = document.activeElement;
+
+        titleEl.textContent = title || "Watch";
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden","false");
+        body.classList.add("modal-open");
+
+        const src =
+          "https://www.youtube.com/embed/videoseries?list=" +
+          encodeURIComponent(playlistId) +
+          "&autoplay=1&rel=0&modestbranding=1";
+
+        playerWrap.innerHTML =
+          '<iframe ' +
+          'src="' + src + '" ' +
+          'title="' + (title ? title.replace(/"/g,'&quot;') : 'Playlist') + '" ' +
+          'loading="eager" ' +
+          'referrerpolicy="strict-origin-when-cross-origin" ' +
+          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+          'allowfullscreen></iframe>';
+
+        const closeBtn = modal.querySelector("[data-close]");
+        if (closeBtn) closeBtn.focus();
+      }
+
+      function closeModal(){
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden","true");
+        body.classList.remove("modal-open");
+        playerWrap.innerHTML = "";
+        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+      }
+
+      // close handlers
+      modal.addEventListener("click", (e) => {
+        if (e.target.closest("[data-close]")) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeModal();
+      });
+
+      // bind watch buttons
+      document.querySelectorAll("[data-watch]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const t = btn.getAttribute("data-title") || "Watch";
+          const list = btn.getAttribute("data-list");
+          if (!list) return;
+          openModal(t, list);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
