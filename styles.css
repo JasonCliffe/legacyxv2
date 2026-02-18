@@ -1362,3 +1362,30 @@ html.ready .modal__panel{ backdrop-filter: blur(10px); }
 }
 
 body.modal-open{ overflow: hidden; }
+
+/* ================= UPDATES HERO MOBILE TIGHTEN ================= */
+
+@media (max-width: 520px){
+
+  .heroFrame__inner{
+    padding: 14px;
+  }
+
+  .heroMain{
+    gap: 12px;
+  }
+
+  .heroLogo{
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .heroTitle{
+    font-size: 30px;
+  }
+
+  .heroSub{
+    font-size: 13px;
+  }
+
+}
