@@ -27,7 +27,6 @@
 
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- Keep ONLY the logo preload (high value, low risk) -->
   <link
     rel="preload"
     as="image"
@@ -37,7 +36,8 @@
     imagesizes="(max-width: 520px) 220px, 280px"
   />
 
-  <link rel="stylesheet" href="/styles.css?v=10" />
+  <!-- bump version to break cache -->
+  <link rel="stylesheet" href="/styles.css?v=11" />
 
   <script type="application/ld+json">
   {
@@ -92,240 +92,6 @@
     ]
   }
   </script>
-
-  <style>
-    .crumbs{
-      display:flex; align-items:center; gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(255,140,0,0.18);
-      background:rgba(0,0,0,0.24);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-      margin: 12px 0 0;
-    }
-    .crumbs a{
-      text-decoration:none;
-      color: rgba(255,238,221,0.88);
-      font-weight: 800;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
-    .crumbSep{
-      opacity:.6;
-      color: rgba(255,140,0,0.85);
-      font-weight: 900;
-    }
-    .crumbHere{
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.6px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.95);
-      opacity: .9;
-    }
-
-    .gamesGrid{
-      display:grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 14px;
-    }
-    @media (max-width: 1100px){
-      .gamesGrid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-    @media (max-width: 720px){
-      .gamesGrid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-
-    .gameCard{
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255,140,0,0.18);
-      background: rgba(0,0,0,0.26);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-      transform: translateZ(0);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-    }
-    .gameCard:hover{
-      transform: translateY(-3px);
-      border-color: rgba(255,140,0,0.35);
-      box-shadow:
-        0 10px 26px rgba(0,0,0,0.35),
-        0 0 0 1px rgba(255,140,0,0.18) inset,
-        0 0 22px rgba(255,140,0,0.12);
-    }
-
-    .gameMedia{
-      position: relative;
-      aspect-ratio: 2 / 3;
-      background: rgba(0,0,0,0.35);
-      border-bottom: 1px solid rgba(255,140,0,0.18);
-      overflow:hidden;
-    }
-    .gameMedia img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      transform: scale(1.01);
-      transition: transform .25s ease;
-    }
-    .gameCard:hover .gameMedia img{ transform: scale(1.06); }
-
-    .gameBody{ padding: 12px; }
-    .gameTitle{
-      margin: 0 0 6px;
-      font-size: 12px;
-      font-weight: 1000;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.95);
-    }
-    .gameDesc{
-      margin: 0 0 10px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: rgba(255,238,221,0.72);
-      min-height: 36px;
-    }
-
-    .gameLinks{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      align-items:center;
-      justify-content: space-between;
-    }
-    .miniLinksRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .gameTag{
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,140,0,0.18);
-      background: rgba(0,0,0,0.18);
-      color: rgba(255,238,221,0.85);
-      opacity: .95;
-    }
-
-    .gameQuick{
-      text-decoration:none;
-      font-size:12px;
-      font-weight: 900;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.88);
-      border-bottom: 1px solid rgba(255,140,0,0.22);
-      padding-bottom: 2px;
-      transition: opacity .15s ease, border-color .15s ease;
-      cursor: pointer;
-      background: none;
-      border-left: none;
-      border-right: none;
-      border-top: none;
-    }
-    .gameQuick:hover{
-      opacity: 1;
-      border-bottom-color: rgba(255,140,0,0.55);
-    }
-
-    .artDisclaimer{
-      margin:0;
-      font-size: 12px;
-      line-height: 1.6;
-      color: rgba(255,238,221,0.72);
-    }
-
-    /* ================= MODAL ================= */
-    .modal{
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
-    }
-    .modal.is-open{ display: block; }
-
-    .modal__backdrop{
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.70);
-    }
-
-    .modal__panel{
-      position: relative;
-      width: min(720px, calc(100vw - 28px));
-      margin: 7vh auto 0;
-      border-radius: 18px;
-      border: 1px solid rgba(255,140,0,0.22);
-      background: rgba(0,0,0,0.72);
-      box-shadow: 0 20px 70px rgba(0,0,0,0.55);
-      overflow: hidden;
-      transform: translateY(6px);
-    }
-    html.ready .modal__panel{ backdrop-filter: blur(10px); }
-
-    .modal__head{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(255,140,0,0.16);
-      background: linear-gradient(180deg, rgba(0,0,0,0.42), rgba(0,0,0,0.20));
-    }
-
-    .modal__title{
-      margin: 0;
-      font-size: 14px;
-      font-weight: 1000;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.92);
-    }
-
-    .modal__close{
-      border: 1px solid rgba(255,140,0,0.22);
-      background: rgba(0,0,0,0.35);
-      color: rgba(255,238,221,0.88);
-      border-radius: 12px;
-      padding: 8px 10px;
-      cursor: pointer;
-      font-weight: 1000;
-      line-height: 1;
-    }
-
-    .modal__body{ padding: 16px; }
-
-    .modal__foot{
-      padding: 12px 16px 16px;
-      border-top: 1px solid rgba(255,140,0,0.12);
-    }
-
-    .modal__body h4{
-      margin: 0 0 8px;
-      font-size: 12px;
-      font-weight: 1000;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.92);
-    }
-    .modal__body p{
-      margin: 0 0 12px;
-      line-height: 1.65;
-      color: rgba(255,238,221,0.84);
-      font-size: 13px;
-    }
-
-    body.modal-open{ overflow: hidden; }
-  </style>
 </head>
 
 <body class="games">
@@ -395,7 +161,8 @@
       <div class="panelBody">
         <div class="gamesGrid">
 
-          <!-- RE4 -->
+          
+
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/re4-remake.jpg" alt="Resident Evil 4 Remake box art" loading="lazy" decoding="async">
@@ -405,22 +172,19 @@
               <p class="gameDesc">One of the greatest survival horror games ever modernised.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror • Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Resident Evil 4 Remake — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Resident Evil 4 Remake — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- RE2 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/re2-remake.jpg" alt="Resident Evil 2 Remake box art" loading="lazy" decoding="async">
@@ -430,22 +194,19 @@
               <p class="gameDesc">Atmospheric, tense, and a benchmark for modern remakes.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Resident Evil 2 Remake — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Resident Evil 2 Remake — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- RE7 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/resident-evil-7.jpg" alt="Resident Evil 7 box art" loading="lazy" decoding="async">
@@ -455,22 +216,19 @@
               <p class="gameDesc">A return to pure horror with a first-person perspective.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Resident Evil 7 — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Resident Evil 7 — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- RE8 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/resident-evil-8.jpg" alt="Resident Evil 8 box art" loading="lazy" decoding="async">
@@ -480,22 +238,19 @@
               <p class="gameDesc">Horror blended with action and unforgettable set-pieces.</p>
               <div class="gameLinks">
                 <span class="gameTag">Horror • Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Resident Evil 8 — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Resident Evil 8 — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- DMC3 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/devil-may-cry-3.jpg" alt="Devil May Cry 3 box art" loading="lazy" decoding="async">
@@ -505,22 +260,19 @@
               <p class="gameDesc">Stylish combat that defined character action games.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Devil May Cry 3 — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Devil May Cry 3 — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- DMC5 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/devil-may-cry-5.jpg" alt="Devil May Cry 5 box art" loading="lazy" decoding="async">
@@ -530,22 +282,19 @@
               <p class="gameDesc">Peak combat mechanics with modern visuals.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Devil May Cry 5 — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Devil May Cry 5 — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- Dead Rising -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/dead-rising-1.jpg" alt="Dead Rising box art" loading="lazy" decoding="async">
@@ -555,22 +304,19 @@
               <p class="gameDesc">Sandbox chaos with time pressure and dark humour.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Dead Rising — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Dead Rising — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- Dead Rising 2 -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/dead-rising-2.jpg" alt="Dead Rising 2 box art" loading="lazy" decoding="async">
@@ -580,22 +326,19 @@
               <p class="gameDesc">Expanded systems and weapon crafting madness.</p>
               <div class="gameLinks">
                 <span class="gameTag">Action</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Dead Rising 2 — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Dead Rising 2 — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- Elden Ring -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/elden-ring.jpg" alt="Elden Ring box art" loading="lazy" decoding="async">
@@ -605,22 +348,19 @@
               <p class="gameDesc">Open-world Souls design at its absolute peak.</p>
               <div class="gameLinks">
                 <span class="gameTag">RPG</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Elden Ring — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Elden Ring — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
 
-          <!-- Dark Souls -->
           <article class="gameCard">
             <div class="gameMedia">
               <img src="/box/dark-souls-trilogy.jpg" alt="Dark Souls Trilogy box art" loading="lazy" decoding="async">
@@ -630,17 +370,15 @@
               <p class="gameDesc">Foundational action RPGs that shaped a generation.</p>
               <div class="gameLinks">
                 <span class="gameTag">RPG</span>
-                <div class="miniLinksRow">
-                  <a class="gameQuick" href="#"
-                     data-review
-                     data-title="Dark Souls Trilogy — Review"
-                     data-why="Coming soon."
-                     data-special="Coming soon."
-                     data-who="Coming soon."
-                     data-standout="Coming soon."
-                     data-take="Coming soon."
-                  >Review →</a>
-                </div>
+                <a class="gameQuick" href="#"
+                   data-review
+                   data-title="Dark Souls Trilogy — Review"
+                   data-why="Coming soon."
+                   data-special="Coming soon."
+                   data-who="Coming soon."
+                   data-standout="Coming soon."
+                   data-take="Coming soon."
+                >Review →</a>
               </div>
             </div>
           </article>
@@ -687,78 +425,74 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
     requestAnimationFrame(function () { document.documentElement.classList.add("ready"); });
-  </script>
 
-  <script>
-  (function(){
-    const modal = document.getElementById("reviewModal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalBody = document.getElementById("modalBody");
-    const body = document.body;
+    (function(){
+      const modal = document.getElementById("reviewModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalBody = document.getElementById("modalBody");
+      const body = document.body;
 
-    let lastFocus = null;
+      let lastFocus = null;
 
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
+      function escapeHtml(str){
+        return String(str)
+          .replaceAll("&","&amp;")
+          .replaceAll("<","&lt;")
+          .replaceAll(">","&gt;")
+          .replaceAll('"',"&quot;")
+          .replaceAll("'","&#039;");
+      }
 
-    function openModal(title, html){
-      lastFocus = document.activeElement;
-      modalTitle.textContent = title || "Game Review";
-      modalBody.innerHTML = html || "<p>Review coming soon.</p>";
-      modal.classList.add("is-open");
-      modal.setAttribute("aria-hidden","false");
-      body.classList.add("modal-open");
-      const closeBtn = modal.querySelector("[data-close]");
-      if (closeBtn) closeBtn.focus();
-    }
+      function openModal(title, html){
+        lastFocus = document.activeElement;
+        modalTitle.textContent = title || "Game Review";
+        modalBody.innerHTML = html || "<p>Review coming soon.</p>";
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden","false");
+        body.classList.add("modal-open");
+        const closeBtn = modal.querySelector("[data-close]");
+        if (closeBtn) closeBtn.focus();
+      }
 
-    function closeModal(){
-      modal.classList.remove("is-open");
-      modal.setAttribute("aria-hidden","true");
-      body.classList.remove("modal-open");
-      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
-    }
+      function closeModal(){
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden","true");
+        body.classList.remove("modal-open");
+        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+      }
 
-    // Close handling
-    modal.addEventListener("click", (e) => {
-      if (e.target.closest("[data-close]")) closeModal();
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (!modal.classList.contains("is-open")) return;
-      if (e.key === "Escape") closeModal();
-    });
-
-    // Bind all review triggers
-    document.querySelectorAll("[data-review]").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        const title = btn.getAttribute("data-title") || "Game Review";
-        const why = btn.getAttribute("data-why") || "Coming soon.";
-        const special = btn.getAttribute("data-special") || "Coming soon.";
-        const who = btn.getAttribute("data-who") || "Coming soon.";
-        const standout = btn.getAttribute("data-standout") || "Coming soon.";
-        const take = btn.getAttribute("data-take") || "Coming soon.";
-
-        const html = `
-          <h4>Why this game matters</h4><p>${escapeHtml(why)}</p>
-          <h4>What makes it special</h4><p>${escapeHtml(special)}</p>
-          <h4>Who should play it</h4><p>${escapeHtml(who)}</p>
-          <h4>Why it stands out vs others</h4><p>${escapeHtml(standout)}</p>
-          <h4>Creator’s honest take</h4><p>${escapeHtml(take)}</p>
-        `;
-
-        openModal(title, html);
+      modal.addEventListener("click", (e) => {
+        if (e.target.closest("[data-close]")) closeModal();
       });
-    });
-  })();
+
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeModal();
+      });
+
+      document.querySelectorAll("[data-review]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const title = btn.getAttribute("data-title") || "Game Review";
+          const why = btn.getAttribute("data-why") || "Coming soon.";
+          const special = btn.getAttribute("data-special") || "Coming soon.";
+          const who = btn.getAttribute("data-who") || "Coming soon.";
+          const standout = btn.getAttribute("data-standout") || "Coming soon.";
+          const take = btn.getAttribute("data-take") || "Coming soon.";
+
+          const html = `
+            <h4>Why this game matters</h4><p>${escapeHtml(why)}</p>
+            <h4>What makes it special</h4><p>${escapeHtml(special)}</p>
+            <h4>Who should play it</h4><p>${escapeHtml(who)}</p>
+            <h4>Why it stands out vs others</h4><p>${escapeHtml(standout)}</p>
+            <h4>Creator’s honest take</h4><p>${escapeHtml(take)}</p>
+          `;
+
+          openModal(title, html);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
