@@ -4,71 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Soft launch: prevent indexing -->
-  <meta name="robots" content="noindex,nofollow" />
+  <meta name="robots" content="noindex,follow" />
 
   <title>LegacyXV2 — Drop One Preview</title>
   <meta name="description" content="LegacyXV2 Drop One — Inferno Collection. First official merch release preview." />
   <link rel="canonical" href="https://legacyxv2.co.uk/drop-one.html" />
 
   <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css?v=12" />
+  <link rel="stylesheet" href="/styles.css?v=13" />
 
-  <!-- Cloudflare Turnstile -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-  <!-- Page-only: GDPR UI (strict) -->
   <style>
-    .gdprBox{
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,140,0,0.22);
-      background: rgba(0,0,0,0.20);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
-    }
-    .gdprText{
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.55;
-      color: rgba(255,238,221,0.74);
-    }
-    .gdprText a{
-      color: rgba(255,238,221,0.9);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,140,0,0.22);
-      padding-bottom: 1px;
-    }
-    .gdprText a:hover{ border-bottom-color: rgba(255,140,0,0.55); }
-
-    .gdprCheck{
-      display:flex;
-      align-items:flex-start;
-      gap: 10px;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255,140,0,0.16);
-    }
-    .gdprCheck input{
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
-      accent-color: #ffb300;
-    }
-    .gdprCheck label{
-      margin: 0;
-      font-size: 12px;
-      line-height: 1.5;
-      color: rgba(255,238,221,0.82);
-      opacity: 1 !important;
-    }
+    .heroLead { font-size: 1.5rem; color: #ffb300; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+    .heroSub { color: rgba(255,238,221,0.7); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    .gdprBox{ margin-top: 12px; padding: 12px; border-radius: 14px; border: 1px solid rgba(255,140,0,0.22); background: rgba(0,0,0,0.20); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35); }
+    .gdprText{ margin: 0; font-size: 12px; line-height: 1.55; color: rgba(255,238,221,0.74); }
+    .gdprText a{ color: rgba(255,238,221,0.9); text-decoration: none; border-bottom: 1px solid rgba(255,140,0,0.22); }
+    .gdprCheck{ display:flex; align-items:flex-start; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,140,0,0.16); }
+    .gdprCheck input{ width: 18px; height: 18px; accent-color: #ffb300; }
+    .gdprCheck label{ font-size: 12px; color: rgba(255,238,221,0.82); cursor: pointer; }
+    .formStatus { font-weight: bold; margin-left: 10px; font-size: 14px; }
   </style>
 </head>
 
 <body class="dropone">
   <main class="wrap">
 
-    <!-- NAV -->
     <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
@@ -77,121 +39,88 @@
         <a class="navlink" href="/game.html">Games</a>
         <a class="navlink" href="/hardware.html">Hardware</a>
         <a class="navlink active" href="/merch.html">Merch</a>
-  <a class="navlink" href="/business.html">Business</a>
+        <a class="navlink" href="/business.html">Business</a>
       </div>
     </nav>
 
-    <!-- PAGE HEADER -->
-    <section class="panel heroPanel">
-      <div class="panelHead">
-        <h1 class="panelTitle">LEGACYXV2 — DROP ONE</h1>
+    <header class="heroFrame">
+      <div class="heroFrame__glow" aria-hidden="true"></div>
+      <div class="heroFrame__inner">
+        <div class="heroTop">
+          <div class="heroTop__label">DROP ONE PREVIEW</div>
+        </div>
+        <div class="heroMain">
+          <div class="heroCopy" style="text-align: center; margin: 0 auto;">
+            <h1 class="heroTitle">INFERNO COLLECTION</h1>
+            <p class="heroLead">Drop One</p>
+            <p class="heroSub">
+              First official LegacyXV2 merch release preview. Premium designs. Limited run.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="panelBody">
-        <p class="heroLead">Inferno Collection</p>
-        <p class="heroSub">
-          First official LegacyXV2 merch release preview.
-          Premium designs. Limited run. Built for fans.
-        </p>
-      </div>
-    </section>
+    </header>
 
-    <!-- DROP OVERVIEW -->
-    <section class="panel">
-      <div class="panelHead">
-        <h2 class="panelTitle">Drop Overview</h2>
-      </div>
-      <div class="panelBody">
-        <p>
-          Drop One introduces the <strong>Inferno Collection</strong> — a focused release built around bold artwork,
-          clean layouts, and high-impact branding.
-        </p>
-        <p>
-          This is a preview only. Availability, pricing, and checkout will be announced once production is finalised.
-        </p>
-      </div>
-    </section>
-
-    <!-- PRODUCT GRID -->
     <section class="panel">
       <div class="panelHead panelHead--split">
-        <h2 class="panelTitle">Drop One — Preview</h2>
-        <a class="miniLink" href="/merch.html#enquiries">Enquire →</a>
+        <h2 class="panelTitle">The Collection</h2>
+        <a class="miniLink" href="#enquiries">Enquire →</a>
       </div>
 
       <div class="panelBody">
-        <div class="cardsGrid">
-
-          <article class="mediaCard">
-            <div class="mediaThumb">
-              <img src="/merch/inferno-enforcer-tee.jpg" alt="LegacyXV2 — Inferno Enforcer Tee" loading="lazy" decoding="async" />
+        <div class="rigGrid">
+          <article class="rigCard">
+            <div class="rigMedia">
+              <img src="/merch/inferno-enforcer-tee.jpg" alt="Inferno Enforcer Tee" loading="lazy" />
+              <span class="rigLabel">Coming Soon</span>
             </div>
-            <div class="mediaBody">
-              <h3 class="mediaTitle">Inferno Enforcer Tee</h3>
-              <p class="mediaText">
-                Heavy graphic tee featuring the Inferno Enforcer artwork. Designed to stand out. Built for fans.
-              </p>
-              <div class="mediaActions">
-                <span class="miniLink" aria-hidden="true">Coming Soon</span>
-              </div>
+            <div class="rigContent">
+              <h3 class="rigTitle">Inferno Enforcer Tee</h3>
+              <p class="mediaText">Heavy graphic tee featuring the Inferno Enforcer artwork.</p>
             </div>
           </article>
 
-          <article class="mediaCard">
-            <div class="mediaThumb">
-              <img src="/merch/inferno-core-hoodie.jpg" alt="LegacyXV2 — Inferno Core Hoodie" loading="lazy" decoding="async" />
+          <article class="rigCard">
+            <div class="rigMedia">
+              <img src="/merch/inferno-core-hoodie.jpg" alt="Inferno Core Hoodie" loading="lazy" />
+              <span class="rigLabel">Coming Soon</span>
             </div>
-            <div class="mediaBody">
-              <h3 class="mediaTitle">Inferno Core Hoodie</h3>
-              <p class="mediaText">
-                Premium black hoodie with chest wordmark and Inferno Core back emblem. Flagship Drop One piece.
-              </p>
-              <div class="mediaActions">
-                <span class="miniLink" aria-hidden="true">Coming Soon</span>
-              </div>
+            <div class="rigContent">
+              <h3 class="rigTitle">Inferno Core Hoodie</h3>
+              <p class="mediaText">Premium black hoodie with front wordmark and Inferno Core emblem.</p>
             </div>
           </article>
 
-          <article class="mediaCard">
-            <div class="mediaThumb">
-              <img src="/merch/inferno-skull-tee.jpg" alt="LegacyXV2 — Inferno Skull Tee" loading="lazy" decoding="async" />
+          <article class="rigCard">
+            <div class="rigMedia">
+              <img src="/merch/inferno-skull-tee.jpg" alt="Inferno Skull Tee" loading="lazy" />
+              <span class="rigLabel">Coming Soon</span>
             </div>
-            <div class="mediaBody">
-              <h3 class="mediaTitle">Inferno Skull Tee</h3>
-              <p class="mediaText">
-                Bold skull design with ember detailing. Clean front layout with high visual impact.
-              </p>
-              <div class="mediaActions">
-                <span class="miniLink" aria-hidden="true">Coming Soon</span>
-              </div>
+            <div class="rigContent">
+              <h3 class="rigTitle">Inferno Skull Tee</h3>
+              <p class="mediaText">Bold skull design with ember detailing and clean layout.</p>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- ENQUIRIES -->
     <section class="panel" id="enquiries">
       <div class="panelHead">
         <h2 class="panelTitle">Drop One Enquiries</h2>
       </div>
 
       <div class="panelBody">
-        <p class="smallNote">
-          Want early access, sizing questions, or to request a product? Send a message below — it sends directly to us.
-        </p>
-
         <form id="dropForm" novalidate>
           <div class="formGrid">
-
             <div class="field">
-              <label for="d_name">Name (optional)</label>
-              <input class="input" id="d_name" name="name" type="text" placeholder="Your name" autocomplete="name" />
+              <label for="d_name">Name</label>
+              <input class="input" id="d_name" name="name" type="text" placeholder="Your name" />
             </div>
 
             <div class="field">
-              <label for="d_email">Email (optional)</label>
-              <input class="input" id="d_email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+              <label for="d_email">Email</label>
+              <input class="input" id="d_email" name="email" type="email" placeholder="you@example.com" />
             </div>
 
             <div class="field full">
@@ -201,37 +130,19 @@
 
             <div class="field full">
               <label for="d_message">Message</label>
-              <textarea class="textarea" id="d_message" name="message" placeholder="Type your message here..." required></textarea>
+              <textarea class="textarea" id="d_message" name="message" placeholder="Size questions or early access requests..." required></textarea>
             </div>
 
-            <!-- Turnstile -->
             <div class="field full">
-              <div class="noticeBox turnstileWrap">
-                <div
-                  class="cf-turnstile"
-                  data-sitekey="0x4AAAAAACXP03rjX-pyk88U"
-                  data-theme="dark"
-                  data-size="normal"
-                ></div>
-                <p class="tinyNote">Anti-spam protection enabled.</p>
-              </div>
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAACXP03rjX-pyk88U" data-theme="dark"></div>
             </div>
 
-            <!-- GDPR Notice -->
             <div class="field full">
-              <div class="gdprBox" role="note" aria-label="Privacy notice">
-                <p class="gdprText">
-                  <strong>Privacy notice (GDPR):</strong> We use the details you submit to respond to your enquiry (and, if provided, to reply by email).
-                  Your message may be processed by our email delivery provider and protected by Cloudflare anti-spam.
-                  Enquiry data is retained for up to <strong>90 days</strong> unless we must keep it longer for legal reasons.
-                  Read the full <a href="/privacy.html">Privacy Notice</a>.
-                </p>
-
+              <div class="gdprBox">
+                <p class="gdprText">Read our <a href="/privacy.html">Privacy Notice</a>.</p>
                 <div class="gdprCheck">
                   <input type="checkbox" id="d_privacy" required />
-                  <label for="d_privacy">
-                    I have read and understand the <a href="/privacy.html">Privacy Notice</a>.
-                  </label>
+                  <label for="d_privacy">I accept the Privacy Notice.</label>
                 </div>
               </div>
             </div>
@@ -242,122 +153,72 @@
                 <span class="formStatus" id="d_status" aria-live="polite"></span>
               </div>
             </div>
-
           </div>
         </form>
       </div>
     </section>
 
     <footer class="footer">
-  <p>
-    © <span id="year"></span> LegacyXV2
-    <span class="footerSep">•</span>
-    Digital infrastructure by 
-    <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">
-      Obsidian Creative
-    </a>
-  </p>
-</footer>
-
+      <p>© <span id="year"></span> LegacyXV2 • Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank">Obsidian Creative</a></p>
+    </footer>
   </main>
 
   <script>
-    (function () {
-      // Year
-      var year = document.getElementById("year");
-      if (year) year.textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
+    requestAnimationFrame(() => document.documentElement.classList.add("ready"));
 
-      // Enable heavier effects AFTER first paint (reliable)
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () {
-          document.documentElement.classList.add("ready");
-        });
-      });
-
-      var form = document.getElementById("dropForm");
-      var statusEl = document.getElementById("d_status");
-      var submitBtn = document.getElementById("d_submit");
-
-      function setStatus(msg, kind){
-        if (!statusEl) return;
-        statusEl.textContent = msg || "";
-        statusEl.dataset.kind = kind || "";
+    document.getElementById("dropForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const status = document.getElementById("d_status");
+      const btn = document.getElementById("d_submit");
+      
+      if(!document.getElementById("d_privacy").checked) {
+        status.textContent = "Please accept the privacy notice.";
+        status.style.color = "#ff4444";
+        return;
       }
 
-      function getTurnstileToken(){
-        var input = form.querySelector('input[name="cf-turnstile-response"]');
-        return (input && input.value ? input.value : "").trim();
+      const turnstileToken = this.querySelector('[name="cf-turnstile-response"]').value;
+      if (!turnstileToken) {
+        status.textContent = "Security check required.";
+        status.style.color = "#ff4444";
+        return;
       }
 
-      function resetTurnstile(){
-        if (window.turnstile && typeof window.turnstile.reset === "function") {
-          try { window.turnstile.reset(); } catch (_) {}
-        }
-        var input = form.querySelector('input[name="cf-turnstile-response"]');
-        if (input) input.value = "";
-      }
+      btn.disabled = true;
+      status.textContent = "Sending...";
+      status.style.color = "#ffb300";
 
-      function privacyAccepted(){
-        var cb = document.getElementById("d_privacy");
-        return !!(cb && cb.checked);
-      }
-
-      if (form) {
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-          setStatus("", "");
-
-          if (!privacyAccepted()) {
-            setStatus("Please confirm you’ve read the Privacy Notice.", "error");
-            return;
-          }
-
-          var payload = {
+      try {
+        const resp = await fetch("/api/enquiry", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
             page: "drop-one",
-            name: (document.getElementById("d_name").value || "").trim(),
-            email: (document.getElementById("d_email").value || "").trim(),
-            topic: (document.getElementById("d_topic").value || "").trim(),
-            message: (document.getElementById("d_message").value || "").trim(),
-            turnstileToken: getTurnstileToken()
-          };
-
-          if (!payload.topic) { setStatus("Topic is required.", "error"); return; }
-          if (!payload.message) { setStatus("Message is required.", "error"); return; }
-          if (!payload.turnstileToken) { setStatus("Please complete the anti-spam check.", "error"); return; }
-
-          submitBtn.disabled = true;
-          setStatus("Sending…", "busy");
-
-          try {
-            var resp = await fetch("/api/enquiry", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload)
-            });
-
-            var data = await resp.json().catch(function () { return {}; });
-
-            if (!resp.ok || !data.ok) {
-              var msg = (data && data.error) ? data.error : "Send failed. Please try again.";
-              setStatus(msg, "error");
-              resetTurnstile();
-              return;
-            }
-
-            form.reset();
-            resetTurnstile();
-            setStatus("Sent ✅", "ok");
-            setTimeout(function () { setStatus("", ""); }, 4000);
-
-          } catch (err) {
-            setStatus("Network error. Please try again.", "error");
-            resetTurnstile();
-          } finally {
-            submitBtn.disabled = false;
-          }
+            name: this.name.value,
+            email: this.email.value,
+            topic: this.topic.value,
+            message: this.message.value,
+            turnstileToken: turnstileToken
+          })
         });
+
+        if (resp.ok) {
+          status.textContent = "Sent ✅";
+          status.style.color = "#00ff88";
+          this.reset();
+          if(window.turnstile) window.turnstile.reset();
+        } else {
+          status.textContent = "Error sending.";
+          status.style.color = "#ff4444";
+        }
+      } catch (err) {
+        status.textContent = "Network error.";
+        status.style.color = "#ff4444";
+      } finally {
+        btn.disabled = false;
       }
-    })();
+    });
   </script>
 </body>
 </html>
