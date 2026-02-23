@@ -27,7 +27,6 @@
 
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- logo preload -->
   <link
     rel="preload"
     as="image"
@@ -110,82 +109,6 @@
     ]
   }
   </script>
-
-  <style>
-    .hwGrid2{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-    }
-    .embedFrame{
-      aspect-ratio: 16 / 9;
-      border-radius: 16px;
-      overflow:hidden;
-      border: 1px solid rgba(255,140,0,0.18);
-      background: rgba(0,0,0,0.28);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-    }
-    .embedFrame iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
-
-    .recGrid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .recCard{
-      border-radius: 16px;
-      overflow:hidden;
-      border: 1px solid rgba(255,140,0,0.18);
-      background: rgba(0,0,0,0.28);
-      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55);
-      padding: 12px;
-    }
-    .recTitle{
-      margin:0 0 8px;
-      font-size: 13px;
-      font-weight: 1000;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.92);
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .recTag{
-      font-size: 11px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,140,0,0.22);
-      color: rgba(255,238,221,0.82);
-      background: rgba(0,0,0,0.22);
-      white-space: nowrap;
-    }
-    .recList{
-      margin:0;
-      padding-left: 18px;
-      color: rgba(255,238,221,0.78);
-      line-height: 1.55;
-      font-size: 13px;
-    }
-
-    .mutedNote{
-      margin: 0;
-      color: rgba(255,238,221,0.70);
-      line-height: 1.55;
-      font-size: 13px;
-    }
-
-    @media (max-width: 980px){
-      .hwGrid2{ grid-template-columns: 1fr; }
-      .recGrid{ grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 
 <body class="hardware">
@@ -199,7 +122,7 @@
         <a class="navlink" href="/game.html">Games</a>
         <a class="navlink active" href="/hardware.html">Hardware</a>
         <a class="navlink" href="/merch.html">Merch</a>
-  <a class="navlink" href="/business.html">Business</a>
+        <a class="navlink" href="/business.html">Business</a>
       </div>
     </nav>
 
@@ -273,6 +196,108 @@
             </p>
             <div style="height:12px"></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">The Setups & Gear</h2>
+      </div>
+
+      <div class="panelBody">
+        <div class="disclaimerBox">
+          <p class="mutedNote"><strong>Transparency Note:</strong> Gear links below are affiliate links. If you purchase through them, LegacyXV2 may earn a commission to help fund future hardware reviews at no extra cost to you.</p>
+        </div>
+
+        <div class="recGrid">
+          <article class="recCard">
+            <div class="recTitle">Main Gaming PC <span class="recTag">Daily</span></div>
+            <ul class="gearList">
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">CPU</span>
+                  <span class="gearName">AMD Ryzen 7 7800X3D</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">GPU</span>
+                  <span class="gearName">Palit RTX 5070 Ti 16GB</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">Motherboard</span>
+                  <span class="gearName">ASRock X870E Nova WiFi</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">RAM</span>
+                  <span class="gearName">Kingston Fury 64GB DDR5</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="recCard">
+            <div class="recTitle">Editing PC <span class="recTag">Work</span></div>
+            <ul class="gearList">
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">CPU</span>
+                  <span class="gearName">Intel Core i5-12400F</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">GPU</span>
+                  <span class="gearName">NVIDIA RTX 4070 FE</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">Motherboard</span>
+                  <span class="gearName">ASRock Z790 LiveMixer</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="recCard">
+            <div class="recTitle">Benchmarking Rig <span class="recTag">Test</span></div>
+            <ul class="gearList">
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">CPU</span>
+                  <span class="gearName">Ryzen 5 7500F</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">GPU</span>
+                  <span class="gearName">PNY RTX 2070 Super</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo">
+                  <span class="gearType">Cooler</span>
+                  <span class="gearName">Deepcool AK620</span>
+                </div>
+                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
