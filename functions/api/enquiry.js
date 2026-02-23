@@ -73,11 +73,15 @@ export async function onRequestPost(context) {
       );
     }
 
-    const pageLabel = cleanPage === "drop-one" ? "Drop One" : "Merch";
-    const sourceUrl =
-      cleanPage === "drop-one"
-        ? "https://legacyxv2.co.uk/drop-one.html"
-        : "https://legacyxv2.co.uk/merch.html";
+    // --- UPDATED LOGIC FOR ROUTING ---
+    const pageLabel = cleanPage === "business" ? "Business/Sponsorship" 
+                    : cleanPage === "drop-one" ? "Drop One" 
+                    : "Merch";
+
+    const sourceUrl = cleanPage === "business" ? "https://legacyxv2.co.uk/business.html"
+                    : cleanPage === "drop-one" ? "https://legacyxv2.co.uk/drop-one.html"
+                    : "https://legacyxv2.co.uk/merch.html";
+    // ---------------------------------
 
     const subject = `LegacyXV2 ${pageLabel} — ${cleanTopic}`;
 
