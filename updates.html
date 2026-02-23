@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>LegacyXV2 — Updates</title>
+  <title>LegacyXV2 — Updates & Playlists</title>
   <meta name="description" content="Watch featured series, uploads, playlists, and upcoming content from LegacyXV2." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2.co.uk/updates.html" />
@@ -15,10 +15,6 @@
   <meta property="og:title" content="LegacyXV2 — Updates" />
   <meta property="og:description" content="Featured series + key playlists + channel updates & upcoming." />
   <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
-  <meta property="og:image:secure_url" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
-  <meta property="og:image:alt" content="LegacyXV2 — Updates" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LegacyXV2 — Updates" />
@@ -27,75 +23,21 @@
 
   <link rel="icon" href="/favicon.ico" />
 
-  <link
-    rel="preload"
-    as="image"
-    href="/logo-256.webp"
-    fetchpriority="high"
-    imagesrcset="/logo-256.webp 256w, /logo-512.webp 512w"
-    imagesizes="(max-width: 520px) 220px, 280px"
-  />
+  <link rel="preload" as="image" href="/logo-256.webp" fetchpriority="high" />
 
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=13" />
 
   <style>
-    /* Updates page layout */
     .laneGrid{ display:grid; gap:14px; grid-template-columns: 1fr; }
     @media (min-width: 820px){ .laneGrid{ grid-template-columns: repeat(2, 1fr); } }
-
     .featuredLane{ grid-column: 1 / -1; }
-
-    .laneKicker{
-      margin: 0 0 8px;
-      font-size: 12px;
-      font-weight: 1000;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,238,221,0.72);
-    }
-
-    .laneSub{
-      margin: 0 0 12px;
-      font-size: 13px;
-      line-height: 1.6;
-      color: rgba(255,238,221,0.78);
-    }
-
-    .laneActions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 10px;
-    }
-
-    .ytMini{
-      font-size:12px;
-      font-weight:1000;
-      letter-spacing:.6px;
-      text-transform:uppercase;
-      text-decoration:none;
-      color: rgba(255,238,221,0.88);
-      border-bottom: 1px solid rgba(255,140,0,0.22);
-      padding-bottom: 2px;
-    }
+    .laneKicker{ margin: 0 0 8px; font-size: 12px; font-weight: 1000; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,238,221,0.72); }
+    .laneSub{ margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(255,238,221,0.78); }
+    .laneActions{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top: 10px; }
+    .ytMini{ font-size:12px; font-weight:1000; letter-spacing:.6px; text-transform:uppercase; text-decoration:none; color: rgba(255,238,221,0.88); border-bottom: 1px solid rgba(255,140,0,0.22); padding-bottom: 2px; transition: border-color 0.2s; }
     .ytMini:hover{ border-bottom-color: rgba(255,140,0,0.55); }
-
-    /* Modal player sizing (uses your existing .modal styles) */
-    .modal__player{
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,140,0,0.18);
-      border-radius: 14px;
-      overflow:hidden;
-    }
-    .modal__player iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
+    .modal__player{ width: 100%; aspect-ratio: 16 / 9; background: #000; border: 1px solid rgba(255,140,0,0.18); border-radius: 14px; overflow:hidden; }
+    .modal__player iframe{ width:100%; height:100%; border:0; display:block; }
   </style>
 </head>
 
@@ -110,13 +52,12 @@
         <a class="navlink" href="/game.html">Games</a>
         <a class="navlink" href="/hardware.html">Hardware</a>
         <a class="navlink" href="/merch.html">Merch</a>
-  <a class="navlink" href="/business.html">Business</a>
+        <a class="navlink" href="/business.html">Business</a>
       </div>
     </nav>
 
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
-
       <div class="heroFrame__inner">
         <div class="heroTop">
           <div class="heroTop__label">
@@ -128,27 +69,21 @@
 
         <div class="heroMain">
           <div class="heroLogo">
-            <picture>
-              <source type="image/webp" srcset="/logo-256.webp 256w, /logo-512.webp 512w" sizes="(max-width: 520px) 220px, 280px">
-              <img
-                src="/logo-256.webp"
-                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
-                sizes="(max-width: 520px) 220px, 280px"
-                width="256"
-                height="256"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                alt="LegacyXV2 logo"
-                class="heroLogo__img"
-              />
-            </picture>
+            <img
+              src="/logo-256.webp"
+              width="256"
+              height="256"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              alt="LegacyXV2 logo"
+              class="heroLogo__img"
+            />
           </div>
 
           <div class="heroCopy">
             <h1 class="heroTitle">UPDATES</h1>
             <p class="heroSub">Series • Hardware • What’s Next</p>
-
             <div class="heroChips" aria-hidden="true">
               <span class="chip">Watch on site</span>
               <span class="chip">Playlists</span>
@@ -159,215 +94,81 @@
       </div>
     </header>
 
-    <!-- Lanes -->
     <section class="panel">
-      <div class="panelHead">
-        <h2 class="panelTitle">Playlists</h2>
-      </div>
-
+      <div class="panelHead"><h2 class="panelTitle">Playlists</h2></div>
       <div class="panelBody">
         <div class="laneGrid">
 
-          <!-- 1) FEATURED (FULL WIDTH) -->
           <article class="mediaCard featuredLane">
             <div class="mediaThumb">
-            <img 
-  src="/updates-featured.webp"
-  width="800"
-  height="485"
-  loading="lazy"
-  decoding="async"
-  sizes="(max-width: 820px) 100vw, 50vw"
-  alt="Featured art work"
->
+              <img src="/updates-featured.webp" width="800" height="485" loading="lazy" alt="Featured series">
             </div>
             <div class="mediaBody">
-              <div class="laneKicker"></div>
               <h3 class="mediaTitle">FEATURED SERIES</h3>
               <p class="laneSub">REANIMAL series now live</p>
-
               <div class="laneActions">
-                <button
-                  class="btnPrimary"
-                  type="button"
-                  data-watch
-                  data-title="Featured Series"
-                  data-list="PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU"
-                >Watch here</button>
-
-                <a class="ytMini" target="_blank" rel="noopener"
-                   href="https://youtube.com/playlist?list=PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU&si=0xaiN6xfaMkITIAQ"
-                >YouTube →</a>
+                <button class="btnPrimary" type="button" data-watch data-title="Featured Series" data-list="PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU">Watch here</button>
+                <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU">YouTube →</a>
               </div>
             </div>
           </article>
 
-          <!-- 2) COD -->
           <article class="mediaCard">
-            <div class="mediaThumb">
-              <img 
-  src="/updates-cod.webp"
-  width="800"
-  height="485"
-  loading="lazy"
-  decoding="async"
-  sizes="(max-width: 820px) 100vw, 50vw"
-  alt="Call of Duty playlist artwork"
->
-            </div>
+            <div class="mediaThumb"><img src="/updates-cod.webp" width="800" height="485" loading="lazy" alt="COD"></div>
             <div class="mediaBody">
-              <div class="laneKicker"></div>
-              <h3 class="mediaTitle">CALL OF DUTY — MP / MODS / ZOMBIES</h3>
+              <h3 class="mediaTitle">CALL OF DUTY</h3>
               <p class="laneSub">Multiplayer, mods, and zombies runs.</p>
-
               <div class="laneActions">
-                <button
-                  class="btnPrimary"
-                  type="button"
-                  data-watch
-                  data-title="Call of Duty — MP / Mods / Zombies"
-                  data-list="PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr"
-                >Watch here</button>
-
-                <a class="ytMini" target="_blank" rel="noopener"
-                   href="https://youtube.com/playlist?list=PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr"
-                >YouTube →</a>
+                <button class="btnPrimary" type="button" data-watch data-title="Call of Duty" data-list="PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr">Watch here</button>
+                <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr">YouTube →</a>
               </div>
             </div>
           </article>
 
-          <!-- 3) RESIDENT EVIL -->
           <article class="mediaCard">
-            <div class="mediaThumb">
-              <img 
-  src="/updates-re.webp"
-  width="800"
-  height="485"
-  loading="lazy"
-  decoding="async"
-  sizes="(max-width: 820px) 100vw, 50vw"
-  alt="Resident Evil artwork"
->
-            </div>
+            <div class="mediaThumb"><img src="/updates-re.webp" width="800" height="485" loading="lazy" alt="RE"></div>
             <div class="mediaBody">
-              <div class="laneKicker"></div>
               <h3 class="mediaTitle">RESIDENT EVIL</h3>
               <p class="laneSub">Resident Evil 0–9 playthrough.</p>
-
               <div class="laneActions">
-                <button
-                  class="btnPrimary"
-                  type="button"
-                  data-watch
-                  data-title="Resident Evil"
-                  data-list="PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4"
-                >Watch here</button>
-
-                <a class="ytMini" target="_blank" rel="noopener"
-                   href="https://youtube.com/playlist?list=PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4"
-                >YouTube →</a>
+                <button class="btnPrimary" type="button" data-watch data-title="Resident Evil" data-list="PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4">Watch here</button>
+                <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4">YouTube →</a>
               </div>
             </div>
           </article>
 
-          <!-- 4) HORROR / SURVIVAL -->
           <article class="mediaCard">
-            <div class="mediaThumb">
-              <img 
-  src="/updates-horror.webp"
-  width="800"
-  height="485"
-  loading="lazy"
-  decoding="async"
-  sizes="(max-width: 820px) 100vw, 50vw"
-  alt="Horrow / Survival artwork"
->
-            </div>
+            <div class="mediaThumb"><img src="/updates-horror.webp" width="800" height="485" loading="lazy" alt="Horror"></div>
             <div class="mediaBody">
-              <div class="laneKicker"></div>
-              <h3 class="mediaTitle">HORROR / SURVIVAL GAMEPLAY</h3>
-              <p class="laneSub"> Horror and survival content — tension, atmosphere, story.</p>
-
+              <h3 class="mediaTitle">HORROR & SURVIVAL</h3>
+              <p class="laneSub">Atmospheric gameplay and tension.</p>
               <div class="laneActions">
-                <button
-                  class="btnPrimary"
-                  type="button"
-                  data-watch
-                  data-title="Horror / Survival Gameplay"
-                  data-list="PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX"
-                >Watch here</button>
-
-                <a class="ytMini" target="_blank" rel="noopener"
-                   href="https://youtube.com/playlist?list=PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX"
-                >YouTube →</a>
+                <button class="btnPrimary" type="button" data-watch data-title="Horror & Survival" data-list="PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX">Watch here</button>
+                <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX">YouTube →</a>
               </div>
             </div>
           </article>
 
-          <!-- 5) PC BUILDS / TECH -->
           <article class="mediaCard">
-            <div class="mediaThumb">
-              <img 
-  src="/updates-tech.webp"
-  width="800"
-  height="485"
-  loading="lazy"
-  decoding="async"
-  sizes="(max-width: 820px) 100vw, 50vw"
-  alt="PC Build / Tech artwork"
->
-            </div>
+            <div class="mediaThumb"><img src="/updates-tech.webp" width="800" height="485" loading="lazy" alt="Tech"></div>
             <div class="mediaBody">
-              <div class="laneKicker"></div>
-              <h3 class="mediaTitle">PC BUILDS &amp; TECH REVIEWS</h3>
-              <p class="laneSub">GPUs, CPUs, motherboards, benchmarks, builds.</p>
-
+              <h3 class="mediaTitle">PC BUILDS & TECH</h3>
+              <p class="laneSub">Benchmarks and hardware reviews.</p>
               <div class="laneActions">
-                <button
-                  class="btnPrimary"
-                  type="button"
-                  data-watch
-                  data-title="PC Builds & Tech Reviews"
-                  data-list="PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN"
-                >Watch here</button>
-
-                <a class="ytMini" target="_blank" rel="noopener"
-                   href="https://youtube.com/playlist?list=PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN"
-                >YouTube →</a>
+                <button class="btnPrimary" type="button" data-watch data-title="PC Builds & Tech" data-list="PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN">Watch here</button>
+                <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN">YouTube →</a>
               </div>
             </div>
           </article>
 
-          <!-- 6) CHANNEL UPDATES -->
           <article class="mediaCard">
-            <div class="mediaThumb">
-              <img 
-  src="/updates-channel.webp"
-  width="800"
-  height="485"
-  loading="lazy"
-  decoding="async"
-  sizes="(max-width: 820px) 100vw, 50vw"
-  alt="Channel updates artwork"
->
-            </div>
+            <div class="mediaThumb"><img src="/updates-channel.webp" width="800" height="485" loading="lazy" alt="Updates"></div>
             <div class="mediaBody">
-              <div class="laneKicker"></div>
-              <h3 class="mediaTitle">CHANNEL UPDATES &amp; UPCOMING</h3>
-              <p class="laneSub">What’s next, what’s changing, and what to expect soon.</p>
-
+              <h3 class="mediaTitle">CHANNEL UPDATES</h3>
+              <p class="laneSub">What’s next and upcoming plans.</p>
               <div class="laneActions">
-                <button
-                  class="btnPrimary"
-                  type="button"
-                  data-watch
-                  data-title="Channel Updates & Upcoming"
-                  data-list="PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_"
-                >Watch here</button>
-
-                <a class="ytMini" target="_blank" rel="noopener"
-                   href="https://youtube.com/playlist?list=PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_"
-                >YouTube →</a>
+                <button class="btnPrimary" type="button" data-watch data-title="Channel Updates" data-list="PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_">Watch here</button>
+                <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_">YouTube →</a>
               </div>
             </div>
           </article>
@@ -377,33 +178,20 @@
     </section>
 
     <footer class="footer">
-      <p>
-        © <span id="year"></span> LegacyXV2
-        <span class="footerSep">•</span>
-        Digital infrastructure by
-        <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
-      </p>
+      <p>© <span id="year"></span> LegacyXV2 • <a href="https://obsidiancreative.uk" target="_blank">Obsidian Creative</a></p>
     </footer>
 
   </main>
 
-  <!-- MODAL PLAYER -->
   <div class="modal" id="ytModal" aria-hidden="true">
     <div class="modal__backdrop" data-close></div>
-
     <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="ytModalTitle">
       <div class="modal__head">
         <h3 class="modal__title" id="ytModalTitle">Watch</h3>
         <button class="modal__close" type="button" aria-label="Close" data-close>✕</button>
       </div>
-
-      <div class="modal__body">
-        <div class="modal__player" id="ytModalPlayer"></div>
-      </div>
-
-      <div class="modal__foot">
-        <button class="btnGhost" type="button" data-close>Close</button>
-      </div>
+      <div class="modal__body"><div class="modal__player" id="ytModalPlayer"></div></div>
+      <div class="modal__foot"><button class="btnGhost" type="button" data-close>Close</button></div>
     </div>
   </div>
 
@@ -416,33 +204,15 @@
       const titleEl = document.getElementById("ytModalTitle");
       const playerWrap = document.getElementById("ytModalPlayer");
       const body = document.body;
-
       let lastFocus = null;
 
       function openModal(title, playlistId){
         lastFocus = document.activeElement;
-
-        titleEl.textContent = title || "Watch";
+        titleEl.textContent = title;
         modal.classList.add("is-open");
         modal.setAttribute("aria-hidden","false");
         body.classList.add("modal-open");
-
-        const src =
-          "https://www.youtube.com/embed/videoseries?list=" +
-          encodeURIComponent(playlistId) +
-          "&autoplay=1&rel=0&modestbranding=1";
-
-        playerWrap.innerHTML =
-          '<iframe ' +
-          'src="' + src + '" ' +
-          'title="' + (title ? title.replace(/"/g,'&quot;') : 'Playlist') + '" ' +
-          'loading="eager" ' +
-          'referrerpolicy="strict-origin-when-cross-origin" ' +
-          'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
-          'allowfullscreen></iframe>';
-
-        const closeBtn = modal.querySelector("[data-close]");
-        if (closeBtn) closeBtn.focus();
+        playerWrap.innerHTML = `<iframe src="https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(playlistId)}&autoplay=1&rel=0&modestbranding=1" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
       }
 
       function closeModal(){
@@ -450,27 +220,13 @@
         modal.setAttribute("aria-hidden","true");
         body.classList.remove("modal-open");
         playerWrap.innerHTML = "";
-        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+        if (lastFocus) lastFocus.focus();
       }
 
-      // close handlers
-      modal.addEventListener("click", (e) => {
-        if (e.target.closest("[data-close]")) closeModal();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (!modal.classList.contains("is-open")) return;
-        if (e.key === "Escape") closeModal();
-      });
-
-      // bind watch buttons
+      modal.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) closeModal(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal(); });
       document.querySelectorAll("[data-watch]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const t = btn.getAttribute("data-title") || "Watch";
-          const list = btn.getAttribute("data-list");
-          if (!list) return;
-          openModal(t, list);
-        });
+        btn.addEventListener("click", () => openModal(btn.getAttribute("data-title"), btn.getAttribute("data-list")));
       });
     })();
   </script>
