@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404: Level Not Found | LegacyXV2</title>
+  
+  <meta name="robots" content="noindex, follow" />
+  
+  <link rel="stylesheet" href="/styles.css?v=12" />
+
+  <style>
+    .error-container {
+      text-align: center;
+      padding: 120px 20px;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .error-code {
+      font-size: 8rem;
+      font-weight: 900;
+      color: #0f0f11;
+      text-shadow: 
+        -2px -2px 0 #00e5ff,  
+         2px -2px 0 #00e5ff,
+        -2px  2px 0 #00e5ff,
+         2px  2px 0 #00e5ff,
+         0px  0px 20px rgba(0, 229, 255, 0.5);
+      margin: 0;
+      line-height: 1;
+      letter-spacing: 5px;
+    }
+    
+    .error-title {
+      font-size: 2rem;
+      color: #ffffff;
+      margin: 20px 0 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .error-msg {
+      color: #a1a1aa;
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .btn-return {
+      background: #00e5ff;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 14px 30px;
+      border-radius: 6px;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-return:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+
+<body class="error-page">
+  <main class="wrap">
+
+    <nav class="topnav" aria-label="Primary">
+      <div class="navlinks">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/about.html">About</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+        <a class="navlink" href="/game.html">Games</a>
+        <a class="navlink" href="/hardware.html">Hardware</a>
+        <a class="navlink" href="/merch.html">Merch</a>
+        <a class="navlink" href="/business.html">Business</a>
+      </div>
+    </nav>
+
+    <section class="error-container">
+      <h1 class="error-code">404</h1>
+      <h2 class="error-title">Level Not Found</h2>
+      <p class="error-msg">
+        Game over! It looks like the page you are searching for has been moved, deleted, or hasn't rendered yet. Check your URL or return to base.
+      </p>
+      
+      <a href="/" class="btn-return">Return to Base</a>
+    </section>
+
+  </main>
+</body>
+</html>
