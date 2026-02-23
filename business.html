@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LegacyXV2 — Business & Sponsorships</title>
+  <meta name="description" content="Partner with LegacyXV2. Hardware reviews, sponsored playthroughs, and brand integrations." />
+  
+  <link rel="stylesheet" href="/styles.css?v=12" />
+  
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <style>
+    /* Business Page Specific Styles (Keeps the sleek dark/cyan look) */
+    .biz-hero { text-align: center; padding: 60px 20px; }
+    .biz-hero h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
+    .biz-hero h1 span { color: #00e5ff; }
+    .biz-hero p { color: #a1a1aa; max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+    
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 40px auto; max-width: 1000px; padding: 0 20px; }
+    .service-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; text-align: center; transition: border-color 0.3s ease; }
+    .service-card:hover { border-color: #00e5ff; }
+    .service-card h3 { color: #fff; margin-bottom: 10px; }
+    .service-card p { color: #a1a1aa; font-size: 0.95rem; line-height: 1.5; margin: 0; }
+
+    .biz-panel { max-width: 800px; margin: 0 auto 60px; }
+    .btn-cyan { background: #00e5ff; color: #000; font-weight: bold; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; transition: opacity 0.2s; width: 100%; }
+    .btn-cyan:hover { opacity: 0.8; }
+    .btn-cyan:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    
+    .gdprBox { margin-top: 12px; padding: 12px; border-radius: 8px; border: 1px solid rgba(0, 229, 255, 0.22); background: rgba(0,0,0,0.20); }
+    .gdprText { margin: 0; font-size: 12px; line-height: 1.55; color: rgba(255,255,255,0.7); }
+    .gdprText a { color: #00e5ff; text-decoration: none; border-bottom: 1px solid rgba(0,229,255,0.3); }
+    .gdprCheck { display:flex; align-items:flex-start; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,229,255,0.16); }
+    .gdprCheck input { accent-color: #00e5ff; margin-top: 2px; }
+    .gdprCheck label { font-size: 12px; color: rgba(255,255,255,0.8); margin: 0; }
+  </style>
+</head>
+
+<body class="business-page">
+  <main class="wrap">
+
+    <nav class="topnav" aria-label="Primary">
+      <div class="navlinks">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="/about.html">About</a>
+        <a class="navlink" href="/updates.html">Updates</a>
+        <a class="navlink" href="/game.html">Games</a>
+        <a class="navlink" href="/hardware.html">Hardware</a>
+        <a class="navlink" href="/merch.html">Merch</a>
+        <a class="navlink active" href="/business.html">Business</a>
+      </div>
+    </nav>
+
+    <header class="biz-hero">
+      <h1>Partner with <span>LegacyXV2</span></h1>
+      <p>Connect your brand with a highly engaged community of completionist gamers and PC hardware enthusiasts.</p>
+    </header>
+
+    <section class="services-grid">
+      <div class="service-card">
+        <h3>💻 Hardware Reviews</h3>
+        <p>Honest, in-depth benchmarking for CPUs, GPUs, motherboards, peripherals, and full system builds.</p>
+      </div>
+      <div class="service-card">
+        <h3>🎮 Sponsored Playthroughs</h3>
+        <p>Dedicated live streams or episodic YouTube series showcasing your game to a dedicated audience.</p>
+      </div>
+      <div class="service-card">
+        <h3>📢 Brand Integrations</h3>
+        <p>Native 60 to 90-second ad reads seamlessly woven into high-quality, long-form video content.</p>
+      </div>
+    </section>
+
+    <section class="panel biz-panel" id="enquiries">
+      <div class="panelHead">
+        <h2 class="panelTitle">Send a Proposal</h2>
+      </div>
+
+      <div class="panelBody">
+        <form id="bizForm" novalidate>
+          <div class="formGrid">
+
+            <div class="field">
+              <label for="b_name">Name / Brand</label>
+              <input class="input" id="b_name" name="name" type="text" placeholder="e.g. Corsair Marketing" required />
+            </div>
+
+            <div class="field">
+              <label for="b_email">Work Email</label>
+              <input class="input" id="b_email" name="email" type="email" placeholder="you@company.com" required />
+            </div>
+
+            <div class="field full">
+              <label for="b_topic">Partnership Type (Topic)</label>
+              <select class="input" id="b_topic" name="topic" required style="width:100%; padding: 10px; background: rgba(0,0,0,0.5); color: #fff; border: 1px solid #333;">
+                <option value="Hardware Review Sample">Hardware Review Sample</option>
+                <option value="Game Key / Playthrough">Game Key / Playthrough</option>
+                <option value="Dedicated Sponsorship">Dedicated Sponsorship</option>
+                <option value="Media Kit Request">Request Media Kit</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="b_message">Message</label>
+              <textarea class="textarea" id="b_message" name="message" placeholder="Tell us about your campaign timeline and budget..." required></textarea>
+            </div>
+
+            <div class="field full">
+              <div class="noticeBox turnstileWrap">
+                <div class="cf-turnstile" data-sitekey="0x4AAAAAACXP03rjX-pyk88U" data-theme="dark"></div>
+              </div>
+            </div>
+
+            <div class="field full">
+              <div class="gdprBox" role="note" aria-label="Privacy notice">
+                <p class="gdprText">
+                  <strong>Privacy notice (GDPR):</strong> We use the details you submit to respond to your business enquiry. Your message may be processed by our email delivery provider and protected by Cloudflare anti-spam. Read the full <a href="/privacy.html">Privacy Notice</a>.
+                </p>
+                <div class="gdprCheck">
+                  <input type="checkbox" id="b_privacy" required />
+                  <label for="b_privacy">I have read and understand the <a href="/privacy.html">Privacy Notice</a>.</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field full">
+              <div class="actions" style="display: flex; flex-direction: column; gap: 10px;">
+                <button type="submit" class="btn-cyan" id="b_submit">Send Proposal →</button>
+                <span class="formStatus" id="b_status" aria-live="polite" style="color: #00e5ff; font-weight: bold; text-align: center;"></span>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      var form = document.getElementById("bizForm");
+      var statusEl = document.getElementById("b_status");
+      var submitBtn = document.getElementById("b_submit");
+
+      function setStatus(msg) {
+        if (!statusEl) return;
+        statusEl.textContent = msg || "";
+      }
+
+      function getTurnstileToken(){
+        var input = form.querySelector('input[name="cf-turnstile-response"]');
+        return (input && input.value ? input.value : "").trim();
+      }
+
+      function resetTurnstile(){
+        if (window.turnstile && typeof window.turnstile.reset === "function") {
+          try { window.turnstile.reset(); } catch (_) {}
+        }
+      }
+
+      function privacyAccepted(){
+        var cb = document.getElementById("b_privacy");
+        return !!(cb && cb.checked);
+      }
+
+      if (form) {
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+          setStatus("");
+
+          if (!privacyAccepted()) {
+            setStatus("Error: Please confirm you’ve read the Privacy Notice.");
+            return;
+          }
+
+          var payload = {
+            page: "business", // Tells the backend this is from the Business page
+            name: (document.getElementById("b_name").value || "").trim(),
+            email: (document.getElementById("b_email").value || "").trim(),
+            topic: (document.getElementById("b_topic").value || "").trim(),
+            message: (document.getElementById("b_message").value || "").trim(),
+            turnstileToken: getTurnstileToken()
+          };
+
+          if (!payload.name) { setStatus("Error: Name/Brand is required."); return; }
+          if (!payload.email) { setStatus("Error: Work Email is required."); return; }
+          if (!payload.message) { setStatus("Error: Message is required."); return; }
+          if (!payload.turnstileToken) { setStatus("Error: Please complete the anti-spam check."); return; }
+
+          submitBtn.disabled = true;
+          setStatus("Sending proposal...");
+
+          try {
+            // Sends data to your EXISTING API route!
+            var resp = await fetch("/api/enquiry", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload)
+            });
+
+            var data = await resp.json().catch(function () { return {}; });
+
+            if (!resp.ok || !data.ok) {
+              setStatus((data && data.error) ? data.error : "Send failed. Please try again.");
+              resetTurnstile();
+              return;
+            }
+
+            form.reset();
+            resetTurnstile();
+            setStatus("Sent ✅ We will review your proposal shortly.");
+            setTimeout(function () { setStatus(""); }, 5000);
+
+          } catch (err) {
+            setStatus("Network error. Please try again.");
+            resetTurnstile();
+          } finally {
+            submitBtn.disabled = false;
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
