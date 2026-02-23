@@ -11,7 +11,7 @@
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <style>
-    /* Business Page Specific Styles (Keeps the sleek dark/cyan look) */
+    /* Business Page */
     .biz-hero { text-align: center; padding: 60px 20px; }
     .biz-hero h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
     .biz-hero h1 span { color: #00e5ff; }
@@ -195,7 +195,7 @@
           setStatus("Sending proposal...");
 
           try {
-            // Sends data to your EXISTING API route!
+            // Sends data to EXISTING API route!
             var resp = await fetch("/api/enquiry", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
