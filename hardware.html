@@ -39,7 +39,6 @@
   <link rel="stylesheet" href="/styles.css?v=13" />
 
   <style>
-    /* Keeps your existing hardware grid working */
     .hwGrid2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 14px; }
     .embedFrame { aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,140,0,0.18); background: rgba(0,0,0,0.28); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55); }
     .embedFrame iframe { width: 100%; height: 100%; border: 0; display: block; }
@@ -49,70 +48,16 @@
     .recTag { font-size: 11px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,140,0,0.22); color: rgba(255,238,221,0.82); background: rgba(0,0,0,0.22); white-space: nowrap; }
     .recList { margin: 0; padding-left: 18px; color: rgba(255,238,221,0.78); line-height: 1.55; font-size: 13px; }
     .mutedNote { margin: 0; color: rgba(255,238,221,0.70); line-height: 1.55; font-size: 13px; }
-
-    /* The new Affiliate Gear UI */
     .disclaimerBox { padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.2); border-left: 3px solid #ffb300; margin-bottom: 20px; }
-    
-    .gearList { 
-      list-style: none !important; 
-      padding: 0; 
-      margin: 0; 
-      display: flex; 
-      flex-direction: column; 
-      gap: 12px; 
-    }
-    
-    .gearItem { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      padding-bottom: 12px; 
-      border-bottom: 1px solid rgba(255,140,0,0.15); 
-    }
+    .gearList { list-style: none !important; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+    .gearItem { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,140,0,0.15); }
     .gearItem:last-child { border-bottom: none; padding-bottom: 0; }
-    
     .gearInfo { display: flex; flex-direction: column; gap: 3px; }
-    
-    .gearType { 
-      font-size: 10px; 
-      font-weight: 900; 
-      text-transform: uppercase; 
-      color: #ffb300; 
-      letter-spacing: 1px; 
-    }
-    
-    .gearName { 
-      font-size: 13px; 
-      color: rgba(255,238,221,0.95); 
-      max-width: 170px; 
-      line-height: 1.3; 
-    }
-    
-    .btn-affiliate { 
-      background: rgba(255,140,0,0.15); 
-      color: #ffb300; 
-      border: 1px solid rgba(255,140,0,0.4); 
-      padding: 6px 14px; 
-      border-radius: 6px; 
-      text-decoration: none; 
-      font-size: 11px; 
-      font-weight: 800; 
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      transition: all 0.2s ease; 
-      white-space: nowrap; 
-    }
-    .btn-affiliate:hover { 
-      background: rgba(255,140,0,0.4); 
-      border-color: #ffb300; 
-      color: #fff; 
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 980px){
-      .hwGrid2 { grid-template-columns: 1fr; }
-      .recGrid { grid-template-columns: 1fr; }
-    }
+    .gearType { font-size: 10px; font-weight: 900; text-transform: uppercase; color: #ffb300; letter-spacing: 1px; }
+    .gearName { font-size: 13px; color: rgba(255,238,221,0.95); max-width: 170px; line-height: 1.3; }
+    .btn-affiliate { background: rgba(255,140,0,0.15); color: #ffb300; border: 1px solid rgba(255,140,0,0.4); padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s ease; white-space: nowrap; }
+    .btn-affiliate:hover { background: rgba(255,140,0,0.4); border-color: #ffb300; color: #fff; transform: translateY(-1px); }
+    @media (max-width: 980px){ .hwGrid2 { grid-template-columns: 1fr; } .recGrid { grid-template-columns: 1fr; } }
   </style>
 
   <script type="application/ld+json">
@@ -174,14 +119,6 @@
         "isPartOf": { "@id": "https://legacyxv2.co.uk/#website" },
         "about": { "@id": "https://legacyxv2.co.uk/#brand" },
         "breadcrumb": { "@id": "https://legacyxv2.co.uk/hardware.html#breadcrumbs" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://legacyxv2.co.uk/hardware.html#breadcrumbs",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://legacyxv2.co.uk/" },
-          { "@type": "ListItem", "position": 2, "name": "Hardware", "item": "https://legacyxv2.co.uk/hardware.html" }
-        ]
       }
     ]
   }
@@ -268,94 +205,69 @@
           
           <article class="recCard">
             <img src="/pc-gaming-480.webp" alt="Main Gaming PC" style="width: 100%; border-radius: 8px; margin-bottom: 12px; object-fit: cover; aspect-ratio: 16/9; border: 1px solid rgba(255,140,0,0.2);">
-            
             <div class="recTitle">Main Gaming PC <span class="recTag">Daily</span></div>
             <ul class="gearList">
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">CPU</span>
-                  <span class="gearName">AMD Ryzen 7 7800X3D</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">AMD Ryzen 7 7800X3D</span></div>
+                <a href="https://amzn.eu/d/0egnE5el?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">GPU</span>
-                  <span class="gearName">Palit RTX 5070 Ti 16GB</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">Palit RTX 5070 Ti 16GB</span></div>
+                <a href="https://amzn.eu/d/06CnI9XX?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">Motherboard</span>
-                  <span class="gearName">ASRock X870E Nova WiFi</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock X870E Nova WiFi</span></div>
+                <a href="https://amzn.eu/d/04M7P3zy?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">RAM</span>
-                  <span class="gearName">Kingston Fury 64GB DDR5</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Kingston Fury 64GB DDR5</span></div>
+                <a href="https://amzn.eu/d/0egEBkpq?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
             </ul>
           </article>
 
           <article class="recCard">
             <img src="/pc-editing-480.webp" alt="Editing PC" style="width: 100%; border-radius: 8px; margin-bottom: 12px; object-fit: cover; aspect-ratio: 16/9; border: 1px solid rgba(255,140,0,0.2);">
-            
             <div class="recTitle">Editing PC <span class="recTag">Work</span></div>
             <ul class="gearList">
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">CPU</span>
-                  <span class="gearName">Intel Core i5-12400F</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">Intel Core i5-12400F</span></div>
+                <a href="https://amzn.eu/d/0hHZOrOs?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">GPU</span>
-                  <span class="gearName">NVIDIA RTX 4070 FE</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">MSI RTX 4070 12GB</span></div>
+                <a href="https://amzn.eu/d/04Lf3BY4?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">Motherboard</span>
-                  <span class="gearName">ASRock Z790 LiveMixer</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock Z790 LiveMixer</span></div>
+                <a href="https://amzn.eu/d/0igfC5Em?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Adata XPG Gammix 32GB DDR5</span></div>
+                <a href="https://amzn.eu/d/05s34UpQ?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
             </ul>
           </article>
 
           <article class="recCard">
             <img src="/pc-testing-480.webp" alt="Testing PC" style="width: 100%; border-radius: 8px; margin-bottom: 12px; object-fit: cover; aspect-ratio: 16/9; border: 1px solid rgba(255,140,0,0.2);">
-            
             <div class="recTitle">Benchmarking Rig <span class="recTag">Test</span></div>
             <ul class="gearList">
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">CPU</span>
-                  <span class="gearName">Ryzen 5 7500F</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">Ryzen 5 7500X3D</span></div>
+                <a href="https://amzn.eu/d/0aEoc4qh?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">GPU</span>
-                  <span class="gearName">PNY RTX 2070 Super</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">PNY RTX 3080</span></div>
+                <a href="https://amzn.eu/d/0ipWJMX9?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
               <li class="gearItem">
-                <div class="gearInfo">
-                  <span class="gearType">Cooler</span>
-                  <span class="gearName">Deepcool AK620</span>
-                </div>
-                <a href="#" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock X870 LiveMixer</span></div>
+                <a href="https://amzn.eu/d/0dPis7kG?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+              </li>
+              <li class="gearItem">
+                <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Crucial Black 32GB DDR5</span></div>
+                <a href="https://amzn.eu/d/013qVgsA?tag=legacyxv2-21" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
               </li>
             </ul>
           </article>
