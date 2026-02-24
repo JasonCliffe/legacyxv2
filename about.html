@@ -4,43 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>LegacyXV2 — About the Channel</title>
-  <meta name="description" content="About LegacyXV2: gaming content, horror playthroughs, COD zombies, and PC hardware builds — with a consistent release schedule." />
-  <meta name="robots" content="index,follow" />
+  <title>About LegacyXV2 — Energy, Passion & Hardware</title>
+  <meta name="description" content="The story behind LegacyXV2: From the WWE Legacy stable and BO2 sniping to 100% completionist runs and PC hardware." />
   <link rel="canonical" href="https://legacyxv2.co.uk/about.html" />
 
-  <meta property="og:site_name" content="LegacyXV2" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://legacyxv2.co.uk/about.html" />
-  <meta property="og:title" content="LegacyXV2 — About the Channel" />
-  <meta property="og:description" content="What LegacyXV2 is, what gets uploaded, and what to expect." />
-  <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
-  <meta property="og:image:secure_url" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
-  <meta property="og:image:alt" content="LegacyXV2 — About the Channel" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LegacyXV2 — About the Channel" />
-  <meta name="twitter:description" content="What LegacyXV2 is, what gets uploaded, and what to expect." />
-  <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
-
   <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/styles.css?v=13" />
 
-  <!-- Logo preload -->
-  <link
-    rel="preload"
-    as="image"
-    href="/logo-256.webp"
-    fetchpriority="high"
-    imagesrcset="/logo-256.webp 256w, /logo-512.webp 512w"
-    imagesizes="(max-width: 520px) 220px, 280px"
-  />
-
-  <link rel="stylesheet" href="/styles.css?v=12" />
+  <style>
+    .statGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 30px 0; }
+    .statCard { background: rgba(255,140,0,0.05); border: 1px solid rgba(255,140,0,0.15); padding: 20px; border-radius: 12px; text-align: center; }
+    .statNum { display: block; font-size: 1.5rem; font-weight: 800; color: #ffb300; margin-bottom: 4px; }
+    .statLabel { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,238,221,0.6); }
+    
+    .bioSection { line-height: 1.8; color: rgba(255,238,221,0.8); font-size: 0.95rem; }
+    .bioSection p { margin-bottom: 20px; }
+    .bioSection h3 { color: #fff; margin: 40px 0 15px; border-left: 3px solid #ffb300; padding-left: 15px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+    
+    .accent-box { padding: 20px; border-radius: 14px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,140,0,0.1); margin: 30px 0; }
+    .accent-box strong { color: #ffb300; }
+  </style>
 </head>
 
-<body class="videos">
+<body class="about-page">
   <main class="wrap">
 
     <nav class="topnav" aria-label="Primary">
@@ -51,139 +37,66 @@
         <a class="navlink" href="/game.html">Games</a>
         <a class="navlink" href="/hardware.html">Hardware</a>
         <a class="navlink" href="/merch.html">Merch</a>
-  <a class="navlink" href="/business.html">Business</a>
+        <a class="navlink" href="/business.html">Business</a>
       </div>
     </nav>
 
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
-
       <div class="heroFrame__inner">
-        <div class="heroTop">
-          <div class="heroTop__label">
-            <span class="heroTop__dot" aria-hidden="true"></span>
-            ABOUT THE CHANNEL
-            <span class="heroTop__dot" aria-hidden="true"></span>
-          </div>
-        </div>
-
+        <div class="heroTop"><div class="heroTop__label">THE CREATOR</div></div>
         <div class="heroMain">
           <div class="heroLogo">
-            <picture>
-              <source type="image/webp" srcset="/logo-256.webp 256w, /logo-512.webp 512w" sizes="(max-width: 520px) 220px, 280px">
-              <img
-                src="/logo-256.webp"
-                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
-                sizes="(max-width: 520px) 220px, 280px"
-                width="256"
-                height="256"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                alt="LegacyXV2 logo"
-                class="heroLogo__img"
-              />
-            </picture>
+            <img src="/logo-256.webp" width="256" height="256" alt="LegacyXV2 logo" class="heroLogo__img" />
           </div>
-
           <div class="heroCopy">
-            <h1 class="heroTitle">LEGACYXV2</h1>
-            <p class="heroSub">
-              Gaming content built around horror, survival, Call of Duty, and PC builds — released on a consistent schedule.
-            </p>
-
-            <div class="heroChips" aria-hidden="true">
-              <span class="chip">Gameplay</span>
-              <span class="chip">COD</span>
-              <span class="chip">PC Builds</span>
-            </div>
+            <h1 class="heroTitle">THE STORY</h1>
+            <p class="heroSub">Energy. Passion. 100% Completion.</p>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- WHO / WHAT -->
     <section class="panel">
-      <div class="panelHead">
-        <h2 class="panelTitle">What this channel is</h2>
-      </div>
-      <div class="panelBody">
-        <p class="mutedNote">
-          LegacyXV2 is a gameplay-focused channel with an emphasis on immersive playthroughs, survival horror,
-          and recurring Call of Duty content — plus PC build and hardware episodes as the tech lane grows.
-        </p>
-      </div>
-    </section>
+      <div class="panelBody bioSection">
+        <p>I might not be the "pro-gamer" hitting every trick shot, but I play every game with the same level of energy and passion. Whether I’m playing solo, with my partner, my family, or my friends, my mission is to showcase how much fun gaming is as a whole and make people laugh along the way.</p>
 
-    <!-- CONTENT PILLARS -->
-    <section class="panel">
-      <div class="panelHead">
-        <h2 class="panelTitle">Content pillars</h2>
-      </div>
-      <div class="panelBody">
-        <ul class="recList">
-          <li><strong>Featured series:</strong> rotating flagship playthrough (updates page shows the current one).</li>
-          <li><strong>Call of Duty:</strong> multiplayer / mods / zombies.</li>
-          <li><strong>Resident Evil:</strong> </li>
-          <li><strong>Horror / Survival:</strong> </li>
-          <li><strong>PC Builds &amp; Tech:</strong> builds, parts, benchmarks, and review-style uploads.</li>
-          <li><strong>Channel Updates& Upcoming:</strong> </li>
-        </ul>
-      </div>
-    </section>
+        <div class="statGrid">
+          <div class="statCard"><span class="statNum">4,330</span><span class="statLabel">Subscribers</span></div>
+          <div class="statCard"><span class="statNum">500+</span><span class="statLabel">Shorts Avg</span></div>
+          <div class="statCard"><span class="statNum">100%</span><span class="statLabel">Completionist</span></div>
+          <div class="statCard"><span class="statNum">2023</span><span class="statLabel">Built First PC</span></div>
+        </div>
 
-    <!-- RELEASE SCHEDULE -->
-    <section class="panel">
-      <div class="panelHead">
-        <h2 class="panelTitle">Upload schedule</h2>
-      </div>
-      <div class="panelBody">
-        <p class="mutedNote">
-          Content is produced continuously and scheduled to release consistently (every ~2 days)
-          The <a class="miniLink" href="/updates.html">Updates</a> page is the source of truth for what’s new.
-        </p>
-      </div>
-    </section>
+        <h3>The "LegacyXV2" Name</h3>
+        <p>People often ask where the name comes from. The <strong>"Legacy"</strong> part is a throwback to the 2010 WWE stable featuring Randy Orton, Cody Rhodes, and Ted DiBiase Jr. The <strong>"XV2"</strong> is a nod to my roots and the group of friends I had in a Black Ops 2 sniping clan. Combining those worlds built the brand you see today.</p>
 
-    <!-- WHERE TO WATCH -->
-    <section class="panel">
-      <div class="panelHead panelHead--split">
-        <h2 class="panelTitle">Watch &amp; follow</h2>
-        <a class="miniLink" href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">YouTube →</a>
-      </div>
-      <div class="panelBody">
-        <p class="mutedNote">
-          For the latest uploads, head to YouTube or check the Updates page on this site.
-        </p>
+        <h3>Console Roots & Hardware Passion</h3>
+        <p>My first console was the Xbox 360—the greatest of all time in my opinion—and it's where I played my favorite game: Modern Warfare 2 (2009). My journey into PC hardware started more recently; I built my first PC in 2023. It was a scary and satisfying experience, but highly rewarding, and it sparked my passion for showcasing how technology evolves.</p>
 
-        <div style="height:10px"></div>
+        <div class="accent-box">
+          <p style="margin:0;"><strong>The Completionist Vibe:</strong> I don’t just "beat" games. I 100% them. Whether it’s a deep story or an achievement-heavy title, I showcase everything the game has to offer.</p>
+        </div>
 
-        <div class="heroChips">
-          <a class="chip" href="https://www.youtube.com/@legacyxv2" target="_blank" rel="noopener">YouTube</a>
-          <a class="chip" href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
-          <a class="chip" href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+        <h3>The Ethics of the Channel</h3>
+        <p>I am always open to working with tech and gaming companies that push the industry forward—brands like ASRock, Corsair, Noctua, Capcom, or NordVPN. However, I have a strict rule: <strong>I will not work with any company that harms animals or fails to protect wildlife.</strong></p>
+
+        <div style="margin-top: 40px; border-top: 1px solid rgba(255,140,0,0.1); padding-top: 20px;">
+          <p class="statLabel">Direct Contact</p>
+          <p style="font-weight: bold; color: #ffb300;">Legacyxv2@outlook.com</p>
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>
-        © <span id="year"></span> LegacyXV2
-        <span class="footerSep">•</span>
-        Digital infrastructure by
-        <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
-      </p>
+      <p>© <span id="year"></span> LegacyXV2 • <a href="/privacy.html">Privacy Notice</a></p>
     </footer>
 
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        document.documentElement.classList.add("ready");
-      });
-    });
+    requestAnimationFrame(() => document.documentElement.classList.add("ready"));
   </script>
 </body>
 </html>
