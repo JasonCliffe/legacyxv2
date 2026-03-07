@@ -4,40 +4,121 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>LegacyXV2 — Updates & Playlists</title>
-  <meta name="description" content="Watch featured series, uploads, playlists, and upcoming content from LegacyXV2." />
+  <title>LegacyXV2 — Current Series, Playlists & Channel Updates</title>
+  <meta name="description" content="Watch the current featured series, core playlists, hardware content, and upcoming channel updates from LegacyXV2." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2.co.uk/updates.html" />
 
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2.co.uk/updates.html" />
-  <meta property="og:title" content="LegacyXV2 — Updates" />
-  <meta property="og:description" content="Featured series + key playlists + channel updates & upcoming." />
+  <meta property="og:title" content="LegacyXV2 — Current Series, Playlists & Updates" />
+  <meta property="og:description" content="Featured series, core content lanes, hardware playlists, and upcoming channel updates." />
   <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LegacyXV2 — Updates" />
-  <meta name="twitter:description" content="Featured series + key playlists + channel updates & upcoming." />
+  <meta name="twitter:title" content="LegacyXV2 — Current Series, Playlists & Updates" />
+  <meta name="twitter:description" content="Featured series, core content lanes, hardware playlists, and upcoming channel updates." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
   <link rel="icon" href="/favicon.ico" />
-
   <link rel="preload" as="image" href="/logo-256.webp" fetchpriority="high" />
-
-  <link rel="stylesheet" href="/styles.css?v=13" />
+  <link rel="stylesheet" href="/styles.css?v=14" />
 
   <style>
-    .laneGrid{ display:grid; gap:14px; grid-template-columns: 1fr; }
-    @media (min-width: 820px){ .laneGrid{ grid-template-columns: repeat(2, 1fr); } }
-    .featuredLane{ grid-column: 1 / -1; }
-    .laneKicker{ margin: 0 0 8px; font-size: 12px; font-weight: 1000; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,238,221,0.72); }
-    .laneSub{ margin: 0 0 12px; font-size: 13px; line-height: 1.6; color: rgba(255,238,221,0.78); }
-    .laneActions{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top: 10px; }
-    .ytMini{ font-size:12px; font-weight:1000; letter-spacing:.6px; text-transform:uppercase; text-decoration:none; color: rgba(255,238,221,0.88); border-bottom: 1px solid rgba(255,140,0,0.22); padding-bottom: 2px; transition: border-color 0.2s; }
-    .ytMini:hover{ border-bottom-color: rgba(255,140,0,0.55); }
-    .modal__player{ width: 100%; aspect-ratio: 16 / 9; background: #000; border: 1px solid rgba(255,140,0,0.18); border-radius: 14px; overflow:hidden; }
-    .modal__player iframe{ width:100%; height:100%; border:0; display:block; }
+    .updatesIntro {
+      max-width: 760px;
+      color: rgba(255,238,221,0.82);
+    }
+
+    .updatesIntro p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .laneGrid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 820px) {
+      .laneGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .featuredLane {
+      grid-column: 1 / -1;
+    }
+
+    .featuredLane .mediaThumb {
+      aspect-ratio: 16 / 8;
+    }
+
+    .featuredLead {
+      margin: 0 0 10px;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,179,0,0.88);
+    }
+
+    .laneSub {
+      margin: 0 0 12px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,238,221,0.78);
+    }
+
+    .laneActions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .ytMini {
+      display: inline-block;
+      padding-bottom: 2px;
+      border-bottom: 1px solid rgba(255,140,0,0.22);
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(255,238,221,0.88);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .ytMini:hover {
+      border-bottom-color: rgba(255,140,0,0.55);
+      color: #fff;
+    }
+
+    .sectionStack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .modal__player {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: #000;
+    }
+
+    .modal__player iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
   </style>
 </head>
 
@@ -62,7 +143,7 @@
         <div class="heroTop">
           <div class="heroTop__label">
             <span class="heroTop__dot" aria-hidden="true"></span>
-            UPDATES & PLAYLISTS
+            CURRENT SERIES & PLAYLISTS
             <span class="heroTop__dot" aria-hidden="true"></span>
           </div>
         </div>
@@ -82,12 +163,21 @@
           </div>
 
           <div class="heroCopy">
-            <h1 class="heroTitle">UPDATES</h1>
-            <p class="heroSub">Series • Hardware • What’s Next</p>
+            <div class="heroRole">WATCH HERE • PLAYLISTS • WHAT’S NEXT</div>
+            <h1 class="heroTitle">START WITH WHAT MATTERS RIGHT NOW</h1>
+            <p class="heroSub">
+              This is the main content hub for current series, core playlists, hardware coverage, and upcoming channel updates. If you want the fastest route into LegacyXV2, start here.
+            </p>
+
             <div class="heroChips" aria-hidden="true">
-              <span class="chip">Watch on site</span>
-              <span class="chip">Playlists</span>
+              <span class="chip">Featured Series</span>
+              <span class="chip">Core Lanes</span>
               <span class="chip">Upcoming</span>
+            </div>
+
+            <div class="heroActions">
+              <a class="btnPrimary" href="#featured">Watch Featured Series</a>
+              <a class="btnGhost" href="#core-lanes">Browse Core Lanes</a>
             </div>
           </div>
         </div>
@@ -95,90 +185,154 @@
     </header>
 
     <section class="panel">
-      <div class="panelHead"><h2 class="panelTitle">Playlists</h2></div>
       <div class="panelBody">
-        <div class="laneGrid">
+        <div class="updatesIntro">
+          <p>
+            Not every playlist matters equally. This page is built to push the priority content first, then route you into the main gaming and hardware lanes without making you dig for it.
+          </p>
+        </div>
+      </div>
+    </section>
 
+    <section class="panel" id="featured">
+      <div class="panelHead">
+        <h2 class="panelTitle">Featured Right Now</h2>
+      </div>
+
+      <div class="panelBody sectionStack">
+        <div class="laneGrid">
           <article class="mediaCard featuredLane">
             <div class="mediaThumb">
               <img src="/updates-featured.webp" width="800" height="485" loading="lazy" alt="Featured series">
             </div>
             <div class="mediaBody">
-              <h3 class="mediaTitle">FEATURED SERIES</h3>
-              <p class="laneSub">RESIDENT EVIL 9 series now live</p>
+              <p class="featuredLead">Current Priority Series</p>
+              <h3 class="mediaTitle">Resident Evil 9</h3>
+              <p class="laneSub">
+                The main featured slot is reserved for the series that deserves top attention right now. Resident Evil 9 is the current focus, so this is where new visitors should start first.
+              </p>
               <div class="laneActions">
-                <button class="btnPrimary" type="button" data-watch data-title="Featured Series" data-list="PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU">Watch here</button>
+                <button class="btnPrimary" type="button" data-watch data-title="Featured Series — Resident Evil 9" data-list="PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU">Watch Here</button>
                 <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZhhTmuoFAOYKk5M9lXUTsmU">YouTube →</a>
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
 
+    <section class="panel" id="core-lanes">
+      <div class="panelHead">
+        <h2 class="panelTitle">Core Content Lanes</h2>
+      </div>
+
+      <div class="panelBody">
+        <div class="laneGrid">
           <article class="mediaCard">
-            <div class="mediaThumb"><img src="/updates-cod.webp" width="800" height="485" loading="lazy" alt="COD"></div>
+            <div class="mediaThumb">
+              <img src="/updates-cod.webp" width="800" height="485" loading="lazy" alt="Call of Duty playlist">
+            </div>
             <div class="mediaBody">
-              <h3 class="mediaTitle">CALL OF DUTY</h3>
-              <p class="laneSub">Multiplayer, mods, and zombies runs.</p>
+              <h3 class="mediaTitle">Call of Duty</h3>
+              <p class="laneSub">
+                Multiplayer, mods, and zombies content grouped into one dedicated lane instead of being scattered across the channel.
+              </p>
               <div class="laneActions">
-                <button class="btnPrimary" type="button" data-watch data-title="Call of Duty" data-list="PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr">Watch here</button>
+                <button class="btnPrimary" type="button" data-watch data-title="Call of Duty" data-list="PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr">Watch Here</button>
                 <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZj6DEqVPGIIBAyN2Iz_vZSr">YouTube →</a>
               </div>
             </div>
           </article>
 
           <article class="mediaCard">
-            <div class="mediaThumb"><img src="/updates-re.webp" width="800" height="485" loading="lazy" alt="RE"></div>
+            <div class="mediaThumb">
+              <img src="/updates-re.webp" width="800" height="485" loading="lazy" alt="Resident Evil playlist">
+            </div>
             <div class="mediaBody">
-              <h3 class="mediaTitle">RESIDENT EVIL</h3>
-              <p class="laneSub">Resident Evil 0–9 playthrough.</p>
+              <h3 class="mediaTitle">Resident Evil</h3>
+              <p class="laneSub">
+                Resident Evil coverage from 0–9, built as a proper long-form content lane rather than one-off uploads.
+              </p>
               <div class="laneActions">
-                <button class="btnPrimary" type="button" data-watch data-title="Resident Evil" data-list="PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4">Watch here</button>
+                <button class="btnPrimary" type="button" data-watch data-title="Resident Evil" data-list="PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4">Watch Here</button>
                 <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZiZx7KzEeVnb3pNZcB_Z-a4">YouTube →</a>
               </div>
             </div>
           </article>
 
           <article class="mediaCard">
-            <div class="mediaThumb"><img src="/updates-horror.webp" width="800" height="485" loading="lazy" alt="Horror"></div>
+            <div class="mediaThumb">
+              <img src="/updates-horror.webp" width="800" height="485" loading="lazy" alt="Horror and survival playlist">
+            </div>
             <div class="mediaBody">
-              <h3 class="mediaTitle">HORROR & SURVIVAL</h3>
-              <p class="laneSub">Atmospheric gameplay and tension.</p>
+              <h3 class="mediaTitle">Horror & Survival</h3>
+              <p class="laneSub">
+                Tension-heavy gameplay, darker series, and survival-focused content for people who want atmosphere as much as action.
+              </p>
               <div class="laneActions">
-                <button class="btnPrimary" type="button" data-watch data-title="Horror & Survival" data-list="PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX">Watch here</button>
+                <button class="btnPrimary" type="button" data-watch data-title="Horror & Survival" data-list="PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX">Watch Here</button>
                 <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZgqayoNBl-Y5MVKqymn0yKX">YouTube →</a>
               </div>
             </div>
           </article>
 
           <article class="mediaCard">
-            <div class="mediaThumb"><img src="/updates-tech.webp" width="800" height="485" loading="lazy" alt="Tech"></div>
+            <div class="mediaThumb">
+              <img src="/updates-tech.webp" width="800" height="485" loading="lazy" alt="PC builds and tech playlist">
+            </div>
             <div class="mediaBody">
-              <h3 class="mediaTitle">PC BUILDS & TECH</h3>
-              <p class="laneSub">Benchmarks and hardware reviews.</p>
+              <h3 class="mediaTitle">PC Builds & Tech</h3>
+              <p class="laneSub">
+                Hardware reviews, benchmarks, build talk, and creator-led PC content for the tech side of the audience.
+              </p>
               <div class="laneActions">
-                <button class="btnPrimary" type="button" data-watch data-title="PC Builds & Tech" data-list="PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN">Watch here</button>
+                <button class="btnPrimary" type="button" data-watch data-title="PC Builds & Tech" data-list="PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN">Watch Here</button>
                 <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN">YouTube →</a>
               </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
 
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">Channel & Upcoming</h2>
+      </div>
+
+      <div class="panelBody">
+        <div class="laneGrid">
           <article class="mediaCard">
-            <div class="mediaThumb"><img src="/updates-channel.webp" width="800" height="485" loading="lazy" alt="Updates"></div>
+            <div class="mediaThumb">
+              <img src="/updates-channel.webp" width="800" height="485" loading="lazy" alt="Channel updates playlist">
+            </div>
             <div class="mediaBody">
-              <h3 class="mediaTitle">CHANNEL UPDATES</h3>
-              <p class="laneSub">What’s next and upcoming plans.</p>
+              <h3 class="mediaTitle">Channel Updates</h3>
+              <p class="laneSub">
+                Direct updates on what is coming next, what is changing, and where the channel is heading.
+              </p>
               <div class="laneActions">
-                <button class="btnPrimary" type="button" data-watch data-title="Channel Updates" data-list="PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_">Watch here</button>
+                <button class="btnPrimary" type="button" data-watch data-title="Channel Updates" data-list="PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_">Watch Here</button>
                 <a class="ytMini" target="_blank" rel="noopener" href="https://youtube.com/playlist?list=PLee0iYLRqgZi5APE2Rw5924aTaj0OwsF_">YouTube →</a>
               </div>
             </div>
           </article>
-
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> LegacyXV2 • <a href="https://obsidiancreative.uk" target="_blank">Obsidian Creative</a></p>
+      <p>
+        © <span id="year"></span> LegacyXV2
+        <span class="footerSep">•</span>
+        <a href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">YouTube</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+        <span class="footerSep">•</span>
+        Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
+      </p>
     </footer>
 
   </main>
@@ -190,8 +344,12 @@
         <h3 class="modal__title" id="ytModalTitle">Watch</h3>
         <button class="modal__close" type="button" aria-label="Close" data-close>✕</button>
       </div>
-      <div class="modal__body"><div class="modal__player" id="ytModalPlayer"></div></div>
-      <div class="modal__foot"><button class="btnGhost" type="button" data-close>Close</button></div>
+      <div class="modal__body">
+        <div class="modal__player" id="ytModalPlayer"></div>
+      </div>
+      <div class="modal__foot">
+        <button class="btnGhost" type="button" data-close>Close</button>
+      </div>
     </div>
   </div>
 
@@ -210,23 +368,41 @@
         lastFocus = document.activeElement;
         titleEl.textContent = title;
         modal.classList.add("is-open");
-        modal.setAttribute("aria-hidden","false");
+        modal.setAttribute("aria-hidden", "false");
         body.classList.add("modal-open");
-        playerWrap.innerHTML = `<iframe src="https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(playlistId)}&autoplay=1&rel=0&modestbranding=1" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        playerWrap.innerHTML =
+          '<iframe src="https://www.youtube.com/embed/videoseries?list=' +
+          encodeURIComponent(playlistId) +
+          '&autoplay=1&rel=0&modestbranding=1" title="' +
+          title.replace(/"/g, '&quot;') +
+          '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
       }
 
       function closeModal(){
         modal.classList.remove("is-open");
-        modal.setAttribute("aria-hidden","true");
+        modal.setAttribute("aria-hidden", "true");
         body.classList.remove("modal-open");
         playerWrap.innerHTML = "";
         if (lastFocus) lastFocus.focus();
       }
 
-      modal.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) closeModal(); });
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal(); });
+      modal.addEventListener("click", (e) => {
+        if (e.target.closest("[data-close]")) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+
       document.querySelectorAll("[data-watch]").forEach((btn) => {
-        btn.addEventListener("click", () => openModal(btn.getAttribute("data-title"), btn.getAttribute("data-list")));
+        btn.addEventListener("click", () => {
+          openModal(
+            btn.getAttribute("data-title"),
+            btn.getAttribute("data-list")
+          );
+        });
       });
     })();
   </script>
