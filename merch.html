@@ -5,28 +5,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,follow" />
 
-  <title>LegacyXV2 — Merch (Drop One Preview)</title>
-  <meta name="description" content="LegacyXV2 official merchandise. Premium designs. Limited releases. Drop One preview." />
+  <title>LegacyXV2 — Merch Preview & Drop One Interest</title>
+  <meta name="description" content="Preview Drop One merchandise from LegacyXV2 and register interest for upcoming apparel releases." />
   <link rel="canonical" href="https://legacyxv2.co.uk/merch.html" />
 
   <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css?v=13" />
-
+  <link rel="stylesheet" href="/styles.css?v=14" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <style>
-    .gdprBox{ margin-top: 12px; padding: 12px; border-radius: 14px; border: 1px solid rgba(255,140,0,0.22); background: rgba(0,0,0,0.20); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35); }
-    .gdprText{ margin: 0; font-size: 12px; line-height: 1.55; color: rgba(255,238,221,0.74); }
-    .gdprText a{ color: rgba(255,238,221,0.9); text-decoration: none; border-bottom: 1px solid rgba(255,140,0,0.22); }
-    .gdprCheck{ display:flex; align-items:flex-start; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,140,0,0.16); }
-    .gdprCheck input{ width: 18px; height: 18px; accent-color: #ffb300; }
-    .gdprCheck label{ font-size: 12px; color: rgba(255,238,221,0.82); }
-    .formStatus { font-weight: bold; margin-left: 10px; font-size: 14px; }
+    .merchIntro {
+      max-width: 760px;
+      color: rgba(255,238,221,0.84);
+    }
+
+    .merchIntro p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .merchGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .merchCard {
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.28);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .merchCard__media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.34);
+    }
+
+    .merchCard__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .merchCard__label {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff2a00, #ffb300);
+      color: #1a0b06;
+      font-size: 11px;
+      font-weight: 1000;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      box-shadow:
+        0 0 12px rgba(255,90,0,0.24),
+        0 0 24px rgba(255,179,0,0.14);
+    }
+
+    .merchCard__body {
+      padding: 14px;
+    }
+
+    .merchCard__title {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.94);
+    }
+
+    .merchCard__text {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,238,221,0.74);
+    }
+
+    .previewNote {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,238,221,0.76);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .gdprBox {
+      margin-top: 4px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,238,221,0.76);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .gdprText {
+      margin: 0 0 10px;
+    }
+
+    .gdprText a {
+      color: rgba(255,238,221,0.90);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,140,0,0.22);
+    }
+
+    .gdprCheck {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,140,0,0.16);
+    }
+
+    .gdprCheck input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: #ffb300;
+    }
+
+    .gdprCheck label {
+      font-size: 12px;
+      color: rgba(255,238,221,0.82);
+      line-height: 1.55;
+    }
+
+    .merchContactNote {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,238,221,0.68);
+    }
+
+    @media (max-width: 980px) {
+      .merchGrid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body class="merch">
   <main class="wrap">
+
     <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
@@ -42,68 +176,158 @@
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
       <div class="heroFrame__inner">
-        <div class="heroTop"><div class="heroTop__label">OFFICIAL MERCH</div></div>
+        <div class="heroTop">
+          <div class="heroTop__label">
+            <span class="heroTop__dot" aria-hidden="true"></span>
+            MERCH PREVIEW
+            <span class="heroTop__dot" aria-hidden="true"></span>
+          </div>
+        </div>
+
         <div class="heroMain">
           <div class="heroLogo">
             <img src="/logo-256.webp" width="256" height="256" alt="LegacyXV2 logo" class="heroLogo__img" />
           </div>
+
           <div class="heroCopy">
-            <h1 class="heroTitle">MERCH</h1>
-            <p class="heroSub">Premium apparel. Limited drops. Built to last.</p>
+            <div class="heroRole">DROP ONE • PREVIEW ONLY • INTEREST CAPTURE</div>
+            <h1 class="heroTitle">DROP ONE PREVIEW</h1>
+            <p class="heroSub">
+              This page is a preview of upcoming LegacyXV2 apparel, not a live store. The goal is to show the first drop direction and capture interest before launch.
+            </p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Preview Only</span>
+              <span class="chip">Apparel</span>
+              <span class="chip">Limited Drop</span>
+            </div>
+
+            <div class="heroActions">
+              <a class="btnPrimary" href="/drop-one.html">View Drop Preview</a>
+              <a class="btnGhost" href="#merch-interest">Register Interest</a>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
     <section class="panel">
+      <div class="panelBody">
+        <div class="merchIntro">
+          <p>
+            This is not pretending to be a full merch store yet. It is a controlled preview page for Drop One, designed to show the first pieces, test interest, and give people a direct route to ask questions before anything goes properly live.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
       <div class="panelHead panelHead--split">
-        <h2 class="panelTitle">Drop One — Preview</h2>
+        <h2 class="panelTitle">Drop One Preview</h2>
         <a class="miniLink" href="/drop-one.html">View Drop →</a>
       </div>
+
       <div class="panelBody">
-        <div class="rigGrid">
-          <article class="rigCard">
-            <div class="rigMedia"><img src="/merch/inferno-enforcer-tee.jpg" alt="Tee" /><span class="rigLabel">Coming Soon</span></div>
-            <div class="rigContent"><h3 class="rigTitle">Inferno Enforcer Tee</h3></div>
+        <div class="previewNote">
+          Preview only. Final product details, launch timing, pricing, sizing, and fulfilment information should be confirmed on the dedicated drop page before anything is treated as live.
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="merchGrid">
+          <article class="merchCard">
+            <div class="merchCard__media">
+              <img src="/merch/inferno-enforcer-tee.jpg" alt="Inferno Enforcer Tee preview" />
+              <span class="merchCard__label">Coming Soon</span>
+            </div>
+            <div class="merchCard__body">
+              <h3 class="merchCard__title">Inferno Enforcer Tee</h3>
+              <p class="merchCard__text">
+                A Drop One preview piece built around a stronger, darker graphic direction rather than generic creator merch filler.
+              </p>
+            </div>
           </article>
-          <article class="rigCard">
-            <div class="rigMedia"><img src="/merch/inferno-core-hoodie.jpg" alt="Hoodie" /><span class="rigLabel">Coming Soon</span></div>
-            <div class="rigContent"><h3 class="rigTitle">Inferno Core Hoodie</h3></div>
+
+          <article class="merchCard">
+            <div class="merchCard__media">
+              <img src="/merch/inferno-core-hoodie.jpg" alt="Inferno Core Hoodie preview" />
+              <span class="merchCard__label">Coming Soon</span>
+            </div>
+            <div class="merchCard__body">
+              <h3 class="merchCard__title">Inferno Core Hoodie</h3>
+              <p class="merchCard__text">
+                A heavier flagship piece for the first drop, aimed more at identity and presence than cheap logo slapping.
+              </p>
+            </div>
           </article>
-          <article class="rigCard">
-            <div class="rigMedia"><img src="/merch/inferno-skull-tee.jpg" alt="Tee" /><span class="rigLabel">Coming Soon</span></div>
-            <div class="rigContent"><h3 class="rigTitle">Inferno Skull Tee</h3></div>
+
+          <article class="merchCard">
+            <div class="merchCard__media">
+              <img src="/merch/inferno-skull-tee.jpg" alt="Inferno Skull Tee preview" />
+              <span class="merchCard__label">Coming Soon</span>
+            </div>
+            <div class="merchCard__body">
+              <h3 class="merchCard__title">Inferno Skull Tee</h3>
+              <p class="merchCard__text">
+                A more aggressive graphic option for people who want the merch to feel like a design piece, not just channel branding.
+              </p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="panel" id="enquiries">
-      <div class="panelHead"><h2 class="panelTitle">Merch Enquiries</h2></div>
+    <section class="panel" id="merch-interest">
+      <div class="panelHead">
+        <h2 class="panelTitle">Drop One Interest & Questions</h2>
+      </div>
+
       <div class="panelBody">
         <form id="merchForm" novalidate>
           <div class="formGrid">
-            <div class="field"><label>Name</label><input class="input" name="name" type="text" placeholder="Your name" /></div>
-            <div class="field"><label>Email</label><input class="input" name="email" type="email" placeholder="you@example.com" /></div>
-            <div class="field full"><label>Topic</label><input class="input" name="topic" type="text" value="Merch enquiry" required /></div>
-            <div class="field full"><label>Message</label><textarea class="textarea" name="message" placeholder="Type your message here..." required></textarea></div>
-            <div class="field full">
-                <div class="cf-turnstile" data-sitekey="0x4AAAAAACXP03rjX-pyk88U" data-theme="dark"></div>
+            <div class="field">
+              <label for="m_name">Name</label>
+              <input class="input" id="m_name" name="name" type="text" placeholder="Your name" />
             </div>
+
+            <div class="field">
+              <label for="m_email">Email</label>
+              <input class="input" id="m_email" name="email" type="email" placeholder="you@example.com" />
+            </div>
+
+            <div class="field full">
+              <label for="m_topic">Topic</label>
+              <input class="input" id="m_topic" name="topic" type="text" value="Merch interest / enquiry" required />
+            </div>
+
+            <div class="field full">
+              <label for="m_message">Message</label>
+              <textarea class="textarea" id="m_message" name="message" placeholder="Ask about the drop, register interest, or send a merch-related question." required></textarea>
+            </div>
+
+            <div class="field full">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAACXP03rjX-pyk88U" data-theme="dark"></div>
+            </div>
+
             <div class="field full">
               <div class="gdprBox">
-                <p class="gdprText">Read our <a href="/privacy.html">Privacy Notice</a>.</p>
-                <div class="gdprCheck">
+                <p class="gdprText">Read the <a href="/privacy.html">Privacy Notice</a>.</p>
+                <label class="gdprCheck" for="m_privacy">
                   <input type="checkbox" id="m_privacy" required />
-                  <label for="m_privacy">I accept the Privacy Notice.</label>
-                </div>
+                  <span>I accept the Privacy Notice and understand my details will be used to respond to this merch message.</span>
+                </label>
               </div>
             </div>
+
             <div class="field full">
               <div class="actions">
-                <button type="submit" class="btnPrimary" id="m_submit">Send Enquiry →</button>
-                <span class="formStatus" id="m_status" aria-live="polite"></span>
+                <button type="submit" class="btnPrimary" id="m_submit">Send Message</button>
+                <div class="formStatus" id="m_status" aria-live="polite">Ready</div>
               </div>
+
+              <p class="merchContactNote">
+                This is for genuine merch interest and questions. It is not a live checkout page.
+              </p>
             </div>
           </div>
         </form>
@@ -111,7 +335,17 @@
     </section>
 
     <footer class="footer">
-      <p>© <span id="year"></span> LegacyXV2 • Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank">Obsidian Creative</a></p>
+      <p>
+        © <span id="year"></span> LegacyXV2
+        <span class="footerSep">•</span>
+        <a href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">YouTube</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+        <span class="footerSep">•</span>
+        Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
+      </p>
     </footer>
   </main>
 
@@ -119,38 +353,66 @@
     document.getElementById("year").textContent = new Date().getFullYear();
     requestAnimationFrame(() => document.documentElement.classList.add("ready"));
 
-    document.getElementById("merchForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
+    (function () {
+      const form = document.getElementById("merchForm");
       const status = document.getElementById("m_status");
       const btn = document.getElementById("m_submit");
-      
-      if(!document.getElementById("m_privacy").checked) {
-        status.textContent = "Accept privacy notice."; status.style.color = "red"; return;
+      const privacy = document.getElementById("m_privacy");
+
+      function setStatus(message, kind) {
+        status.textContent = message;
+        status.setAttribute("data-kind", kind || "");
       }
 
-      btn.disabled = true; status.textContent = "Sending..."; status.style.color = "#ffb300";
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
 
-      try {
-        const resp = await fetch("/api/enquiry", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            page: "merch",
-            name: this.name.value,
-            email: this.email.value,
-            topic: this.topic.value,
-            message: this.message.value,
-            turnstileToken: this.querySelector('[name="cf-turnstile-response"]').value
-          })
-        });
-        if(resp.ok) {
-          status.textContent = "Sent ✅"; this.reset(); turnstile.reset();
-        } else {
-          status.textContent = "Error sending.";
+        const turnstileField = form.querySelector('[name="cf-turnstile-response"]');
+        const turnstileToken = turnstileField ? turnstileField.value : "";
+
+        if (!privacy.checked) {
+          setStatus("Accept the privacy notice.", "error");
+          return;
         }
-      } catch(err) { status.textContent = "Network error."; }
-      finally { btn.disabled = false; }
-    });
+
+        if (!turnstileToken) {
+          setStatus("Complete the verification check.", "error");
+          return;
+        }
+
+        btn.disabled = true;
+        setStatus("Sending…", "busy");
+
+        try {
+          const resp = await fetch("/api/enquiry", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              page: "merch",
+              name: form.name.value.trim(),
+              email: form.email.value.trim(),
+              topic: form.topic.value.trim(),
+              message: form.message.value.trim(),
+              turnstileToken: turnstileToken
+            })
+          });
+
+          if (resp.ok) {
+            setStatus("Message sent.", "ok");
+            form.reset();
+            if (window.turnstile) {
+              window.turnstile.reset();
+            }
+          } else {
+            setStatus("Failed to send. Try again.", "error");
+          }
+        } catch (err) {
+          setStatus("Network error. Try again.", "error");
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
