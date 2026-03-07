@@ -3,25 +3,192 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LegacyXV2 — Business & Sponsorships</title>
-  <link rel="stylesheet" href="/styles.css?v=13" />
+
+  <title>LegacyXV2 — Business, Sponsorships & Brand Partnerships</title>
+  <meta name="description" content="Work with LegacyXV2 on gaming, horror, and PC hardware partnerships including sponsored content, hardware reviews, and creator-led integrations." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://legacyxv2.co.uk/business.html" />
+
+  <meta property="og:site_name" content="LegacyXV2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://legacyxv2.co.uk/business.html" />
+  <meta property="og:title" content="LegacyXV2 — Business, Sponsorships & Brand Partnerships" />
+  <meta property="og:description" content="Partnership opportunities across gaming content, horror series, PC hardware coverage, and creator-led integrations." />
+  <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LegacyXV2 — Business, Sponsorships & Brand Partnerships" />
+  <meta name="twitter:description" content="Gaming, horror, and PC hardware partnerships with LegacyXV2." />
+  <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/styles.css?v=14" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
   <style>
-    .biz-hero { text-align: center; padding: 60px 20px; }
-    .biz-hero h1 { font-size: 3rem; color: #fff; }
-    .biz-hero h1 span { color: #00e5ff; }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 40px auto; max-width: 1000px; padding: 0 20px; }
-    .service-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 30px; border-radius: 12px; text-align: center; }
-    .service-card:hover { border-color: #00e5ff; }
-    .btn-cyan { background: #00e5ff; color: #000; font-weight: bold; border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer; width: 100%; }
-    .gdprBox { margin-top: 12px; padding: 12px; border-radius: 8px; border: 1px solid rgba(0, 229, 255, 0.22); background: rgba(0,0,0,0.20); }
-    .gdprCheck input { accent-color: #00e5ff; }
+    .bizIntro {
+      max-width: 760px;
+      color: rgba(255,238,221,0.84);
+    }
+
+    .bizIntro p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .bizGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .bizCard {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.24);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .bizCard h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 1000;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.94);
+    }
+
+    .bizCard p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,238,221,0.76);
+    }
+
+    .bizSplit {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .bizList {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,238,221,0.82);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .bizList li + li {
+      margin-top: 8px;
+    }
+
+    .fitBox {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.24);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .fitBox h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 1000;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.94);
+    }
+
+    .fitBox p {
+      margin: 0 0 12px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,238,221,0.76);
+    }
+
+    .fitBox p:last-child {
+      margin-bottom: 0;
+    }
+
+    .bizNote {
+      margin-top: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,238,221,0.68);
+    }
+
+    .selectInput {
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 14px;
+      padding: 12px;
+      color: rgba(255,238,221,0.92);
+      background: rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,140,0,0.22);
+      outline: none;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .selectInput:focus {
+      border-color: rgba(255,179,0,0.45);
+      box-shadow:
+        0 0 0 3px rgba(255,179,0,0.14),
+        inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .gdprBox {
+      margin-top: 4px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.22);
+      color: rgba(255,238,221,0.76);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .gdprCheck {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .gdprCheck input {
+      margin-top: 3px;
+      accent-color: #ffb300;
+    }
+
+    .statusWrap {
+      margin-top: 10px;
+    }
+
+    .contactMini {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contactMini a {
+      text-decoration: none;
+    }
+
+    @media (max-width: 980px) {
+      .bizGrid,
+      .bizSplit {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
 <body class="business-page">
   <main class="wrap">
-    <nav class="topnav">
+
+    <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
         <a class="navlink" href="/about.html">About</a>
@@ -33,42 +200,201 @@
       </div>
     </nav>
 
-    <header class="biz-hero">
-      <h1>Partner with <span>LegacyXV2</span></h1>
-      <p>Hardware reviews, sponsorships, and brand integrations.</p>
+    <header class="heroFrame">
+      <div class="heroFrame__glow" aria-hidden="true"></div>
+      <div class="heroFrame__inner">
+        <div class="heroTop">
+          <div class="heroTop__label">
+            <span class="heroTop__dot" aria-hidden="true"></span>
+            BUSINESS & PARTNERSHIPS
+            <span class="heroTop__dot" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="heroMain">
+          <div class="heroLogo">
+            <img
+              src="/logo-256.webp"
+              width="256"
+              height="256"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              alt="LegacyXV2 logo"
+              class="heroLogo__img"
+            />
+          </div>
+
+          <div class="heroCopy">
+            <div class="heroRole">SPONSORSHIPS • INTEGRATIONS • CREATOR-LED PROMOTION</div>
+            <h1 class="heroTitle">PARTNER WITH LEGACYXV2</h1>
+            <p class="heroSub">
+              LegacyXV2 offers partnership opportunities across gaming content, horror series, and PC hardware coverage. The focus is simple: relevant integrations, credible brand fit, and content that does not feel forced.
+            </p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Gaming</span>
+              <span class="chip">PC Hardware</span>
+              <span class="chip">Long-Form Integrations</span>
+            </div>
+
+            <div class="heroActions">
+              <a class="btnPrimary" href="#proposal-form">Send a Proposal</a>
+              <a class="btnGhost" href="/updates.html">View Content Hub</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
 
-    <section class="services-grid">
-      <div class="service-card"><h3>💻 Hardware</h3><p>Honest benchmarking & reviews.</p></div>
-      <div class="service-card"><h3>🎮 Playthroughs</h3><p>Dedicated series for your game.</p></div>
-      <div class="service-card"><h3>📢 Integrations</h3><p>Native ad reads in long-form content.</p></div>
+    <section class="panel">
+      <div class="panelBody">
+        <div class="bizIntro">
+          <p>
+            This page exists for brands, agencies, and partners who want a clear view of what LegacyXV2 can actually offer. No fluff, no fake corporate language, and no pretending every brand is a fit. The right partnership should match the audience, the content, and the channel direction properly.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section class="panel" style="max-width:800px; margin: 0 auto;">
-      <div class="panelHead"><h2 class="panelTitle">Send a Proposal</h2></div>
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">Partnership Routes</h2>
+      </div>
+
+      <div class="panelBody">
+        <div class="bizGrid">
+          <article class="bizCard">
+            <h3>Hardware Reviews</h3>
+            <p>
+              Creator-led hardware coverage built around real interest in components, setups, upgrades, performance, and PC building — not empty buzzwords and recycled spec sheets.
+            </p>
+          </article>
+
+          <article class="bizCard">
+            <h3>Game Sponsorships</h3>
+            <p>
+              Sponsored series support, game-focused promotion, and placement opportunities that fit naturally within long-form gaming coverage rather than feeling bolted on.
+            </p>
+          </article>
+
+          <article class="bizCard">
+            <h3>Native Integrations</h3>
+            <p>
+              Brand messaging placed inside creator-led content in a way that keeps the delivery watchable, on-brand, and relevant to the audience being reached.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">What Brands Can Expect</h2>
+      </div>
+
+      <div class="panelBody">
+        <div class="bizSplit">
+          <div>
+            <ul class="bizList">
+              <li>Gaming and PC hardware alignment instead of random category mismatch.</li>
+              <li>Creator-led delivery that fits the channel voice and audience expectations.</li>
+              <li>Long-form content opportunities with stronger integration potential than throwaway placements.</li>
+              <li>A channel built around completionist content, repeatable content lanes, and brand-safe presentation.</li>
+              <li>Direct communication through the proposal form for relevant sponsorship discussions.</li>
+            </ul>
+          </div>
+
+          <aside class="fitBox">
+            <h3>Best Fit</h3>
+            <p>
+              LegacyXV2 is best suited to gaming, PC hardware, accessories, software, creator tools, and related entertainment or tech categories.
+            </p>
+            <p>
+              Forced placements are useless. Good partnerships should make sense to the content and feel natural to the audience.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">Brand Fit & Standards</h2>
+      </div>
+
+      <div class="panelBody">
+        <p>
+          The goal is not to work with everyone. The goal is to work with brands that fit the audience, fit the content, and do not weaken trust. Relevance matters more than volume, and credibility matters more than quick cash.
+        </p>
+        <p>
+          LegacyXV2 is particularly aligned with gaming and technology brands that care about quality, long-term reputation, and sensible creator partnerships.
+        </p>
+      </div>
+    </section>
+
+    <section class="panel" id="proposal-form" style="max-width: 860px; margin-left: auto; margin-right: auto;">
+      <div class="panelHead">
+        <h2 class="panelTitle">Send a Proposal</h2>
+      </div>
+
       <div class="panelBody">
         <form id="bizForm" novalidate>
           <div class="formGrid">
-            <div class="field"><label>Name / Brand</label><input class="input" name="name" type="text" required /></div>
-            <div class="field"><label>Work Email</label><input class="input" name="email" type="email" required /></div>
+            <div class="field">
+              <label for="b_name">Name / Brand</label>
+              <input class="input" id="b_name" name="name" type="text" required />
+            </div>
+
+            <div class="field">
+              <label for="b_email">Work Email</label>
+              <input class="input" id="b_email" name="email" type="email" required />
+            </div>
+
             <div class="field full">
-              <label>Partnership Type</label>
-              <select class="input" name="topic" style="width:100%; background:#000; color:#fff;">
+              <label for="b_topic">Partnership Type</label>
+              <select class="selectInput" id="b_topic" name="topic">
                 <option>Hardware Review</option>
                 <option>Game Sponsorship</option>
+                <option>Native Brand Integration</option>
+                <option>Affiliate / Long-Term Partnership</option>
                 <option>Other</option>
               </select>
             </div>
-            <div class="field full"><label>Message</label><textarea class="textarea" name="message" required></textarea></div>
-            <div class="field full"><div class="cf-turnstile" data-sitekey="0x4AAAAAACXP03rjX-pyk88U" data-theme="dark"></div></div>
+
+            <div class="field full">
+              <label for="b_message">Proposal Details</label>
+              <textarea class="textarea" id="b_message" name="message" required placeholder="Tell me who you are, what the partnership is, the type of product or service, and what you are looking for."></textarea>
+            </div>
+
+            <div class="field full">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAACXP03rjX-pyk88U" data-theme="dark"></div>
+            </div>
+
             <div class="field full">
               <div class="gdprBox">
-                <input type="checkbox" id="b_privacy" required /> <label for="b_privacy">I accept the <a href="/privacy.html">Privacy Notice</a></label>
+                <label class="gdprCheck" for="b_privacy">
+                  <input type="checkbox" id="b_privacy" required />
+                  <span>I accept the <a href="/privacy.html">Privacy Notice</a> and understand my details will be used to respond to this enquiry.</span>
+                </label>
               </div>
             </div>
+
             <div class="field full">
-              <button type="submit" class="btn-cyan" id="b_submit">Send Proposal →</button>
-              <p id="b_status" style="text-align:center; margin-top:10px; color:#00e5ff; font-weight:bold;"></p>
+              <div class="actions">
+                <button type="submit" class="btnPrimary" id="b_submit">Send Proposal</button>
+                <div class="contactMini">
+                  <a class="btnGhost" href="mailto:Legacyxv2@outlook.com?subject=LegacyXV2%20Business%20Enquiry">Email Directly</a>
+                </div>
+              </div>
+
+              <div class="statusWrap">
+                <div class="formStatus" id="b_status" aria-live="polite">Ready</div>
+              </div>
+
+              <p class="bizNote">
+                Serious enquiries only. Irrelevant pitches, spam, and generic outreach waste everyone’s time.
+              </p>
             </div>
           </div>
         </form>
@@ -76,38 +402,84 @@
     </section>
 
     <footer class="footer">
-        <p>© <span id="year"></span> LegacyXV2 • <a href="https://obsidiancreative.uk" target="_blank">Obsidian Creative</a></p>
+      <p>
+        © <span id="year"></span> LegacyXV2
+        <span class="footerSep">•</span>
+        <a href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">YouTube</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+        <span class="footerSep">•</span>
+        Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
+      </p>
     </footer>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("bizForm").addEventListener("submit", async function(e) {
-      e.preventDefault();
-      const status = document.getElementById("b_status");
-      if(!document.getElementById("b_privacy").checked) { status.textContent = "Accept privacy notice."; return; }
-      
-      document.getElementById("b_submit").disabled = true;
-      status.textContent = "Sending...";
+    requestAnimationFrame(() => document.documentElement.classList.add("ready"));
 
-      try {
-        const resp = await fetch("/api/enquiry", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            page: "business",
-            name: this.name.value,
-            email: this.email.value,
-            topic: this.topic.value,
-            message: this.message.value,
-            turnstileToken: this.querySelector('[name="cf-turnstile-response"]').value
-          })
-        });
-        if(resp.ok) { status.textContent = "Sent ✅"; this.reset(); turnstile.reset(); }
-        else { status.textContent = "Failed."; }
-      } catch(err) { status.textContent = "Error."; }
-      finally { document.getElementById("b_submit").disabled = false; }
-    });
+    (function () {
+      const form = document.getElementById("bizForm");
+      const submitBtn = document.getElementById("b_submit");
+      const statusEl = document.getElementById("b_status");
+      const privacy = document.getElementById("b_privacy");
+
+      function setStatus(message, kind) {
+        statusEl.textContent = message;
+        statusEl.setAttribute("data-kind", kind || "");
+      }
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const turnstileField = form.querySelector('[name="cf-turnstile-response"]');
+        const turnstileToken = turnstileField ? turnstileField.value : "";
+
+        if (!privacy.checked) {
+          setStatus("Accept the privacy notice.", "error");
+          return;
+        }
+
+        if (!turnstileToken) {
+          setStatus("Complete the verification check.", "error");
+          return;
+        }
+
+        submitBtn.disabled = true;
+        setStatus("Sending…", "busy");
+
+        try {
+          const resp = await fetch("/api/enquiry", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              page: "business",
+              name: form.name.value.trim(),
+              email: form.email.value.trim(),
+              topic: form.topic.value,
+              message: form.message.value.trim(),
+              turnstileToken: turnstileToken
+            })
+          });
+
+          if (resp.ok) {
+            setStatus("Proposal sent.", "ok");
+            form.reset();
+            if (window.turnstile) {
+              window.turnstile.reset();
+            }
+          } else {
+            setStatus("Failed to send. Try again.", "error");
+          }
+        } catch (err) {
+          setStatus("Something broke. Try again.", "error");
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
