@@ -1,28 +1,28 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>LegacyXV2 — Hardware Reviews, Benchmarks & Q1 2026 Recommendations</title>
-  <meta name="description" content="LegacyXV2 hardware hub: YouTube hardware reviews playlist plus Q1 2026 CPU/GPU recommendations for budget, mid-range, and high-end gaming builds." />
+  <title>LegacyXV2 — Hardware Hub, Reviews & Q1 2026 Build Recommendations</title>
+  <meta name="description" content="Explore the LegacyXV2 hardware hub with creator rigs, hardware review content, and Q1 2026 CPU and GPU recommendations for gaming builds." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://legacyxv2.co.uk/hardware.html" />
 
   <meta property="og:site_name" content="LegacyXV2" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://legacyxv2.co.uk/hardware.html" />
-  <meta property="og:title" content="LegacyXV2 — Hardware Reviews & Q1 2026 Recommendations" />
-  <meta property="og:description" content="Hardware reviews playlist + Q1 2026 CPU/GPU recommendations for gaming systems." />
+  <meta property="og:title" content="LegacyXV2 — Hardware Hub, Reviews & Q1 2026 Recommendations" />
+  <meta property="og:description" content="Creator rigs, hardware review content, and Q1 2026 gaming CPU and GPU recommendations." />
   <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
   <meta property="og:image:secure_url" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
-  <meta property="og:image:alt" content="LegacyXV2 — Hardware Reviews & Recommendations" />
+  <meta property="og:image:alt" content="LegacyXV2 — Hardware Hub" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LegacyXV2 — Hardware Reviews & Q1 2026 Recommendations" />
-  <meta name="twitter:description" content="Hardware reviews playlist + Q1 2026 CPU/GPU recommendations for gaming systems." />
+  <meta name="twitter:title" content="LegacyXV2 — Hardware Hub, Reviews & Q1 2026 Recommendations" />
+  <meta name="twitter:description" content="Creator rigs, hardware review content, and Q1 2026 gaming CPU and GPU recommendations." />
   <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
 
   <link rel="icon" href="/favicon.ico" />
@@ -36,28 +36,255 @@
     imagesizes="(max-width: 520px) 220px, 280px"
   />
 
-  <link rel="stylesheet" href="/styles.css?v=13" />
+  <link rel="stylesheet" href="/styles.css?v=14" />
 
   <style>
-    .hwGrid2 { display: grid; grid-template-columns: 1.1fr .9fr; gap: 14px; }
-    .embedFrame { aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,140,0,0.18); background: rgba(0,0,0,0.28); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55); }
-    .embedFrame iframe { width: 100%; height: 100%; border: 0; display: block; }
-    .recGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .recCard { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,140,0,0.18); background: rgba(0,0,0,0.28); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.55); padding: 12px; display: flex; flex-direction: column; }
-    .recTitle { margin: 0 0 12px; font-size: 13px; font-weight: 1000; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,238,221,0.92); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .recTag { font-size: 11px; padding: 6px 10px; border-radius: 999px; border: 1px solid rgba(255,140,0,0.22); color: rgba(255,238,221,0.82); background: rgba(0,0,0,0.22); white-space: nowrap; }
-    .recList { margin: 0; padding-left: 18px; color: rgba(255,238,221,0.78); line-height: 1.55; font-size: 13px; }
-    .mutedNote { margin: 0; color: rgba(255,238,221,0.70); line-height: 1.55; font-size: 13px; }
-    .disclaimerBox { padding: 12px; border-radius: 8px; background: rgba(0,0,0,0.2); border-left: 3px solid #ffb300; margin-bottom: 20px; }
-    .gearList { list-style: none !important; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-    .gearItem { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,140,0,0.15); }
-    .gearItem:last-child { border-bottom: none; padding-bottom: 0; }
-    .gearInfo { display: flex; flex-direction: column; gap: 3px; }
-    .gearType { font-size: 10px; font-weight: 900; text-transform: uppercase; color: #ffb300; letter-spacing: 1px; }
-    .gearName { font-size: 13px; color: rgba(255,238,221,0.95); max-width: 170px; line-height: 1.3; }
-    .btn-affiliate { background: rgba(255,140,0,0.15); color: #ffb300; border: 1px solid rgba(255,140,0,0.4); padding: 6px 14px; border-radius: 6px; text-decoration: none; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s ease; white-space: nowrap; }
-    .btn-affiliate:hover { background: rgba(255,140,0,0.4); border-color: #ffb300; color: #fff; transform: translateY(-1px); }
-    @media (max-width: 980px){ .hwGrid2 { grid-template-columns: 1fr; } .recGrid { grid-template-columns: 1fr; } }
+    .hwIntro {
+      max-width: 780px;
+      color: rgba(255,238,221,0.84);
+    }
+
+    .hwIntro p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .hwStack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hwInfoGrid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .hwInfoBox {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.24);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .hwInfoBox h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 1000;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.94);
+    }
+
+    .hwInfoBox p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,238,221,0.76);
+    }
+
+    .hwSectionNote {
+      margin: 0 0 14px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,238,221,0.74);
+    }
+
+    .rigHero {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .rigBlock {
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.28);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .rigBlock__media {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.34);
+    }
+
+    .rigBlock__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .rigBlock__body {
+      padding: 14px;
+    }
+
+    .rigBlock__title {
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.94);
+    }
+
+    .rigBlock__tag {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,140,0,0.22);
+      color: rgba(255,238,221,0.82);
+      background: rgba(0,0,0,0.22);
+      white-space: nowrap;
+    }
+
+    .gearList {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gearItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,140,0,0.15);
+    }
+
+    .gearItem:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .gearInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .gearType {
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #ffb300;
+      letter-spacing: 1px;
+    }
+
+    .gearName {
+      font-size: 13px;
+      line-height: 1.3;
+      color: rgba(255,238,221,0.95);
+      max-width: 190px;
+    }
+
+    .btn-affiliate {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      background: rgba(255,140,0,0.15);
+      color: rgba(255,238,221,0.92);
+      border: 1px solid rgba(255,140,0,0.34);
+      padding: 8px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-affiliate:hover {
+      transform: translateY(-1px);
+      background: rgba(255,140,0,0.26);
+      border-color: rgba(255,179,0,0.52);
+      color: #fff;
+    }
+
+    .snapshotGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .snapshotCard {
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.28);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+    }
+
+    .snapshotCard h3 {
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 1000;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.92);
+    }
+
+    .snapshotTag {
+      font-size: 11px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,140,0,0.22);
+      color: rgba(255,238,221,0.82);
+      background: rgba(0,0,0,0.22);
+      white-space: nowrap;
+    }
+
+    .snapshotList {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,238,221,0.78);
+      line-height: 1.6;
+      font-size: 13px;
+    }
+
+    .disclaimerBox {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,140,0,0.18);
+      border-left: 3px solid #ffb300;
+    }
+
+    .disclaimerBox p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.6;
+      color: rgba(255,238,221,0.76);
+    }
+
+    @media (max-width: 980px) {
+      .hwInfoGrid,
+      .rigHero,
+      .snapshotGrid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -83,8 +310,7 @@
           "https://www.tiktok.com/@legacyxv2",
           "https://www.instagram.com/legacyxv2"
         ],
-        "founder": { "@id": "https://legacyxv2.co.uk/#creator" },
-        "subjectOf": { "@id": "https://www.youtube.com/@legacyxv2#channel" }
+        "founder": { "@id": "https://legacyxv2.co.uk/#creator" }
       },
       {
         "@type": "Person",
@@ -92,33 +318,16 @@
         "name": "Jason Cliffe",
         "jobTitle": "Founder / Creator",
         "url": "https://legacyxv2.co.uk/",
-        "worksFor": { "@id": "https://legacyxv2.co.uk/#brand" },
-        "sameAs": [
-          "https://www.youtube.com/@legacyxv2",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
-      },
-      {
-        "@type": "YouTubeChannel",
-        "@id": "https://www.youtube.com/@legacyxv2#channel",
-        "name": "LegacyXV2",
-        "url": "https://www.youtube.com/@legacyxv2",
-        "sameAs": [
-          "https://legacyxv2.co.uk/",
-          "https://www.tiktok.com/@legacyxv2",
-          "https://www.instagram.com/legacyxv2"
-        ]
+        "worksFor": { "@id": "https://legacyxv2.co.uk/#brand" }
       },
       {
         "@type": "WebPage",
         "@id": "https://legacyxv2.co.uk/hardware.html#webpage",
         "url": "https://legacyxv2.co.uk/hardware.html",
-        "name": "LegacyXV2 — Hardware Reviews & Q1 2026 Recommendations",
-        "description": "Hardware reviews playlist plus Q1 2026 CPU/GPU recommendations for gaming builds.",
+        "name": "LegacyXV2 — Hardware Hub, Reviews & Q1 2026 Build Recommendations",
+        "description": "Creator rigs, hardware review content, and Q1 2026 CPU/GPU recommendations for gaming builds.",
         "isPartOf": { "@id": "https://legacyxv2.co.uk/#website" },
-        "about": { "@id": "https://legacyxv2.co.uk/#brand" },
-        "breadcrumb": { "@id": "https://legacyxv2.co.uk/hardware.html#breadcrumbs" }
+        "about": { "@id": "https://legacyxv2.co.uk/#brand" }
       }
     ]
   }
@@ -142,7 +351,6 @@
 
     <header class="heroFrame">
       <div class="heroFrame__glow" aria-hidden="true"></div>
-
       <div class="heroFrame__inner">
         <div class="heroTop">
           <div class="heroTop__label">
@@ -156,17 +364,32 @@
           <div class="heroLogo">
             <picture>
               <source type="image/webp" srcset="/logo-256.webp 256w, /logo-512.webp 512w" sizes="(max-width: 520px) 220px, 280px">
-              <img src="/logo-256.webp" alt="LegacyXV2 logo" class="heroLogo__img" />
+              <img
+                src="/logo-256.webp"
+                srcset="/logo-256.webp 256w, /logo-512.webp 512w"
+                sizes="(max-width: 520px) 220px, 280px"
+                width="256"
+                height="256"
+                alt="LegacyXV2 logo"
+                class="heroLogo__img"
+              />
             </picture>
           </div>
 
           <div class="heroCopy">
+            <div class="heroRole">REVIEWS • RIGS • BUYING SNAPSHOT</div>
             <h1 class="heroTitle">BUILD SMARTER</h1>
-            <p class="heroSub">Hardware reviews, benchmarks, and recommended parts for gaming builds.</p>
+            <p class="heroSub">
+              The hardware hub covers creator rigs, benchmark-focused content, and practical gaming build recommendations. The goal is simple: useful guidance, not spec-sheet theatre.
+            </p>
             <div class="heroChips" aria-hidden="true">
               <span class="chip">CPUs</span>
               <span class="chip">GPUs</span>
               <span class="chip">Benchmarks</span>
+            </div>
+            <div class="heroActions">
+              <a class="btnPrimary" href="#creator-rigs">See the Rigs</a>
+              <a class="btnGhost" href="#snapshot">View Q1 2026 Snapshot</a>
             </div>
           </div>
         </div>
@@ -174,166 +397,213 @@
     </header>
 
     <section class="panel">
+      <div class="panelBody">
+        <div class="hwIntro">
+          <p>
+            This page has three jobs: show the systems behind the channel, route visitors into hardware content, and give a dated recommendation snapshot for people building gaming PCs. Those are not the same thing, so they should not be mashed together like one random parts list.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
       <div class="panelHead panelHead--split">
-        <h2 class="panelTitle">Hardware Reviews Playlist</h2>
+        <h2 class="panelTitle">Hardware Content</h2>
         <a class="miniLink" href="https://youtube.com/playlist?list=PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN" target="_blank" rel="noopener">Open on YouTube →</a>
       </div>
 
       <div class="panelBody">
-        <div class="hwGrid2">
+        <div class="hwInfoGrid">
           <div class="embedFrame">
-            <iframe src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN" title="LegacyXV2 hardware reviews playlist" loading="lazy" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/videoseries?list=PLee0iYLRqgZjZBJClp0LlTw4_cMQhCBLN"
+              title="LegacyXV2 hardware reviews playlist"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
           </div>
-          <div>
-            <p class="mutedNote">This hub is for hardware reviews, benchmarking, and practical build guidance. Recommendations below are a simple Q1 2026 snapshot so you can quickly match parts to a budget tier.</p>
+
+          <div class="hwStack">
+            <div class="hwInfoBox">
+              <h3>What This Covers</h3>
+              <p>
+                Hardware videos, benchmark-driven content, creator rigs, and practical build guidance for people who want gaming performance without drowning in nonsense.
+              </p>
+            </div>
+
+            <div class="hwInfoBox">
+              <h3>Why It Matters</h3>
+              <p>
+                A hardware page only works if it stays useful. That means separating personal rigs from buying advice and making it obvious when recommendations are tied to a specific time window.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="panel">
+    <section class="panel" id="creator-rigs">
       <div class="panelHead">
-        <h2 class="panelTitle">The Setups & Gear</h2>
+        <h2 class="panelTitle">The Rigs Behind the Content</h2>
       </div>
 
       <div class="panelBody">
+        <p class="hwSectionNote">
+          These are the systems currently used across gaming, editing, and test work. This section is about the channel’s own setups, not generic buyer advice.
+        </p>
+
         <div class="disclaimerBox">
-          <p class="mutedNote"><strong>Transparency Note:</strong> Gear links below are affiliate links. If you purchase through them, LegacyXV2 may earn a commission to help fund future hardware reviews at no extra cost to you.</p>
+          <p><strong>Transparency note:</strong> Some gear links may be affiliate links. If you buy through them, LegacyXV2 may earn a commission at no extra cost to you.</p>
         </div>
 
-        <div class="recGrid">
-          
-          <article class="recCard">
-            <img src="/pc-gaming-480.webp" alt="Main Gaming PC" style="width: 100%; border-radius: 8px; margin-bottom: 12px; object-fit: cover; aspect-ratio: 16/9; border: 1px solid rgba(255,140,0,0.2);">
-            <div class="recTitle">Main Gaming PC <span class="recTag">Daily</span></div>
-            <ul class="gearList">
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">AMD Ryzen 7 7800X3D</span></div>
-                <a href="https://amzn.to/4qVL7OS" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">Palit RTX 5070 Ti 16GB</span></div>
-                <a href="https://amzn.to/4rrLphk" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock X870E Nova WiFi</span></div>
-                <a href="https://amzn.to/46if3xa" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Kingston Fury 64GB DDR5</span></div>
-                <a href="https://amzn.to/4tStMZC" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-            </ul>
+        <div class="rigHero">
+
+          <article class="rigBlock">
+            <div class="rigBlock__media">
+              <img src="/pc-gaming-480.webp" alt="Main Gaming PC">
+            </div>
+            <div class="rigBlock__body">
+              <div class="rigBlock__title">Main Gaming PC <span class="rigBlock__tag">Daily</span></div>
+              <ul class="gearList">
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">AMD Ryzen 7 7800X3D</span></div>
+                  <a href="https://amzn.to/4qVL7OS" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">Palit RTX 5070 Ti 16GB</span></div>
+                  <a href="https://amzn.to/4rrLphk" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock X870E Nova WiFi</span></div>
+                  <a href="https://amzn.to/46if3xa" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Kingston Fury 64GB DDR5</span></div>
+                  <a href="https://amzn.to/4tStMZC" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+              </ul>
+            </div>
           </article>
 
-          <article class="recCard">
-            <img src="/pc-editing-480.webp" alt="Editing PC" style="width: 100%; border-radius: 8px; margin-bottom: 12px; object-fit: cover; aspect-ratio: 16/9; border: 1px solid rgba(255,140,0,0.2);">
-            <div class="recTitle">Editing PC <span class="recTag">Work</span></div>
-            <ul class="gearList">
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">Intel Core i5-12400F</span></div>
-                <a href="https://amzn.to/4tS7tDt" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">MSI RTX 4070 12GB</span></div>
-                <a href="https://amzn.to/4aIJFsU" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock Z790 LiveMixer</span></div>
-                <a href="https://amzn.to/4l1FgpJ" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Adata XPG Gammix 32GB DDR5</span></div>
-                <a href="https://amzn.to/4l0oeII" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-            </ul>
+          <article class="rigBlock">
+            <div class="rigBlock__media">
+              <img src="/pc-editing-480.webp" alt="Editing PC">
+            </div>
+            <div class="rigBlock__body">
+              <div class="rigBlock__title">Editing PC <span class="rigBlock__tag">Work</span></div>
+              <ul class="gearList">
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">Intel Core i5-12400F</span></div>
+                  <a href="https://amzn.to/4tS7tDt" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">MSI RTX 4070 12GB</span></div>
+                  <a href="https://amzn.to/4aIJFsU" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock Z790 LiveMixer</span></div>
+                  <a href="https://amzn.to/4l1FgpJ" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Adata XPG Gammix 32GB DDR5</span></div>
+                  <a href="https://amzn.to/4l0oeII" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+              </ul>
+            </div>
           </article>
 
-          <article class="recCard">
-            <img src="/pc-testing-480.webp" alt="Testing PC" style="width: 100%; border-radius: 8px; margin-bottom: 12px; object-fit: cover; aspect-ratio: 16/9; border: 1px solid rgba(255,140,0,0.2);">
-            <div class="recTitle">Benchmarking Rig <span class="recTag">Test</span></div>
-            <ul class="gearList">
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">Ryzen 5 7500X3D</span></div>
-                <a href="https://amzn.to/3ML4YSA" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">PNY RTX 3080</span></div>
-                <a href="https://amzn.to/4cQh1Zo" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock X870 LiveMixer</span></div>
-                <a href="https://amzn.to/4c6LSAM" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-              <li class="gearItem">
-                <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Crucial Black 32GB DDR5</span></div>
-                <a href="https://amzn.to/4aOTcyC" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
-              </li>
-            </ul>
+          <article class="rigBlock">
+            <div class="rigBlock__media">
+              <img src="/pc-testing-480.webp" alt="Benchmarking rig">
+            </div>
+            <div class="rigBlock__body">
+              <div class="rigBlock__title">Benchmarking Rig <span class="rigBlock__tag">Test</span></div>
+              <ul class="gearList">
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">CPU</span><span class="gearName">Ryzen 5 7500X3D</span></div>
+                  <a href="https://amzn.to/3ML4YSA" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">GPU</span><span class="gearName">PNY RTX 3080</span></div>
+                  <a href="https://amzn.to/4cQh1Zo" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">Motherboard</span><span class="gearName">ASRock X870 LiveMixer</span></div>
+                  <a href="https://amzn.to/4c6LSAM" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+                <li class="gearItem">
+                  <div class="gearInfo"><span class="gearType">RAM</span><span class="gearName">Crucial Black 32GB DDR5</span></div>
+                  <a href="https://amzn.to/4aOTcyC" class="btn-affiliate" target="_blank" rel="noopener">Price</a>
+                </li>
+              </ul>
+            </div>
           </article>
 
         </div>
       </div>
     </section>
 
-    <section class="panel">
+    <section class="panel" id="snapshot">
       <div class="panelHead">
-        <h2 class="panelTitle">Q1 2026 Recommendations</h2>
+        <h2 class="panelTitle">Q1 2026 Recommendation Snapshot</h2>
       </div>
 
       <div class="panelBody">
-        <p class="mutedNote">Best budget CPUs/GPUs for gaming builds as of Q1 2026.</p>
-        <div style="height:14px"></div>
+        <p class="hwSectionNote">
+          This section is a dated snapshot, not timeless buying advice. Hardware recommendations expire fast, so treat this as a point-in-time guide rather than permanent truth.
+        </p>
 
-        <div class="recGrid">
-          <article class="recCard">
-            <div class="recTitle">AM4 CPUs <span class="recTag">Budget → High</span></div>
-            <ul class="recList">
+        <div class="snapshotGrid">
+          <article class="snapshotCard">
+            <h3>AM4 CPUs <span class="snapshotTag">Budget → High</span></h3>
+            <ul class="snapshotList">
               <li><strong>Low-end:</strong> Ryzen 5 5500</li>
               <li><strong>Mid-tier:</strong> Ryzen 7 5700X</li>
               <li><strong>High-end:</strong> Ryzen 7 5800X3D</li>
             </ul>
           </article>
 
-          <article class="recCard">
-            <div class="recTitle">Intel CPUs <span class="recTag">DDR4 / DDR5</span></div>
-            <ul class="recList">
+          <article class="snapshotCard">
+            <h3>Intel CPUs <span class="snapshotTag">DDR4 / DDR5</span></h3>
+            <ul class="snapshotList">
               <li><strong>Low-end:</strong> Core i5-12400F</li>
               <li><strong>Mid-tier:</strong> Core i7-14700KF</li>
               <li><strong>High-end:</strong> Core i9-14900K / 14900KF</li>
             </ul>
           </article>
 
-          <article class="recCard">
-            <div class="recTitle">AM5 CPUs <span class="recTag">Budget → High</span></div>
-            <ul class="recList">
+          <article class="snapshotCard">
+            <h3>AM5 CPUs <span class="snapshotTag">Budget → High</span></h3>
+            <ul class="snapshotList">
               <li><strong>Low-end:</strong> Ryzen 5 7500F</li>
-              <li><strong>Mid-range:</strong> Ryzen 5 7600X3D <em>or</em> Ryzen 7 7700X</li>
-              <li><strong>High-end:</strong> Ryzen 7 7800X3D <em>or</em> Ryzen 7 9800X3D</li>
+              <li><strong>Mid-range:</strong> Ryzen 5 7600X3D or Ryzen 7 7700X</li>
+              <li><strong>High-end:</strong> Ryzen 7 7800X3D or Ryzen 7 9800X3D</li>
             </ul>
           </article>
         </div>
 
         <div style="height:14px"></div>
 
-        <div class="recGrid">
-          <article class="recCard">
-            <div class="recTitle">GPU — Low-end <span class="recTag">Value</span></div>
-            <ul class="recList">
+        <div class="snapshotGrid">
+          <article class="snapshotCard">
+            <h3>GPU — Low-end <span class="snapshotTag">Value</span></h3>
+            <ul class="snapshotList">
               <li>RTX 5060</li>
               <li>AMD RX 9060</li>
             </ul>
           </article>
-          <article class="recCard">
-            <div class="recTitle">GPU — Mid-range <span class="recTag">Best all-round</span></div>
-            <ul class="recList">
+
+          <article class="snapshotCard">
+            <h3>GPU — Mid-range <span class="snapshotTag">Best all-round</span></h3>
+            <ul class="snapshotList">
               <li>RTX 5070 / 5070 Ti</li>
               <li>AMD RX 9060 XT / 9070</li>
             </ul>
           </article>
-          <article class="recCard">
-            <div class="recTitle">GPU — High-end <span class="recTag">Top tier</span></div>
-            <ul class="recList">
+
+          <article class="snapshotCard">
+            <h3>GPU — High-end <span class="snapshotTag">Top tier</span></h3>
+            <ul class="snapshotList">
               <li>RTX 5080 / 5090</li>
               <li>AMD RX 9070 XT</li>
             </ul>
@@ -346,6 +616,12 @@
       <p>
         © <span id="year"></span> LegacyXV2
         <span class="footerSep">•</span>
+        <a href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">YouTube</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+        <span class="footerSep">•</span>
         Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
       </p>
     </footer>
@@ -354,7 +630,9 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    requestAnimationFrame(function () { document.documentElement.classList.add("ready"); });
+    requestAnimationFrame(() => {
+      document.documentElement.classList.add("ready");
+    });
   </script>
 </body>
 </html>
