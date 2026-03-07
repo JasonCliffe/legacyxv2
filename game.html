@@ -3,82 +3,292 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Essential Archive — LegacyXV2</title>
-  <link rel="stylesheet" href="/styles.css?v=13" />
+
+  <title>LegacyXV2 — Game Archive, Reviews & Upcoming Series</title>
+  <meta name="description" content="Browse the LegacyXV2 game archive featuring completionist runs, horror titles, action favourites, and upcoming series planned for the channel." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://legacyxv2.co.uk/game.html" />
+
+  <meta property="og:site_name" content="LegacyXV2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://legacyxv2.co.uk/game.html" />
+  <meta property="og:title" content="LegacyXV2 — Game Archive, Reviews & Upcoming Series" />
+  <meta property="og:description" content="Completionist game archive, creator verdicts, and upcoming series planned for the channel." />
+  <meta property="og:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LegacyXV2 — Game Archive, Reviews & Upcoming Series" />
+  <meta name="twitter:description" content="Browse the LegacyXV2 game archive with creator verdicts and upcoming series targets." />
+  <meta name="twitter:image" content="https://legacyxv2.co.uk/og-legacyxv2.jpg" />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/styles.css?v=14" />
+
   <style>
-    /* ELITE CARD*/
-    .gamesGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
-    
-    .gameCard { 
-      background: rgba(255,140,0,0.03); 
-      border: 1px solid rgba(255,140,0,0.1); 
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
+    .archiveIntro {
+      max-width: 760px;
+      color: rgba(255,238,221,0.82);
+    }
+
+    .archiveIntro p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .archiveSplit {
+      display: grid;
+      gap: 16px;
+    }
+
+    .archiveFlagship {
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.26);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
     }
 
-    .gameCard:hover { 
-      transform: translateY(-10px); 
-      border-color: rgba(255,179,0,0.5); 
-      box-shadow: 0 15px 40px rgba(0,0,0,0.6), 0 0 20px rgba(255,140,0,0.1);
+    .archiveFlagship__media {
+      aspect-ratio: 16 / 7;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.34);
     }
 
-    .gameCard::before {
-      content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-      transition: 0.5s;
+    .archiveFlagship__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .gameCard:hover::before { left: 100%; }
-
-    .gameMedia img { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-bottom: 1px solid rgba(255,140,0,0.1); }
-
-    /* STYLING */
-    .modal__panel {
-      background: rgba(10, 10, 10, 0.98) !important;
-      backdrop-filter: blur(25px);
-      border: 1px solid rgba(255, 179, 0, 0.4);
-      box-shadow: 0 0 60px rgba(0,0,0,1);
-      max-width: 650px !important;
-      border-radius: 20px !important;
+    .archiveFlagship__body {
+      padding: 18px;
     }
 
-    .modal__head { border-bottom: 1px solid rgba(255,140,0,0.2); padding: 25px !important; display: flex; justify-content: space-between; align-items: center; }
-    .modal__title { color: #fff !important; font-size: 1.6rem !important; font-weight: 900; letter-spacing: -0.5px; }
-    
-    .review-section { margin-bottom: 25px; }
-    .review-label { 
-      font-size: 10px; text-transform: uppercase; color: #ffb300; 
-      letter-spacing: 2.5px; font-weight: 800; margin-bottom: 12px; 
-      display: flex; align-items: center; gap: 15px;
-    }
-    .review-label::after { content: ""; flex: 1; height: 1px; background: rgba(255,140,0,0.15); }
-    
-    .review-text { 
-      font-size: 15px; line-height: 1.8; color: rgba(255,238,221,0.9); 
-      font-style: italic; position: relative; padding-left: 20px;
-      border-left: 3px solid rgba(255,179,0,0.4);
+    .archiveFlagship__kicker {
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 1000;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,179,0,0.88);
     }
 
-    .legacy-badge {
-      display: inline-block; padding: 6px 14px; background: rgba(255,179,0,0.15);
-      border: 1px solid rgba(255,179,0,0.4); color: #ffb300;
-      border-radius: 6px; font-size: 11px; font-weight: 900; margin-bottom: 20px;
+    .archiveFlagship__title {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 1000;
+      letter-spacing: .4px;
+      color: #fff;
+    }
+
+    .archiveFlagship__text {
+      margin: 0 0 14px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,238,221,0.78);
+      max-width: 820px;
+    }
+
+    .archiveFlagship__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .archiveGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .archiveCard {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.26);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.45);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .archiveCard:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255,140,0,0.32);
+      box-shadow:
+        0 10px 26px rgba(0,0,0,0.35),
+        inset 0 0 0 1px rgba(255,140,0,0.14),
+        0 0 20px rgba(255,140,0,0.10);
+    }
+
+    .archiveMedia {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: rgba(0,0,0,0.35);
+      border-bottom: 1px solid rgba(255,140,0,0.18);
+    }
+
+    .archiveMedia img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.01);
+      transition: transform .25s ease;
+    }
+
+    .archiveCard:hover .archiveMedia img {
+      transform: scale(1.05);
+    }
+
+    .archiveBody {
+      padding: 12px;
+    }
+
+    .archiveTitle {
+      margin: 0 0 8px;
+      font-size: 13px;
+      font-weight: 1000;
       letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.95);
     }
 
-    .tech-spec {
-      background: rgba(0,0,0,0.4); padding: 12px; border-radius: 8px;
-      border-left: 3px solid #00ff88; font-family: 'Courier New', Courier, monospace;
-      font-size: 12px; color: #00ff88;
+    .archiveDesc {
+      margin: 0 0 12px;
+      font-size: 12px;
+      line-height: 1.55;
+      color: rgba(255,238,221,0.72);
+      min-height: 38px;
+    }
+
+    .archiveLinks {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .archiveMiniRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .archiveTag {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,140,0,0.18);
+      background: rgba(0,0,0,0.18);
+      color: rgba(255,238,221,0.85);
+    }
+
+    .archiveQuick {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: rgba(255,238,221,0.88);
+      border-bottom: 1px solid rgba(255,140,0,0.22);
+      padding-bottom: 2px;
+      transition: opacity .15s ease, border-color .15s ease;
+      cursor: pointer;
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+    }
+
+    .archiveQuick:hover {
+      opacity: 1;
+      border-bottom-color: rgba(255,140,0,0.55);
+    }
+
+    .reviewSection {
+      margin-bottom: 22px;
+    }
+
+    .reviewLabel {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffb300;
+    }
+
+    .reviewLabel::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(255,140,0,0.15);
+    }
+
+    .reviewText {
+      margin: 0;
+      padding-left: 16px;
+      border-left: 3px solid rgba(255,179,0,0.35);
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(255,238,221,0.88);
+    }
+
+    .reviewBadge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255,179,0,0.14);
+      border: 1px solid rgba(255,179,0,0.32);
+      color: #ffb300;
+      font-size: 11px;
+      font-weight: 1000;
+      letter-spacing: .9px;
+      text-transform: uppercase;
+    }
+
+    .specBox {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.36);
+      border: 1px solid rgba(255,140,0,0.18);
+      color: rgba(255,238,221,0.86);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1100px) {
+      .archiveGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .archiveGrid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body class="games">
   <main class="wrap">
-    <nav class="topnav">
+
+    <nav class="topnav" aria-label="Primary">
       <div class="navlinks">
         <a class="navlink" href="/">Home</a>
         <a class="navlink" href="/about.html">About</a>
@@ -91,14 +301,38 @@
     </nav>
 
     <header class="heroFrame">
-      <div class="heroFrame__glow"></div>
+      <div class="heroFrame__glow" aria-hidden="true"></div>
       <div class="heroFrame__inner">
-        <div class="heroTop"><div class="heroTop__label">THE COMPLETIONIST VAULT</div></div>
+        <div class="heroTop">
+          <div class="heroTop__label">
+            <span class="heroTop__dot" aria-hidden="true"></span>
+            GAME ARCHIVE & VERDICTS
+            <span class="heroTop__dot" aria-hidden="true"></span>
+          </div>
+        </div>
+
         <div class="heroMain">
-          <div class="heroLogo"><img src="/logo-256.webp" width="256" height="256" alt="LegacyXV2 logo" class="heroLogo__img"></div>
+          <div class="heroLogo">
+            <img src="/logo-256.webp" width="256" height="256" alt="LegacyXV2 logo" class="heroLogo__img" />
+          </div>
+
           <div class="heroCopy">
-            <h1 class="heroTitle">THE ARCHIVE</h1>
-            <p class="heroSub">Every secret. Every achievement. Every legacy clear.</p>
+            <div class="heroRole">COMPLETED RUNS • FAVOURITES • UPCOMING TARGETS</div>
+            <h1 class="heroTitle">THE GAME ARCHIVE</h1>
+            <p class="heroSub">
+              This is the LegacyXV2 library of covered games, creator verdicts, and future targets. Full runs matter here. Half-finished interest does not.
+            </p>
+
+            <div class="heroChips" aria-hidden="true">
+              <span class="chip">Completionist Focus</span>
+              <span class="chip">Horror + Action</span>
+              <span class="chip">Upcoming Series</span>
+            </div>
+
+            <div class="heroActions">
+              <a class="btnPrimary" href="/updates.html">View Current Series</a>
+              <a class="btnGhost" href="#archive-grid">Browse Archive</a>
+            </div>
           </div>
         </div>
       </div>
@@ -106,154 +340,181 @@
 
     <section class="panel">
       <div class="panelBody">
-        <div class="gamesGrid">
-          
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/re4-remake.jpg" alt="RE4 Remake"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Resident Evil 4 Remake</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Horror • Action</span>
-                <a class="gameQuick" href="#" data-review 
-                   data-title="Resident Evil 4 Remake"
-                   data-take="Brilliant from start to finish. Truly one of the best horror/action games."
-                   data-verdict="If you have the chance to play it, it's worth it. A masterpiece of the genre."
-                   data-hardware="RTX 50-Series Recommended for Raytracing">Analysis →</a>
-              </div>
-            </div>
-          </article>
+        <div class="archiveIntro">
+          <p>
+            This page is not just a list of titles. It is a record of the games that define the channel, the games worth revisiting, and the series still lined up for future coverage.
+          </p>
+        </div>
+      </div>
+    </section>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/re2-remake.jpg" alt="RE2 Remake"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Resident Evil 2 Remake</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Horror</span>
-                <a class="gameQuick" href="#" data-review 
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">Flagship Archive Entry</h2>
+      </div>
+
+      <div class="panelBody">
+        <article class="archiveFlagship">
+          <div class="archiveFlagship__media">
+            <img src="/box/re4-remake.jpg" alt="Resident Evil 4 Remake">
+          </div>
+          <div class="archiveFlagship__body">
+            <p class="archiveFlagship__kicker">Standout Pick</p>
+            <h3 class="archiveFlagship__title">Resident Evil 4 Remake</h3>
+            <p class="archiveFlagship__text">
+              One of the clearest examples of what the archive stands for: strong atmosphere, sharp pacing, replay value, and a game that holds up from start to finish without wasting your time.
+            </p>
+            <div class="archiveFlagship__actions">
+              <button
+                class="btnPrimary"
+                type="button"
+                data-review
+                data-title="Resident Evil 4 Remake"
+                data-take="Brilliant from start to finish. Truly one of the best horror/action games."
+                data-verdict="A remake that understands exactly what to preserve, what to modernise, and how to keep the pacing strong without losing the original identity."
+                data-hardware="Ray tracing is a bonus, not the reason to play it. Prioritise a stable, clean experience over chasing every visual toggle."
+              >
+                Open Verdict
+              </button>
+              <a class="btnGhost" href="/updates.html">See Current Resident Evil Content</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="archive-grid">
+      <div class="panelHead">
+        <h2 class="panelTitle">Archive Library</h2>
+      </div>
+
+      <div class="panelBody">
+        <div class="archiveGrid">
+
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/re2-remake.jpg" alt="Resident Evil 2 Remake"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Resident Evil 2 Remake</h3>
+              <p class="archiveDesc">Modern survival horror done properly, with tension, atmosphere, and replay value that actually earns it.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Horror</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Resident Evil 2 Remake"
                    data-take="Atmospheric and tense. Whichever scenario you pick, you are in for a treat."
-                   data-verdict="A benchmark for modern remakes. Survival horror at its absolute finest."
-                   data-hardware="16GB VRAM for Max Textures">Analysis →</a>
+                   data-verdict="A benchmark for modern remakes. It respects survival horror instead of flattening it into generic action."
+                   data-hardware="Texture settings matter less than clarity and stable performance. Prioritise responsiveness over wasteful maxed-out settings.">Verdict →</a>
               </div>
             </div>
           </article>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/resident-evil-7.jpg" alt="RE7"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Resident Evil 7</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Horror</span>
-                <a class="gameQuick" href="#" data-review 
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/resident-evil-7.jpg" alt="Resident Evil 7"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Resident Evil 7</h3>
+              <p class="archiveDesc">A franchise reset that put fear, isolation, and tension back where they belonged.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Horror</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Resident Evil 7"
                    data-take="The game that saved the franchise and brought back the pure horror."
-                   data-verdict="It didn't need tons of bosses to be terrifying. For the ones it has, you're in for a good time."
-                   data-hardware="OLED Display Highly Recommended">Analysis →</a>
+                   data-verdict="It proves you do not need constant spectacle to be effective. The restraint is part of why it works."
+                   data-hardware="A dark-room setup and strong contrast matter more to the experience than chasing raw hardware excess.">Verdict →</a>
               </div>
             </div>
           </article>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/resident-evil-8.jpg" alt="RE8"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Resident Evil Village</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Horror • Action</span>
-                <a class="gameQuick" href="#" data-review 
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/resident-evil-8.jpg" alt="Resident Evil Village"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Resident Evil Village</h3>
+              <p class="archiveDesc">A confident mix of horror and action that closes one arc while pushing the series forward.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Horror • Action</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Resident Evil Village"
                    data-take="A beautiful game with incredible horror and action elements."
-                   data-verdict="What a way to end one story and lead directly into the next. A stunning conclusion."
-                   data-hardware="HDR Enabled for Village Atmosphere">Analysis →</a>
+                   data-verdict="It balances spectacle and atmosphere well enough to feel like a proper follow-up rather than a safe repeat."
+                   data-hardware="HDR and consistent frame pacing help the presentation more than raw benchmark chasing.">Verdict →</a>
               </div>
             </div>
           </article>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/devil-may-cry-5.jpg" alt="DMC5"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Devil May Cry 5</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Action</span>
-                <a class="gameQuick" href="#" data-review 
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/devil-may-cry-5.jpg" alt="Devil May Cry 5"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Devil May Cry 5</h3>
+              <p class="archiveDesc">Fast, stylish, ridiculous in the right ways, and one of the cleanest action games in its lane.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Action</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Devil May Cry 5"
                    data-take="The music, the bosses, the atmosphere... it's the best game to date."
-                   data-verdict="After a 10-year wait, it was worth it. Showcases massive character growth."
-                   data-hardware="High Refresh Rate (144Hz+) Essential">Analysis →</a>
+                   data-verdict="After a long wait, it delivered exactly what it needed to: strong combat identity, memorable encounters, and confidence in its own tone."
+                   data-hardware="This is the kind of game that benefits from fluidity. Prioritise higher refresh and low input drag.">Verdict →</a>
               </div>
             </div>
           </article>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/devil-may-cry-3.jpg" alt="DMC3"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Devil May Cry 3</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Action</span>
-                <a class="gameQuick" href="#" data-review 
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/devil-may-cry-3.jpg" alt="Devil May Cry 3"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Devil May Cry 3</h3>
+              <p class="archiveDesc">A defining action title that still earns its place through style, challenge, and boss design.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Action</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Devil May Cry 3"
                    data-take="Blending near-perfect bosses with some of the best locations in the series."
-                   data-verdict="Coming out of development hell, this game showed exactly how good a DMC can be."
-                   data-hardware="Legacy Controller Support Active">Analysis →</a>
+                   data-verdict="It is one of the clearest examples of a game correcting course and proving exactly what the series should be."
+                   data-hardware="Controller feel matters here. Responsiveness is more important than visual excess.">Verdict →</a>
               </div>
             </div>
           </article>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/elden-ring.jpg" alt="Elden Ring"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Elden Ring</h3>
-              <div class="gameLinks">
-                <span class="gameTag">RPG</span>
-                <a class="gameQuick" href="#" data-review 
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/elden-ring.jpg" alt="Elden Ring"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Elden Ring</h3>
+              <p class="archiveDesc">Huge scale, brutal lessons, and payoff that actually feels earned when you break through.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">RPG</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Elden Ring"
                    data-take="Limitless weapons and creativity. Challenges your skills and makes you suffer."
-                   data-verdict="Once you beat that specific boss, the feeling is unmatched. A masterpiece."
-                   data-hardware="Stable 60FPS Lock Required">Analysis →</a>
+                   data-verdict="The satisfaction comes from surviving the process. The frustration is part of the design, not a flaw to be politely ignored."
+                   data-hardware="Smooth frame pacing matters more than inflated expectations. Keep the experience consistent.">Verdict →</a>
               </div>
             </div>
           </article>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/dead-rising-1.jpg" alt="Dead Rising"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Dead Rising</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Action</span>
-                <a class="gameQuick" href="#" data-review 
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/dead-rising-1.jpg" alt="Dead Rising"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Dead Rising</h3>
+              <p class="archiveDesc">A messy, memorable survival sandbox that still stands out because of how much personality it had.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Action</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Dead Rising"
                    data-take="When you hear 'mall zombies' you think of this. Truly pushed the 360 to its limits."
-                   data-verdict="A raw look at survival. Seeing people do whatever is necessary to survive."
-                   data-hardware="Legacy Benchmarks: Xbox 360 Original">Analysis →</a>
+                   data-verdict="Rough edges and all, it had a clear identity and backed it up with scale, pressure, and chaos."
+                   data-hardware="Legacy context matters here. Judge it by what it was doing in its time, not by modern polish standards.">Verdict →</a>
               </div>
             </div>
           </article>
 
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/dead-rising-2.jpg" alt="Dead Rising 2"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Dead Rising 2</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Action</span>
-                <a class="gameQuick" href="#" data-review 
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/dead-rising-2.jpg" alt="Dead Rising 2"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Dead Rising 2</h3>
+              <p class="archiveDesc">Bigger, darker, and more willing to expand the original formula without losing the core appeal.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Action</span>
+                <a class="archiveQuick" href="#" data-review
                    data-title="Dead Rising 2"
                    data-take="Showcased exactly how a Las Vegas strip would look if it were infected."
-                   data-verdict="The story was dark, but it showed that no matter how good the first was, it could get better."
-                   data-hardware="Multi-core CPU Recommended for Zombie Counts">Analysis →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="gameCard">
-            <div class="gameMedia"><img src="/box/dark-souls-trilogy.jpg" alt="Dark Souls"></div>
-            <div class="gameBody">
-              <h3 class="gameTitle">Dark Souls Trilogy</h3>
-              <div class="gameLinks">
-                <span class="gameTag">Upcoming</span>
-                <a class="gameQuick" href="#" data-review 
-                   data-title="Dark Souls Series"
-                   data-take="Coming soon to the channel. I haven't played these yet—get ready for raging."
-                   data-verdict="A funny but brutal journey ahead. Stay tuned for the completionist run."
-                   data-hardware="Patience & Extra Controllers Required">Analysis →</a>
+                   data-verdict="It proved the first game was not a fluke. The concept still had room to grow and get nastier."
+                   data-hardware="Large enemy counts and smooth traversal matter more than cosmetic overkill.">Verdict →</a>
               </div>
             </div>
           </article>
@@ -262,20 +523,59 @@
       </div>
     </section>
 
+    <section class="panel">
+      <div class="panelHead">
+        <h2 class="panelTitle">Upcoming Targets</h2>
+      </div>
+
+      <div class="panelBody">
+        <div class="archiveGrid">
+          <article class="archiveCard">
+            <div class="archiveMedia"><img src="/box/dark-souls-trilogy.jpg" alt="Dark Souls Trilogy"></div>
+            <div class="archiveBody">
+              <h3 class="archiveTitle">Dark Souls Trilogy</h3>
+              <p class="archiveDesc">Still waiting in the queue — and almost guaranteed to produce pain, progress, and a lot of abuse.</p>
+              <div class="archiveLinks">
+                <span class="archiveTag">Upcoming</span>
+                <a class="archiveQuick" href="#" data-review
+                   data-title="Dark Souls Trilogy"
+                   data-take="Coming soon to the channel. I haven't played these yet—get ready for raging."
+                   data-verdict="This is exactly the kind of series that suits the archive: challenge-heavy, memorable, and likely to test patience properly."
+                   data-hardware="The real requirement is persistence. The technical side is not the part that will hurt.">Verdict →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
-      <p>© <span id="year"></span> LegacyXV2 <span class="footerSep">•</span> Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank">Obsidian Creative</a></p>
+      <p>
+        © <span id="year"></span> LegacyXV2
+        <span class="footerSep">•</span>
+        <a href="https://youtube.com/@legacyxv2" target="_blank" rel="noopener">YouTube</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.tiktok.com/@legacyxv2" target="_blank" rel="noopener">TikTok</a>
+        <span class="footerSep">•</span>
+        <a href="https://www.instagram.com/legacyxv2" target="_blank" rel="noopener">Instagram</a>
+        <span class="footerSep">•</span>
+        Digital infrastructure by <a href="https://obsidiancreative.uk" target="_blank" rel="noopener">Obsidian Creative</a>
+      </p>
     </footer>
+
   </main>
 
   <div class="modal" id="reviewModal" aria-hidden="true">
     <div class="modal__backdrop" data-close></div>
-    <div class="modal__panel" role="dialog" aria-modal="true">
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal__head">
-        <h3 class="modal__title" id="modalTitle">Analysis</h3>
+        <h3 class="modal__title" id="modalTitle">Game Verdict</h3>
         <button class="modal__close" type="button" data-close aria-label="Close">✕</button>
       </div>
       <div class="modal__body" id="modalBody"></div>
-      <div class="modal__foot"><button class="btnGhost" type="button" data-close>Exit Archive</button></div>
+      <div class="modal__foot">
+        <button class="btnGhost" type="button" data-close>Close</button>
+      </div>
     </div>
   </div>
 
@@ -283,41 +583,67 @@
     document.getElementById("year").textContent = new Date().getFullYear();
     requestAnimationFrame(() => document.documentElement.classList.add("ready"));
 
-    (function(){
+    (function () {
       const modal = document.getElementById("reviewModal");
       const modalTitle = document.getElementById("modalTitle");
       const modalBody = document.getElementById("modalBody");
       const body = document.body;
+      let lastFocus = null;
 
-      function openModal(title, verdict, take, hardware){
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      function openModal(title, verdict, take, hardware) {
+        lastFocus = document.activeElement;
         modalTitle.textContent = title;
+
         modalBody.innerHTML = `
-          <div class="legacy-badge">LEGACY VERDICT</div>
-          <div class="review-section">
-            <div class="review-label">Creator's Take</div>
-            <p class="review-text">"${take}"</p>
+          <div class="reviewBadge">Creator Verdict</div>
+
+          <div class="reviewSection">
+            <div class="reviewLabel">Quick Take</div>
+            <p class="reviewText">${escapeHtml(take)}</p>
           </div>
-          <div class="review-section">
-            <div class="review-label">Why it Matters</div>
-            <p class="review-text" style="border-left-color: #ff6a00;">${verdict}</p>
+
+          <div class="reviewSection">
+            <div class="reviewLabel">Why It Lands</div>
+            <p class="reviewText">${escapeHtml(verdict)}</p>
           </div>
-          <div class="review-section">
-            <div class="review-label">Technical Recommendation</div>
-            <div class="tech-spec">SYS_REQ: ${hardware}</div>
+
+          <div class="reviewSection">
+            <div class="reviewLabel">Technical Note</div>
+            <div class="specBox">${escapeHtml(hardware)}</div>
           </div>
         `;
+
         modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
         body.classList.add("modal-open");
       }
 
-      function closeModal(){
+      function closeModal() {
         modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
         body.classList.remove("modal-open");
+        if (lastFocus) lastFocus.focus();
       }
 
-      modal.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) closeModal(); });
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
-      
+      modal.addEventListener("click", (e) => {
+        if (e.target.closest("[data-close]")) closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+
       document.querySelectorAll("[data-review]").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           e.preventDefault();
