@@ -1,0 +1,214 @@
+@import url('/styles-v2.css?v=20260814-2');
+
+/* =========================================================
+   LEGACYXV2 SIGNATURE V3 — XV2 SIGNAL SYSTEM
+   Keeps the established ember palette; adds a recognisable
+   creator / gaming / hardware broadcast identity.
+========================================================= */
+:root{
+  --xv2-hot:#ff5a00;
+  --xv2-gold:#ffb300;
+  --xv2-red:#ff2a00;
+  --xv2-cream:#ffeedd;
+  --xv2-cut:18px;
+  --xv2-cut-sm:10px;
+  --xv2-signal:linear-gradient(90deg,#ff2a00 0%,#ff5a00 46%,#ffb300 78%,rgba(255,179,0,0) 100%);
+}
+
+html{scrollbar-color:rgba(255,90,0,.62) #08080b}
+body{counter-reset:xv2section xv2proof;background:#050507}
+body::before{
+  background:
+    linear-gradient(180deg,rgba(3,3,5,.58),rgba(3,3,5,.94)),
+    radial-gradient(1000px 560px at 12% 0%,rgba(255,90,0,.12),transparent 64%),
+    url('/bg-1920.webp') center/cover no-repeat;
+}
+body::after{
+  background:
+    linear-gradient(115deg,transparent 0 37%,rgba(255,90,0,.025) 37.1% 37.25%,transparent 37.35% 100%),
+    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px),
+    linear-gradient(rgba(255,255,255,.01) 1px,transparent 1px),
+    radial-gradient(900px 420px at 92% 8%,rgba(255,179,0,.08),transparent 67%);
+  background-size:auto,84px 84px,84px 84px,auto;
+  mask-image:linear-gradient(to bottom,#000 0 58%,transparent 94%);
+}
+.wrap{position:relative;width:min(calc(100% - 40px),1440px)}
+.wrap::before{
+  content:'XV2  /  COMPLETE THE RUN  /  GAMING + HARDWARE';
+  position:fixed;z-index:3;left:7px;top:50%;transform:translateY(-50%) rotate(180deg);
+  writing-mode:vertical-rl;pointer-events:none;
+  font-size:.43rem;font-weight:900;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(255,238,221,.22);
+}
+
+/* SIGNATURE NAV */
+.topnav{
+  min-height:82px;grid-template-columns:268px minmax(0,1fr);gap:34px;padding:0 20px;
+  background:linear-gradient(90deg,rgba(5,5,7,.98),rgba(8,8,11,.92));
+  border-bottom:1px solid rgba(255,255,255,.075);
+  box-shadow:0 18px 50px rgba(0,0,0,.24);
+}
+.topnav::before{
+  content:'LEGACYXV2';min-height:52px;padding-left:62px;
+  background:url('/logo-256.webp') left center/48px 48px no-repeat;
+  font-size:.88rem;letter-spacing:.145em;
+  clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%);
+}
+.topnav::after{
+  content:'XV2 // COMPLETIONIST GAMING // PC HARDWARE';left:82px;bottom:12px;
+  font-size:.45rem;letter-spacing:.19em;color:rgba(255,179,0,.62);
+}
+.topnav{background-image:linear-gradient(90deg,rgba(5,5,7,.98),rgba(8,8,11,.92)),linear-gradient(90deg,var(--xv2-red),var(--xv2-hot),var(--xv2-gold),transparent 72%);background-size:100% 100%,100% 1px;background-position:0 0,0 100%;background-repeat:no-repeat}
+.navlinks{gap:24px}
+.navlink{padding:30px 0 25px;font-size:.62rem;letter-spacing:.16em}
+.navlink::before{height:2px;bottom:17px;background:var(--xv2-signal)}
+.navlink.active::after{content:'◆'!important;display:block;position:absolute;top:18px;left:50%;transform:translateX(-50%);font-size:.34rem;color:var(--xv2-gold)}
+
+/* HERO — BIG XV2 WATERMARK + CHAMFERED IDENTITY */
+.heroFrame{
+  isolation:isolate;margin-top:32px;min-height:clamp(470px,58vw,690px);
+  display:flex;align-items:center;overflow:hidden;
+  border-top:1px solid rgba(255,179,0,.31);border-bottom:1px solid rgba(255,255,255,.075);
+  background:linear-gradient(106deg,rgba(3,3,5,.98) 0 44%,rgba(8,8,12,.91) 67%,rgba(255,90,0,.075) 100%);
+}
+.heroFrame::before{
+  content:'XV2';z-index:-1;right:-.055em;top:50%;width:auto;height:auto;aspect-ratio:auto;
+  transform:translateY(-52%);border:0;box-shadow:none;
+  font-size:clamp(13rem,31vw,34rem);font-weight:1000;line-height:.72;letter-spacing:-.13em;
+  color:rgba(255,238,221,.024);text-shadow:0 0 80px rgba(255,90,0,.045);white-space:nowrap;
+}
+.heroFrame::after{height:3px;background:var(--xv2-signal);opacity:.95}
+.heroFrame__glow{background:radial-gradient(760px 420px at 9% 42%,rgba(255,90,0,.18),transparent 68%),radial-gradient(760px 360px at 77% 50%,rgba(255,179,0,.07),transparent 70%)}
+.heroFrame__inner{width:100%;padding:clamp(38px,5.4vw,84px)}
+.heroFrame__inner::after{
+  content:'SIGNAL / XV2';position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  writing-mode:vertical-rl;font-size:.46rem;font-weight:900;letter-spacing:.26em;color:rgba(255,179,0,.46);
+}
+.heroTop__label{border-bottom-color:rgba(255,179,0,.46);color:rgba(255,238,221,.65)}
+.heroTop__label::before{content:'●';font-size:.44rem;color:var(--xv2-hot);text-shadow:0 0 14px rgba(255,90,0,.75);animation:xv2Pulse 2.4s ease-in-out infinite}
+.heroTop__dot{display:none}
+.heroMain{grid-template-columns:minmax(190px,290px) minmax(0,1fr);gap:clamp(38px,6vw,92px)}
+.heroLogo{
+  border:1px solid rgba(255,179,0,.38);clip-path:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% 100%,30px 100%,0 calc(100% - 30px));
+  background:linear-gradient(145deg,#0c0c10,#050506);box-shadow:0 34px 90px rgba(0,0,0,.48),0 0 55px rgba(255,90,0,.07)
+}
+.heroLogo::before{left:14px;top:14px;width:54px;height:54px;border-color:rgba(255,179,0,.75)}
+.heroLogo::after{right:14px;bottom:14px;width:54px;height:54px;border-color:rgba(255,90,0,.58)}
+.heroRole{display:flex;align-items:center;gap:10px;color:var(--xv2-gold)}
+.heroRole::before{content:'XV2';display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:19px;border:1px solid rgba(255,179,0,.35);font-size:.48rem;letter-spacing:.08em;color:#160904;background:linear-gradient(90deg,var(--xv2-hot),var(--xv2-gold))}
+.heroTitle{max-width:13ch;font-size:clamp(3.6rem,7.5vw,7.8rem);line-height:.8;letter-spacing:-.066em;text-wrap:balance}
+.heroSub{max-width:66ch;font-size:clamp(.98rem,1.35vw,1.12rem);color:rgba(255,238,221,.76)}
+.heroChips{width:min(100%,780px);border-block-color:rgba(255,255,255,.1)}
+.chip{position:relative;padding:12px 20px;color:rgba(255,238,221,.68)}
+.chip::before{content:'//';margin-right:9px;color:rgba(255,90,0,.64)}
+
+/* BUTTONS — SIGNATURE CUT CORNERS */
+.btnPrimary,.btnGhost{position:relative;min-height:50px;padding-inline:20px;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))}
+.btnPrimary::after,.btnGhost::after{content:'↗';margin-left:12px;font-size:.76rem}
+.btnPrimary{box-shadow:none;background:linear-gradient(105deg,var(--xv2-red),var(--xv2-hot) 54%,var(--xv2-gold))}
+.btnGhost{background:linear-gradient(90deg,rgba(255,255,255,.018),rgba(255,90,0,.04))}
+
+/* SECTION NUMBERING — MAKES EVERY PAGE FEEL LIKE ONE PUBLICATION */
+.panel{counter-increment:xv2section;margin-top:38px;background:linear-gradient(90deg,rgba(6,6,8,.76),rgba(6,6,8,.48));border-bottom-color:rgba(255,255,255,.06)}
+.panelHead{padding:29px 0 20px}
+.panelHead::before{width:96px;height:2px;background:var(--xv2-signal)}
+.panelHead::after{
+  content:'0' counter(xv2section) '  /  XV2';position:absolute;right:0;top:30px;
+  font-size:.5rem;font-weight:900;letter-spacing:.2em;color:rgba(255,179,0,.38)
+}
+.panelTitle{max-width:20ch;font-size:clamp(2rem,3.7vw,3.7rem);letter-spacing:-.045em}
+.panelBody{padding:32px 0}
+
+/* HOME PROOF RAIL */
+.proofStrip{counter-reset:xv2proof}
+.proofItem{counter-increment:xv2proof;padding-top:28px;padding-bottom:28px}
+.proofItem::before{content:'0' counter(xv2proof);display:block;margin-bottom:14px;font-size:2rem;font-weight:1000;line-height:1;letter-spacing:-.06em;color:rgba(255,179,0,.24)}
+.proofItem strong{font-size:.72rem;letter-spacing:.13em}
+.featureCard{position:relative;min-height:190px;padding:34px 34px 32px 0}
+.featureCard:nth-child(even){padding-left:34px}
+.featureCard::before{content:'XV2';position:absolute;right:18px;top:20px;font-size:2.7rem;font-weight:1000;letter-spacing:-.1em;color:rgba(255,238,221,.025)}
+.featureCard h3{font-size:1.42rem}
+
+/* MEDIA SYSTEM — CHAMFERED, IMAGE-FIRST, BROADCAST LABELS */
+.mediaCard,.playlistCard,.archiveCard,.archiveFlagship,.rigBlock,.merchCard,.dropCard,.snapshotCard,.bizCard,.legalCard{
+  clip-path:polygon(0 0,calc(100% - var(--xv2-cut-sm)) 0,100% var(--xv2-cut-sm),100% 100%,var(--xv2-cut-sm) 100%,0 calc(100% - var(--xv2-cut-sm)));
+  border-color:rgba(255,255,255,.085)!important;background:linear-gradient(145deg,rgba(17,17,21,.96),rgba(6,6,8,.98))!important;
+}
+.mediaCard::after,.archiveCard::after,.rigBlock::after,.merchCard::after,.dropCard::after{
+  content:'';position:absolute;left:0;bottom:0;width:68px;height:2px;background:var(--xv2-signal);pointer-events:none
+}
+.mediaThumb::before,.archiveMedia::before,.rigBlock__media::before,.merchCard__media::before,.dropCard__media::before{
+  content:'XV2';position:absolute;z-index:3;right:10px;top:10px;padding:5px 7px;
+  background:rgba(5,5,7,.82);border:1px solid rgba(255,179,0,.22);
+  font-size:.47rem;font-weight:1000;letter-spacing:.13em;color:rgba(255,238,221,.72)
+}
+.mediaThumb::after,.archiveMedia::after,.rigBlock__media::after,.merchCard__media::after,.dropCard__media::after{
+  content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 58%,rgba(2,2,3,.42));
+}
+.mediaBody{padding:23px}.mediaTitle{font-size:1.13rem;letter-spacing:.02em}
+.playlistCard{transition:transform .22s ease,border-color .22s ease}.playlistCard:hover{transform:translateY(-4px);border-color:rgba(255,179,0,.3)!important}
+
+/* HARDWARE / MERCH / ARCHIVE */
+body .rigBlock__title,body .snapshotCard h3,body .archiveTitle,body .merchCard__title,body .dropCard__title{letter-spacing:.09em}
+body .rigBlock__tag,body .snapshotTag,body .archiveTag,body .merchCard__label,body .dropCard__label{border-radius:0!important;clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,7px 100%,0 calc(100% - 7px))}
+body .archiveFlagship{box-shadow:0 26px 70px rgba(0,0,0,.28)}
+body .archiveFlagship__title{font-size:clamp(2.6rem,5vw,5rem)!important;letter-spacing:-.055em!important}
+body .rigBlock:hover,body .archiveCard:hover,body .merchCard:hover,body .dropCard:hover{transform:translateY(-4px);border-color:rgba(255,179,0,.3)!important;transition:transform .22s ease,border-color .22s ease}
+
+/* FORMS / BUSINESS — PROFESSIONAL RATHER THAN GAMING-GIMMICK */
+.input,.textarea,.selectInput{border-radius:0!important;background:rgba(3,3,5,.62)!important;border-color:rgba(255,255,255,.11)!important;min-height:50px}
+.input:focus,.textarea:focus,.selectInput:focus{border-color:rgba(255,179,0,.52)!important;box-shadow:0 0 0 1px rgba(255,179,0,.18)!important}
+.field label{font-size:.6rem;letter-spacing:.15em;color:rgba(255,238,221,.62)}
+.formStatus{border-radius:0!important}
+
+/* FOOTER */
+.footer{position:relative;margin-top:62px;padding:28px 0 18px;border-top:1px solid rgba(255,255,255,.075)}
+.footer::before{content:'LEGACYXV2 // COMPLETE THE RUN';display:block;margin-bottom:15px;font-size:.56rem;font-weight:900;letter-spacing:.2em;color:rgba(255,179,0,.46)}
+.footer::after{content:'';position:absolute;left:0;top:-1px;width:min(420px,72vw);height:2px;background:var(--xv2-signal)}
+
+/* 404 — REMOVE THE LAST GENERIC / OLD IDENTITY TRACE */
+body.error-page .error-code{color:#fff8ef!important;text-shadow:0 0 70px rgba(255,90,0,.18)!important}
+body.error-page .error-code::before{content:'XV2 / LOST SIGNAL';display:block;margin-bottom:28px;font-size:.58rem;line-height:1;font-weight:900;letter-spacing:.22em;color:rgba(255,179,0,.56)}
+body.error-page .btn-return{clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));background:linear-gradient(105deg,var(--xv2-red),var(--xv2-hot),var(--xv2-gold))!important}
+
+/* SUBTLE MOTION — NO GAMING NEON SPAM */
+@keyframes xv2Pulse{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes xv2Trace{0%{transform:scaleX(.35);transform-origin:left;opacity:.35}50%{transform:scaleX(1);opacity:1}100%{transform:scaleX(.35);transform-origin:right;opacity:.35}}
+@supports (animation-timeline:view()){
+  @media(prefers-reduced-motion:no-preference){
+    .panel{animation:xv2Reveal linear both;animation-timeline:view();animation-range:entry 4% cover 21%}
+    @keyframes xv2Reveal{from{opacity:.5;transform:translateY(20px)}to{opacity:1;transform:none}}
+  }
+}
+
+/* RESPONSIVE SIGNATURE */
+@media(max-width:1180px){
+  .topnav{grid-template-columns:230px minmax(0,1fr);gap:22px}.navlinks{gap:16px}.navlink{font-size:.56rem}
+  .heroTitle{font-size:clamp(3.2rem,8vw,6.6rem)}
+}
+@media(max-width:920px){
+  .wrap{width:min(calc(100% - 28px),1440px)}.wrap::before{display:none}
+  .topnav{grid-template-columns:1fr;min-height:116px;padding:9px 0 0;gap:5px}.topnav::before{margin-left:14px;padding-left:54px;background-size:42px}.topnav::after{left:69px;top:39px;bottom:auto}
+  .navlinks{padding:0 14px}.navlink{padding:13px 0 15px}.navlink.active::after{top:5px}.navlink::before{bottom:6px}
+  .heroFrame{min-height:0}.heroFrame__inner{padding:40px 28px}.heroFrame__inner::after{display:none}.heroMain{grid-template-columns:180px 1fr;gap:34px}
+  .panelHead::after{top:31px}
+}
+@media(max-width:680px){
+  .wrap{width:min(calc(100% - 22px),1440px)}
+  .topnav{min-height:110px}.topnav::before{font-size:.74rem}.topnav::after{font-size:.38rem;letter-spacing:.14em}
+  .heroFrame{margin-top:16px}.heroFrame::before{font-size:72vw;right:-.05em;top:28%;transform:none;color:rgba(255,238,221,.02)}
+  .heroFrame__inner{padding:32px 18px}.heroMain{grid-template-columns:1fr;gap:26px}.heroLogo{width:min(168px,46vw)}
+  .heroTitle{font-size:clamp(3rem,14vw,5.1rem);line-height:.82;max-width:10ch}.heroSub{font-size:.93rem}.heroRole{font-size:.54rem;letter-spacing:.13em}
+  .heroChips{display:grid}.chip{padding:9px 0}.chip::before{margin-right:7px}
+  .panel{margin-top:28px}.panelHead{padding:24px 0 17px}.panelHead::after{position:static;display:block;margin-top:12px;font-size:.46rem}.panelTitle{font-size:clamp(1.9rem,9.5vw,3rem)}.panelBody{padding:24px 0}
+  .featureCard,.featureCard:nth-child(even){min-height:0;padding:25px 0}.featureCard::before{right:0}
+  .proofItem::before{font-size:1.6rem}.mediaBody{padding:17px}
+  .footer{margin-top:44px}.footer::before{font-size:.49rem;letter-spacing:.15em}
+}
+@media(max-width:420px){
+  .topnav::after{display:block;left:62px;top:37px;font-size:.34rem}.topnav::before{padding-left:48px;background-size:36px}.topnav{min-height:104px}
+  .heroFrame__inner{padding-inline:15px}.heroTitle{font-size:clamp(2.8rem,15vw,4.5rem)}
+  .btnPrimary,.btnGhost{width:100%}
+}
+@media(min-width:1500px){.wrap{width:min(calc(100% - 70px),1440px)}}
+@media(prefers-reduced-motion:reduce){.heroTop__label::before{animation:none!important}}
