@@ -1,4 +1,5 @@
 @import url('/styles-v3.css?v=20260814-1');
+@import url('/styles-v3-hero-fix.css?v=20260814-1');
 
 /* Keep the signature XV2 watermark above the hero background and below content. */
 .heroFrame::before,.heroFrame__glow{z-index:0}
